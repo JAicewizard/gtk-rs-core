@@ -8,6 +8,7 @@ use glib::object::IsA;
 use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -23,7 +24,10 @@ glib::wrapper! {
 
 impl TlsPassword {
     #[doc(alias = "g_tls_password_new")]
-    pub fn new(flags: TlsPasswordFlags, description: &str) -> TlsPassword {
+    pub fn new<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        flags: TlsPasswordFlags,
+        description: &'s P,
+    ) -> TlsPassword {
         unsafe {
             from_glib_full(ffi::g_tls_password_new(
                 flags.into_glib(),
@@ -49,7 +53,7 @@ pub trait TlsPasswordExt: 'static {
     fn warning(&self) -> glib::GString;
 
     #[doc(alias = "g_tls_password_set_description")]
-    fn set_description(&self, description: &str);
+    fn set_description<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, description: &'s P);
 
     #[doc(alias = "g_tls_password_set_flags")]
     fn set_flags(&self, flags: TlsPasswordFlags);
@@ -58,7 +62,7 @@ pub trait TlsPasswordExt: 'static {
     //fn set_value_full(&self, value: &[u8]);
 
     #[doc(alias = "g_tls_password_set_warning")]
-    fn set_warning(&self, warning: &str);
+    fn set_warning<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, warning: &'s P);
 
     #[doc(alias = "description")]
     fn connect_description_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
@@ -95,7 +99,7 @@ impl<O: IsA<TlsPassword>> TlsPasswordExt for O {
         }
     }
 
-    fn set_description(&self, description: &str) {
+    fn set_description<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, description: &'s P) {
         unsafe {
             ffi::g_tls_password_set_description(
                 self.as_ref().to_glib_none().0,
@@ -114,7 +118,7 @@ impl<O: IsA<TlsPassword>> TlsPasswordExt for O {
     //    unsafe { TODO: call ffi:g_tls_password_set_value_full() }
     //}
 
-    fn set_warning(&self, warning: &str) {
+    fn set_warning<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, warning: &'s P) {
         unsafe {
             ffi::g_tls_password_set_warning(
                 self.as_ref().to_glib_none().0,

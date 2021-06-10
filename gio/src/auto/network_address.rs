@@ -5,6 +5,7 @@
 use crate::SocketConnectable;
 use glib::object::IsA;
 use glib::translate::*;
+use libc::c_char;
 use std::fmt;
 use std::ptr;
 
@@ -19,7 +20,10 @@ glib::wrapper! {
 
 impl NetworkAddress {
     #[doc(alias = "g_network_address_new")]
-    pub fn new(hostname: &str, port: u16) -> NetworkAddress {
+    pub fn new<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        hostname: &'s P,
+        port: u16,
+    ) -> NetworkAddress {
         unsafe { from_glib_full(ffi::g_network_address_new(hostname.to_glib_none().0, port)) }
     }
 
@@ -29,7 +33,10 @@ impl NetworkAddress {
     }
 
     #[doc(alias = "g_network_address_parse")]
-    pub fn parse(host_and_port: &str, default_port: u16) -> Result<NetworkAddress, glib::Error> {
+    pub fn parse<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        host_and_port: &'s P,
+        default_port: u16,
+    ) -> Result<NetworkAddress, glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let ret = ffi::g_network_address_parse(
@@ -46,7 +53,10 @@ impl NetworkAddress {
     }
 
     #[doc(alias = "g_network_address_parse_uri")]
-    pub fn parse_uri(uri: &str, default_port: u16) -> Result<NetworkAddress, glib::Error> {
+    pub fn parse_uri<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        uri: &'s P,
+        default_port: u16,
+    ) -> Result<NetworkAddress, glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let ret =

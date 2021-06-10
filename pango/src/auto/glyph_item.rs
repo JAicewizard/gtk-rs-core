@@ -4,6 +4,7 @@
 
 use crate::AttrList;
 use glib::translate::*;
+use libc::c_char;
 
 glib::wrapper! {
     #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -18,7 +19,11 @@ glib::wrapper! {
 
 impl GlyphItem {
     #[doc(alias = "pango_glyph_item_apply_attrs")]
-    pub fn apply_attrs(&mut self, text: &str, list: &AttrList) -> Vec<GlyphItem> {
+    pub fn apply_attrs<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &mut self,
+        text: &'s P,
+        list: &AttrList,
+    ) -> Vec<GlyphItem> {
         unsafe {
             FromGlibPtrContainer::from_glib_full(ffi::pango_glyph_item_apply_attrs(
                 self.to_glib_none_mut().0,
@@ -30,17 +35,21 @@ impl GlyphItem {
 
     //#[doc(alias = "pango_glyph_item_get_logical_widths")]
     //#[doc(alias = "get_logical_widths")]
-    //pub fn logical_widths(&mut self, text: &str, logical_widths: &[i32]) {
+    //pub fn logical_widths<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&mut self, text: & 's P, logical_widths: &[i32]) {
     //    unsafe { TODO: call ffi:pango_glyph_item_get_logical_widths() }
     //}
 
     //#[doc(alias = "pango_glyph_item_letter_space")]
-    //pub fn letter_space(&mut self, text: &str, log_attrs: /*Ignored*/&[&LogAttr], letter_spacing: i32) {
+    //pub fn letter_space<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&mut self, text: & 's P, log_attrs: /*Ignored*/&[&LogAttr], letter_spacing: i32) {
     //    unsafe { TODO: call ffi:pango_glyph_item_letter_space() }
     //}
 
     #[doc(alias = "pango_glyph_item_split")]
-    pub fn split(&mut self, text: &str, split_index: i32) -> Option<GlyphItem> {
+    pub fn split<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &mut self,
+        text: &'s P,
+        split_index: i32,
+    ) -> Option<GlyphItem> {
         unsafe {
             from_glib_full(ffi::pango_glyph_item_split(
                 self.to_glib_none_mut().0,

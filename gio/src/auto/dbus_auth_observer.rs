@@ -9,6 +9,7 @@ use glib::object::ObjectType as ObjectType_;
 use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -29,7 +30,10 @@ impl DBusAuthObserver {
     }
 
     #[doc(alias = "g_dbus_auth_observer_allow_mechanism")]
-    pub fn allow_mechanism(&self, mechanism: &str) -> bool {
+    pub fn allow_mechanism<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        mechanism: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::g_dbus_auth_observer_allow_mechanism(
                 self.to_glib_none().0,

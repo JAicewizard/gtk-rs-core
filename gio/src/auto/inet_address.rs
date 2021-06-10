@@ -8,6 +8,7 @@ use glib::object::IsA;
 use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -29,7 +30,9 @@ impl InetAddress {
 
     #[doc(alias = "g_inet_address_new_from_string")]
     #[doc(alias = "new_from_string")]
-    pub fn from_string(string: &str) -> Option<InetAddress> {
+    pub fn from_string<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        string: &'s P,
+    ) -> Option<InetAddress> {
         unsafe { from_glib_full(ffi::g_inet_address_new_from_string(string.to_glib_none().0)) }
     }
 

@@ -4,6 +4,7 @@
 
 use crate::GlyphItem;
 use glib::translate::*;
+use libc::c_char;
 
 glib::wrapper! {
     #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -18,7 +19,11 @@ glib::wrapper! {
 
 impl GlyphItemIter {
     #[doc(alias = "pango_glyph_item_iter_init_end")]
-    pub fn init_end(&mut self, glyph_item: &mut GlyphItem, text: &str) -> bool {
+    pub fn init_end<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &mut self,
+        glyph_item: &mut GlyphItem,
+        text: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::pango_glyph_item_iter_init_end(
                 self.to_glib_none_mut().0,
@@ -29,7 +34,11 @@ impl GlyphItemIter {
     }
 
     #[doc(alias = "pango_glyph_item_iter_init_start")]
-    pub fn init_start(&mut self, glyph_item: &mut GlyphItem, text: &str) -> bool {
+    pub fn init_start<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &mut self,
+        glyph_item: &mut GlyphItem,
+        text: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::pango_glyph_item_iter_init_start(
                 self.to_glib_none_mut().0,

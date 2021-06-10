@@ -5,6 +5,7 @@
 use crate::DBusConnection;
 use crate::MenuModel;
 use glib::translate::*;
+use libc::c_char;
 use std::fmt;
 
 glib::wrapper! {
@@ -18,10 +19,10 @@ glib::wrapper! {
 
 impl DBusMenuModel {
     #[doc(alias = "g_dbus_menu_model_get")]
-    pub fn get(
+    pub fn get<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
         connection: &DBusConnection,
         bus_name: Option<&str>,
-        object_path: &str,
+        object_path: &'s P,
     ) -> DBusMenuModel {
         unsafe {
             from_glib_full(ffi::g_dbus_menu_model_get(

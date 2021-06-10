@@ -1343,6 +1343,7 @@ extern "C" {
     //=========================================================================
     // GCClosure
     //=========================================================================
+    /*BO*/
     pub fn g_cclosure_marshal_BOOLEAN__BOXED_BOXED(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1351,7 +1352,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_BOOLEAN__BOXED_BOXEDv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_BOOLEAN__BOXED_BOXEDv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_BOOLEAN__FLAGS(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1360,7 +1362,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_BOOLEAN__FLAGSv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_BOOLEAN__FLAGSv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_STRING__OBJECT_POINTER(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1369,7 +1372,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_STRING__OBJECT_POINTERv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_STRING__OBJECT_POINTERv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__BOOLEAN(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1378,7 +1382,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__BOOLEANv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__BOOLEANv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__BOXED(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1387,7 +1392,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__BOXEDv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__BOXEDv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__CHAR(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1396,7 +1402,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__CHARv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__CHARv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__DOUBLE(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1405,7 +1412,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__DOUBLEv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__DOUBLEv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__ENUM(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1414,7 +1422,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__ENUMv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__ENUMv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__FLAGS(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1423,7 +1432,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__FLAGSv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__FLAGSv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__FLOAT(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1432,7 +1442,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__FLOATv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__FLOATv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__INT(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1441,7 +1452,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__INTv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__INTv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__LONG(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1450,7 +1462,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__LONGv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__LONGv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__OBJECT(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1459,7 +1472,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__OBJECTv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__OBJECTv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__PARAM(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1468,7 +1482,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__PARAMv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__PARAMv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__POINTER(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1477,7 +1492,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__POINTERv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__POINTERv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__STRING(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1486,7 +1502,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__STRINGv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__STRINGv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__UCHAR(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1495,7 +1512,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__UCHARv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__UCHARv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__UINT(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1504,6 +1522,7 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__UINT_POINTER(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1512,8 +1531,9 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__UINT_POINTERv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
-    //pub fn g_cclosure_marshal_VOID__UINTv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__UINT_POINTERv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__UINTv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__ULONG(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1522,7 +1542,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__ULONGv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__ULONGv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__VARIANT(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1531,7 +1552,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__VARIANTv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__VARIANTv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_VOID__VOID(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1540,7 +1562,8 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_VOID__VOIDv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_VOID__VOIDv(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_marshal_generic(
         closure: *mut GClosure,
         return_gvalue: *mut GValue,
@@ -1549,17 +1572,21 @@ extern "C" {
         invocation_hint: gpointer,
         marshal_data: gpointer,
     );
-    //pub fn g_cclosure_marshal_generic_va(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args_list: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*///pub fn g_cclosure_marshal_generic_va(closure: *mut GClosure, return_value: *mut GValue, instance: gpointer, args_list: /*Unimplemented*/va_list, marshal_data: gpointer, n_params: c_int, param_types: *mut GType);
+    /*BO*/
     pub fn g_cclosure_new(
         callback_func: GCallback,
         user_data: gpointer,
         destroy_data: GClosureNotify,
     ) -> *mut GClosure;
+    /*BO*/
     pub fn g_cclosure_new_object(callback_func: GCallback, object: *mut GObject) -> *mut GClosure;
+    /*BO*/
     pub fn g_cclosure_new_object_swap(
         callback_func: GCallback,
         object: *mut GObject,
     ) -> *mut GClosure;
+    /*BO*/
     pub fn g_cclosure_new_swap(
         callback_func: GCallback,
         user_data: gpointer,
@@ -1570,18 +1597,23 @@ extern "C" {
     // GClosure
     //=========================================================================
     pub fn g_closure_get_type() -> GType;
+    /*BO*/
     pub fn g_closure_new_object(sizeof_closure: c_uint, object: *mut GObject) -> *mut GClosure;
+    /*BO*/
     pub fn g_closure_new_simple(sizeof_closure: c_uint, data: gpointer) -> *mut GClosure;
+    /*BO*/
     pub fn g_closure_add_finalize_notifier(
         closure: *mut GClosure,
         notify_data: gpointer,
         notify_func: GClosureNotify,
     );
+    /*BO*/
     pub fn g_closure_add_invalidate_notifier(
         closure: *mut GClosure,
         notify_data: gpointer,
         notify_func: GClosureNotify,
     );
+    /*BO*/
     pub fn g_closure_add_marshal_guards(
         closure: *mut GClosure,
         pre_marshal_data: gpointer,
@@ -1589,7 +1621,9 @@ extern "C" {
         post_marshal_data: gpointer,
         post_marshal_notify: GClosureNotify,
     );
+    /*BO*/
     pub fn g_closure_invalidate(closure: *mut GClosure);
+    /*BO*/
     pub fn g_closure_invoke(
         closure: *mut GClosure,
         return_value: *mut GValue,
@@ -1597,47 +1631,59 @@ extern "C" {
         param_values: *const GValue,
         invocation_hint: gpointer,
     );
+    /*BO*/
     pub fn g_closure_ref(closure: *mut GClosure) -> *mut GClosure;
+    /*BO*/
     pub fn g_closure_remove_finalize_notifier(
         closure: *mut GClosure,
         notify_data: gpointer,
         notify_func: GClosureNotify,
     );
+    /*BO*/
     pub fn g_closure_remove_invalidate_notifier(
         closure: *mut GClosure,
         notify_data: gpointer,
         notify_func: GClosureNotify,
     );
+    /*BO*/
     pub fn g_closure_set_marshal(closure: *mut GClosure, marshal: GClosureMarshal);
+    /*BO*/
     pub fn g_closure_set_meta_marshal(
         closure: *mut GClosure,
         marshal_data: gpointer,
         meta_marshal: GClosureMarshal,
     );
+    /*BO*/
     pub fn g_closure_sink(closure: *mut GClosure);
+    /*BO*/
     pub fn g_closure_unref(closure: *mut GClosure);
 
     //=========================================================================
     // GObjectClass
     //=========================================================================
+    /*BO*/
     pub fn g_object_class_find_property(
         oclass: *mut GObjectClass,
         property_name: *const c_char,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_object_class_install_properties(
         oclass: *mut GObjectClass,
         n_pspecs: c_uint,
         pspecs: *mut *mut GParamSpec,
     );
+    /*BO*/
     pub fn g_object_class_install_property(
         oclass: *mut GObjectClass,
         property_id: c_uint,
         pspec: *mut GParamSpec,
     );
+    /*BO*/
     pub fn g_object_class_list_properties(
         oclass: *mut GObjectClass,
         n_properties: *mut c_uint,
     ) -> *mut *mut GParamSpec;
+    /*BO*/
     pub fn g_object_class_override_property(
         oclass: *mut GObjectClass,
         property_id: c_uint,
@@ -1647,49 +1693,66 @@ extern "C" {
     //=========================================================================
     // GParamSpecPool
     //=========================================================================
+    /*BO*/
     pub fn g_param_spec_pool_insert(
         pool: *mut GParamSpecPool,
         pspec: *mut GParamSpec,
         owner_type: GType,
     );
+    /*BO*/
     pub fn g_param_spec_pool_list(
         pool: *mut GParamSpecPool,
         owner_type: GType,
         n_pspecs_p: *mut c_uint,
     ) -> *mut *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_pool_list_owned(
         pool: *mut GParamSpecPool,
         owner_type: GType,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_param_spec_pool_lookup(
         pool: *mut GParamSpecPool,
         param_name: *const c_char,
         owner_type: GType,
         walk_ancestors: gboolean,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_pool_remove(pool: *mut GParamSpecPool, pspec: *mut GParamSpec);
+    /*BO*/
     pub fn g_param_spec_pool_new(type_prefixing: gboolean) -> *mut GParamSpecPool;
 
     //=========================================================================
     // GTypeClass
     //=========================================================================
+    /*BO*/
     pub fn g_type_class_add_private(g_class: gpointer, private_size: size_t);
+    /*BO*/
     pub fn g_type_class_get_instance_private_offset(g_class: gpointer) -> c_int;
+    /*BO*/
     pub fn g_type_class_get_private(klass: *mut GTypeClass, private_type: GType) -> gpointer;
+    /*BO*/
     pub fn g_type_class_peek_parent(g_class: gpointer) -> gpointer;
+    /*BO*/
     pub fn g_type_class_unref(g_class: gpointer);
+    /*BO*/
     pub fn g_type_class_unref_uncached(g_class: gpointer);
+    /*BO*/
     pub fn g_type_class_adjust_private_offset(
         g_class: gpointer,
         private_size_or_offset: *mut c_int,
     );
+    /*BO*/
     pub fn g_type_class_peek(type_: GType) -> gpointer;
+    /*BO*/
     pub fn g_type_class_peek_static(type_: GType) -> gpointer;
+    /*BO*/
     pub fn g_type_class_ref(type_: GType) -> gpointer;
 
     //=========================================================================
     // GTypeInstance
     //=========================================================================
+    /*BO*/
     pub fn g_type_instance_get_private(
         instance: *mut GTypeInstance,
         private_type: GType,
@@ -1698,13 +1761,18 @@ extern "C" {
     //=========================================================================
     // GTypeInterface
     //=========================================================================
+    /*BO*/
     pub fn g_type_interface_peek_parent(g_iface: gpointer) -> gpointer;
+    /*BO*/
     pub fn g_type_interface_add_prerequisite(interface_type: GType, prerequisite_type: GType);
+    /*BO*/
     pub fn g_type_interface_get_plugin(
         instance_type: GType,
         interface_type: GType,
     ) -> *mut GTypePlugin;
+    /*BO*/
     pub fn g_type_interface_peek(instance_class: gpointer, iface_type: GType) -> gpointer;
+    /*BO*/
     pub fn g_type_interface_prerequisites(
         interface_type: GType,
         n_prerequisites: *mut c_uint,
@@ -1713,116 +1781,198 @@ extern "C" {
     //=========================================================================
     // GTypeValueTable
     //=========================================================================
+    /*BO*/
     pub fn g_type_value_table_peek(type_: GType) -> *mut GTypeValueTable;
 
     //=========================================================================
     // GValue
     //=========================================================================
     pub fn g_value_get_type() -> GType;
+    /*BO*/
     pub fn g_value_copy(src_value: *const GValue, dest_value: *mut GValue);
+    /*BO*/
     pub fn g_value_dup_boxed(value: *const GValue) -> gpointer;
+    /*BO*/
     pub fn g_value_dup_object(value: *const GValue) -> *mut GObject;
+    /*BO*/
     pub fn g_value_dup_param(value: *const GValue) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_value_dup_string(value: *const GValue) -> *mut c_char;
+    /*BO*/
     pub fn g_value_dup_variant(value: *const GValue) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_value_fits_pointer(value: *const GValue) -> gboolean;
+    /*BO*/
     pub fn g_value_get_boolean(value: *const GValue) -> gboolean;
+    /*BO*/
     pub fn g_value_get_boxed(value: *const GValue) -> gpointer;
+    /*BO*/
     pub fn g_value_get_char(value: *const GValue) -> c_char;
+    /*BO*/
     pub fn g_value_get_double(value: *const GValue) -> c_double;
+    /*BO*/
     pub fn g_value_get_enum(value: *const GValue) -> c_int;
+    /*BO*/
     pub fn g_value_get_flags(value: *const GValue) -> c_uint;
+    /*BO*/
     pub fn g_value_get_float(value: *const GValue) -> c_float;
+    /*BO*/
     pub fn g_value_get_gtype(value: *const GValue) -> GType;
+    /*BO*/
     pub fn g_value_get_int(value: *const GValue) -> c_int;
+    /*BO*/
     pub fn g_value_get_int64(value: *const GValue) -> i64;
+    /*BO*/
     pub fn g_value_get_long(value: *const GValue) -> c_long;
+    /*BO*/
     pub fn g_value_get_object(value: *const GValue) -> *mut GObject;
+    /*BO*/
     pub fn g_value_get_param(value: *const GValue) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_value_get_pointer(value: *const GValue) -> gpointer;
+    /*BO*/
     pub fn g_value_get_schar(value: *const GValue) -> i8;
+    /*BO*/
     pub fn g_value_get_string(value: *const GValue) -> *const c_char;
+    /*BO*/
     pub fn g_value_get_uchar(value: *const GValue) -> c_uchar;
+    /*BO*/
     pub fn g_value_get_uint(value: *const GValue) -> c_uint;
+    /*BO*/
     pub fn g_value_get_uint64(value: *const GValue) -> u64;
+    /*BO*/
     pub fn g_value_get_ulong(value: *const GValue) -> c_ulong;
+    /*BO*/
     pub fn g_value_get_variant(value: *const GValue) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_value_init(value: *mut GValue, g_type: GType) -> *mut GValue;
+    /*BO*/
     pub fn g_value_init_from_instance(value: *mut GValue, instance: gpointer);
+    /*BO*/
     pub fn g_value_peek_pointer(value: *const GValue) -> gpointer;
+    /*BO*/
     pub fn g_value_reset(value: *mut GValue) -> *mut GValue;
+    /*BO*/
     pub fn g_value_set_boolean(value: *mut GValue, v_boolean: gboolean);
+    /*BO*/
     pub fn g_value_set_boxed(value: *mut GValue, v_boxed: gconstpointer);
+    /*BO*/
     pub fn g_value_set_boxed_take_ownership(value: *mut GValue, v_boxed: gconstpointer);
+    /*BO*/
     pub fn g_value_set_char(value: *mut GValue, v_char: c_char);
+    /*BO*/
     pub fn g_value_set_double(value: *mut GValue, v_double: c_double);
+    /*BO*/
     pub fn g_value_set_enum(value: *mut GValue, v_enum: c_int);
+    /*BO*/
     pub fn g_value_set_flags(value: *mut GValue, v_flags: c_uint);
+    /*BO*/
     pub fn g_value_set_float(value: *mut GValue, v_float: c_float);
+    /*BO*/
     pub fn g_value_set_gtype(value: *mut GValue, v_gtype: GType);
+    /*BO*/
     pub fn g_value_set_instance(value: *mut GValue, instance: gpointer);
+    /*BO*/
     pub fn g_value_set_int(value: *mut GValue, v_int: c_int);
+    /*BO*/
     pub fn g_value_set_int64(value: *mut GValue, v_int64: i64);
     #[cfg(any(feature = "v2_66", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_66")))]
+    /*BO*/
     pub fn g_value_set_interned_string(value: *mut GValue, v_string: *const c_char);
+    /*BO*/
     pub fn g_value_set_long(value: *mut GValue, v_long: c_long);
+    /*BO*/
     pub fn g_value_set_object(value: *mut GValue, v_object: *mut GObject);
+    /*BO*/
     pub fn g_value_set_object_take_ownership(value: *mut GValue, v_object: gpointer);
+    /*BO*/
     pub fn g_value_set_param(value: *mut GValue, param: *mut GParamSpec);
+    /*BO*/
     pub fn g_value_set_param_take_ownership(value: *mut GValue, param: *mut GParamSpec);
+    /*BO*/
     pub fn g_value_set_pointer(value: *mut GValue, v_pointer: gpointer);
+    /*BO*/
     pub fn g_value_set_schar(value: *mut GValue, v_char: i8);
+    /*BO*/
     pub fn g_value_set_static_boxed(value: *mut GValue, v_boxed: gconstpointer);
+    /*BO*/
     pub fn g_value_set_static_string(value: *mut GValue, v_string: *const c_char);
+    /*BO*/
     pub fn g_value_set_string(value: *mut GValue, v_string: *const c_char);
+    /*BO*/
     pub fn g_value_set_string_take_ownership(value: *mut GValue, v_string: *mut c_char);
+    /*BO*/
     pub fn g_value_set_uchar(value: *mut GValue, v_uchar: c_uchar);
+    /*BO*/
     pub fn g_value_set_uint(value: *mut GValue, v_uint: c_uint);
+    /*BO*/
     pub fn g_value_set_uint64(value: *mut GValue, v_uint64: u64);
+    /*BO*/
     pub fn g_value_set_ulong(value: *mut GValue, v_ulong: c_ulong);
+    /*BO*/
     pub fn g_value_set_variant(value: *mut GValue, variant: *mut glib::GVariant);
+    /*BO*/
     pub fn g_value_take_boxed(value: *mut GValue, v_boxed: gconstpointer);
+    /*BO*/
     pub fn g_value_take_object(value: *mut GValue, v_object: gpointer);
+    /*BO*/
     pub fn g_value_take_param(value: *mut GValue, param: *mut GParamSpec);
+    /*BO*/
     pub fn g_value_take_string(value: *mut GValue, v_string: *mut c_char);
+    /*BO*/
     pub fn g_value_take_variant(value: *mut GValue, variant: *mut glib::GVariant);
+    /*BO*/
     pub fn g_value_transform(src_value: *const GValue, dest_value: *mut GValue) -> gboolean;
+    /*BO*/
     pub fn g_value_unset(value: *mut GValue);
+    /*BO*/
     pub fn g_value_register_transform_func(
         src_type: GType,
         dest_type: GType,
         transform_func: GValueTransform,
     );
+    /*BO*/
     pub fn g_value_type_compatible(src_type: GType, dest_type: GType) -> gboolean;
+    /*BO*/
     pub fn g_value_type_transformable(src_type: GType, dest_type: GType) -> gboolean;
 
     //=========================================================================
     // GValueArray
     //=========================================================================
     pub fn g_value_array_get_type() -> GType;
+    /*BO*/
     pub fn g_value_array_new(n_prealloced: c_uint) -> *mut GValueArray;
+    /*BO*/
     pub fn g_value_array_append(
         value_array: *mut GValueArray,
         value: *const GValue,
     ) -> *mut GValueArray;
+    /*BO*/
     pub fn g_value_array_copy(value_array: *const GValueArray) -> *mut GValueArray;
+    /*BO*/
     pub fn g_value_array_free(value_array: *mut GValueArray);
+    /*BO*/
     pub fn g_value_array_get_nth(value_array: *mut GValueArray, index_: c_uint) -> *mut GValue;
+    /*BO*/
     pub fn g_value_array_insert(
         value_array: *mut GValueArray,
         index_: c_uint,
         value: *const GValue,
     ) -> *mut GValueArray;
+    /*BO*/
     pub fn g_value_array_prepend(
         value_array: *mut GValueArray,
         value: *const GValue,
     ) -> *mut GValueArray;
+    /*BO*/
     pub fn g_value_array_remove(value_array: *mut GValueArray, index_: c_uint) -> *mut GValueArray;
+    /*BO*/
     pub fn g_value_array_sort(
         value_array: *mut GValueArray,
         compare_func: glib::GCompareFunc,
     ) -> *mut GValueArray;
+    /*BO*/
     pub fn g_value_array_sort_with_data(
         value_array: *mut GValueArray,
         compare_func: glib::GCompareDataFunc,
@@ -1832,20 +1982,30 @@ extern "C" {
     //=========================================================================
     // GWeakRef
     //=========================================================================
+    /*BO*/
     pub fn g_weak_ref_clear(weak_ref: *mut GWeakRef);
+    /*BO*/
     pub fn g_weak_ref_get(weak_ref: *mut GWeakRef) -> *mut GObject;
+    /*BO*/
     pub fn g_weak_ref_init(weak_ref: *mut GWeakRef, object: *mut GObject);
+    /*BO*/
     pub fn g_weak_ref_set(weak_ref: *mut GWeakRef, object: *mut GObject);
 
     //=========================================================================
     // GBinding
     //=========================================================================
     pub fn g_binding_get_type() -> GType;
+    /*BO*/
     pub fn g_binding_get_flags(binding: *mut GBinding) -> GBindingFlags;
+    /*BO*/
     pub fn g_binding_get_source(binding: *mut GBinding) -> *mut GObject;
+    /*BO*/
     pub fn g_binding_get_source_property(binding: *mut GBinding) -> *const c_char;
+    /*BO*/
     pub fn g_binding_get_target(binding: *mut GBinding) -> *mut GObject;
+    /*BO*/
     pub fn g_binding_get_target_property(binding: *mut GBinding) -> *const c_char;
+    /*BO*/
     pub fn g_binding_unbind(binding: *mut GBinding);
 
     //=========================================================================
@@ -1857,37 +2017,47 @@ extern "C" {
     // GObject
     //=========================================================================
     pub fn g_object_get_type() -> GType;
+    /*BO*/
     pub fn g_object_new(
         object_type: GType,
         first_property_name: *const c_char,
         ...
     ) -> *mut GObject;
-    //pub fn g_object_new_valist(object_type: GType, first_property_name: *const c_char, var_args: /*Unimplemented*/va_list) -> *mut GObject;
+    /*BO*///pub fn g_object_new_valist(object_type: GType, first_property_name: *const c_char, var_args: /*Unimplemented*/va_list) -> *mut GObject;
     #[cfg(any(feature = "v2_54", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_54")))]
+    /*BO*/
     pub fn g_object_new_with_properties(
         object_type: GType,
         n_properties: c_uint,
         names: *mut *const c_char,
         values: *const GValue,
     ) -> *mut GObject;
+    /*BO*/
     pub fn g_object_newv(
         object_type: GType,
         n_parameters: c_uint,
         parameters: *mut GParameter,
     ) -> *mut GObject;
+    /*BO*/
     pub fn g_object_compat_control(what: size_t, data: gpointer) -> size_t;
+    /*BO*/
     pub fn g_object_interface_find_property(
         g_iface: gpointer,
         property_name: *const c_char,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_object_interface_install_property(g_iface: gpointer, pspec: *mut GParamSpec);
+    /*BO*/
     pub fn g_object_interface_list_properties(
         g_iface: gpointer,
         n_properties_p: *mut c_uint,
     ) -> *mut *mut GParamSpec;
+    /*BO*/
     pub fn g_object_add_toggle_ref(object: *mut GObject, notify: GToggleNotify, data: gpointer);
+    /*BO*/
     pub fn g_object_add_weak_pointer(object: *mut GObject, weak_pointer_location: *mut gpointer);
+    /*BO*/
     pub fn g_object_bind_property(
         source: *mut GObject,
         source_property: *const c_char,
@@ -1895,6 +2065,7 @@ extern "C" {
         target_property: *const c_char,
         flags: GBindingFlags,
     ) -> *mut GBinding;
+    /*BO*/
     pub fn g_object_bind_property_full(
         source: *mut GObject,
         source_property: *const c_char,
@@ -1906,6 +2077,7 @@ extern "C" {
         user_data: gpointer,
         notify: glib::GDestroyNotify,
     ) -> *mut GBinding;
+    /*BO*/
     pub fn g_object_bind_property_with_closures(
         source: *mut GObject,
         source_property: *const c_char,
@@ -1915,46 +2087,65 @@ extern "C" {
         transform_to: *mut GClosure,
         transform_from: *mut GClosure,
     ) -> *mut GBinding;
+    /*BO*/
     pub fn g_object_connect(object: *mut GObject, signal_spec: *const c_char, ...) -> *mut GObject;
+    /*BO*/
     pub fn g_object_disconnect(object: *mut GObject, signal_spec: *const c_char, ...);
+    /*BO*/
     pub fn g_object_dup_data(
         object: *mut GObject,
         key: *const c_char,
         dup_func: glib::GDuplicateFunc,
         user_data: gpointer,
     ) -> gpointer;
+    /*BO*/
     pub fn g_object_dup_qdata(
         object: *mut GObject,
         quark: glib::GQuark,
         dup_func: glib::GDuplicateFunc,
         user_data: gpointer,
     ) -> gpointer;
+    /*BO*/
     pub fn g_object_force_floating(object: *mut GObject);
+    /*BO*/
     pub fn g_object_freeze_notify(object: *mut GObject);
+    /*BO*/
     pub fn g_object_get(object: *mut GObject, first_property_name: *const c_char, ...);
+    /*BO*/
     pub fn g_object_get_data(object: *mut GObject, key: *const c_char) -> gpointer;
+    /*BO*/
     pub fn g_object_get_property(
         object: *mut GObject,
         property_name: *const c_char,
         value: *mut GValue,
     );
+    /*BO*/
     pub fn g_object_get_qdata(object: *mut GObject, quark: glib::GQuark) -> gpointer;
-    //pub fn g_object_get_valist(object: *mut GObject, first_property_name: *const c_char, var_args: /*Unimplemented*/va_list);
+    /*BO*///pub fn g_object_get_valist(object: *mut GObject, first_property_name: *const c_char, var_args: /*Unimplemented*/va_list);
     #[cfg(any(feature = "v2_54", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_54")))]
+    /*BO*/
     pub fn g_object_getv(
         object: *mut GObject,
         n_properties: c_uint,
         names: *mut *const c_char,
         values: *mut GValue,
     );
+    /*BO*/
     pub fn g_object_is_floating(object: *mut GObject) -> gboolean;
+    /*BO*/
     pub fn g_object_notify(object: *mut GObject, property_name: *const c_char);
+    /*BO*/
     pub fn g_object_notify_by_pspec(object: *mut GObject, pspec: *mut GParamSpec);
+    /*BO*/
     pub fn g_object_ref(object: *mut GObject) -> *mut GObject;
+    /*BO*/
     pub fn g_object_ref_sink(object: *mut GObject) -> *mut GObject;
+    /*BO*/
     pub fn g_object_remove_toggle_ref(object: *mut GObject, notify: GToggleNotify, data: gpointer);
+    /*BO*/
     pub fn g_object_remove_weak_pointer(object: *mut GObject, weak_pointer_location: *mut gpointer);
+    /*BO*/
     pub fn g_object_replace_data(
         object: *mut GObject,
         key: *const c_char,
@@ -1963,6 +2154,7 @@ extern "C" {
         destroy: glib::GDestroyNotify,
         old_destroy: *mut glib::GDestroyNotify,
     ) -> gboolean;
+    /*BO*/
     pub fn g_object_replace_qdata(
         object: *mut GObject,
         quark: glib::GQuark,
@@ -1971,47 +2163,63 @@ extern "C" {
         destroy: glib::GDestroyNotify,
         old_destroy: *mut glib::GDestroyNotify,
     ) -> gboolean;
+    /*BO*/
     pub fn g_object_run_dispose(object: *mut GObject);
+    /*BO*/
     pub fn g_object_set(object: *mut GObject, first_property_name: *const c_char, ...);
+    /*BO*/
     pub fn g_object_set_data(object: *mut GObject, key: *const c_char, data: gpointer);
+    /*BO*/
     pub fn g_object_set_data_full(
         object: *mut GObject,
         key: *const c_char,
         data: gpointer,
         destroy: glib::GDestroyNotify,
     );
+    /*BO*/
     pub fn g_object_set_property(
         object: *mut GObject,
         property_name: *const c_char,
         value: *const GValue,
     );
+    /*BO*/
     pub fn g_object_set_qdata(object: *mut GObject, quark: glib::GQuark, data: gpointer);
+    /*BO*/
     pub fn g_object_set_qdata_full(
         object: *mut GObject,
         quark: glib::GQuark,
         data: gpointer,
         destroy: glib::GDestroyNotify,
     );
-    //pub fn g_object_set_valist(object: *mut GObject, first_property_name: *const c_char, var_args: /*Unimplemented*/va_list);
+    /*BO*///pub fn g_object_set_valist(object: *mut GObject, first_property_name: *const c_char, var_args: /*Unimplemented*/va_list);
     #[cfg(any(feature = "v2_54", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_54")))]
+    /*BO*/
     pub fn g_object_setv(
         object: *mut GObject,
         n_properties: c_uint,
         names: *mut *const c_char,
         values: *const GValue,
     );
+    /*BO*/
     pub fn g_object_steal_data(object: *mut GObject, key: *const c_char) -> gpointer;
+    /*BO*/
     pub fn g_object_steal_qdata(object: *mut GObject, quark: glib::GQuark) -> gpointer;
+    /*BO*/
     pub fn g_object_thaw_notify(object: *mut GObject);
+    /*BO*/
     pub fn g_object_unref(object: *mut GObject);
+    /*BO*/
     pub fn g_object_watch_closure(object: *mut GObject, closure: *mut GClosure);
+    /*BO*/
     pub fn g_object_weak_ref(object: *mut GObject, notify: GWeakNotify, data: gpointer);
+    /*BO*/
     pub fn g_object_weak_unref(object: *mut GObject, notify: GWeakNotify, data: gpointer);
 
     //=========================================================================
     // GParamSpec
     //=========================================================================
+    /*BO*/
     pub fn g_param_spec_internal(
         param_type: GType,
         name: *const c_char,
@@ -2021,47 +2229,66 @@ extern "C" {
     ) -> *mut GParamSpec;
     #[cfg(any(feature = "v2_66", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_66")))]
+    /*BO*/
     pub fn g_param_spec_is_valid_name(name: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_param_spec_get_blurb(pspec: *mut GParamSpec) -> *const c_char;
+    /*BO*/
     pub fn g_param_spec_get_default_value(pspec: *mut GParamSpec) -> *const GValue;
+    /*BO*/
     pub fn g_param_spec_get_name(pspec: *mut GParamSpec) -> *const c_char;
+    /*BO*/
     pub fn g_param_spec_get_name_quark(pspec: *mut GParamSpec) -> glib::GQuark;
+    /*BO*/
     pub fn g_param_spec_get_nick(pspec: *mut GParamSpec) -> *const c_char;
+    /*BO*/
     pub fn g_param_spec_get_qdata(pspec: *mut GParamSpec, quark: glib::GQuark) -> gpointer;
+    /*BO*/
     pub fn g_param_spec_get_redirect_target(pspec: *mut GParamSpec) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_ref(pspec: *mut GParamSpec) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_ref_sink(pspec: *mut GParamSpec) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_set_qdata(pspec: *mut GParamSpec, quark: glib::GQuark, data: gpointer);
+    /*BO*/
     pub fn g_param_spec_set_qdata_full(
         pspec: *mut GParamSpec,
         quark: glib::GQuark,
         data: gpointer,
         destroy: glib::GDestroyNotify,
     );
+    /*BO*/
     pub fn g_param_spec_sink(pspec: *mut GParamSpec);
+    /*BO*/
     pub fn g_param_spec_steal_qdata(pspec: *mut GParamSpec, quark: glib::GQuark) -> gpointer;
+    /*BO*/
     pub fn g_param_spec_unref(pspec: *mut GParamSpec);
 
     //=========================================================================
     // GTypeModule
     //=========================================================================
     pub fn g_type_module_get_type() -> GType;
+    /*BO*/
     pub fn g_type_module_add_interface(
         module: *mut GTypeModule,
         instance_type: GType,
         interface_type: GType,
         interface_info: *const GInterfaceInfo,
     );
+    /*BO*/
     pub fn g_type_module_register_enum(
         module: *mut GTypeModule,
         name: *const c_char,
         const_static_values: *const GEnumValue,
     ) -> GType;
+    /*BO*/
     pub fn g_type_module_register_flags(
         module: *mut GTypeModule,
         name: *const c_char,
         const_static_values: *const GFlagsValue,
     ) -> GType;
+    /*BO*/
     pub fn g_type_module_register_type(
         module: *mut GTypeModule,
         parent_type: GType,
@@ -2069,89 +2296,115 @@ extern "C" {
         type_info: *const GTypeInfo,
         flags: GTypeFlags,
     ) -> GType;
+    /*BO*/
     pub fn g_type_module_set_name(module: *mut GTypeModule, name: *const c_char);
+    /*BO*/
     pub fn g_type_module_unuse(module: *mut GTypeModule);
+    /*BO*/
     pub fn g_type_module_use(module: *mut GTypeModule) -> gboolean;
 
     //=========================================================================
     // GTypePlugin
     //=========================================================================
     pub fn g_type_plugin_get_type() -> GType;
+    /*BO*/
     pub fn g_type_plugin_complete_interface_info(
         plugin: *mut GTypePlugin,
         instance_type: GType,
         interface_type: GType,
         info: *mut GInterfaceInfo,
     );
+    /*BO*/
     pub fn g_type_plugin_complete_type_info(
         plugin: *mut GTypePlugin,
         g_type: GType,
         info: *mut GTypeInfo,
         value_table: *mut GTypeValueTable,
     );
+    /*BO*/
     pub fn g_type_plugin_unuse(plugin: *mut GTypePlugin);
+    /*BO*/
     pub fn g_type_plugin_use(plugin: *mut GTypePlugin);
 
     //=========================================================================
     // Other functions
     //=========================================================================
+    /*BO*/
     pub fn g_boxed_copy(boxed_type: GType, src_boxed: gconstpointer) -> gpointer;
+    /*BO*/
     pub fn g_boxed_free(boxed_type: GType, boxed: gpointer);
+    /*BO*/
     pub fn g_boxed_type_register_static(
         name: *const c_char,
         boxed_copy: GBoxedCopyFunc,
         boxed_free: GBoxedFreeFunc,
     ) -> GType;
+    /*BO*/
     pub fn g_clear_object(object_ptr: *mut *mut GObject);
     #[cfg(any(feature = "v2_62", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_62")))]
+    /*BO*/
     pub fn g_clear_signal_handler(handler_id_ptr: *mut c_ulong, instance: *mut GObject);
+    /*BO*/
     pub fn g_enum_complete_type_info(
         g_enum_type: GType,
         info: *mut GTypeInfo,
         const_values: *const GEnumValue,
     );
+    /*BO*/
     pub fn g_enum_get_value(enum_class: *mut GEnumClass, value: c_int) -> *mut GEnumValue;
+    /*BO*/
     pub fn g_enum_get_value_by_name(
         enum_class: *mut GEnumClass,
         name: *const c_char,
     ) -> *mut GEnumValue;
+    /*BO*/
     pub fn g_enum_get_value_by_nick(
         enum_class: *mut GEnumClass,
         nick: *const c_char,
     ) -> *mut GEnumValue;
+    /*BO*/
     pub fn g_enum_register_static(
         name: *const c_char,
         const_static_values: *const GEnumValue,
     ) -> GType;
     #[cfg(any(feature = "v2_54", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_54")))]
+    /*BO*/
     pub fn g_enum_to_string(g_enum_type: GType, value: c_int) -> *mut c_char;
+    /*BO*/
     pub fn g_flags_complete_type_info(
         g_flags_type: GType,
         info: *mut GTypeInfo,
         const_values: *const GFlagsValue,
     );
+    /*BO*/
     pub fn g_flags_get_first_value(
         flags_class: *mut GFlagsClass,
         value: c_uint,
     ) -> *mut GFlagsValue;
+    /*BO*/
     pub fn g_flags_get_value_by_name(
         flags_class: *mut GFlagsClass,
         name: *const c_char,
     ) -> *mut GFlagsValue;
+    /*BO*/
     pub fn g_flags_get_value_by_nick(
         flags_class: *mut GFlagsClass,
         nick: *const c_char,
     ) -> *mut GFlagsValue;
+    /*BO*/
     pub fn g_flags_register_static(
         name: *const c_char,
         const_static_values: *const GFlagsValue,
     ) -> GType;
     #[cfg(any(feature = "v2_54", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_54")))]
+    /*BO*/
     pub fn g_flags_to_string(flags_type: GType, value: c_uint) -> *mut c_char;
+    /*BO*/
     pub fn g_gtype_get_type() -> GType;
+    /*BO*/
     pub fn g_param_spec_boolean(
         name: *const c_char,
         nick: *const c_char,
@@ -2159,6 +2412,7 @@ extern "C" {
         default_value: gboolean,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_boxed(
         name: *const c_char,
         nick: *const c_char,
@@ -2166,6 +2420,7 @@ extern "C" {
         boxed_type: GType,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_char(
         name: *const c_char,
         nick: *const c_char,
@@ -2175,6 +2430,7 @@ extern "C" {
         default_value: i8,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_double(
         name: *const c_char,
         nick: *const c_char,
@@ -2184,6 +2440,7 @@ extern "C" {
         default_value: c_double,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_enum(
         name: *const c_char,
         nick: *const c_char,
@@ -2192,6 +2449,7 @@ extern "C" {
         default_value: c_int,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_flags(
         name: *const c_char,
         nick: *const c_char,
@@ -2200,6 +2458,7 @@ extern "C" {
         default_value: c_uint,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_float(
         name: *const c_char,
         nick: *const c_char,
@@ -2209,6 +2468,7 @@ extern "C" {
         default_value: c_float,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_gtype(
         name: *const c_char,
         nick: *const c_char,
@@ -2216,6 +2476,7 @@ extern "C" {
         is_a_type: GType,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_int(
         name: *const c_char,
         nick: *const c_char,
@@ -2225,6 +2486,7 @@ extern "C" {
         default_value: c_int,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_int64(
         name: *const c_char,
         nick: *const c_char,
@@ -2234,6 +2496,7 @@ extern "C" {
         default_value: i64,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_long(
         name: *const c_char,
         nick: *const c_char,
@@ -2243,6 +2506,7 @@ extern "C" {
         default_value: c_long,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_object(
         name: *const c_char,
         nick: *const c_char,
@@ -2250,10 +2514,12 @@ extern "C" {
         object_type: GType,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_override(
         name: *const c_char,
         overridden: *mut GParamSpec,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_param(
         name: *const c_char,
         nick: *const c_char,
@@ -2261,12 +2527,14 @@ extern "C" {
         param_type: GType,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_pointer(
         name: *const c_char,
         nick: *const c_char,
         blurb: *const c_char,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_string(
         name: *const c_char,
         nick: *const c_char,
@@ -2274,6 +2542,7 @@ extern "C" {
         default_value: *const c_char,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_uchar(
         name: *const c_char,
         nick: *const c_char,
@@ -2283,6 +2552,7 @@ extern "C" {
         default_value: u8,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_uint(
         name: *const c_char,
         nick: *const c_char,
@@ -2292,6 +2562,7 @@ extern "C" {
         default_value: c_uint,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_uint64(
         name: *const c_char,
         nick: *const c_char,
@@ -2301,6 +2572,7 @@ extern "C" {
         default_value: u64,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_ulong(
         name: *const c_char,
         nick: *const c_char,
@@ -2310,6 +2582,7 @@ extern "C" {
         default_value: c_ulong,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_unichar(
         name: *const c_char,
         nick: *const c_char,
@@ -2317,6 +2590,7 @@ extern "C" {
         default_value: u32,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_value_array(
         name: *const c_char,
         nick: *const c_char,
@@ -2324,6 +2598,7 @@ extern "C" {
         element_spec: *mut GParamSpec,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_spec_variant(
         name: *const c_char,
         nick: *const c_char,
@@ -2332,37 +2607,47 @@ extern "C" {
         default_value: *mut glib::GVariant,
         flags: GParamFlags,
     ) -> *mut GParamSpec;
+    /*BO*/
     pub fn g_param_type_register_static(
         name: *const c_char,
         pspec_info: *const GParamSpecTypeInfo,
     ) -> GType;
+    /*BO*/
     pub fn g_param_value_convert(
         pspec: *mut GParamSpec,
         src_value: *const GValue,
         dest_value: *mut GValue,
         strict_validation: gboolean,
     ) -> gboolean;
+    /*BO*/
     pub fn g_param_value_defaults(pspec: *mut GParamSpec, value: *const GValue) -> gboolean;
+    /*BO*/
     pub fn g_param_value_set_default(pspec: *mut GParamSpec, value: *mut GValue);
+    /*BO*/
     pub fn g_param_value_validate(pspec: *mut GParamSpec, value: *mut GValue) -> gboolean;
+    /*BO*/
     pub fn g_param_values_cmp(
         pspec: *mut GParamSpec,
         value1: *const GValue,
         value2: *const GValue,
     ) -> c_int;
+    /*BO*/
     pub fn g_pointer_type_register_static(name: *const c_char) -> GType;
+    /*BO*/
     pub fn g_signal_accumulator_first_wins(
         ihint: *mut GSignalInvocationHint,
         return_accu: *mut GValue,
         handler_return: *const GValue,
         dummy: gpointer,
     ) -> gboolean;
+    /*BO*/
     pub fn g_signal_accumulator_true_handled(
         ihint: *mut GSignalInvocationHint,
         return_accu: *mut GValue,
         handler_return: *const GValue,
         dummy: gpointer,
     ) -> gboolean;
+    /*BO*/
     pub fn g_signal_add_emission_hook(
         signal_id: c_uint,
         detail: glib::GQuark,
@@ -2370,17 +2655,21 @@ extern "C" {
         hook_data: gpointer,
         data_destroy: glib::GDestroyNotify,
     ) -> c_ulong;
+    /*BO*/
     pub fn g_signal_chain_from_overridden(
         instance_and_params: *const GValue,
         return_value: *mut GValue,
     );
+    /*BO*/
     pub fn g_signal_chain_from_overridden_handler(instance: gpointer, ...);
+    /*BO*/
     pub fn g_signal_connect_closure(
         instance: *mut GObject,
         detailed_signal: *const c_char,
         closure: *mut GClosure,
         after: gboolean,
     ) -> c_ulong;
+    /*BO*/
     pub fn g_signal_connect_closure_by_id(
         instance: *mut GObject,
         signal_id: c_uint,
@@ -2388,6 +2677,7 @@ extern "C" {
         closure: *mut GClosure,
         after: gboolean,
     ) -> c_ulong;
+    /*BO*/
     pub fn g_signal_connect_data(
         instance: *mut GObject,
         detailed_signal: *const c_char,
@@ -2396,6 +2686,7 @@ extern "C" {
         destroy_data: GClosureNotify,
         connect_flags: GConnectFlags,
     ) -> c_ulong;
+    /*BO*/
     pub fn g_signal_connect_object(
         instance: gpointer,
         detailed_signal: *const c_char,
@@ -2403,18 +2694,25 @@ extern "C" {
         gobject: *mut GObject,
         connect_flags: GConnectFlags,
     ) -> c_ulong;
+    /*BO*/
     pub fn g_signal_emit(instance: *mut GObject, signal_id: c_uint, detail: glib::GQuark, ...);
+    /*BO*/
     pub fn g_signal_emit_by_name(instance: *mut GObject, detailed_signal: *const c_char, ...);
-    //pub fn g_signal_emit_valist(instance: gpointer, signal_id: c_uint, detail: glib::GQuark, var_args: /*Unimplemented*/va_list);
+    /*BO*///pub fn g_signal_emit_valist(instance: gpointer, signal_id: c_uint, detail: glib::GQuark, var_args: /*Unimplemented*/va_list);
+    /*BO*/
     pub fn g_signal_emitv(
         instance_and_params: *const GValue,
         signal_id: c_uint,
         detail: glib::GQuark,
         return_value: *mut GValue,
     );
+    /*BO*/
     pub fn g_signal_get_invocation_hint(instance: *mut GObject) -> *mut GSignalInvocationHint;
+    /*BO*/
     pub fn g_signal_handler_block(instance: *mut GObject, handler_id: c_ulong);
+    /*BO*/
     pub fn g_signal_handler_disconnect(instance: *mut GObject, handler_id: c_ulong);
+    /*BO*/
     pub fn g_signal_handler_find(
         instance: *mut GObject,
         mask: GSignalMatchType,
@@ -2424,8 +2722,11 @@ extern "C" {
         func: gpointer,
         data: gpointer,
     ) -> c_ulong;
+    /*BO*/
     pub fn g_signal_handler_is_connected(instance: *mut GObject, handler_id: c_ulong) -> gboolean;
+    /*BO*/
     pub fn g_signal_handler_unblock(instance: *mut GObject, handler_id: c_ulong);
+    /*BO*/
     pub fn g_signal_handlers_block_matched(
         instance: *mut GObject,
         mask: GSignalMatchType,
@@ -2435,7 +2736,9 @@ extern "C" {
         func: gpointer,
         data: gpointer,
     ) -> c_uint;
+    /*BO*/
     pub fn g_signal_handlers_destroy(instance: *mut GObject);
+    /*BO*/
     pub fn g_signal_handlers_disconnect_matched(
         instance: *mut GObject,
         mask: GSignalMatchType,
@@ -2445,6 +2748,7 @@ extern "C" {
         func: gpointer,
         data: gpointer,
     ) -> c_uint;
+    /*BO*/
     pub fn g_signal_handlers_unblock_matched(
         instance: *mut GObject,
         mask: GSignalMatchType,
@@ -2454,6 +2758,7 @@ extern "C" {
         func: gpointer,
         data: gpointer,
     ) -> c_uint;
+    /*BO*/
     pub fn g_signal_has_handler_pending(
         instance: *mut GObject,
         signal_id: c_uint,
@@ -2462,10 +2767,15 @@ extern "C" {
     ) -> gboolean;
     #[cfg(any(feature = "v2_66", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_66")))]
+    /*BO*/
     pub fn g_signal_is_valid_name(name: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_signal_list_ids(itype: GType, n_ids: *mut c_uint) -> *mut c_uint;
+    /*BO*/
     pub fn g_signal_lookup(name: *const c_char, itype: GType) -> c_uint;
+    /*BO*/
     pub fn g_signal_name(signal_id: c_uint) -> *const c_char;
+    /*BO*/
     pub fn g_signal_new(
         signal_name: *const c_char,
         itype: GType,
@@ -2478,6 +2788,7 @@ extern "C" {
         n_params: c_uint,
         ...
     ) -> c_uint;
+    /*BO*/
     pub fn g_signal_new_class_handler(
         signal_name: *const c_char,
         itype: GType,
@@ -2490,7 +2801,8 @@ extern "C" {
         n_params: c_uint,
         ...
     ) -> c_uint;
-    //pub fn g_signal_new_valist(signal_name: *const c_char, itype: GType, signal_flags: GSignalFlags, class_closure: *mut GClosure, accumulator: GSignalAccumulator, accu_data: gpointer, c_marshaller: GSignalCMarshaller, return_type: GType, n_params: c_uint, args: /*Unimplemented*/va_list) -> c_uint;
+    /*BO*///pub fn g_signal_new_valist(signal_name: *const c_char, itype: GType, signal_flags: GSignalFlags, class_closure: *mut GClosure, accumulator: GSignalAccumulator, accu_data: gpointer, c_marshaller: GSignalCMarshaller, return_type: GType, n_params: c_uint, args: /*Unimplemented*/va_list) -> c_uint;
+    /*BO*/
     pub fn g_signal_newv(
         signal_name: *const c_char,
         itype: GType,
@@ -2503,16 +2815,19 @@ extern "C" {
         n_params: c_uint,
         param_types: *mut GType,
     ) -> c_uint;
+    /*BO*/
     pub fn g_signal_override_class_closure(
         signal_id: c_uint,
         instance_type: GType,
         class_closure: *mut GClosure,
     );
+    /*BO*/
     pub fn g_signal_override_class_handler(
         signal_name: *const c_char,
         instance_type: GType,
         class_handler: GCallback,
     );
+    /*BO*/
     pub fn g_signal_parse_name(
         detailed_signal: *const c_char,
         itype: GType,
@@ -2520,76 +2835,127 @@ extern "C" {
         detail_p: *mut glib::GQuark,
         force_detail_quark: gboolean,
     ) -> gboolean;
+    /*BO*/
     pub fn g_signal_query(signal_id: c_uint, query: *mut GSignalQuery);
+    /*BO*/
     pub fn g_signal_remove_emission_hook(signal_id: c_uint, hook_id: c_ulong);
-    //pub fn g_signal_set_va_marshaller(signal_id: c_uint, instance_type: GType, va_marshaller: /*Ignored*/GSignalCVaMarshaller);
+    /*BO*///pub fn g_signal_set_va_marshaller(signal_id: c_uint, instance_type: GType, va_marshaller: /*Ignored*/GSignalCVaMarshaller);
+    /*BO*/
     pub fn g_signal_stop_emission(instance: *mut GObject, signal_id: c_uint, detail: glib::GQuark);
+    /*BO*/
     pub fn g_signal_stop_emission_by_name(instance: *mut GObject, detailed_signal: *const c_char);
+    /*BO*/
     pub fn g_signal_type_cclosure_new(itype: GType, struct_offset: c_uint) -> *mut GClosure;
+    /*BO*/
     pub fn g_source_set_closure(source: *mut glib::GSource, closure: *mut GClosure);
+    /*BO*/
     pub fn g_source_set_dummy_callback(source: *mut glib::GSource);
+    /*BO*/
     pub fn g_strdup_value_contents(value: *const GValue) -> *mut c_char;
+    /*BO*/
     pub fn g_type_add_class_cache_func(cache_data: gpointer, cache_func: GTypeClassCacheFunc);
+    /*BO*/
     pub fn g_type_add_class_private(class_type: GType, private_size: size_t);
+    /*BO*/
     pub fn g_type_add_instance_private(class_type: GType, private_size: size_t) -> c_int;
+    /*BO*/
     pub fn g_type_add_interface_check(check_data: gpointer, check_func: GTypeInterfaceCheckFunc);
+    /*BO*/
     pub fn g_type_add_interface_dynamic(
         instance_type: GType,
         interface_type: GType,
         plugin: *mut GTypePlugin,
     );
+    /*BO*/
     pub fn g_type_add_interface_static(
         instance_type: GType,
         interface_type: GType,
         info: *const GInterfaceInfo,
     );
+    /*BO*/
     pub fn g_type_check_class_cast(g_class: *mut GTypeClass, is_a_type: GType) -> *mut GTypeClass;
+    /*BO*/
     pub fn g_type_check_class_is_a(g_class: *mut GTypeClass, is_a_type: GType) -> gboolean;
+    /*BO*/
     pub fn g_type_check_instance(instance: *mut GTypeInstance) -> gboolean;
+    /*BO*/
     pub fn g_type_check_instance_cast(
         instance: *mut GTypeInstance,
         iface_type: GType,
     ) -> *mut GTypeInstance;
+    /*BO*/
     pub fn g_type_check_instance_is_a(instance: *mut GTypeInstance, iface_type: GType) -> gboolean;
+    /*BO*/
     pub fn g_type_check_instance_is_fundamentally_a(
         instance: *mut GTypeInstance,
         fundamental_type: GType,
     ) -> gboolean;
+    /*BO*/
     pub fn g_type_check_is_value_type(type_: GType) -> gboolean;
+    /*BO*/
     pub fn g_type_check_value(value: *const GValue) -> gboolean;
+    /*BO*/
     pub fn g_type_check_value_holds(value: *const GValue, type_: GType) -> gboolean;
+    /*BO*/
     pub fn g_type_children(type_: GType, n_children: *mut c_uint) -> *mut GType;
+    /*BO*/
     pub fn g_type_create_instance(type_: GType) -> *mut GTypeInstance;
+    /*BO*/
     pub fn g_type_default_interface_peek(g_type: GType) -> gpointer;
+    /*BO*/
     pub fn g_type_default_interface_ref(g_type: GType) -> gpointer;
+    /*BO*/
     pub fn g_type_default_interface_unref(g_iface: gpointer);
+    /*BO*/
     pub fn g_type_depth(type_: GType) -> c_uint;
+    /*BO*/
     pub fn g_type_ensure(type_: GType);
+    /*BO*/
     pub fn g_type_free_instance(instance: *mut GTypeInstance);
+    /*BO*/
     pub fn g_type_from_name(name: *const c_char) -> GType;
+    /*BO*/
     pub fn g_type_fundamental(type_id: GType) -> GType;
+    /*BO*/
     pub fn g_type_fundamental_next() -> GType;
+    /*BO*/
     pub fn g_type_get_instance_count(type_: GType) -> c_int;
+    /*BO*/
     pub fn g_type_get_plugin(type_: GType) -> *mut GTypePlugin;
+    /*BO*/
     pub fn g_type_get_qdata(type_: GType, quark: glib::GQuark) -> gpointer;
+    /*BO*/
     pub fn g_type_get_type_registration_serial() -> c_uint;
+    /*BO*/
     pub fn g_type_init();
+    /*BO*/
     pub fn g_type_init_with_debug_flags(debug_flags: GTypeDebugFlags);
+    /*BO*/
     pub fn g_type_interfaces(type_: GType, n_interfaces: *mut c_uint) -> *mut GType;
+    /*BO*/
     pub fn g_type_is_a(type_: GType, is_a_type: GType) -> gboolean;
+    /*BO*/
     pub fn g_type_name(type_: GType) -> *const c_char;
+    /*BO*/
     pub fn g_type_name_from_class(g_class: *mut GTypeClass) -> *const c_char;
+    /*BO*/
     pub fn g_type_name_from_instance(instance: *mut GTypeInstance) -> *const c_char;
+    /*BO*/
     pub fn g_type_next_base(leaf_type: GType, root_type: GType) -> GType;
+    /*BO*/
     pub fn g_type_parent(type_: GType) -> GType;
+    /*BO*/
     pub fn g_type_qname(type_: GType) -> glib::GQuark;
+    /*BO*/
     pub fn g_type_query(type_: GType, query: *mut GTypeQuery);
+    /*BO*/
     pub fn g_type_register_dynamic(
         parent_type: GType,
         type_name: *const c_char,
         plugin: *mut GTypePlugin,
         flags: GTypeFlags,
     ) -> GType;
+    /*BO*/
     pub fn g_type_register_fundamental(
         type_id: GType,
         type_name: *const c_char,
@@ -2597,12 +2963,14 @@ extern "C" {
         finfo: *const GTypeFundamentalInfo,
         flags: GTypeFlags,
     ) -> GType;
+    /*BO*/
     pub fn g_type_register_static(
         parent_type: GType,
         type_name: *const c_char,
         info: *const GTypeInfo,
         flags: GTypeFlags,
     ) -> GType;
+    /*BO*/
     pub fn g_type_register_static_simple(
         parent_type: GType,
         type_name: *const c_char,
@@ -2612,9 +2980,13 @@ extern "C" {
         instance_init: GInstanceInitFunc,
         flags: GTypeFlags,
     ) -> GType;
+    /*BO*/
     pub fn g_type_remove_class_cache_func(cache_data: gpointer, cache_func: GTypeClassCacheFunc);
+    /*BO*/
     pub fn g_type_remove_interface_check(check_data: gpointer, check_func: GTypeInterfaceCheckFunc);
+    /*BO*/
     pub fn g_type_set_qdata(type_: GType, quark: glib::GQuark, data: gpointer);
+    /*BO*/
     pub fn g_type_test_flags(type_: GType, flags: c_uint) -> gboolean;
 
 }

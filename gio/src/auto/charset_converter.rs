@@ -10,6 +10,7 @@ use glib::signal::SignalHandlerId;
 use glib::translate::*;
 use glib::StaticType;
 use glib::ToValue;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -26,7 +27,14 @@ glib::wrapper! {
 
 impl CharsetConverter {
     #[doc(alias = "g_charset_converter_new")]
-    pub fn new(to_charset: &str, from_charset: &str) -> Result<CharsetConverter, glib::Error> {
+    pub fn new<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        to_charset: &'s P,
+        from_charset: &'s Q,
+    ) -> Result<CharsetConverter, glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let ret = ffi::g_charset_converter_new(

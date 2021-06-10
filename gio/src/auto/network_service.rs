@@ -8,6 +8,7 @@ use glib::object::IsA;
 use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -23,7 +24,16 @@ glib::wrapper! {
 
 impl NetworkService {
     #[doc(alias = "g_network_service_new")]
-    pub fn new(service: &str, protocol: &str, domain: &str) -> NetworkService {
+    pub fn new<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        service: &'s P,
+        protocol: &'s Q,
+        domain: &'s R,
+    ) -> NetworkService {
         unsafe {
             from_glib_full(ffi::g_network_service_new(
                 service.to_glib_none().0,
@@ -54,7 +64,7 @@ pub trait NetworkServiceExt: 'static {
     fn service(&self) -> glib::GString;
 
     #[doc(alias = "g_network_service_set_scheme")]
-    fn set_scheme(&self, scheme: &str);
+    fn set_scheme<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, scheme: &'s P);
 
     #[doc(alias = "scheme")]
     fn connect_scheme_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
@@ -93,7 +103,7 @@ impl<O: IsA<NetworkService>> NetworkServiceExt for O {
         }
     }
 
-    fn set_scheme(&self, scheme: &str) {
+    fn set_scheme<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, scheme: &'s P) {
         unsafe {
             ffi::g_network_service_set_scheme(
                 self.as_ref().to_glib_none().0,

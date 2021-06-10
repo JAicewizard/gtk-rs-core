@@ -15,18 +15,19 @@ use crate::Style;
 use crate::Variant;
 use crate::Weight;
 use glib::translate::*;
+use libc::c_char;
 use std::mem;
 use std::ptr;
 
 //#[cfg_attr(feature = "v1_44", deprecated = "Since 1.44")]
 //#[doc(alias = "pango_break")]
 //#[doc(alias = "break")]
-//pub fn break_(text: &str, analysis: &mut Analysis, attrs: /*Ignored*/&[&LogAttr]) {
+//pub fn break_<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(text: & 's P, analysis: &mut Analysis, attrs: /*Ignored*/&[&LogAttr]) {
 //    unsafe { TODO: call ffi:pango_break() }
 //}
 
 //#[doc(alias = "pango_default_break")]
-//pub fn default_break(text: &str, analysis: Option<&mut Analysis>, attrs: /*Ignored*/&mut LogAttr, attrs_len: i32) {
+//pub fn default_break<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(text: & 's P, analysis: Option<&mut Analysis>, attrs: /*Ignored*/&mut LogAttr, attrs_len: i32) {
 //    unsafe { TODO: call ffi:pango_default_break() }
 //}
 
@@ -41,13 +42,15 @@ pub fn extents_to_pixels(inclusive: Option<&Rectangle>, nearest: Option<&Rectang
 }
 
 #[doc(alias = "pango_find_base_dir")]
-pub fn find_base_dir(text: &str) -> Direction {
+pub fn find_base_dir<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(text: &'s P) -> Direction {
     let length = text.len() as i32;
     unsafe { from_glib(ffi::pango_find_base_dir(text.to_glib_none().0, length)) }
 }
 
 #[doc(alias = "pango_find_paragraph_boundary")]
-pub fn find_paragraph_boundary(text: &str) -> (i32, i32) {
+pub fn find_paragraph_boundary<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    text: &'s P,
+) -> (i32, i32) {
     let length = text.len() as i32;
     unsafe {
         let mut paragraph_delimiter_index = mem::MaybeUninit::uninit();
@@ -66,7 +69,7 @@ pub fn find_paragraph_boundary(text: &str) -> (i32, i32) {
 
 //#[doc(alias = "pango_get_log_attrs")]
 //#[doc(alias = "get_log_attrs")]
-//pub fn log_attrs(text: &str, level: i32, language: &mut Language, log_attrs: /*Ignored*/&[&LogAttr]) {
+//pub fn log_attrs<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(text: & 's P, level: i32, language: &mut Language, log_attrs: /*Ignored*/&[&LogAttr]) {
 //    unsafe { TODO: call ffi:pango_get_log_attrs() }
 //}
 
@@ -76,9 +79,9 @@ pub fn is_zero_width(ch: char) -> bool {
 }
 
 #[doc(alias = "pango_itemize")]
-pub fn itemize(
+pub fn itemize<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
     context: &Context,
-    text: &str,
+    text: &'s P,
     start_index: i32,
     length: i32,
     attrs: &AttrList,
@@ -97,10 +100,10 @@ pub fn itemize(
 }
 
 #[doc(alias = "pango_itemize_with_base_dir")]
-pub fn itemize_with_base_dir(
+pub fn itemize_with_base_dir<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
     context: &Context,
     base_dir: Direction,
-    text: &str,
+    text: &'s P,
     start_index: i32,
     length: i32,
     attrs: &AttrList,
@@ -130,8 +133,8 @@ pub fn itemize_with_base_dir(
 //}
 
 #[doc(alias = "pango_parse_markup")]
-pub fn parse_markup(
-    markup_text: &str,
+pub fn parse_markup<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    markup_text: &'s P,
     accel_marker: char,
 ) -> Result<(AttrList, glib::GString, char), glib::Error> {
     let length = markup_text.len() as i32;
@@ -164,7 +167,10 @@ pub fn parse_markup(
 }
 
 #[doc(alias = "pango_parse_stretch")]
-pub fn parse_stretch(str: &str, warn: bool) -> Option<Stretch> {
+pub fn parse_stretch<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    str: &'s P,
+    warn: bool,
+) -> Option<Stretch> {
     unsafe {
         let mut stretch = mem::MaybeUninit::uninit();
         let ret = from_glib(ffi::pango_parse_stretch(
@@ -182,7 +188,10 @@ pub fn parse_stretch(str: &str, warn: bool) -> Option<Stretch> {
 }
 
 #[doc(alias = "pango_parse_style")]
-pub fn parse_style(str: &str, warn: bool) -> Option<Style> {
+pub fn parse_style<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    str: &'s P,
+    warn: bool,
+) -> Option<Style> {
     unsafe {
         let mut style = mem::MaybeUninit::uninit();
         let ret = from_glib(ffi::pango_parse_style(
@@ -200,7 +209,10 @@ pub fn parse_style(str: &str, warn: bool) -> Option<Style> {
 }
 
 #[doc(alias = "pango_parse_variant")]
-pub fn parse_variant(str: &str, warn: bool) -> Option<Variant> {
+pub fn parse_variant<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    str: &'s P,
+    warn: bool,
+) -> Option<Variant> {
     unsafe {
         let mut variant = mem::MaybeUninit::uninit();
         let ret = from_glib(ffi::pango_parse_variant(
@@ -218,7 +230,10 @@ pub fn parse_variant(str: &str, warn: bool) -> Option<Variant> {
 }
 
 #[doc(alias = "pango_parse_weight")]
-pub fn parse_weight(str: &str, warn: bool) -> Option<Weight> {
+pub fn parse_weight<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    str: &'s P,
+    warn: bool,
+) -> Option<Weight> {
     unsafe {
         let mut weight = mem::MaybeUninit::uninit();
         let ret = from_glib(ffi::pango_parse_weight(
@@ -243,7 +258,11 @@ pub fn quantize_line_geometry(thickness: &mut i32, position: &mut i32) {
 }
 
 #[doc(alias = "pango_shape")]
-pub fn shape(text: &str, analysis: &Analysis, glyphs: &mut GlyphString) {
+pub fn shape<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    text: &'s P,
+    analysis: &Analysis,
+    glyphs: &mut GlyphString,
+) {
     let length = text.len() as i32;
     unsafe {
         ffi::pango_shape(
@@ -258,7 +277,7 @@ pub fn shape(text: &str, analysis: &Analysis, glyphs: &mut GlyphString) {
 //#[cfg(any(feature = "v1_44", feature = "dox"))]
 //#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_44")))]
 //#[doc(alias = "pango_tailor_break")]
-//pub fn tailor_break(text: &str, analysis: &mut Analysis, offset: i32, log_attrs: /*Ignored*/&[&LogAttr]) {
+//pub fn tailor_break<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(text: & 's P, analysis: &mut Analysis, offset: i32, log_attrs: /*Ignored*/&[&LogAttr]) {
 //    unsafe { TODO: call ffi:pango_tailor_break() }
 //}
 

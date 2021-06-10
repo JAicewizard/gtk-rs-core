@@ -9,6 +9,7 @@ use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
 use glib::StaticType;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -24,10 +25,15 @@ glib::wrapper! {
 
 impl PropertyAction {
     #[doc(alias = "g_property_action_new")]
-    pub fn new<P: IsA<glib::Object>>(
-        name: &str,
-        object: &P,
-        property_name: &str,
+    pub fn new<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: IsA<glib::Object>,
+        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        name: &'s P,
+        object: &Q,
+        property_name: &'s R,
     ) -> PropertyAction {
         unsafe {
             from_glib_full(ffi::g_property_action_new(

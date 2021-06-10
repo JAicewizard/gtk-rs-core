@@ -3,6 +3,7 @@
 // DO NOT EDIT
 
 use glib::translate::*;
+use libc::c_char;
 use std::fmt;
 #[cfg(any(feature = "v1_46", feature = "dox"))]
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_46")))]
@@ -21,7 +22,7 @@ glib::wrapper! {
 
 impl Color {
     #[doc(alias = "pango_color_parse")]
-    pub fn parse(&mut self, spec: &str) -> bool {
+    pub fn parse<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&mut self, spec: &'s P) -> bool {
         unsafe {
             from_glib(ffi::pango_color_parse(
                 self.to_glib_none_mut().0,
@@ -33,7 +34,10 @@ impl Color {
     #[cfg(any(feature = "v1_46", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_46")))]
     #[doc(alias = "pango_color_parse_with_alpha")]
-    pub fn parse_with_alpha(&mut self, spec: &str) -> Option<u16> {
+    pub fn parse_with_alpha<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &mut self,
+        spec: &'s P,
+    ) -> Option<u16> {
         unsafe {
             let mut alpha = mem::MaybeUninit::uninit();
             let ret = from_glib(ffi::pango_color_parse_with_alpha(

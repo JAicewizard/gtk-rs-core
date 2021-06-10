@@ -8,6 +8,7 @@ use crate::IOStream;
 use crate::ProxyAddress;
 use glib::object::IsA;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::pin::Pin;
@@ -25,7 +26,9 @@ glib::wrapper! {
 impl Proxy {
     #[doc(alias = "g_proxy_get_default_for_protocol")]
     #[doc(alias = "get_default_for_protocol")]
-    pub fn default_for_protocol(protocol: &str) -> Option<Proxy> {
+    pub fn default_for_protocol<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        protocol: &'s P,
+    ) -> Option<Proxy> {
         unsafe {
             from_glib_full(ffi::g_proxy_get_default_for_protocol(
                 protocol.to_glib_none().0,

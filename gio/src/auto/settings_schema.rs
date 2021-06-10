@@ -4,6 +4,7 @@
 
 use crate::SettingsSchemaKey;
 use glib::translate::*;
+use libc::c_char;
 
 glib::wrapper! {
     #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -25,7 +26,10 @@ impl SettingsSchema {
 
     #[doc(alias = "g_settings_schema_get_key")]
     #[doc(alias = "get_key")]
-    pub fn key(&self, name: &str) -> SettingsSchemaKey {
+    pub fn key<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        name: &'s P,
+    ) -> SettingsSchemaKey {
         unsafe {
             from_glib_full(ffi::g_settings_schema_get_key(
                 self.to_glib_none().0,
@@ -41,7 +45,7 @@ impl SettingsSchema {
     }
 
     #[doc(alias = "g_settings_schema_has_key")]
-    pub fn has_key(&self, name: &str) -> bool {
+    pub fn has_key<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, name: &'s P) -> bool {
         unsafe {
             from_glib(ffi::g_settings_schema_has_key(
                 self.to_glib_none().0,

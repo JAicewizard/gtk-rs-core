@@ -21,6 +21,7 @@ use glib::signal::SignalHandlerId;
 use glib::translate::*;
 use glib::StaticType;
 use glib::ToValue;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -53,7 +54,7 @@ pub const NONE_SOCKET_CLIENT: Option<&SocketClient> = None;
 
 pub trait SocketClientExt: 'static {
     #[doc(alias = "g_socket_client_add_application_proxy")]
-    fn add_application_proxy(&self, protocol: &str);
+    fn add_application_proxy<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, protocol: &'s P);
 
     #[doc(alias = "g_socket_client_connect")]
     fn connect<P: IsA<SocketConnectable>, Q: IsA<Cancellable>>(
@@ -80,80 +81,99 @@ pub trait SocketClientExt: 'static {
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<SocketConnection, glib::Error>> + 'static>>;
 
     #[doc(alias = "g_socket_client_connect_to_host")]
-    fn connect_to_host<P: IsA<Cancellable>>(
+    fn connect_to_host<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
         &self,
-        host_and_port: &str,
+        host_and_port: &'s P,
         default_port: u16,
-        cancellable: Option<&P>,
+        cancellable: Option<&Q>,
     ) -> Result<SocketConnection, glib::Error>;
 
     #[doc(alias = "g_socket_client_connect_to_host_async")]
     fn connect_to_host_async<
-        P: IsA<Cancellable>,
-        Q: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: IsA<Cancellable>,
+        R: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
     >(
         &self,
-        host_and_port: &str,
+        host_and_port: &'static P,
         default_port: u16,
-        cancellable: Option<&P>,
-        callback: Q,
+        cancellable: Option<&Q>,
+        callback: R,
     );
 
-    fn connect_to_host_async_future(
+    fn connect_to_host_async_future<
+        's,
+        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+    >(
         &self,
-        host_and_port: &str,
+        host_and_port: &'static P,
         default_port: u16,
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<SocketConnection, glib::Error>> + 'static>>;
 
     #[doc(alias = "g_socket_client_connect_to_service")]
-    fn connect_to_service<P: IsA<Cancellable>>(
+    fn connect_to_service<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        R: IsA<Cancellable>,
+    >(
         &self,
-        domain: &str,
-        service: &str,
-        cancellable: Option<&P>,
+        domain: &'s P,
+        service: &'s Q,
+        cancellable: Option<&R>,
     ) -> Result<SocketConnection, glib::Error>;
 
     #[doc(alias = "g_socket_client_connect_to_service_async")]
     fn connect_to_service_async<
-        P: IsA<Cancellable>,
-        Q: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        R: IsA<Cancellable>,
+        S: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
     >(
         &self,
-        domain: &str,
-        service: &str,
-        cancellable: Option<&P>,
-        callback: Q,
+        domain: &'static P,
+        service: &'static Q,
+        cancellable: Option<&R>,
+        callback: S,
     );
 
-    fn connect_to_service_async_future(
+    fn connect_to_service_async_future<
+        's,
+        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        Q: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+    >(
         &self,
-        domain: &str,
-        service: &str,
+        domain: &'static P,
+        service: &'static Q,
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<SocketConnection, glib::Error>> + 'static>>;
 
     #[doc(alias = "g_socket_client_connect_to_uri")]
-    fn connect_to_uri<P: IsA<Cancellable>>(
+    fn connect_to_uri<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
         &self,
-        uri: &str,
+        uri: &'s P,
         default_port: u16,
-        cancellable: Option<&P>,
+        cancellable: Option<&Q>,
     ) -> Result<SocketConnection, glib::Error>;
 
     #[doc(alias = "g_socket_client_connect_to_uri_async")]
     fn connect_to_uri_async<
-        P: IsA<Cancellable>,
-        Q: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: IsA<Cancellable>,
+        R: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
     >(
         &self,
-        uri: &str,
+        uri: &'static P,
         default_port: u16,
-        cancellable: Option<&P>,
-        callback: Q,
+        cancellable: Option<&Q>,
+        callback: R,
     );
 
-    fn connect_to_uri_async_future(
+    fn connect_to_uri_async_future<'s, P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static>(
         &self,
-        uri: &str,
+        uri: &'static P,
         default_port: u16,
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<SocketConnection, glib::Error>> + 'static>>;
 
@@ -263,7 +283,7 @@ pub trait SocketClientExt: 'static {
 }
 
 impl<O: IsA<SocketClient>> SocketClientExt for O {
-    fn add_application_proxy(&self, protocol: &str) {
+    fn add_application_proxy<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, protocol: &'s P) {
         unsafe {
             ffi::g_socket_client_add_application_proxy(
                 self.as_ref().to_glib_none().0,
@@ -350,11 +370,11 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
         }))
     }
 
-    fn connect_to_host<P: IsA<Cancellable>>(
+    fn connect_to_host<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
         &self,
-        host_and_port: &str,
+        host_and_port: &'s P,
         default_port: u16,
-        cancellable: Option<&P>,
+        cancellable: Option<&Q>,
     ) -> Result<SocketConnection, glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
@@ -374,18 +394,20 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
     }
 
     fn connect_to_host_async<
-        P: IsA<Cancellable>,
-        Q: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: IsA<Cancellable>,
+        R: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
     >(
         &self,
-        host_and_port: &str,
+        host_and_port: &'static P,
         default_port: u16,
-        cancellable: Option<&P>,
-        callback: Q,
+        cancellable: Option<&Q>,
+        callback: R,
     ) {
-        let user_data: Box_<Q> = Box_::new(callback);
+        let user_data: Box_<R> = Box_::new(callback);
         unsafe extern "C" fn connect_to_host_async_trampoline<
-            Q: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
+            R: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
         >(
             _source_object: *mut glib::gobject_ffi::GObject,
             res: *mut crate::ffi::GAsyncResult,
@@ -402,10 +424,10 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
             } else {
                 Err(from_glib_full(error))
             };
-            let callback: Box_<Q> = Box_::from_raw(user_data as *mut _);
+            let callback: Box_<R> = Box_::from_raw(user_data as *mut _);
             callback(result);
         }
-        let callback = connect_to_host_async_trampoline::<Q>;
+        let callback = connect_to_host_async_trampoline::<R>;
         unsafe {
             ffi::g_socket_client_connect_to_host_async(
                 self.as_ref().to_glib_none().0,
@@ -418,17 +440,19 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
         }
     }
 
-    fn connect_to_host_async_future(
+    fn connect_to_host_async_future<
+        's,
+        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+    >(
         &self,
-        host_and_port: &str,
+        host_and_port: &'static P,
         default_port: u16,
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<SocketConnection, glib::Error>> + 'static>>
     {
-        let host_and_port = String::from(host_and_port);
         Box_::pin(crate::GioFuture::new(self, move |obj, send| {
             let cancellable = Cancellable::new();
             obj.connect_to_host_async(
-                &host_and_port,
+                host_and_port,
                 default_port,
                 Some(&cancellable),
                 move |res| {
@@ -440,11 +464,16 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
         }))
     }
 
-    fn connect_to_service<P: IsA<Cancellable>>(
+    fn connect_to_service<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        R: IsA<Cancellable>,
+    >(
         &self,
-        domain: &str,
-        service: &str,
-        cancellable: Option<&P>,
+        domain: &'s P,
+        service: &'s Q,
+        cancellable: Option<&R>,
     ) -> Result<SocketConnection, glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
@@ -464,18 +493,21 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
     }
 
     fn connect_to_service_async<
-        P: IsA<Cancellable>,
-        Q: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        R: IsA<Cancellable>,
+        S: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
     >(
         &self,
-        domain: &str,
-        service: &str,
-        cancellable: Option<&P>,
-        callback: Q,
+        domain: &'static P,
+        service: &'static Q,
+        cancellable: Option<&R>,
+        callback: S,
     ) {
-        let user_data: Box_<Q> = Box_::new(callback);
+        let user_data: Box_<S> = Box_::new(callback);
         unsafe extern "C" fn connect_to_service_async_trampoline<
-            Q: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
+            S: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
         >(
             _source_object: *mut glib::gobject_ffi::GObject,
             res: *mut crate::ffi::GAsyncResult,
@@ -492,10 +524,10 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
             } else {
                 Err(from_glib_full(error))
             };
-            let callback: Box_<Q> = Box_::from_raw(user_data as *mut _);
+            let callback: Box_<S> = Box_::from_raw(user_data as *mut _);
             callback(result);
         }
-        let callback = connect_to_service_async_trampoline::<Q>;
+        let callback = connect_to_service_async_trampoline::<S>;
         unsafe {
             ffi::g_socket_client_connect_to_service_async(
                 self.as_ref().to_glib_none().0,
@@ -508,17 +540,19 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
         }
     }
 
-    fn connect_to_service_async_future(
+    fn connect_to_service_async_future<
+        's,
+        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        Q: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+    >(
         &self,
-        domain: &str,
-        service: &str,
+        domain: &'static P,
+        service: &'static Q,
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<SocketConnection, glib::Error>> + 'static>>
     {
-        let domain = String::from(domain);
-        let service = String::from(service);
         Box_::pin(crate::GioFuture::new(self, move |obj, send| {
             let cancellable = Cancellable::new();
-            obj.connect_to_service_async(&domain, &service, Some(&cancellable), move |res| {
+            obj.connect_to_service_async(domain, service, Some(&cancellable), move |res| {
                 send.resolve(res);
             });
 
@@ -526,11 +560,11 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
         }))
     }
 
-    fn connect_to_uri<P: IsA<Cancellable>>(
+    fn connect_to_uri<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
         &self,
-        uri: &str,
+        uri: &'s P,
         default_port: u16,
-        cancellable: Option<&P>,
+        cancellable: Option<&Q>,
     ) -> Result<SocketConnection, glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
@@ -550,18 +584,20 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
     }
 
     fn connect_to_uri_async<
-        P: IsA<Cancellable>,
-        Q: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: IsA<Cancellable>,
+        R: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
     >(
         &self,
-        uri: &str,
+        uri: &'static P,
         default_port: u16,
-        cancellable: Option<&P>,
-        callback: Q,
+        cancellable: Option<&Q>,
+        callback: R,
     ) {
-        let user_data: Box_<Q> = Box_::new(callback);
+        let user_data: Box_<R> = Box_::new(callback);
         unsafe extern "C" fn connect_to_uri_async_trampoline<
-            Q: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
+            R: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
         >(
             _source_object: *mut glib::gobject_ffi::GObject,
             res: *mut crate::ffi::GAsyncResult,
@@ -578,10 +614,10 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
             } else {
                 Err(from_glib_full(error))
             };
-            let callback: Box_<Q> = Box_::from_raw(user_data as *mut _);
+            let callback: Box_<R> = Box_::from_raw(user_data as *mut _);
             callback(result);
         }
-        let callback = connect_to_uri_async_trampoline::<Q>;
+        let callback = connect_to_uri_async_trampoline::<R>;
         unsafe {
             ffi::g_socket_client_connect_to_uri_async(
                 self.as_ref().to_glib_none().0,
@@ -594,16 +630,18 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
         }
     }
 
-    fn connect_to_uri_async_future(
+    fn connect_to_uri_async_future<
+        's,
+        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+    >(
         &self,
-        uri: &str,
+        uri: &'static P,
         default_port: u16,
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<SocketConnection, glib::Error>> + 'static>>
     {
-        let uri = String::from(uri);
         Box_::pin(crate::GioFuture::new(self, move |obj, send| {
             let cancellable = Cancellable::new();
-            obj.connect_to_uri_async(&uri, default_port, Some(&cancellable), move |res| {
+            obj.connect_to_uri_async(uri, default_port, Some(&cancellable), move |res| {
                 send.resolve(res);
             });
 

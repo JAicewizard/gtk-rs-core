@@ -13,6 +13,7 @@ use glib::signal::SignalHandlerId;
 use glib::translate::*;
 use glib::StaticType;
 use glib::ToValue;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -31,7 +32,11 @@ pub const NONE_DBUS_INTERFACE_SKELETON: Option<&DBusInterfaceSkeleton> = None;
 
 pub trait DBusInterfaceSkeletonExt: 'static {
     #[doc(alias = "g_dbus_interface_skeleton_export")]
-    fn export(&self, connection: &DBusConnection, object_path: &str) -> Result<(), glib::Error>;
+    fn export<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        connection: &DBusConnection,
+        object_path: &'s P,
+    ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_dbus_interface_skeleton_flush")]
     fn flush(&self);
@@ -89,7 +94,11 @@ pub trait DBusInterfaceSkeletonExt: 'static {
 }
 
 impl<O: IsA<DBusInterfaceSkeleton>> DBusInterfaceSkeletonExt for O {
-    fn export(&self, connection: &DBusConnection, object_path: &str) -> Result<(), glib::Error> {
+    fn export<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        connection: &DBusConnection,
+        object_path: &'s P,
+    ) -> Result<(), glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let _ = ffi::g_dbus_interface_skeleton_export(

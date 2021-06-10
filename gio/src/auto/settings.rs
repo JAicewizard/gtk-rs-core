@@ -11,6 +11,7 @@ use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
 use glib::StaticType;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -26,7 +27,7 @@ glib::wrapper! {
 
 impl Settings {
     #[doc(alias = "g_settings_new")]
-    pub fn new(schema_id: &str) -> Settings {
+    pub fn new<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(schema_id: &'s P) -> Settings {
         unsafe { from_glib_full(ffi::g_settings_new(schema_id.to_glib_none().0)) }
     }
 
@@ -47,7 +48,10 @@ impl Settings {
 
     #[doc(alias = "g_settings_new_with_backend")]
     #[doc(alias = "new_with_backend")]
-    pub fn with_backend<P: IsA<SettingsBackend>>(schema_id: &str, backend: &P) -> Settings {
+    pub fn with_backend<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<SettingsBackend>>(
+        schema_id: &'s P,
+        backend: &Q,
+    ) -> Settings {
         unsafe {
             from_glib_full(ffi::g_settings_new_with_backend(
                 schema_id.to_glib_none().0,
@@ -58,10 +62,15 @@ impl Settings {
 
     #[doc(alias = "g_settings_new_with_backend_and_path")]
     #[doc(alias = "new_with_backend_and_path")]
-    pub fn with_backend_and_path<P: IsA<SettingsBackend>>(
-        schema_id: &str,
-        backend: &P,
-        path: &str,
+    pub fn with_backend_and_path<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: IsA<SettingsBackend>,
+        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        schema_id: &'s P,
+        backend: &Q,
+        path: &'s R,
     ) -> Settings {
         unsafe {
             from_glib_full(ffi::g_settings_new_with_backend_and_path(
@@ -74,7 +83,14 @@ impl Settings {
 
     #[doc(alias = "g_settings_new_with_path")]
     #[doc(alias = "new_with_path")]
-    pub fn with_path(schema_id: &str, path: &str) -> Settings {
+    pub fn with_path<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        schema_id: &'s P,
+        path: &'s Q,
+    ) -> Settings {
         unsafe {
             from_glib_full(ffi::g_settings_new_with_path(
                 schema_id.to_glib_none().0,
@@ -91,7 +107,10 @@ impl Settings {
     }
 
     #[doc(alias = "g_settings_unbind")]
-    pub fn unbind<P: IsA<glib::Object>>(object: &P, property: &str) {
+    pub fn unbind<'s, P: IsA<glib::Object>, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        object: &P,
+        property: &'s Q,
+    ) {
         unsafe {
             ffi::g_settings_unbind(object.as_ref().to_glib_none().0, property.to_glib_none().0);
         }
@@ -105,46 +124,54 @@ pub trait SettingsExt: 'static {
     fn apply(&self);
 
     #[doc(alias = "g_settings_bind_writable")]
-    fn bind_writable<P: IsA<glib::Object>>(
+    fn bind_writable<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: IsA<glib::Object>,
+        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
         &self,
-        key: &str,
-        object: &P,
-        property: &str,
+        key: &'s P,
+        object: &Q,
+        property: &'s R,
         inverted: bool,
     );
 
     #[doc(alias = "g_settings_create_action")]
-    fn create_action(&self, key: &str) -> Action;
+    fn create_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> Action;
 
     #[doc(alias = "g_settings_delay")]
     fn delay(&self);
 
     //#[doc(alias = "g_settings_get")]
-    //fn get(&self, key: &str, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs);
+    //fn get<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: & 's P, format: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs);
 
     #[doc(alias = "g_settings_get_boolean")]
     #[doc(alias = "get_boolean")]
-    fn boolean(&self, key: &str) -> bool;
+    fn boolean<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> bool;
 
     #[doc(alias = "g_settings_get_child")]
     #[doc(alias = "get_child")]
-    fn child(&self, name: &str) -> Settings;
+    fn child<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, name: &'s P) -> Settings;
 
     #[doc(alias = "g_settings_get_default_value")]
     #[doc(alias = "get_default_value")]
-    fn default_value(&self, key: &str) -> Option<glib::Variant>;
+    fn default_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+    ) -> Option<glib::Variant>;
 
     #[doc(alias = "g_settings_get_double")]
     #[doc(alias = "get_double")]
-    fn double(&self, key: &str) -> f64;
+    fn double<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> f64;
 
     #[doc(alias = "g_settings_get_enum")]
     #[doc(alias = "get_enum")]
-    fn enum_(&self, key: &str) -> i32;
+    fn enum_<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> i32;
 
     #[doc(alias = "g_settings_get_flags")]
     #[doc(alias = "get_flags")]
-    fn flags(&self, key: &str) -> u32;
+    fn flags<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> u32;
 
     #[doc(alias = "g_settings_get_has_unapplied")]
     #[doc(alias = "get_has_unapplied")]
@@ -152,95 +179,146 @@ pub trait SettingsExt: 'static {
 
     #[doc(alias = "g_settings_get_int")]
     #[doc(alias = "get_int")]
-    fn int(&self, key: &str) -> i32;
+    fn int<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> i32;
 
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
     #[doc(alias = "g_settings_get_int64")]
     #[doc(alias = "get_int64")]
-    fn int64(&self, key: &str) -> i64;
+    fn int64<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> i64;
 
     //#[doc(alias = "g_settings_get_mapped")]
     //#[doc(alias = "get_mapped")]
-    //fn mapped(&self, key: &str, mapping: /*Unimplemented*/FnMut(&glib::Variant, /*Unimplemented*/Option<Fundamental: Pointer>) -> bool, user_data: /*Unimplemented*/Option<Fundamental: Pointer>) -> /*Unimplemented*/Option<Fundamental: Pointer>;
+    //fn mapped<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: & 's P, mapping: /*Unimplemented*/FnMut(&glib::Variant, /*Unimplemented*/Option<Fundamental: Pointer>) -> bool, user_data: /*Unimplemented*/Option<Fundamental: Pointer>) -> /*Unimplemented*/Option<Fundamental: Pointer>;
 
     #[doc(alias = "g_settings_get_string")]
     #[doc(alias = "get_string")]
-    fn string(&self, key: &str) -> glib::GString;
+    fn string<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> glib::GString;
 
     #[doc(alias = "g_settings_get_strv")]
     #[doc(alias = "get_strv")]
-    fn strv(&self, key: &str) -> Vec<glib::GString>;
+    fn strv<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> Vec<glib::GString>;
 
     #[doc(alias = "g_settings_get_uint")]
     #[doc(alias = "get_uint")]
-    fn uint(&self, key: &str) -> u32;
+    fn uint<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> u32;
 
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
     #[doc(alias = "g_settings_get_uint64")]
     #[doc(alias = "get_uint64")]
-    fn uint64(&self, key: &str) -> u64;
+    fn uint64<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> u64;
 
     #[doc(alias = "g_settings_get_user_value")]
     #[doc(alias = "get_user_value")]
-    fn user_value(&self, key: &str) -> Option<glib::Variant>;
+    fn user_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+    ) -> Option<glib::Variant>;
 
     #[doc(alias = "g_settings_get_value")]
     #[doc(alias = "get_value")]
-    fn value(&self, key: &str) -> glib::Variant;
+    fn value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> glib::Variant;
 
     #[doc(alias = "g_settings_is_writable")]
-    fn is_writable(&self, name: &str) -> bool;
+    fn is_writable<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, name: &'s P) -> bool;
 
     #[doc(alias = "g_settings_list_children")]
     fn list_children(&self) -> Vec<glib::GString>;
 
     #[doc(alias = "g_settings_reset")]
-    fn reset(&self, key: &str);
+    fn reset<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P);
 
     #[doc(alias = "g_settings_revert")]
     fn revert(&self);
 
     //#[doc(alias = "g_settings_set")]
-    //fn set(&self, key: &str, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool;
+    //fn set<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: & 's P, format: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool;
 
     #[doc(alias = "g_settings_set_boolean")]
-    fn set_boolean(&self, key: &str, value: bool) -> Result<(), glib::error::BoolError>;
+    fn set_boolean<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: bool,
+    ) -> Result<(), glib::error::BoolError>;
 
     #[doc(alias = "g_settings_set_double")]
-    fn set_double(&self, key: &str, value: f64) -> Result<(), glib::error::BoolError>;
+    fn set_double<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: f64,
+    ) -> Result<(), glib::error::BoolError>;
 
     #[doc(alias = "g_settings_set_enum")]
-    fn set_enum(&self, key: &str, value: i32) -> Result<(), glib::error::BoolError>;
+    fn set_enum<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: i32,
+    ) -> Result<(), glib::error::BoolError>;
 
     #[doc(alias = "g_settings_set_flags")]
-    fn set_flags(&self, key: &str, value: u32) -> Result<(), glib::error::BoolError>;
+    fn set_flags<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: u32,
+    ) -> Result<(), glib::error::BoolError>;
 
     #[doc(alias = "g_settings_set_int")]
-    fn set_int(&self, key: &str, value: i32) -> Result<(), glib::error::BoolError>;
+    fn set_int<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: i32,
+    ) -> Result<(), glib::error::BoolError>;
 
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
     #[doc(alias = "g_settings_set_int64")]
-    fn set_int64(&self, key: &str, value: i64) -> Result<(), glib::error::BoolError>;
+    fn set_int64<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: i64,
+    ) -> Result<(), glib::error::BoolError>;
 
     #[doc(alias = "g_settings_set_string")]
-    fn set_string(&self, key: &str, value: &str) -> Result<(), glib::error::BoolError>;
+    fn set_string<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        key: &'s P,
+        value: &'s Q,
+    ) -> Result<(), glib::error::BoolError>;
 
     #[doc(alias = "g_settings_set_strv")]
-    fn set_strv(&self, key: &str, value: &[&str]) -> Result<(), glib::error::BoolError>;
+    fn set_strv<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: &[&str],
+    ) -> Result<(), glib::error::BoolError>;
 
     #[doc(alias = "g_settings_set_uint")]
-    fn set_uint(&self, key: &str, value: u32) -> Result<(), glib::error::BoolError>;
+    fn set_uint<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: u32,
+    ) -> Result<(), glib::error::BoolError>;
 
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
     #[doc(alias = "g_settings_set_uint64")]
-    fn set_uint64(&self, key: &str, value: u64) -> Result<(), glib::error::BoolError>;
+    fn set_uint64<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: u64,
+    ) -> Result<(), glib::error::BoolError>;
 
     #[doc(alias = "g_settings_set_value")]
-    fn set_value(&self, key: &str, value: &glib::Variant) -> Result<(), glib::error::BoolError>;
+    fn set_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: &glib::Variant,
+    ) -> Result<(), glib::error::BoolError>;
 
     fn backend(&self) -> Option<SettingsBackend>;
 
@@ -292,11 +370,16 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn bind_writable<P: IsA<glib::Object>>(
+    fn bind_writable<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: IsA<glib::Object>,
+        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
         &self,
-        key: &str,
-        object: &P,
-        property: &str,
+        key: &'s P,
+        object: &Q,
+        property: &'s R,
         inverted: bool,
     ) {
         unsafe {
@@ -310,7 +393,7 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn create_action(&self, key: &str) -> Action {
+    fn create_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> Action {
         unsafe {
             from_glib_full(ffi::g_settings_create_action(
                 self.as_ref().to_glib_none().0,
@@ -325,11 +408,11 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    //fn get(&self, key: &str, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+    //fn get<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: & 's P, format: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
     //    unsafe { TODO: call ffi:g_settings_get() }
     //}
 
-    fn boolean(&self, key: &str) -> bool {
+    fn boolean<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> bool {
         unsafe {
             from_glib(ffi::g_settings_get_boolean(
                 self.as_ref().to_glib_none().0,
@@ -338,7 +421,7 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn child(&self, name: &str) -> Settings {
+    fn child<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, name: &'s P) -> Settings {
         unsafe {
             from_glib_full(ffi::g_settings_get_child(
                 self.as_ref().to_glib_none().0,
@@ -347,7 +430,10 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn default_value(&self, key: &str) -> Option<glib::Variant> {
+    fn default_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+    ) -> Option<glib::Variant> {
         unsafe {
             from_glib_full(ffi::g_settings_get_default_value(
                 self.as_ref().to_glib_none().0,
@@ -356,15 +442,15 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn double(&self, key: &str) -> f64 {
+    fn double<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> f64 {
         unsafe { ffi::g_settings_get_double(self.as_ref().to_glib_none().0, key.to_glib_none().0) }
     }
 
-    fn enum_(&self, key: &str) -> i32 {
+    fn enum_<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> i32 {
         unsafe { ffi::g_settings_get_enum(self.as_ref().to_glib_none().0, key.to_glib_none().0) }
     }
 
-    fn flags(&self, key: &str) -> u32 {
+    fn flags<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> u32 {
         unsafe { ffi::g_settings_get_flags(self.as_ref().to_glib_none().0, key.to_glib_none().0) }
     }
 
@@ -376,21 +462,21 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn int(&self, key: &str) -> i32 {
+    fn int<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> i32 {
         unsafe { ffi::g_settings_get_int(self.as_ref().to_glib_none().0, key.to_glib_none().0) }
     }
 
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
-    fn int64(&self, key: &str) -> i64 {
+    fn int64<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> i64 {
         unsafe { ffi::g_settings_get_int64(self.as_ref().to_glib_none().0, key.to_glib_none().0) }
     }
 
-    //fn mapped(&self, key: &str, mapping: /*Unimplemented*/FnMut(&glib::Variant, /*Unimplemented*/Option<Fundamental: Pointer>) -> bool, user_data: /*Unimplemented*/Option<Fundamental: Pointer>) -> /*Unimplemented*/Option<Fundamental: Pointer> {
+    //fn mapped<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: & 's P, mapping: /*Unimplemented*/FnMut(&glib::Variant, /*Unimplemented*/Option<Fundamental: Pointer>) -> bool, user_data: /*Unimplemented*/Option<Fundamental: Pointer>) -> /*Unimplemented*/Option<Fundamental: Pointer> {
     //    unsafe { TODO: call ffi:g_settings_get_mapped() }
     //}
 
-    fn string(&self, key: &str) -> glib::GString {
+    fn string<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> glib::GString {
         unsafe {
             from_glib_full(ffi::g_settings_get_string(
                 self.as_ref().to_glib_none().0,
@@ -399,7 +485,7 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn strv(&self, key: &str) -> Vec<glib::GString> {
+    fn strv<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> Vec<glib::GString> {
         unsafe {
             FromGlibPtrContainer::from_glib_full(ffi::g_settings_get_strv(
                 self.as_ref().to_glib_none().0,
@@ -408,17 +494,20 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn uint(&self, key: &str) -> u32 {
+    fn uint<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> u32 {
         unsafe { ffi::g_settings_get_uint(self.as_ref().to_glib_none().0, key.to_glib_none().0) }
     }
 
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
-    fn uint64(&self, key: &str) -> u64 {
+    fn uint64<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> u64 {
         unsafe { ffi::g_settings_get_uint64(self.as_ref().to_glib_none().0, key.to_glib_none().0) }
     }
 
-    fn user_value(&self, key: &str) -> Option<glib::Variant> {
+    fn user_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+    ) -> Option<glib::Variant> {
         unsafe {
             from_glib_full(ffi::g_settings_get_user_value(
                 self.as_ref().to_glib_none().0,
@@ -427,7 +516,7 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn value(&self, key: &str) -> glib::Variant {
+    fn value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> glib::Variant {
         unsafe {
             from_glib_full(ffi::g_settings_get_value(
                 self.as_ref().to_glib_none().0,
@@ -436,7 +525,7 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn is_writable(&self, name: &str) -> bool {
+    fn is_writable<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, name: &'s P) -> bool {
         unsafe {
             from_glib(ffi::g_settings_is_writable(
                 self.as_ref().to_glib_none().0,
@@ -453,7 +542,7 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn reset(&self, key: &str) {
+    fn reset<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) {
         unsafe {
             ffi::g_settings_reset(self.as_ref().to_glib_none().0, key.to_glib_none().0);
         }
@@ -465,11 +554,15 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    //fn set(&self, key: &str, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
+    //fn set<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: & 's P, format: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
     //    unsafe { TODO: call ffi:g_settings_set() }
     //}
 
-    fn set_boolean(&self, key: &str, value: bool) -> Result<(), glib::error::BoolError> {
+    fn set_boolean<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: bool,
+    ) -> Result<(), glib::error::BoolError> {
         unsafe {
             glib::result_from_gboolean!(
                 ffi::g_settings_set_boolean(
@@ -482,7 +575,11 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn set_double(&self, key: &str, value: f64) -> Result<(), glib::error::BoolError> {
+    fn set_double<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: f64,
+    ) -> Result<(), glib::error::BoolError> {
         unsafe {
             glib::result_from_gboolean!(
                 ffi::g_settings_set_double(
@@ -495,7 +592,11 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn set_enum(&self, key: &str, value: i32) -> Result<(), glib::error::BoolError> {
+    fn set_enum<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: i32,
+    ) -> Result<(), glib::error::BoolError> {
         unsafe {
             glib::result_from_gboolean!(
                 ffi::g_settings_set_enum(
@@ -508,7 +609,11 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn set_flags(&self, key: &str, value: u32) -> Result<(), glib::error::BoolError> {
+    fn set_flags<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: u32,
+    ) -> Result<(), glib::error::BoolError> {
         unsafe {
             glib::result_from_gboolean!(
                 ffi::g_settings_set_flags(
@@ -521,7 +626,11 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn set_int(&self, key: &str, value: i32) -> Result<(), glib::error::BoolError> {
+    fn set_int<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: i32,
+    ) -> Result<(), glib::error::BoolError> {
         unsafe {
             glib::result_from_gboolean!(
                 ffi::g_settings_set_int(
@@ -536,7 +645,11 @@ impl<O: IsA<Settings>> SettingsExt for O {
 
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
-    fn set_int64(&self, key: &str, value: i64) -> Result<(), glib::error::BoolError> {
+    fn set_int64<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: i64,
+    ) -> Result<(), glib::error::BoolError> {
         unsafe {
             glib::result_from_gboolean!(
                 ffi::g_settings_set_int64(
@@ -549,7 +662,15 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn set_string(&self, key: &str, value: &str) -> Result<(), glib::error::BoolError> {
+    fn set_string<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        key: &'s P,
+        value: &'s Q,
+    ) -> Result<(), glib::error::BoolError> {
         unsafe {
             glib::result_from_gboolean!(
                 ffi::g_settings_set_string(
@@ -562,7 +683,11 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn set_strv(&self, key: &str, value: &[&str]) -> Result<(), glib::error::BoolError> {
+    fn set_strv<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: &[&str],
+    ) -> Result<(), glib::error::BoolError> {
         unsafe {
             glib::result_from_gboolean!(
                 ffi::g_settings_set_strv(
@@ -575,7 +700,11 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn set_uint(&self, key: &str, value: u32) -> Result<(), glib::error::BoolError> {
+    fn set_uint<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: u32,
+    ) -> Result<(), glib::error::BoolError> {
         unsafe {
             glib::result_from_gboolean!(
                 ffi::g_settings_set_uint(
@@ -590,7 +719,11 @@ impl<O: IsA<Settings>> SettingsExt for O {
 
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
-    fn set_uint64(&self, key: &str, value: u64) -> Result<(), glib::error::BoolError> {
+    fn set_uint64<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: u64,
+    ) -> Result<(), glib::error::BoolError> {
         unsafe {
             glib::result_from_gboolean!(
                 ffi::g_settings_set_uint64(
@@ -603,7 +736,11 @@ impl<O: IsA<Settings>> SettingsExt for O {
         }
     }
 
-    fn set_value(&self, key: &str, value: &glib::Variant) -> Result<(), glib::error::BoolError> {
+    fn set_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+        value: &glib::Variant,
+    ) -> Result<(), glib::error::BoolError> {
         unsafe {
             glib::result_from_gboolean!(
                 ffi::g_settings_set_value(

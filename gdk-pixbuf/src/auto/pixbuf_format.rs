@@ -3,6 +3,9 @@
 // DO NOT EDIT
 
 use glib::translate::*;
+#[cfg(any(feature = "v2_36", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v2_36")))]
+use libc::c_char;
 
 glib::wrapper! {
     #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -78,7 +81,10 @@ impl PixbufFormat {
     #[cfg(any(feature = "v2_36", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_36")))]
     #[doc(alias = "gdk_pixbuf_format_is_save_option_supported")]
-    pub fn is_save_option_supported(&self, option_key: &str) -> bool {
+    pub fn is_save_option_supported<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        option_key: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::gdk_pixbuf_format_is_save_option_supported(
                 mut_override(self.to_glib_none().0),

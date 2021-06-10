@@ -89,7 +89,7 @@ impl Task {
     }
 
     //#[doc(alias = "g_task_return_new_error")]
-    //pub fn return_new_error(&self, domain: glib::Quark, code: i32, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+    //pub fn return_new_error<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, domain: glib::Quark, code: i32, format: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
     //    unsafe { TODO: call ffi:g_task_return_new_error() }
     //}
 
@@ -158,7 +158,7 @@ impl Task {
     //}
 
     //#[doc(alias = "g_task_report_new_error")]
-    //pub fn report_new_error<P: FnOnce(Result<(), glib::Error>) + 'static>(source_object: Option<&glib::Object>, callback: P, source_tag: /*Unimplemented*/Option<Fundamental: Pointer>, domain: glib::Quark, code: i32, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+    //pub fn report_new_error<'s, P: FnOnce(Result<(), glib::Error>) + 'static, Q: ToGlibPtr<'s, *const libc::c_char> + 's>(source_object: Option<&glib::Object>, callback: P, source_tag: /*Unimplemented*/Option<Fundamental: Pointer>, domain: glib::Quark, code: i32, format: &'static Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
     //    unsafe { TODO: call ffi:g_task_report_new_error() }
     //}
 

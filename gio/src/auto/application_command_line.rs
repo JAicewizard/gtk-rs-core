@@ -65,10 +65,10 @@ pub trait ApplicationCommandLineExt: 'static {
     fn getenv<P: AsRef<std::ffi::OsStr>>(&self, name: P) -> Option<glib::GString>;
 
     //#[doc(alias = "g_application_command_line_print")]
-    //fn print(&self, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs);
+    //fn print<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, format: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs);
 
     //#[doc(alias = "g_application_command_line_printerr")]
-    //fn printerr(&self, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs);
+    //fn printerr<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, format: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs);
 
     #[doc(alias = "g_application_command_line_set_exit_status")]
     fn set_exit_status(&self, exit_status: i32);
@@ -162,11 +162,11 @@ impl<O: IsA<ApplicationCommandLine>> ApplicationCommandLineExt for O {
         }
     }
 
-    //fn print(&self, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+    //fn print<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, format: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
     //    unsafe { TODO: call ffi:g_application_command_line_print() }
     //}
 
-    //fn printerr(&self, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+    //fn printerr<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, format: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
     //    unsafe { TODO: call ffi:g_application_command_line_printerr() }
     //}
 

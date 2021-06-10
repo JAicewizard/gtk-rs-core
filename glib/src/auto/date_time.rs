@@ -6,6 +6,7 @@ use crate::translate::*;
 use crate::BoolError;
 use crate::TimeSpan;
 use crate::TimeZone;
+use libc::c_char;
 use std::cmp;
 use std::hash;
 use std::mem;
@@ -50,7 +51,10 @@ impl DateTime {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
     #[doc(alias = "g_date_time_new_from_iso8601")]
     #[doc(alias = "new_from_iso8601")]
-    pub fn from_iso8601(text: &str, default_tz: Option<&TimeZone>) -> Result<DateTime, BoolError> {
+    pub fn from_iso8601<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        text: &'s P,
+        default_tz: Option<&TimeZone>,
+    ) -> Result<DateTime, BoolError> {
         unsafe {
             Option::<_>::from_glib_full(ffi::g_date_time_new_from_iso8601(
                 text.to_glib_none().0,
@@ -270,7 +274,10 @@ impl DateTime {
     }
 
     #[doc(alias = "g_date_time_format")]
-    pub fn format(&self, format: &str) -> Result<crate::GString, BoolError> {
+    pub fn format<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        format: &'s P,
+    ) -> Result<crate::GString, BoolError> {
         unsafe {
             Option::<_>::from_glib_full(ffi::g_date_time_format(
                 self.to_glib_none().0,

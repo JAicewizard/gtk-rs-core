@@ -6,6 +6,7 @@ use crate::Icon;
 use crate::MenuModel;
 use glib::object::IsA;
 use glib::translate::*;
+use libc::c_char;
 use std::fmt;
 
 glib::wrapper! {
@@ -61,15 +62,15 @@ impl MenuItem {
 
     //#[doc(alias = "g_menu_item_get_attribute")]
     //#[doc(alias = "get_attribute")]
-    //pub fn is_attribute(&self, attribute: &str, format_string: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
+    //pub fn is_attribute<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, attribute: & 's P, format_string: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
     //    unsafe { TODO: call ffi:g_menu_item_get_attribute() }
     //}
 
     #[doc(alias = "g_menu_item_get_attribute_value")]
     #[doc(alias = "get_attribute_value")]
-    pub fn attribute_value(
+    pub fn attribute_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
         &self,
-        attribute: &str,
+        attribute: &'s P,
         expected_type: Option<&glib::VariantTy>,
     ) -> Option<glib::Variant> {
         unsafe {
@@ -83,7 +84,10 @@ impl MenuItem {
 
     #[doc(alias = "g_menu_item_get_link")]
     #[doc(alias = "get_link")]
-    pub fn link(&self, link: &str) -> Option<MenuModel> {
+    pub fn link<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        link: &'s P,
+    ) -> Option<MenuModel> {
         unsafe {
             from_glib_full(ffi::g_menu_item_get_link(
                 self.to_glib_none().0,
@@ -113,12 +117,16 @@ impl MenuItem {
     }
 
     //#[doc(alias = "g_menu_item_set_attribute")]
-    //pub fn set_attribute(&self, attribute: &str, format_string: Option<&str>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+    //pub fn set_attribute<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, attribute: & 's P, format_string: Option<&str>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
     //    unsafe { TODO: call ffi:g_menu_item_set_attribute() }
     //}
 
     #[doc(alias = "g_menu_item_set_attribute_value")]
-    pub fn set_attribute_value(&self, attribute: &str, value: Option<&glib::Variant>) {
+    pub fn set_attribute_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+        value: Option<&glib::Variant>,
+    ) {
         unsafe {
             ffi::g_menu_item_set_attribute_value(
                 self.to_glib_none().0,
@@ -129,7 +137,10 @@ impl MenuItem {
     }
 
     #[doc(alias = "g_menu_item_set_detailed_action")]
-    pub fn set_detailed_action(&self, detailed_action: &str) {
+    pub fn set_detailed_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        detailed_action: &'s P,
+    ) {
         unsafe {
             ffi::g_menu_item_set_detailed_action(
                 self.to_glib_none().0,
@@ -153,7 +164,11 @@ impl MenuItem {
     }
 
     #[doc(alias = "g_menu_item_set_link")]
-    pub fn set_link<P: IsA<MenuModel>>(&self, link: &str, model: Option<&P>) {
+    pub fn set_link<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<MenuModel>>(
+        &self,
+        link: &'s P,
+        model: Option<&Q>,
+    ) {
         unsafe {
             ffi::g_menu_item_set_link(
                 self.to_glib_none().0,

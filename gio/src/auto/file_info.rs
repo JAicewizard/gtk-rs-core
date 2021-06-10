@@ -9,6 +9,7 @@ use crate::FileType;
 use crate::Icon;
 use glib::object::IsA;
 use glib::translate::*;
+use libc::c_char;
 use std::fmt;
 
 glib::wrapper! {
@@ -47,7 +48,10 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_as_string")]
     #[doc(alias = "get_attribute_as_string")]
-    pub fn attribute_as_string(&self, attribute: &str) -> Option<glib::GString> {
+    pub fn attribute_as_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) -> Option<glib::GString> {
         unsafe {
             from_glib_full(ffi::g_file_info_get_attribute_as_string(
                 self.to_glib_none().0,
@@ -58,7 +62,10 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_boolean")]
     #[doc(alias = "get_attribute_boolean")]
-    pub fn boolean(&self, attribute: &str) -> bool {
+    pub fn boolean<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::g_file_info_get_attribute_boolean(
                 self.to_glib_none().0,
@@ -69,7 +76,10 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_byte_string")]
     #[doc(alias = "get_attribute_byte_string")]
-    pub fn attribute_byte_string(&self, attribute: &str) -> Option<glib::GString> {
+    pub fn attribute_byte_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) -> Option<glib::GString> {
         unsafe {
             from_glib_none(ffi::g_file_info_get_attribute_byte_string(
                 self.to_glib_none().0,
@@ -80,13 +90,16 @@ impl FileInfo {
 
     //#[doc(alias = "g_file_info_get_attribute_data")]
     //#[doc(alias = "get_attribute_data")]
-    //pub fn attribute_data(&self, attribute: &str, value_pp: /*Unimplemented*/&mut Fundamental: Pointer) -> Option<(FileAttributeType, FileAttributeStatus)> {
+    //pub fn attribute_data<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, attribute: & 's P, value_pp: /*Unimplemented*/&mut Fundamental: Pointer) -> Option<(FileAttributeType, FileAttributeStatus)> {
     //    unsafe { TODO: call ffi:g_file_info_get_attribute_data() }
     //}
 
     #[doc(alias = "g_file_info_get_attribute_int32")]
     #[doc(alias = "get_attribute_int32")]
-    pub fn attribute_int32(&self, attribute: &str) -> i32 {
+    pub fn attribute_int32<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) -> i32 {
         unsafe {
             ffi::g_file_info_get_attribute_int32(self.to_glib_none().0, attribute.to_glib_none().0)
         }
@@ -94,7 +107,10 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_int64")]
     #[doc(alias = "get_attribute_int64")]
-    pub fn attribute_int64(&self, attribute: &str) -> i64 {
+    pub fn attribute_int64<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) -> i64 {
         unsafe {
             ffi::g_file_info_get_attribute_int64(self.to_glib_none().0, attribute.to_glib_none().0)
         }
@@ -102,7 +118,10 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_object")]
     #[doc(alias = "get_attribute_object")]
-    pub fn attribute_object(&self, attribute: &str) -> Option<glib::Object> {
+    pub fn attribute_object<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) -> Option<glib::Object> {
         unsafe {
             from_glib_none(ffi::g_file_info_get_attribute_object(
                 self.to_glib_none().0,
@@ -113,7 +132,10 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_status")]
     #[doc(alias = "get_attribute_status")]
-    pub fn attribute_status(&self, attribute: &str) -> FileAttributeStatus {
+    pub fn attribute_status<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) -> FileAttributeStatus {
         unsafe {
             from_glib(ffi::g_file_info_get_attribute_status(
                 self.to_glib_none().0,
@@ -124,7 +146,10 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_string")]
     #[doc(alias = "get_attribute_string")]
-    pub fn attribute_string(&self, attribute: &str) -> Option<glib::GString> {
+    pub fn attribute_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) -> Option<glib::GString> {
         unsafe {
             from_glib_none(ffi::g_file_info_get_attribute_string(
                 self.to_glib_none().0,
@@ -135,7 +160,10 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_stringv")]
     #[doc(alias = "get_attribute_stringv")]
-    pub fn attribute_stringv(&self, attribute: &str) -> Vec<glib::GString> {
+    pub fn attribute_stringv<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) -> Vec<glib::GString> {
         unsafe {
             FromGlibPtrContainer::from_glib_none(ffi::g_file_info_get_attribute_stringv(
                 self.to_glib_none().0,
@@ -146,7 +174,10 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_type")]
     #[doc(alias = "get_attribute_type")]
-    pub fn attribute_type(&self, attribute: &str) -> FileAttributeType {
+    pub fn attribute_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) -> FileAttributeType {
         unsafe {
             from_glib(ffi::g_file_info_get_attribute_type(
                 self.to_glib_none().0,
@@ -157,7 +188,10 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_uint32")]
     #[doc(alias = "get_attribute_uint32")]
-    pub fn attribute_uint32(&self, attribute: &str) -> u32 {
+    pub fn attribute_uint32<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) -> u32 {
         unsafe {
             ffi::g_file_info_get_attribute_uint32(self.to_glib_none().0, attribute.to_glib_none().0)
         }
@@ -165,7 +199,10 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_uint64")]
     #[doc(alias = "get_attribute_uint64")]
-    pub fn attribute_uint64(&self, attribute: &str) -> u64 {
+    pub fn attribute_uint64<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) -> u64 {
         unsafe {
             ffi::g_file_info_get_attribute_uint64(self.to_glib_none().0, attribute.to_glib_none().0)
         }
@@ -274,7 +311,10 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_has_attribute")]
-    pub fn has_attribute(&self, attribute: &str) -> bool {
+    pub fn has_attribute<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::g_file_info_has_attribute(
                 self.to_glib_none().0,
@@ -284,7 +324,10 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_has_namespace")]
-    pub fn has_namespace(&self, name_space: &str) -> bool {
+    pub fn has_namespace<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        name_space: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::g_file_info_has_namespace(
                 self.to_glib_none().0,
@@ -304,19 +347,26 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_remove_attribute")]
-    pub fn remove_attribute(&self, attribute: &str) {
+    pub fn remove_attribute<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) {
         unsafe {
             ffi::g_file_info_remove_attribute(self.to_glib_none().0, attribute.to_glib_none().0);
         }
     }
 
     //#[doc(alias = "g_file_info_set_attribute")]
-    //pub fn set_attribute(&self, attribute: &str, type_: FileAttributeType, value_p: /*Unimplemented*/Fundamental: Pointer) {
+    //pub fn set_attribute<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, attribute: & 's P, type_: FileAttributeType, value_p: /*Unimplemented*/Fundamental: Pointer) {
     //    unsafe { TODO: call ffi:g_file_info_set_attribute() }
     //}
 
     #[doc(alias = "g_file_info_set_attribute_boolean")]
-    pub fn set_attribute_boolean(&self, attribute: &str, attr_value: bool) {
+    pub fn set_attribute_boolean<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+        attr_value: bool,
+    ) {
         unsafe {
             ffi::g_file_info_set_attribute_boolean(
                 self.to_glib_none().0,
@@ -327,7 +377,15 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_attribute_byte_string")]
-    pub fn set_attribute_byte_string(&self, attribute: &str, attr_value: &str) {
+    pub fn set_attribute_byte_string<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+    >(
+        &self,
+        attribute: &'s P,
+        attr_value: &'s Q,
+    ) {
         unsafe {
             ffi::g_file_info_set_attribute_byte_string(
                 self.to_glib_none().0,
@@ -338,7 +396,11 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_attribute_int32")]
-    pub fn set_attribute_int32(&self, attribute: &str, attr_value: i32) {
+    pub fn set_attribute_int32<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+        attr_value: i32,
+    ) {
         unsafe {
             ffi::g_file_info_set_attribute_int32(
                 self.to_glib_none().0,
@@ -349,7 +411,11 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_attribute_int64")]
-    pub fn set_attribute_int64(&self, attribute: &str, attr_value: i64) {
+    pub fn set_attribute_int64<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+        attr_value: i64,
+    ) {
         unsafe {
             ffi::g_file_info_set_attribute_int64(
                 self.to_glib_none().0,
@@ -367,7 +433,15 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_attribute_object")]
-    pub fn set_attribute_object<P: IsA<glib::Object>>(&self, attribute: &str, attr_value: &P) {
+    pub fn set_attribute_object<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        Q: IsA<glib::Object>,
+    >(
+        &self,
+        attribute: &'s P,
+        attr_value: &Q,
+    ) {
         unsafe {
             ffi::g_file_info_set_attribute_object(
                 self.to_glib_none().0,
@@ -378,7 +452,11 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_attribute_status")]
-    pub fn set_attribute_status(&self, attribute: &str, status: FileAttributeStatus) -> bool {
+    pub fn set_attribute_status<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+        status: FileAttributeStatus,
+    ) -> bool {
         unsafe {
             from_glib(ffi::g_file_info_set_attribute_status(
                 self.to_glib_none().0,
@@ -389,7 +467,15 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_attribute_string")]
-    pub fn set_attribute_string(&self, attribute: &str, attr_value: &str) {
+    pub fn set_attribute_string<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+    >(
+        &self,
+        attribute: &'s P,
+        attr_value: &'s Q,
+    ) {
         unsafe {
             ffi::g_file_info_set_attribute_string(
                 self.to_glib_none().0,
@@ -400,7 +486,11 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_attribute_stringv")]
-    pub fn set_attribute_stringv(&self, attribute: &str, attr_value: &[&str]) {
+    pub fn set_attribute_stringv<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+        attr_value: &[&str],
+    ) {
         unsafe {
             ffi::g_file_info_set_attribute_stringv(
                 self.to_glib_none().0,
@@ -411,7 +501,11 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_attribute_uint32")]
-    pub fn set_attribute_uint32(&self, attribute: &str, attr_value: u32) {
+    pub fn set_attribute_uint32<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+        attr_value: u32,
+    ) {
         unsafe {
             ffi::g_file_info_set_attribute_uint32(
                 self.to_glib_none().0,
@@ -422,7 +516,11 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_attribute_uint64")]
-    pub fn set_attribute_uint64(&self, attribute: &str, attr_value: u64) {
+    pub fn set_attribute_uint64<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+        attr_value: u64,
+    ) {
         unsafe {
             ffi::g_file_info_set_attribute_uint64(
                 self.to_glib_none().0,
@@ -433,21 +531,27 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_content_type")]
-    pub fn set_content_type(&self, content_type: &str) {
+    pub fn set_content_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        content_type: &'s P,
+    ) {
         unsafe {
             ffi::g_file_info_set_content_type(self.to_glib_none().0, content_type.to_glib_none().0);
         }
     }
 
     #[doc(alias = "g_file_info_set_display_name")]
-    pub fn set_display_name(&self, display_name: &str) {
+    pub fn set_display_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        display_name: &'s P,
+    ) {
         unsafe {
             ffi::g_file_info_set_display_name(self.to_glib_none().0, display_name.to_glib_none().0);
         }
     }
 
     #[doc(alias = "g_file_info_set_edit_name")]
-    pub fn set_edit_name(&self, edit_name: &str) {
+    pub fn set_edit_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, edit_name: &'s P) {
         unsafe {
             ffi::g_file_info_set_edit_name(self.to_glib_none().0, edit_name.to_glib_none().0);
         }
@@ -525,7 +629,10 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_symlink_target")]
-    pub fn set_symlink_target(&self, symlink_target: &str) {
+    pub fn set_symlink_target<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        symlink_target: &'s P,
+    ) {
         unsafe {
             ffi::g_file_info_set_symlink_target(
                 self.to_glib_none().0,

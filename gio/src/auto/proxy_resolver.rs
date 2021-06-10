@@ -6,6 +6,7 @@ use crate::AsyncResult;
 use crate::Cancellable;
 use glib::object::IsA;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::pin::Pin;
@@ -35,26 +36,28 @@ pub trait ProxyResolverExt: 'static {
     fn is_supported(&self) -> bool;
 
     #[doc(alias = "g_proxy_resolver_lookup")]
-    fn lookup<P: IsA<Cancellable>>(
+    fn lookup<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
         &self,
-        uri: &str,
-        cancellable: Option<&P>,
+        uri: &'s P,
+        cancellable: Option<&Q>,
     ) -> Result<Vec<glib::GString>, glib::Error>;
 
     #[doc(alias = "g_proxy_resolver_lookup_async")]
     fn lookup_async<
-        P: IsA<Cancellable>,
-        Q: FnOnce(Result<Vec<glib::GString>, glib::Error>) + Send + 'static,
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: IsA<Cancellable>,
+        R: FnOnce(Result<Vec<glib::GString>, glib::Error>) + Send + 'static,
     >(
         &self,
-        uri: &str,
-        cancellable: Option<&P>,
-        callback: Q,
+        uri: &'static P,
+        cancellable: Option<&Q>,
+        callback: R,
     );
 
-    fn lookup_async_future(
+    fn lookup_async_future<'s, P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static>(
         &self,
-        uri: &str,
+        uri: &'static P,
     ) -> Pin<
         Box_<dyn std::future::Future<Output = Result<Vec<glib::GString>, glib::Error>> + 'static>,
     >;
@@ -69,10 +72,10 @@ impl<O: IsA<ProxyResolver>> ProxyResolverExt for O {
         }
     }
 
-    fn lookup<P: IsA<Cancellable>>(
+    fn lookup<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
         &self,
-        uri: &str,
-        cancellable: Option<&P>,
+        uri: &'s P,
+        cancellable: Option<&Q>,
     ) -> Result<Vec<glib::GString>, glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
@@ -91,17 +94,19 @@ impl<O: IsA<ProxyResolver>> ProxyResolverExt for O {
     }
 
     fn lookup_async<
-        P: IsA<Cancellable>,
-        Q: FnOnce(Result<Vec<glib::GString>, glib::Error>) + Send + 'static,
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: IsA<Cancellable>,
+        R: FnOnce(Result<Vec<glib::GString>, glib::Error>) + Send + 'static,
     >(
         &self,
-        uri: &str,
-        cancellable: Option<&P>,
-        callback: Q,
+        uri: &'static P,
+        cancellable: Option<&Q>,
+        callback: R,
     ) {
-        let user_data: Box_<Q> = Box_::new(callback);
+        let user_data: Box_<R> = Box_::new(callback);
         unsafe extern "C" fn lookup_async_trampoline<
-            Q: FnOnce(Result<Vec<glib::GString>, glib::Error>) + Send + 'static,
+            R: FnOnce(Result<Vec<glib::GString>, glib::Error>) + Send + 'static,
         >(
             _source_object: *mut glib::gobject_ffi::GObject,
             res: *mut crate::ffi::GAsyncResult,
@@ -115,10 +120,10 @@ impl<O: IsA<ProxyResolver>> ProxyResolverExt for O {
             } else {
                 Err(from_glib_full(error))
             };
-            let callback: Box_<Q> = Box_::from_raw(user_data as *mut _);
+            let callback: Box_<R> = Box_::from_raw(user_data as *mut _);
             callback(result);
         }
-        let callback = lookup_async_trampoline::<Q>;
+        let callback = lookup_async_trampoline::<R>;
         unsafe {
             ffi::g_proxy_resolver_lookup_async(
                 self.as_ref().to_glib_none().0,
@@ -130,16 +135,15 @@ impl<O: IsA<ProxyResolver>> ProxyResolverExt for O {
         }
     }
 
-    fn lookup_async_future(
+    fn lookup_async_future<'s, P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static>(
         &self,
-        uri: &str,
+        uri: &'static P,
     ) -> Pin<
         Box_<dyn std::future::Future<Output = Result<Vec<glib::GString>, glib::Error>> + 'static>,
     > {
-        let uri = String::from(uri);
         Box_::pin(crate::GioFuture::new(self, move |obj, send| {
             let cancellable = Cancellable::new();
-            obj.lookup_async(&uri, Some(&cancellable), move |res| {
+            obj.lookup_async(uri, Some(&cancellable), move |res| {
                 send.resolve(res);
             });
 

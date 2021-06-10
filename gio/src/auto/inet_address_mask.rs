@@ -10,6 +10,7 @@ use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
 use glib::ToValue;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -41,7 +42,9 @@ impl InetAddressMask {
 
     #[doc(alias = "g_inet_address_mask_new_from_string")]
     #[doc(alias = "new_from_string")]
-    pub fn from_string(mask_string: &str) -> Result<InetAddressMask, glib::Error> {
+    pub fn from_string<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        mask_string: &'s P,
+    ) -> Result<InetAddressMask, glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let ret =

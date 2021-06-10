@@ -10,6 +10,7 @@ use glib::object::IsA;
 use glib::object::ObjectType as ObjectType_;
 use glib::translate::*;
 use glib::StaticType;
+use libc::c_char;
 use std::fmt;
 use std::ptr;
 
@@ -74,7 +75,9 @@ impl Pixbuf {
 
     #[doc(alias = "gdk_pixbuf_new_from_resource")]
     #[doc(alias = "new_from_resource")]
-    pub fn from_resource(resource_path: &str) -> Result<Pixbuf, glib::Error> {
+    pub fn from_resource<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        resource_path: &'s P,
+    ) -> Result<Pixbuf, glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let ret = ffi::gdk_pixbuf_new_from_resource(resource_path.to_glib_none().0, &mut error);
@@ -88,8 +91,8 @@ impl Pixbuf {
 
     #[doc(alias = "gdk_pixbuf_new_from_resource_at_scale")]
     #[doc(alias = "new_from_resource_at_scale")]
-    pub fn from_resource_at_scale(
-        resource_path: &str,
+    pub fn from_resource_at_scale<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        resource_path: &'s P,
         width: i32,
         height: i32,
         preserve_aspect_ratio: bool,
@@ -385,7 +388,10 @@ impl Pixbuf {
 
     #[doc(alias = "gdk_pixbuf_get_option")]
     #[doc(alias = "get_option")]
-    pub fn option(&self, key: &str) -> Option<glib::GString> {
+    pub fn option<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+    ) -> Option<glib::GString> {
         unsafe {
             from_glib_none(ffi::gdk_pixbuf_get_option(
                 self.to_glib_none().0,
@@ -433,7 +439,7 @@ impl Pixbuf {
     #[cfg(any(feature = "v2_36", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_36")))]
     #[doc(alias = "gdk_pixbuf_remove_option")]
-    pub fn remove_option(&self, key: &str) -> bool {
+    pub fn remove_option<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) -> bool {
         unsafe {
             from_glib(ffi::gdk_pixbuf_remove_option(
                 self.to_glib_none().0,
@@ -465,45 +471,44 @@ impl Pixbuf {
     }
 
     //#[doc(alias = "gdk_pixbuf_save")]
-    //pub fn save<P: AsRef<std::path::Path>>(&self, filename: P, type_: &str, error: Option<&mut glib::Error>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
+    //pub fn save<'s, P: AsRef<std::path::Path>, Q: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, filename: P, type_: & 's Q, error: Option<&mut glib::Error>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
     //    unsafe { TODO: call ffi:gdk_pixbuf_save() }
     //}
 
     //#[doc(alias = "gdk_pixbuf_save_to_buffer")]
-    //pub fn save_to_buffer(&self, type_: &str, error: Option<&mut glib::Error>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> Option<Vec<u8>> {
+    //pub fn save_to_buffer<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, type_: & 's P, error: Option<&mut glib::Error>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> Option<Vec<u8>> {
     //    unsafe { TODO: call ffi:gdk_pixbuf_save_to_buffer() }
     //}
 
     //#[doc(alias = "gdk_pixbuf_save_to_callback")]
-    //pub fn save_to_callback<P: FnMut(&Vec<u8>, usize, &glib::Error) -> bool>(&self, save_func: P, type_: &str, error: Option<&mut glib::Error>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
+    //pub fn save_to_callback<'s, P: FnMut(&Vec<u8>, usize, &glib::Error) -> bool, Q: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, save_func: P, type_: & 's Q, error: Option<&mut glib::Error>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
     //    unsafe { TODO: call ffi:gdk_pixbuf_save_to_callback() }
     //}
 
     //#[doc(alias = "gdk_pixbuf_save_to_callbackv")]
-    //pub fn save_to_callbackv<P: FnMut(&Vec<u8>, usize, &glib::Error) -> bool>(&self, save_func: P, type_: &str, option_keys: &[&str], option_values: &[&str]) -> Result<(), glib::Error> {
+    //pub fn save_to_callbackv<'s, P: FnMut(&Vec<u8>, usize, &glib::Error) -> bool, Q: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, save_func: P, type_: & 's Q, option_keys: &[&str], option_values: &[&str]) -> Result<(), glib::Error> {
     //    unsafe { TODO: call ffi:gdk_pixbuf_save_to_callbackv() }
     //}
 
     //#[doc(alias = "gdk_pixbuf_save_to_stream")]
-    //pub fn save_to_stream<P: IsA<gio::OutputStream>, Q: IsA<gio::Cancellable>>(&self, stream: &P, type_: &str, cancellable: Option<&Q>, error: Option<&mut glib::Error>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
+    //pub fn save_to_stream<'s, P: IsA<gio::OutputStream>, Q: ToGlibPtr<'s, *const libc::c_char> + 's, R: IsA<gio::Cancellable>>(&self, stream: &P, type_: & 's Q, cancellable: Option<&R>, error: Option<&mut glib::Error>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
     //    unsafe { TODO: call ffi:gdk_pixbuf_save_to_stream() }
     //}
 
     //#[doc(alias = "gdk_pixbuf_save_to_stream_async")]
-    //pub fn save_to_stream_async<P: IsA<gio::OutputStream>, Q: IsA<gio::Cancellable>, R: FnOnce(Result<(), glib::Error>) + Send + 'static>(&self, stream: &P, type_: &str, cancellable: Option<&Q>, callback: R, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+    //pub fn save_to_stream_async<'s, P: IsA<gio::OutputStream>, Q: ToGlibPtr<'s, *mut libc::c_char> + 's, R: IsA<gio::Cancellable>, S: FnOnce(Result<(), glib::Error>) + Send + 'static>(&self, stream: &P, type_: &'static Q, cancellable: Option<&R>, callback: S, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
     //    unsafe { TODO: call ffi:gdk_pixbuf_save_to_stream_async() }
     //}
 
     //
-    //pub fn save_to_stream_async_future<P: IsA<gio::OutputStream> + Clone + 'static>(&self, stream: &P, type_: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> Pin<Box_<dyn std::future::Future<Output = Result<(), glib::Error>> + 'static>> {
+    //pub fn save_to_stream_async_future<'s, P: IsA<gio::OutputStream> + Clone + 'static, Q: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static>(&self, stream: &P, type_: &'static Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> Pin<Box_<dyn std::future::Future<Output = Result<(), glib::Error>> + 'static>> {
 
     //let stream = stream.clone();
-    //let type_ = String::from(type_);
     //Box_::pin(gio::GioFuture::new(self, move |obj, send| {
     //    let cancellable = gio::Cancellable::new();
     //    obj.save_to_stream_async(
     //        &stream,
-    //        &type_,
+    //        type_,
     //        Some(&cancellable),
     //        ,
     //        move |res| {
@@ -564,7 +569,15 @@ impl Pixbuf {
     }
 
     #[doc(alias = "gdk_pixbuf_set_option")]
-    pub fn set_option(&self, key: &str, value: &str) -> bool {
+    pub fn set_option<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        key: &'s P,
+        value: &'s Q,
+    ) -> bool {
         unsafe {
             from_glib(ffi::gdk_pixbuf_set_option(
                 self.to_glib_none().0,
@@ -619,7 +632,9 @@ impl Pixbuf {
     #[cfg(any(feature = "v2_40", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_40")))]
     #[doc(alias = "gdk_pixbuf_init_modules")]
-    pub fn init_modules(path: &str) -> Result<(), glib::Error> {
+    pub fn init_modules<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        path: &'s P,
+    ) -> Result<(), glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let _ = ffi::gdk_pixbuf_init_modules(path.to_glib_none().0, &mut error);

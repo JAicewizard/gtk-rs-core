@@ -15,6 +15,7 @@ use crate::Pid;
 use crate::Source;
 use crate::SpawnFlags;
 use crate::UserDirectory;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::mem;
 use std::ptr;
@@ -25,12 +26,18 @@ pub fn access<P: AsRef<std::path::Path>>(filename: P, mode: i32) -> i32 {
 }
 
 #[doc(alias = "g_assert_warning")]
-pub fn assert_warning(
-    log_domain: &str,
-    file: &str,
+pub fn assert_warning<
+    's,
+    P: ToGlibPtr<'s, *const libc::c_char> + 's,
+    Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+    R: ToGlibPtr<'s, *const libc::c_char> + 's,
+    S: ToGlibPtr<'s, *const libc::c_char> + 's,
+>(
+    log_domain: &'s P,
+    file: &'s Q,
     line: i32,
-    pretty_function: &str,
-    expression: &str,
+    pretty_function: &'s R,
+    expression: &'s S,
 ) {
     unsafe {
         ffi::g_assert_warning(
@@ -44,7 +51,19 @@ pub fn assert_warning(
 }
 
 #[doc(alias = "g_assertion_message")]
-pub fn assertion_message(domain: &str, file: &str, line: i32, func: &str, message: &str) {
+pub fn assertion_message<
+    's,
+    P: ToGlibPtr<'s, *const libc::c_char> + 's,
+    Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+    R: ToGlibPtr<'s, *const libc::c_char> + 's,
+    S: ToGlibPtr<'s, *const libc::c_char> + 's,
+>(
+    domain: &'s P,
+    file: &'s Q,
+    line: i32,
+    func: &'s R,
+    message: &'s S,
+) {
     unsafe {
         ffi::g_assertion_message(
             domain.to_glib_none().0,
@@ -57,20 +76,29 @@ pub fn assertion_message(domain: &str, file: &str, line: i32, func: &str, messag
 }
 
 //#[doc(alias = "g_assertion_message_cmpnum")]
-//pub fn assertion_message_cmpnum(domain: &str, file: &str, line: i32, func: &str, expr: &str, arg1: /*Unknown conversion*//*Unimplemented*/Unsupported, cmp: &str, arg2: /*Unknown conversion*//*Unimplemented*/Unsupported, numtype: crate::Char) {
+//pub fn assertion_message_cmpnum<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: ToGlibPtr<'s, *const libc::c_char> + 's, R: ToGlibPtr<'s, *const libc::c_char> + 's, S: ToGlibPtr<'s, *const libc::c_char> + 's, T: ToGlibPtr<'s, *const libc::c_char> + 's>(domain: & 's P, file: & 's Q, line: i32, func: & 's R, expr: & 's S, arg1: /*Unknown conversion*//*Unimplemented*/Unsupported, cmp: & 's T, arg2: /*Unknown conversion*//*Unimplemented*/Unsupported, numtype: crate::Char) {
 //    unsafe { TODO: call ffi:g_assertion_message_cmpnum() }
 //}
 
 #[doc(alias = "g_assertion_message_cmpstr")]
-pub fn assertion_message_cmpstr(
-    domain: &str,
-    file: &str,
+pub fn assertion_message_cmpstr<
+    's,
+    P: ToGlibPtr<'s, *const libc::c_char> + 's,
+    Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+    R: ToGlibPtr<'s, *const libc::c_char> + 's,
+    S: ToGlibPtr<'s, *const libc::c_char> + 's,
+    T: ToGlibPtr<'s, *const libc::c_char> + 's,
+    U: ToGlibPtr<'s, *const libc::c_char> + 's,
+    V: ToGlibPtr<'s, *const libc::c_char> + 's,
+>(
+    domain: &'s P,
+    file: &'s Q,
     line: i32,
-    func: &str,
-    expr: &str,
-    arg1: &str,
-    cmp: &str,
-    arg2: &str,
+    func: &'s R,
+    expr: &'s S,
+    arg1: &'s T,
+    cmp: &'s U,
+    arg2: &'s V,
 ) {
     unsafe {
         ffi::g_assertion_message_cmpstr(
@@ -87,7 +115,7 @@ pub fn assertion_message_cmpstr(
 }
 
 #[doc(alias = "g_base64_decode")]
-pub fn base64_decode(text: &str) -> Vec<u8> {
+pub fn base64_decode<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(text: &'s P) -> Vec<u8> {
     unsafe {
         let mut out_len = mem::MaybeUninit::uninit();
         let ret = FromGlibContainer::from_glib_full_num(
@@ -104,7 +132,7 @@ pub fn base64_decode(text: &str) -> Vec<u8> {
 //}
 
 //#[doc(alias = "g_base64_decode_step")]
-//pub fn base64_decode_step(in_: &[u8], out: Vec<u8>, state: &mut i32, save: &mut u32) -> usize {
+//pub fn base64_decode_step(in_: &[u8], out: &mut Vec<u8>, state: &mut i32, save: &mut u32) -> usize {
 //    unsafe { TODO: call ffi:g_base64_decode_step() }
 //}
 
@@ -115,12 +143,12 @@ pub fn base64_encode(data: &[u8]) -> crate::GString {
 }
 
 //#[doc(alias = "g_base64_encode_close")]
-//pub fn base64_encode_close(break_lines: bool, out: Vec<u8>, state: &mut i32, save: &mut i32) -> usize {
+//pub fn base64_encode_close(break_lines: bool, out: &mut Vec<u8>, state: &mut i32, save: &mut i32) -> usize {
 //    unsafe { TODO: call ffi:g_base64_encode_close() }
 //}
 
 //#[doc(alias = "g_base64_encode_step")]
-//pub fn base64_encode_step(in_: &[u8], break_lines: bool, out: Vec<u8>, state: &mut i32, save: &mut i32) -> usize {
+//pub fn base64_encode_step(in_: &[u8], break_lines: bool, out: &mut Vec<u8>, state: &mut i32, save: &mut i32) -> usize {
 //    unsafe { TODO: call ffi:g_base64_encode_step() }
 //}
 
@@ -162,7 +190,10 @@ pub fn build_filenamev(args: &[&std::path::Path]) -> std::path::PathBuf {
 //}
 
 #[doc(alias = "g_build_pathv")]
-pub fn build_pathv(separator: &str, args: &[&std::path::Path]) -> std::path::PathBuf {
+pub fn build_pathv<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    separator: &'s P,
+    args: &[&std::path::Path],
+) -> std::path::PathBuf {
     unsafe {
         from_glib_full(ffi::g_build_pathv(
             separator.to_glib_none().0,
@@ -274,9 +305,9 @@ pub fn compute_checksum_for_data(
 }
 
 #[doc(alias = "g_compute_checksum_for_string")]
-pub fn compute_checksum_for_string(
+pub fn compute_checksum_for_string<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
     checksum_type: ChecksumType,
-    str: &str,
+    str: &'s P,
 ) -> Option<crate::GString> {
     let length = str.len() as isize;
     unsafe {
@@ -321,7 +352,11 @@ pub fn compute_hmac_for_data(digest_type: ChecksumType, key: &[u8], data: &[u8])
 }
 
 #[doc(alias = "g_compute_hmac_for_string")]
-pub fn compute_hmac_for_string(digest_type: ChecksumType, key: &[u8], str: &str) -> crate::GString {
+pub fn compute_hmac_for_string<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    digest_type: ChecksumType,
+    key: &[u8],
+    str: &'s P,
+) -> crate::GString {
     let key_len = key.len() as usize;
     let length = str.len() as isize;
     unsafe {
@@ -351,7 +386,7 @@ pub fn compute_hmac_for_string(digest_type: ChecksumType, key: &[u8], str: &str)
 //}
 
 //#[doc(alias = "g_datalist_get_data")]
-//pub fn datalist_get_data(datalist: /*Ignored*/&mut Data, key: &str) -> /*Unimplemented*/Option<Fundamental: Pointer> {
+//pub fn datalist_get_data<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(datalist: /*Ignored*/&mut Data, key: & 's P) -> /*Unimplemented*/Option<Fundamental: Pointer> {
 //    unsafe { TODO: call ffi:g_datalist_get_data() }
 //}
 
@@ -426,7 +461,11 @@ pub fn compute_hmac_for_string(digest_type: ChecksumType, key: &[u8], str: &str)
 //}
 
 #[doc(alias = "g_dcgettext")]
-pub fn dcgettext(domain: Option<&str>, msgid: &str, category: i32) -> crate::GString {
+pub fn dcgettext<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    domain: Option<&str>,
+    msgid: &'s P,
+    category: i32,
+) -> crate::GString {
     unsafe {
         from_glib_none(ffi::g_dcgettext(
             domain.to_glib_none().0,
@@ -437,7 +476,10 @@ pub fn dcgettext(domain: Option<&str>, msgid: &str, category: i32) -> crate::GSt
 }
 
 #[doc(alias = "g_dgettext")]
-pub fn dgettext(domain: Option<&str>, msgid: &str) -> crate::GString {
+pub fn dgettext<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    domain: Option<&str>,
+    msgid: &'s P,
+) -> crate::GString {
     unsafe {
         from_glib_none(ffi::g_dgettext(
             domain.to_glib_none().0,
@@ -457,10 +499,14 @@ pub fn dgettext(domain: Option<&str>, msgid: &str) -> crate::GString {
 //}
 
 #[doc(alias = "g_dngettext")]
-pub fn dngettext(
+pub fn dngettext<
+    's,
+    P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+>(
     domain: Option<&str>,
-    msgid: &str,
-    msgid_plural: &str,
+    msgid: &'s P,
+    msgid_plural: &'s Q,
     n: libc::c_ulong,
 ) -> crate::GString {
     unsafe {
@@ -484,7 +530,11 @@ pub fn dngettext(
 //}
 
 #[doc(alias = "g_dpgettext")]
-pub fn dpgettext(domain: Option<&str>, msgctxtid: &str, msgidoffset: usize) -> crate::GString {
+pub fn dpgettext<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    domain: Option<&str>,
+    msgctxtid: &'s P,
+    msgidoffset: usize,
+) -> crate::GString {
     unsafe {
         from_glib_none(ffi::g_dpgettext(
             domain.to_glib_none().0,
@@ -495,7 +545,15 @@ pub fn dpgettext(domain: Option<&str>, msgctxtid: &str, msgidoffset: usize) -> c
 }
 
 #[doc(alias = "g_dpgettext2")]
-pub fn dpgettext2(domain: Option<&str>, context: &str, msgid: &str) -> crate::GString {
+pub fn dpgettext2<
+    's,
+    P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+>(
+    domain: Option<&str>,
+    context: &'s P,
+    msgid: &'s Q,
+) -> crate::GString {
     unsafe {
         from_glib_none(ffi::g_dpgettext2(
             domain.to_glib_none().0,
@@ -653,7 +711,7 @@ pub fn format_size_full(size: u64, flags: FormatSizeFlags) -> crate::GString {
 }
 
 //#[doc(alias = "g_fprintf")]
-//pub fn fprintf(file: /*Unimplemented*/Fundamental: Pointer, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> i32 {
+//pub fn fprintf<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(file: /*Unimplemented*/Fundamental: Pointer, format: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> i32 {
 //    unsafe { TODO: call ffi:g_fprintf() }
 //}
 
@@ -719,7 +777,9 @@ pub fn language_names() -> Vec<crate::GString> {
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_58")))]
 #[doc(alias = "g_get_language_names_with_category")]
 #[doc(alias = "get_language_names_with_category")]
-pub fn language_names_with_category(category_name: &str) -> Vec<crate::GString> {
+pub fn language_names_with_category<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    category_name: &'s P,
+) -> Vec<crate::GString> {
     unsafe {
         FromGlibPtrContainer::from_glib_none(ffi::g_get_language_names_with_category(
             category_name.to_glib_none().0,
@@ -729,7 +789,9 @@ pub fn language_names_with_category(category_name: &str) -> Vec<crate::GString> 
 
 #[doc(alias = "g_get_locale_variants")]
 #[doc(alias = "get_locale_variants")]
-pub fn locale_variants(locale: &str) -> Vec<crate::GString> {
+pub fn locale_variants<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    locale: &'s P,
+) -> Vec<crate::GString> {
     unsafe {
         FromGlibPtrContainer::from_glib_full(ffi::g_get_locale_variants(locale.to_glib_none().0))
     }
@@ -751,7 +813,9 @@ pub fn num_processors() -> u32 {
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_64")))]
 #[doc(alias = "g_get_os_info")]
 #[doc(alias = "get_os_info")]
-pub fn os_info(key_name: &str) -> Option<crate::GString> {
+pub fn os_info<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    key_name: &'s P,
+) -> Option<crate::GString> {
     unsafe { from_glib_full(ffi::g_get_os_info(key_name.to_glib_none().0)) }
 }
 
@@ -804,32 +868,42 @@ pub fn user_special_dir(directory: UserDirectory) -> std::path::PathBuf {
 }
 
 #[doc(alias = "g_hostname_is_ascii_encoded")]
-pub fn hostname_is_ascii_encoded(hostname: &str) -> bool {
+pub fn hostname_is_ascii_encoded<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    hostname: &'s P,
+) -> bool {
     unsafe { from_glib(ffi::g_hostname_is_ascii_encoded(hostname.to_glib_none().0)) }
 }
 
 #[doc(alias = "g_hostname_is_ip_address")]
-pub fn hostname_is_ip_address(hostname: &str) -> bool {
+pub fn hostname_is_ip_address<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    hostname: &'s P,
+) -> bool {
     unsafe { from_glib(ffi::g_hostname_is_ip_address(hostname.to_glib_none().0)) }
 }
 
 #[doc(alias = "g_hostname_is_non_ascii")]
-pub fn hostname_is_non_ascii(hostname: &str) -> bool {
+pub fn hostname_is_non_ascii<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    hostname: &'s P,
+) -> bool {
     unsafe { from_glib(ffi::g_hostname_is_non_ascii(hostname.to_glib_none().0)) }
 }
 
 #[doc(alias = "g_hostname_to_ascii")]
-pub fn hostname_to_ascii(hostname: &str) -> Option<crate::GString> {
+pub fn hostname_to_ascii<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    hostname: &'s P,
+) -> Option<crate::GString> {
     unsafe { from_glib_full(ffi::g_hostname_to_ascii(hostname.to_glib_none().0)) }
 }
 
 #[doc(alias = "g_hostname_to_unicode")]
-pub fn hostname_to_unicode(hostname: &str) -> Option<crate::GString> {
+pub fn hostname_to_unicode<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    hostname: &'s P,
+) -> Option<crate::GString> {
     unsafe { from_glib_full(ffi::g_hostname_to_unicode(hostname.to_glib_none().0)) }
 }
 
 //#[doc(alias = "g_iconv")]
-//pub fn iconv(converter: /*Ignored*/&IConv, inbuf: &str, inbytes_left: usize, outbuf: &str, outbytes_left: usize) -> usize {
+//pub fn iconv<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(converter: /*Ignored*/&IConv, inbuf: & 's P, inbytes_left: usize, outbuf: & 's Q, outbytes_left: usize) -> usize {
 //    unsafe { TODO: call ffi:g_iconv() }
 //}
 
@@ -886,7 +960,7 @@ pub fn listenv() -> Vec<std::ffi::OsString> {
 //}
 
 //#[doc(alias = "g_log_structured_standard")]
-//pub fn log_structured_standard(log_domain: &str, log_level: LogLevelFlags, file: &str, line: &str, func: &str, message_format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+//pub fn log_structured_standard<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's, R: ToGlibPtr<'s, *mut libc::c_char> + 's, S: ToGlibPtr<'s, *mut libc::c_char> + 's, T: ToGlibPtr<'s, *mut libc::c_char> + 's>(log_domain: & 's P, log_level: LogLevelFlags, file: & 's Q, line: & 's R, func: & 's S, message_format: & 's T, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
 //    unsafe { TODO: call ffi:g_log_structured_standard() }
 //}
 
@@ -919,7 +993,7 @@ pub fn listenv() -> Vec<std::ffi::OsString> {
 //}
 
 //#[doc(alias = "g_logv")]
-//pub fn logv(log_domain: Option<&str>, log_level: LogLevelFlags, format: &str, args: /*Unknown conversion*//*Unimplemented*/Unsupported) {
+//pub fn logv<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(log_domain: Option<&str>, log_level: LogLevelFlags, format: & 's P, args: /*Unknown conversion*//*Unimplemented*/Unsupported) {
 //    unsafe { TODO: call ffi:g_logv() }
 //}
 
@@ -954,23 +1028,25 @@ pub fn main_depth() -> i32 {
 //}
 
 //#[doc(alias = "g_markup_collect_attributes")]
-//pub fn markup_collect_attributes(element_name: &str, attribute_names: &str, attribute_values: &str, error: &mut Error, first_type: /*Ignored*/MarkupCollectType, first_attr: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
+//pub fn markup_collect_attributes<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's, R: ToGlibPtr<'s, *mut libc::c_char> + 's, S: ToGlibPtr<'s, *mut libc::c_char> + 's>(element_name: & 's P, attribute_names: & 's Q, attribute_values: & 's R, error: &mut Error, first_type: /*Ignored*/MarkupCollectType, first_attr: & 's S, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
 //    unsafe { TODO: call ffi:g_markup_collect_attributes() }
 //}
 
 #[doc(alias = "g_markup_escape_text")]
-pub fn markup_escape_text(text: &str) -> crate::GString {
+pub fn markup_escape_text<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    text: &'s P,
+) -> crate::GString {
     let length = text.len() as isize;
     unsafe { from_glib_full(ffi::g_markup_escape_text(text.to_glib_none().0, length)) }
 }
 
 //#[doc(alias = "g_markup_printf_escaped")]
-//pub fn markup_printf_escaped(format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> crate::GString {
+//pub fn markup_printf_escaped<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(format: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> crate::GString {
 //    unsafe { TODO: call ffi:g_markup_printf_escaped() }
 //}
 
 //#[doc(alias = "g_markup_vprintf_escaped")]
-//pub fn markup_vprintf_escaped(format: &str, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> crate::GString {
+//pub fn markup_vprintf_escaped<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(format: & 's P, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> crate::GString {
 //    unsafe { TODO: call ffi:g_markup_vprintf_escaped() }
 //}
 
@@ -1006,14 +1082,14 @@ pub fn mkstemp_full<P: AsRef<std::path::Path>>(tmpl: P, flags: i32, mode: i32) -
 //}
 
 #[doc(alias = "g_on_error_query")]
-pub fn on_error_query(prg_name: &str) {
+pub fn on_error_query<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(prg_name: &'s P) {
     unsafe {
         ffi::g_on_error_query(prg_name.to_glib_none().0);
     }
 }
 
 #[doc(alias = "g_on_error_stack_trace")]
-pub fn on_error_stack_trace(prg_name: &str) {
+pub fn on_error_stack_trace<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(prg_name: &'s P) {
     unsafe {
         ffi::g_on_error_stack_trace(prg_name.to_glib_none().0);
     }
@@ -1049,12 +1125,19 @@ pub fn path_skip_root<P: AsRef<std::path::Path>>(file_name: P) -> Option<std::pa
 }
 
 //#[doc(alias = "g_pattern_match")]
-//pub fn pattern_match(pspec: /*Ignored*/&mut PatternSpec, string_length: u32, string: &str, string_reversed: Option<&str>) -> bool {
+//pub fn pattern_match<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(pspec: /*Ignored*/&mut PatternSpec, string_length: u32, string: & 's P, string_reversed: Option<&str>) -> bool {
 //    unsafe { TODO: call ffi:g_pattern_match() }
 //}
 
 #[doc(alias = "g_pattern_match_simple")]
-pub fn pattern_match_simple(pattern: &str, string: &str) -> bool {
+pub fn pattern_match_simple<
+    's,
+    P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+>(
+    pattern: &'s P,
+    string: &'s Q,
+) -> bool {
     unsafe {
         from_glib(ffi::g_pattern_match_simple(
             pattern.to_glib_none().0,
@@ -1064,7 +1147,7 @@ pub fn pattern_match_simple(pattern: &str, string: &str) -> bool {
 }
 
 //#[doc(alias = "g_pattern_match_string")]
-//pub fn pattern_match_string(pspec: /*Ignored*/&mut PatternSpec, string: &str) -> bool {
+//pub fn pattern_match_string<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(pspec: /*Ignored*/&mut PatternSpec, string: & 's P) -> bool {
 //    unsafe { TODO: call ffi:g_pattern_match_string() }
 //}
 
@@ -1089,32 +1172,32 @@ pub fn pattern_match_simple(pattern: &str, string: &str) -> bool {
 //}
 
 //#[doc(alias = "g_prefix_error")]
-//pub fn prefix_error(err: /*Unimplemented*/Option<Error>, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+//pub fn prefix_error<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(err: /*Unimplemented*/Option<Error>, format: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
 //    unsafe { TODO: call ffi:g_prefix_error() }
 //}
 
 //#[doc(alias = "g_print")]
-//pub fn print(format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+//pub fn print<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(format: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
 //    unsafe { TODO: call ffi:g_print() }
 //}
 
 //#[doc(alias = "g_printerr")]
-//pub fn printerr(format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+//pub fn printerr<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(format: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
 //    unsafe { TODO: call ffi:g_printerr() }
 //}
 
 //#[doc(alias = "g_printf")]
-//pub fn printf(format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> i32 {
+//pub fn printf<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(format: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> i32 {
 //    unsafe { TODO: call ffi:g_printf() }
 //}
 
 //#[doc(alias = "g_printf_string_upper_bound")]
-//pub fn printf_string_upper_bound(format: &str, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> usize {
+//pub fn printf_string_upper_bound<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(format: & 's P, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> usize {
 //    unsafe { TODO: call ffi:g_printf_string_upper_bound() }
 //}
 
 //#[doc(alias = "g_propagate_prefixed_error")]
-//pub fn propagate_prefixed_error(dest: &mut Error, src: &mut Error, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+//pub fn propagate_prefixed_error<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(dest: &mut Error, src: &mut Error, format: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
 //    unsafe { TODO: call ffi:g_propagate_prefixed_error() }
 //}
 
@@ -1168,9 +1251,9 @@ pub fn reload_user_special_dirs_cache() {
 }
 
 #[doc(alias = "g_return_if_fail_warning")]
-pub fn return_if_fail_warning(
+pub fn return_if_fail_warning<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
     log_domain: Option<&str>,
-    pretty_function: &str,
+    pretty_function: &'s P,
     expression: Option<&str>,
 ) {
     unsafe {
@@ -1188,14 +1271,14 @@ pub fn rmdir<P: AsRef<std::path::Path>>(filename: P) -> i32 {
 }
 
 #[doc(alias = "g_set_application_name")]
-pub fn set_application_name(application_name: &str) {
+pub fn set_application_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(application_name: &'s P) {
     unsafe {
         ffi::g_set_application_name(application_name.to_glib_none().0);
     }
 }
 
 //#[doc(alias = "g_set_error")]
-//pub fn set_error(domain: Quark, code: i32, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> Error {
+//pub fn set_error<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(domain: Quark, code: i32, format: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> Error {
 //    unsafe { TODO: call ffi:g_set_error() }
 //}
 
@@ -1299,7 +1382,7 @@ pub fn shell_unquote<P: AsRef<std::ffi::OsStr>>(
 //}
 
 //#[doc(alias = "g_snprintf")]
-//pub fn snprintf(string: &str, n: libc::c_ulong, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> i32 {
+//pub fn snprintf<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(string: & 's P, n: libc::c_ulong, format: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> i32 {
 //    unsafe { TODO: call ffi:g_snprintf() }
 //}
 
@@ -1382,22 +1465,29 @@ pub fn spawn_command_line_async<P: AsRef<std::ffi::OsStr>>(
 }
 
 //#[doc(alias = "g_spawn_command_line_sync")]
-//pub fn spawn_command_line_sync<P: AsRef<std::path::Path>>(command_line: P, standard_output: Vec<u8>, standard_error: Vec<u8>) -> Result<i32, crate::Error> {
+//pub fn spawn_command_line_sync<P: AsRef<std::path::Path>>(command_line: P, standard_output: &mut Vec<u8>, standard_error: &mut Vec<u8>) -> Result<i32, crate::Error> {
 //    unsafe { TODO: call ffi:g_spawn_command_line_sync() }
 //}
 
 //#[doc(alias = "g_spawn_sync")]
-//pub fn spawn_sync<P: AsRef<std::path::Path>>(working_directory: P, argv: &[&std::path::Path], envp: &[&std::path::Path], flags: SpawnFlags, child_setup: Option<Box_<dyn FnOnce() + 'static>>, standard_output: Vec<u8>, standard_error: Vec<u8>) -> Result<i32, crate::Error> {
+//pub fn spawn_sync<P: AsRef<std::path::Path>>(working_directory: P, argv: &[&std::path::Path], envp: &[&std::path::Path], flags: SpawnFlags, child_setup: Option<Box_<dyn FnOnce() + 'static>>, standard_output: &mut Vec<u8>, standard_error: &mut Vec<u8>) -> Result<i32, crate::Error> {
 //    unsafe { TODO: call ffi:g_spawn_sync() }
 //}
 
 //#[doc(alias = "g_sprintf")]
-//pub fn sprintf(string: &str, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> i32 {
+//pub fn sprintf<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(string: & 's P, format: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> i32 {
 //    unsafe { TODO: call ffi:g_sprintf() }
 //}
 
 #[doc(alias = "g_stpcpy")]
-pub fn stpcpy(dest: &str, src: &str) -> crate::GString {
+pub fn stpcpy<
+    's,
+    P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+>(
+    dest: &'s P,
+    src: &'s Q,
+) -> crate::GString {
     unsafe { from_glib_full(ffi::g_stpcpy(dest.to_glib_none().0, src.to_glib_none().0)) }
 }
 
@@ -1446,7 +1536,7 @@ pub fn stpcpy(dest: &str, src: &str) -> crate::GString {
 //#[cfg(any(feature = "v2_64", feature = "dox"))]
 //#[cfg_attr(feature = "dox", doc(cfg(feature = "v2_64")))]
 //#[doc(alias = "g_unix_get_passwd_entry")]
-//pub fn unix_get_passwd_entry(user_name: &str) -> Result</*Unimplemented*/Option<Fundamental: Pointer>, crate::Error> {
+//pub fn unix_get_passwd_entry<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(user_name: & 's P) -> Result</*Unimplemented*/Option<Fundamental: Pointer>, crate::Error> {
 //    unsafe { TODO: call ffi:g_unix_get_passwd_entry() }
 //}
 
@@ -1465,7 +1555,7 @@ pub fn usleep(microseconds: libc::c_ulong) {
 #[cfg(any(feature = "v2_52", feature = "dox"))]
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_52")))]
 #[doc(alias = "g_uuid_string_is_valid")]
-pub fn uuid_string_is_valid(str: &str) -> bool {
+pub fn uuid_string_is_valid<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(str: &'s P) -> bool {
     unsafe { from_glib(ffi::g_uuid_string_is_valid(str.to_glib_none().0)) }
 }
 
@@ -1477,36 +1567,40 @@ pub fn uuid_string_random() -> crate::GString {
 }
 
 //#[doc(alias = "g_vasprintf")]
-//pub fn vasprintf(string: &str, format: &str, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> i32 {
+//pub fn vasprintf<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(string: & 's P, format: & 's Q, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> i32 {
 //    unsafe { TODO: call ffi:g_vasprintf() }
 //}
 
 //#[doc(alias = "g_vfprintf")]
-//pub fn vfprintf(file: /*Unimplemented*/Fundamental: Pointer, format: &str, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> i32 {
+//pub fn vfprintf<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(file: /*Unimplemented*/Fundamental: Pointer, format: & 's P, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> i32 {
 //    unsafe { TODO: call ffi:g_vfprintf() }
 //}
 
 //#[doc(alias = "g_vprintf")]
-//pub fn vprintf(format: &str, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> i32 {
+//pub fn vprintf<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(format: & 's P, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> i32 {
 //    unsafe { TODO: call ffi:g_vprintf() }
 //}
 
 //#[doc(alias = "g_vsnprintf")]
-//pub fn vsnprintf(string: &str, n: libc::c_ulong, format: &str, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> i32 {
+//pub fn vsnprintf<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(string: & 's P, n: libc::c_ulong, format: & 's Q, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> i32 {
 //    unsafe { TODO: call ffi:g_vsnprintf() }
 //}
 
 //#[doc(alias = "g_vsprintf")]
-//pub fn vsprintf(string: &str, format: &str, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> i32 {
+//pub fn vsprintf<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(string: & 's P, format: & 's Q, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> i32 {
 //    unsafe { TODO: call ffi:g_vsprintf() }
 //}
 
 #[doc(alias = "g_warn_message")]
-pub fn warn_message(
+pub fn warn_message<
+    's,
+    P: ToGlibPtr<'s, *const libc::c_char> + 's,
+    Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+>(
     domain: Option<&str>,
-    file: &str,
+    file: &'s P,
     line: i32,
-    func: &str,
+    func: &'s Q,
     warnexpr: Option<&str>,
 ) {
     unsafe {

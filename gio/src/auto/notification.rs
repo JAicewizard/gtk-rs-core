@@ -6,6 +6,7 @@ use crate::Icon;
 use crate::NotificationPriority;
 use glib::object::IsA;
 use glib::translate::*;
+use libc::c_char;
 use std::fmt;
 
 glib::wrapper! {
@@ -19,12 +20,20 @@ glib::wrapper! {
 
 impl Notification {
     #[doc(alias = "g_notification_new")]
-    pub fn new(title: &str) -> Notification {
+    pub fn new<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(title: &'s P) -> Notification {
         unsafe { from_glib_full(ffi::g_notification_new(title.to_glib_none().0)) }
     }
 
     #[doc(alias = "g_notification_add_button")]
-    pub fn add_button(&self, label: &str, detailed_action: &str) {
+    pub fn add_button<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        label: &'s P,
+        detailed_action: &'s Q,
+    ) {
         unsafe {
             ffi::g_notification_add_button(
                 self.to_glib_none().0,
@@ -35,15 +44,19 @@ impl Notification {
     }
 
     //#[doc(alias = "g_notification_add_button_with_target")]
-    //pub fn add_button_with_target(&self, label: &str, action: &str, target_format: Option<&str>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+    //pub fn add_button_with_target<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, label: & 's P, action: & 's Q, target_format: Option<&str>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
     //    unsafe { TODO: call ffi:g_notification_add_button_with_target() }
     //}
 
     #[doc(alias = "g_notification_add_button_with_target_value")]
-    pub fn add_button_with_target_value(
+    pub fn add_button_with_target_value<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
         &self,
-        label: &str,
-        action: &str,
+        label: &'s P,
+        action: &'s Q,
         target: Option<&glib::Variant>,
     ) {
         unsafe {
@@ -64,7 +77,10 @@ impl Notification {
     }
 
     #[doc(alias = "g_notification_set_default_action")]
-    pub fn set_default_action(&self, detailed_action: &str) {
+    pub fn set_default_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        detailed_action: &'s P,
+    ) {
         unsafe {
             ffi::g_notification_set_default_action(
                 self.to_glib_none().0,
@@ -74,14 +90,14 @@ impl Notification {
     }
 
     //#[doc(alias = "g_notification_set_default_action_and_target")]
-    //pub fn set_default_action_and_target(&self, action: &str, target_format: Option<&str>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+    //pub fn set_default_action_and_target<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, action: & 's P, target_format: Option<&str>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
     //    unsafe { TODO: call ffi:g_notification_set_default_action_and_target() }
     //}
 
     #[doc(alias = "g_notification_set_default_action_and_target_value")]
-    pub fn set_default_action_and_target_value(
+    pub fn set_default_action_and_target_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
         &self,
-        action: &str,
+        action: &'s P,
         target: Option<&glib::Variant>,
     ) {
         unsafe {
@@ -108,7 +124,7 @@ impl Notification {
     }
 
     #[doc(alias = "g_notification_set_title")]
-    pub fn set_title(&self, title: &str) {
+    pub fn set_title<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, title: &'s P) {
         unsafe {
             ffi::g_notification_set_title(self.to_glib_none().0, title.to_glib_none().0);
         }

@@ -15,6 +15,7 @@ use glib::object::IsA;
 use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -76,7 +77,10 @@ pub trait DriveExt: 'static {
 
     #[doc(alias = "g_drive_get_identifier")]
     #[doc(alias = "get_identifier")]
-    fn identifier(&self, kind: &str) -> Option<glib::GString>;
+    fn identifier<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        kind: &'s P,
+    ) -> Option<glib::GString>;
 
     #[doc(alias = "g_drive_get_name")]
     #[doc(alias = "get_name")]
@@ -282,7 +286,10 @@ impl<O: IsA<Drive>> DriveExt for O {
         unsafe { from_glib_full(ffi::g_drive_get_icon(self.as_ref().to_glib_none().0)) }
     }
 
-    fn identifier(&self, kind: &str) -> Option<glib::GString> {
+    fn identifier<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        kind: &'s P,
+    ) -> Option<glib::GString> {
         unsafe {
             from_glib_full(ffi::g_drive_get_identifier(
                 self.as_ref().to_glib_none().0,

@@ -6,6 +6,7 @@ use crate::DBusMethodInfo;
 use crate::DBusPropertyInfo;
 use crate::DBusSignalInfo;
 use glib::translate::*;
+use libc::c_char;
 
 glib::wrapper! {
     #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -31,7 +32,10 @@ impl DBusInterfaceInfo {
     }
 
     #[doc(alias = "g_dbus_interface_info_lookup_method")]
-    pub fn lookup_method(&self, name: &str) -> Option<DBusMethodInfo> {
+    pub fn lookup_method<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        name: &'s P,
+    ) -> Option<DBusMethodInfo> {
         unsafe {
             from_glib_none(ffi::g_dbus_interface_info_lookup_method(
                 self.to_glib_none().0,
@@ -41,7 +45,10 @@ impl DBusInterfaceInfo {
     }
 
     #[doc(alias = "g_dbus_interface_info_lookup_property")]
-    pub fn lookup_property(&self, name: &str) -> Option<DBusPropertyInfo> {
+    pub fn lookup_property<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        name: &'s P,
+    ) -> Option<DBusPropertyInfo> {
         unsafe {
             from_glib_none(ffi::g_dbus_interface_info_lookup_property(
                 self.to_glib_none().0,
@@ -51,7 +58,10 @@ impl DBusInterfaceInfo {
     }
 
     #[doc(alias = "g_dbus_interface_info_lookup_signal")]
-    pub fn lookup_signal(&self, name: &str) -> Option<DBusSignalInfo> {
+    pub fn lookup_signal<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        name: &'s P,
+    ) -> Option<DBusSignalInfo> {
         unsafe {
             from_glib_none(ffi::g_dbus_interface_info_lookup_signal(
                 self.to_glib_none().0,

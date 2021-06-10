@@ -9,6 +9,7 @@ use glib::object::IsA;
 use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -27,20 +28,24 @@ pub const NONE_MENU_MODEL: Option<&MenuModel> = None;
 pub trait MenuModelExt: 'static {
     //#[doc(alias = "g_menu_model_get_item_attribute")]
     //#[doc(alias = "get_item_attribute")]
-    //fn is_item_attribute(&self, item_index: i32, attribute: &str, format_string: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool;
+    //fn is_item_attribute<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, item_index: i32, attribute: & 's P, format_string: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool;
 
     #[doc(alias = "g_menu_model_get_item_attribute_value")]
     #[doc(alias = "get_item_attribute_value")]
-    fn item_attribute_value(
+    fn item_attribute_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
         &self,
         item_index: i32,
-        attribute: &str,
+        attribute: &'s P,
         expected_type: Option<&glib::VariantTy>,
     ) -> Option<glib::Variant>;
 
     #[doc(alias = "g_menu_model_get_item_link")]
     #[doc(alias = "get_item_link")]
-    fn item_link(&self, item_index: i32, link: &str) -> Option<MenuModel>;
+    fn item_link<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        item_index: i32,
+        link: &'s P,
+    ) -> Option<MenuModel>;
 
     #[doc(alias = "g_menu_model_get_n_items")]
     #[doc(alias = "get_n_items")]
@@ -64,14 +69,14 @@ pub trait MenuModelExt: 'static {
 }
 
 impl<O: IsA<MenuModel>> MenuModelExt for O {
-    //fn is_item_attribute(&self, item_index: i32, attribute: &str, format_string: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
+    //fn is_item_attribute<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, item_index: i32, attribute: & 's P, format_string: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
     //    unsafe { TODO: call ffi:g_menu_model_get_item_attribute() }
     //}
 
-    fn item_attribute_value(
+    fn item_attribute_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
         &self,
         item_index: i32,
-        attribute: &str,
+        attribute: &'s P,
         expected_type: Option<&glib::VariantTy>,
     ) -> Option<glib::Variant> {
         unsafe {
@@ -84,7 +89,11 @@ impl<O: IsA<MenuModel>> MenuModelExt for O {
         }
     }
 
-    fn item_link(&self, item_index: i32, link: &str) -> Option<MenuModel> {
+    fn item_link<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        item_index: i32,
+        link: &'s P,
+    ) -> Option<MenuModel> {
         unsafe {
             from_glib_full(ffi::g_menu_model_get_item_link(
                 self.as_ref().to_glib_none().0,

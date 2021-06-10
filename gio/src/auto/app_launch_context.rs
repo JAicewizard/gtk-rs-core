@@ -9,6 +9,7 @@ use glib::object::IsA;
 use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -52,7 +53,10 @@ pub trait AppLaunchContextExt: 'static {
         -> Option<glib::GString>;
 
     #[doc(alias = "g_app_launch_context_launch_failed")]
-    fn launch_failed(&self, startup_notify_id: &str);
+    fn launch_failed<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        startup_notify_id: &'s P,
+    );
 
     #[doc(alias = "g_app_launch_context_setenv")]
     fn setenv<P: AsRef<std::ffi::OsStr>, Q: AsRef<std::ffi::OsStr>>(&self, variable: P, value: Q);
@@ -103,7 +107,10 @@ impl<O: IsA<AppLaunchContext>> AppLaunchContextExt for O {
         }
     }
 
-    fn launch_failed(&self, startup_notify_id: &str) {
+    fn launch_failed<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        startup_notify_id: &'s P,
+    ) {
         unsafe {
             ffi::g_app_launch_context_launch_failed(
                 self.as_ref().to_glib_none().0,

@@ -4,6 +4,7 @@
 
 use glib::object::IsA;
 use glib::translate::*;
+use libc::c_char;
 use std::fmt;
 use std::ptr;
 
@@ -33,7 +34,9 @@ impl Icon {
 
     #[doc(alias = "g_icon_new_for_string")]
     #[doc(alias = "new_for_string")]
-    pub fn for_string(str: &str) -> Result<Icon, glib::Error> {
+    pub fn for_string<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        str: &'s P,
+    ) -> Result<Icon, glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let ret = ffi::g_icon_new_for_string(str.to_glib_none().0, &mut error);

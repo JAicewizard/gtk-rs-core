@@ -6,6 +6,7 @@ use crate::AppInfo;
 use crate::AppLaunchContext;
 use glib::object::IsA;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 #[cfg(any(feature = "v2_60", feature = "dox"))]
@@ -24,7 +25,9 @@ glib::wrapper! {
 
 impl DesktopAppInfo {
     #[doc(alias = "g_desktop_app_info_new")]
-    pub fn new(desktop_id: &str) -> Option<DesktopAppInfo> {
+    pub fn new<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        desktop_id: &'s P,
+    ) -> Option<DesktopAppInfo> {
         unsafe { from_glib_full(ffi::g_desktop_app_info_new(desktop_id.to_glib_none().0)) }
     }
 
@@ -50,7 +53,10 @@ impl DesktopAppInfo {
 
     #[doc(alias = "g_desktop_app_info_get_action_name")]
     #[doc(alias = "get_action_name")]
-    pub fn action_name(&self, action_name: &str) -> glib::GString {
+    pub fn action_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        action_name: &'s P,
+    ) -> glib::GString {
         unsafe {
             from_glib_full(ffi::g_desktop_app_info_get_action_name(
                 self.to_glib_none().0,
@@ -61,7 +67,7 @@ impl DesktopAppInfo {
 
     #[doc(alias = "g_desktop_app_info_get_boolean")]
     #[doc(alias = "get_boolean")]
-    pub fn boolean(&self, key: &str) -> bool {
+    pub fn boolean<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, key: &'s P) -> bool {
         unsafe {
             from_glib(ffi::g_desktop_app_info_get_boolean(
                 self.to_glib_none().0,
@@ -116,7 +122,10 @@ impl DesktopAppInfo {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
     #[doc(alias = "g_desktop_app_info_get_locale_string")]
     #[doc(alias = "get_locale_string")]
-    pub fn locale_string(&self, key: &str) -> Option<glib::GString> {
+    pub fn locale_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+    ) -> Option<glib::GString> {
         unsafe {
             from_glib_full(ffi::g_desktop_app_info_get_locale_string(
                 self.to_glib_none().0,
@@ -154,7 +163,10 @@ impl DesktopAppInfo {
 
     #[doc(alias = "g_desktop_app_info_get_string")]
     #[doc(alias = "get_string")]
-    pub fn string(&self, key: &str) -> Option<glib::GString> {
+    pub fn string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+    ) -> Option<glib::GString> {
         unsafe {
             from_glib_full(ffi::g_desktop_app_info_get_string(
                 self.to_glib_none().0,
@@ -167,7 +179,10 @@ impl DesktopAppInfo {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
     #[doc(alias = "g_desktop_app_info_get_string_list")]
     #[doc(alias = "get_string_list")]
-    pub fn string_list(&self, key: &str) -> Vec<glib::GString> {
+    pub fn string_list<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        key: &'s P,
+    ) -> Vec<glib::GString> {
         unsafe {
             let mut length = mem::MaybeUninit::uninit();
             let ret = FromGlibContainer::from_glib_full_num(
@@ -183,7 +198,7 @@ impl DesktopAppInfo {
     }
 
     #[doc(alias = "g_desktop_app_info_has_key")]
-    pub fn has_key(&self, key: &str) -> bool {
+    pub fn has_key<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, key: &'s P) -> bool {
         unsafe {
             from_glib(ffi::g_desktop_app_info_has_key(
                 self.to_glib_none().0,
@@ -193,10 +208,10 @@ impl DesktopAppInfo {
     }
 
     #[doc(alias = "g_desktop_app_info_launch_action")]
-    pub fn launch_action<P: IsA<AppLaunchContext>>(
+    pub fn launch_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<AppLaunchContext>>(
         &self,
-        action_name: &str,
-        launch_context: Option<&P>,
+        action_name: &'s P,
+        launch_context: Option<&Q>,
     ) {
         unsafe {
             ffi::g_desktop_app_info_launch_action(
@@ -287,7 +302,9 @@ impl DesktopAppInfo {
 
     #[doc(alias = "g_desktop_app_info_get_implementations")]
     #[doc(alias = "get_implementations")]
-    pub fn implementations(interface: &str) -> Vec<DesktopAppInfo> {
+    pub fn implementations<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        interface: &'s P,
+    ) -> Vec<DesktopAppInfo> {
         unsafe {
             FromGlibPtrContainer::from_glib_full(ffi::g_desktop_app_info_get_implementations(
                 interface.to_glib_none().0,

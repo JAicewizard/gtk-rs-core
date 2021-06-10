@@ -8,6 +8,7 @@ use crate::translate::*;
 use crate::Bytes;
 use crate::Error;
 use crate::KeyFileFlags;
+use libc::c_char;
 use std::mem;
 use std::ptr;
 
@@ -53,7 +54,15 @@ impl KeyFile {
 
     #[doc(alias = "g_key_file_get_double")]
     #[doc(alias = "get_double")]
-    pub fn double(&self, group_name: &str, key: &str) -> Result<f64, crate::Error> {
+    pub fn double<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+    ) -> Result<f64, crate::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let ret = ffi::g_key_file_get_double(
@@ -72,7 +81,15 @@ impl KeyFile {
 
     #[doc(alias = "g_key_file_get_double_list")]
     #[doc(alias = "get_double_list")]
-    pub fn double_list(&self, group_name: &str, key: &str) -> Result<Vec<f64>, crate::Error> {
+    pub fn double_list<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+    ) -> Result<Vec<f64>, crate::Error> {
         unsafe {
             let mut length = mem::MaybeUninit::uninit();
             let mut error = ptr::null_mut();
@@ -110,7 +127,15 @@ impl KeyFile {
 
     #[doc(alias = "g_key_file_get_int64")]
     #[doc(alias = "get_int64")]
-    pub fn int64(&self, group_name: &str, key: &str) -> Result<i64, crate::Error> {
+    pub fn int64<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+    ) -> Result<i64, crate::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let ret = ffi::g_key_file_get_int64(
@@ -129,7 +154,15 @@ impl KeyFile {
 
     #[doc(alias = "g_key_file_get_integer")]
     #[doc(alias = "get_integer")]
-    pub fn integer(&self, group_name: &str, key: &str) -> Result<i32, crate::Error> {
+    pub fn integer<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+    ) -> Result<i32, crate::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let ret = ffi::g_key_file_get_integer(
@@ -148,7 +181,15 @@ impl KeyFile {
 
     #[doc(alias = "g_key_file_get_integer_list")]
     #[doc(alias = "get_integer_list")]
-    pub fn integer_list(&self, group_name: &str, key: &str) -> Result<Vec<i32>, crate::Error> {
+    pub fn integer_list<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+    ) -> Result<Vec<i32>, crate::Error> {
         unsafe {
             let mut length = mem::MaybeUninit::uninit();
             let mut error = ptr::null_mut();
@@ -172,7 +213,10 @@ impl KeyFile {
 
     #[doc(alias = "g_key_file_get_keys")]
     #[doc(alias = "get_keys")]
-    pub fn keys(&self, group_name: &str) -> Result<(Vec<crate::GString>, usize), crate::Error> {
+    pub fn keys<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        group_name: &'s P,
+    ) -> Result<(Vec<crate::GString>, usize), crate::Error> {
         unsafe {
             let mut length = mem::MaybeUninit::uninit();
             let mut error = ptr::null_mut();
@@ -195,10 +239,14 @@ impl KeyFile {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
     #[doc(alias = "g_key_file_get_locale_for_key")]
     #[doc(alias = "get_locale_for_key")]
-    pub fn locale_for_key(
+    pub fn locale_for_key<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
         &self,
-        group_name: &str,
-        key: &str,
+        group_name: &'s P,
+        key: &'s Q,
         locale: Option<&str>,
     ) -> Option<crate::GString> {
         unsafe {
@@ -219,7 +267,15 @@ impl KeyFile {
 
     #[doc(alias = "g_key_file_get_uint64")]
     #[doc(alias = "get_uint64")]
-    pub fn uint64(&self, group_name: &str, key: &str) -> Result<u64, crate::Error> {
+    pub fn uint64<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+    ) -> Result<u64, crate::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let ret = ffi::g_key_file_get_uint64(
@@ -238,7 +294,15 @@ impl KeyFile {
 
     #[doc(alias = "g_key_file_get_value")]
     #[doc(alias = "get_value")]
-    pub fn value(&self, group_name: &str, key: &str) -> Result<crate::GString, crate::Error> {
+    pub fn value<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+    ) -> Result<crate::GString, crate::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let ret = ffi::g_key_file_get_value(
@@ -256,7 +320,10 @@ impl KeyFile {
     }
 
     #[doc(alias = "g_key_file_has_group")]
-    pub fn has_group(&self, group_name: &str) -> bool {
+    pub fn has_group<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        group_name: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::g_key_file_has_group(
                 self.to_glib_none().0,
@@ -286,7 +353,11 @@ impl KeyFile {
     }
 
     #[doc(alias = "g_key_file_load_from_data")]
-    pub fn load_from_data(&self, data: &str, flags: KeyFileFlags) -> Result<(), crate::Error> {
+    pub fn load_from_data<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        data: &'s P,
+        flags: KeyFileFlags,
+    ) -> Result<(), crate::Error> {
         let length = data.len() as usize;
         unsafe {
             let mut error = ptr::null_mut();
@@ -350,7 +421,10 @@ impl KeyFile {
     }
 
     #[doc(alias = "g_key_file_remove_group")]
-    pub fn remove_group(&self, group_name: &str) -> Result<(), crate::Error> {
+    pub fn remove_group<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        group_name: &'s P,
+    ) -> Result<(), crate::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let _ = ffi::g_key_file_remove_group(
@@ -367,7 +441,15 @@ impl KeyFile {
     }
 
     #[doc(alias = "g_key_file_remove_key")]
-    pub fn remove_key(&self, group_name: &str, key: &str) -> Result<(), crate::Error> {
+    pub fn remove_key<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+    ) -> Result<(), crate::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let _ = ffi::g_key_file_remove_key(
@@ -385,7 +467,16 @@ impl KeyFile {
     }
 
     #[doc(alias = "g_key_file_set_boolean")]
-    pub fn set_boolean(&self, group_name: &str, key: &str, value: bool) {
+    pub fn set_boolean<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+        value: bool,
+    ) {
         unsafe {
             ffi::g_key_file_set_boolean(
                 self.to_glib_none().0,
@@ -397,16 +488,16 @@ impl KeyFile {
     }
 
     //#[doc(alias = "g_key_file_set_boolean_list")]
-    //pub fn set_boolean_list(&self, group_name: &str, key: &str, list: /*Unimplemented*/&CArray TypeId { ns_id: 0, id: 1 }) {
+    //pub fn set_boolean_list<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, group_name: & 's P, key: & 's Q, list: /*Unimplemented*/&CArray TypeId { ns_id: 0, id: 1 }) {
     //    unsafe { TODO: call ffi:g_key_file_set_boolean_list() }
     //}
 
     #[doc(alias = "g_key_file_set_comment")]
-    pub fn set_comment(
+    pub fn set_comment<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
         &self,
         group_name: Option<&str>,
         key: Option<&str>,
-        comment: &str,
+        comment: &'s P,
     ) -> Result<(), crate::Error> {
         unsafe {
             let mut error = ptr::null_mut();
@@ -426,7 +517,16 @@ impl KeyFile {
     }
 
     #[doc(alias = "g_key_file_set_double")]
-    pub fn set_double(&self, group_name: &str, key: &str, value: f64) {
+    pub fn set_double<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+        value: f64,
+    ) {
         unsafe {
             ffi::g_key_file_set_double(
                 self.to_glib_none().0,
@@ -438,7 +538,16 @@ impl KeyFile {
     }
 
     #[doc(alias = "g_key_file_set_int64")]
-    pub fn set_int64(&self, group_name: &str, key: &str, value: i64) {
+    pub fn set_int64<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+        value: i64,
+    ) {
         unsafe {
             ffi::g_key_file_set_int64(
                 self.to_glib_none().0,
@@ -450,7 +559,16 @@ impl KeyFile {
     }
 
     #[doc(alias = "g_key_file_set_integer")]
-    pub fn set_integer(&self, group_name: &str, key: &str, value: i32) {
+    pub fn set_integer<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+        value: i32,
+    ) {
         unsafe {
             ffi::g_key_file_set_integer(
                 self.to_glib_none().0,
@@ -469,7 +587,19 @@ impl KeyFile {
     }
 
     #[doc(alias = "g_key_file_set_locale_string")]
-    pub fn set_locale_string(&self, group_name: &str, key: &str, locale: &str, string: &str) {
+    pub fn set_locale_string<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        S: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+        locale: &'s R,
+        string: &'s S,
+    ) {
         unsafe {
             ffi::g_key_file_set_locale_string(
                 self.to_glib_none().0,
@@ -482,7 +612,17 @@ impl KeyFile {
     }
 
     #[doc(alias = "g_key_file_set_string")]
-    pub fn set_string(&self, group_name: &str, key: &str, string: &str) {
+    pub fn set_string<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+        string: &'s R,
+    ) {
         unsafe {
             ffi::g_key_file_set_string(
                 self.to_glib_none().0,
@@ -494,7 +634,16 @@ impl KeyFile {
     }
 
     #[doc(alias = "g_key_file_set_uint64")]
-    pub fn set_uint64(&self, group_name: &str, key: &str, value: u64) {
+    pub fn set_uint64<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+        value: u64,
+    ) {
         unsafe {
             ffi::g_key_file_set_uint64(
                 self.to_glib_none().0,
@@ -506,7 +655,17 @@ impl KeyFile {
     }
 
     #[doc(alias = "g_key_file_set_value")]
-    pub fn set_value(&self, group_name: &str, key: &str, value: &str) {
+    pub fn set_value<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        group_name: &'s P,
+        key: &'s Q,
+        value: &'s R,
+    ) {
         unsafe {
             ffi::g_key_file_set_value(
                 self.to_glib_none().0,

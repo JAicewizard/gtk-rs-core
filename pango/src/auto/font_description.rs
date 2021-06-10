@@ -9,6 +9,7 @@ use crate::Style;
 use crate::Variant;
 use crate::Weight;
 use glib::translate::*;
+use libc::c_char;
 use std::fmt;
 use std::hash;
 
@@ -172,7 +173,7 @@ impl FontDescription {
     }
 
     #[doc(alias = "pango_font_description_set_family")]
-    pub fn set_family(&mut self, family: &str) {
+    pub fn set_family<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&mut self, family: &'s P) {
         unsafe {
             ffi::pango_font_description_set_family(
                 self.to_glib_none_mut().0,
@@ -219,7 +220,10 @@ impl FontDescription {
     #[cfg(any(feature = "v1_42", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_42")))]
     #[doc(alias = "pango_font_description_set_variations")]
-    pub fn set_variations(&mut self, variations: &str) {
+    pub fn set_variations<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &mut self,
+        variations: &'s P,
+    ) {
         unsafe {
             ffi::pango_font_description_set_variations(
                 self.to_glib_none_mut().0,
@@ -231,7 +235,10 @@ impl FontDescription {
     #[cfg(any(feature = "v1_42", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_42")))]
     #[doc(alias = "pango_font_description_set_variations_static")]
-    pub fn set_variations_static(&mut self, variations: &str) {
+    pub fn set_variations_static<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &mut self,
+        variations: &'s P,
+    ) {
         unsafe {
             ffi::pango_font_description_set_variations_static(
                 self.to_glib_none_mut().0,
@@ -273,7 +280,9 @@ impl FontDescription {
     }
 
     #[doc(alias = "pango_font_description_from_string")]
-    pub fn from_string(str: &str) -> FontDescription {
+    pub fn from_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        str: &'s P,
+    ) -> FontDescription {
         unsafe {
             from_glib_full(ffi::pango_font_description_from_string(
                 str.to_glib_none().0,

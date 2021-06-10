@@ -7,6 +7,7 @@ use crate::TlsCertificateFlags;
 use glib::object::IsA;
 use glib::translate::*;
 use glib::StaticType;
+use libc::c_char;
 use std::fmt;
 use std::ptr;
 
@@ -58,7 +59,9 @@ impl TlsCertificate {
 
     #[doc(alias = "g_tls_certificate_new_from_pem")]
     #[doc(alias = "new_from_pem")]
-    pub fn from_pem(data: &str) -> Result<TlsCertificate, glib::Error> {
+    pub fn from_pem<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        data: &'s P,
+    ) -> Result<TlsCertificate, glib::Error> {
         let length = data.len() as isize;
         unsafe {
             let mut error = ptr::null_mut();

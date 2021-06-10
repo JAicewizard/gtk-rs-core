@@ -122,7 +122,7 @@ pub trait SettingsExtManual {
 
 impl<O: IsA<Settings>> SettingsExtManual for O {
     fn get<U: FromVariant>(&self, key: &str) -> U {
-        let val = self.value(key);
+        let val = self.value(&key);
         FromVariant::from_variant(&val).unwrap_or_else(|| {
             panic!(
                 "Type mismatch: Expected '{}' got '{}'",
@@ -133,7 +133,7 @@ impl<O: IsA<Settings>> SettingsExtManual for O {
     }
 
     fn set<U: ToVariant>(&self, key: &str, value: &U) -> Result<(), BoolError> {
-        self.set_value(key, &value.to_variant())
+        self.set_value(&key, &value.to_variant())
     }
 
     fn bind<'a, P: IsA<glib::Object>>(
@@ -197,7 +197,7 @@ mod test {
     #[serial_test::serial]
     fn string_get() {
         set_env();
-        let settings = Settings::new("com.github.gtk-rs.test");
+        let settings = Settings::new(&"com.github.gtk-rs.test");
         assert_eq!(settings.get::<String>("test-string").as_str(), "Good");
     }
 
@@ -205,7 +205,7 @@ mod test {
     #[serial_test::serial]
     fn bool_set_get() {
         set_env();
-        let settings = Settings::new("com.github.gtk-rs.test");
+        let settings = Settings::new(&"com.github.gtk-rs.test");
         settings.set("test-bool", &false).unwrap();
         assert!(!settings.get::<bool>("test-bool"));
     }
@@ -215,7 +215,7 @@ mod test {
     #[serial_test::serial]
     fn wrong_type() {
         set_env();
-        let settings = Settings::new("com.github.gtk-rs.test");
+        let settings = Settings::new(&"com.github.gtk-rs.test");
         settings.get::<u8>("test-string");
     }
 }

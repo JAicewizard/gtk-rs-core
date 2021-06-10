@@ -7,6 +7,7 @@ use glib::object::IsA;
 use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -23,13 +24,13 @@ glib::wrapper! {
 
 impl Action {
     #[doc(alias = "g_action_name_is_valid")]
-    pub fn name_is_valid(action_name: &str) -> bool {
+    pub fn name_is_valid<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(action_name: &'s P) -> bool {
         unsafe { from_glib(ffi::g_action_name_is_valid(action_name.to_glib_none().0)) }
     }
 
     #[doc(alias = "g_action_parse_detailed_name")]
-    pub fn parse_detailed_name(
-        detailed_name: &str,
+    pub fn parse_detailed_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        detailed_name: &'s P,
     ) -> Result<(glib::GString, glib::Variant), glib::Error> {
         unsafe {
             let mut action_name = ptr::null_mut();
@@ -50,8 +51,8 @@ impl Action {
     }
 
     #[doc(alias = "g_action_print_detailed_name")]
-    pub fn print_detailed_name(
-        action_name: &str,
+    pub fn print_detailed_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        action_name: &'s P,
         target_value: Option<&glib::Variant>,
     ) -> glib::GString {
         unsafe {

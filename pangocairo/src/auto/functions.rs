@@ -4,6 +4,7 @@
 
 use glib::object::IsA;
 use glib::translate::*;
+use libc::c_char;
 
 #[doc(alias = "pango_cairo_context_get_resolution")]
 pub fn context_get_resolution(context: &pango::Context) -> f64 {
@@ -111,7 +112,11 @@ pub fn show_error_underline(cr: &cairo::Context, x: f64, y: f64, width: f64, hei
 }
 
 #[doc(alias = "pango_cairo_show_glyph_item")]
-pub fn show_glyph_item(cr: &cairo::Context, text: &str, glyph_item: &mut pango::GlyphItem) {
+pub fn show_glyph_item<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    cr: &cairo::Context,
+    text: &'s P,
+    glyph_item: &mut pango::GlyphItem,
+) {
     unsafe {
         ffi::pango_cairo_show_glyph_item(
             mut_override(cr.to_glib_none().0),

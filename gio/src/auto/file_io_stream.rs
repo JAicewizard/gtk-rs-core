@@ -9,6 +9,7 @@ use crate::IOStream;
 use crate::Seekable;
 use glib::object::IsA;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::pin::Pin;
@@ -31,27 +32,29 @@ pub trait FileIOStreamExt: 'static {
     fn etag(&self) -> Option<glib::GString>;
 
     #[doc(alias = "g_file_io_stream_query_info")]
-    fn query_info<P: IsA<Cancellable>>(
+    fn query_info<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
         &self,
-        attributes: &str,
-        cancellable: Option<&P>,
+        attributes: &'s P,
+        cancellable: Option<&Q>,
     ) -> Result<FileInfo, glib::Error>;
 
     #[doc(alias = "g_file_io_stream_query_info_async")]
     fn query_info_async<
-        P: IsA<Cancellable>,
-        Q: FnOnce(Result<FileInfo, glib::Error>) + Send + 'static,
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        Q: IsA<Cancellable>,
+        R: FnOnce(Result<FileInfo, glib::Error>) + Send + 'static,
     >(
         &self,
-        attributes: &str,
+        attributes: &'static P,
         io_priority: glib::Priority,
-        cancellable: Option<&P>,
-        callback: Q,
+        cancellable: Option<&Q>,
+        callback: R,
     );
 
-    fn query_info_async_future(
+    fn query_info_async_future<'s, P: ToGlibPtr<'static, *const libc::c_char> + Clone + 'static>(
         &self,
-        attributes: &str,
+        attributes: &'static P,
         io_priority: glib::Priority,
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<FileInfo, glib::Error>> + 'static>>;
 }
@@ -65,10 +68,10 @@ impl<O: IsA<FileIOStream>> FileIOStreamExt for O {
         }
     }
 
-    fn query_info<P: IsA<Cancellable>>(
+    fn query_info<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
         &self,
-        attributes: &str,
-        cancellable: Option<&P>,
+        attributes: &'s P,
+        cancellable: Option<&Q>,
     ) -> Result<FileInfo, glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
@@ -87,18 +90,20 @@ impl<O: IsA<FileIOStream>> FileIOStreamExt for O {
     }
 
     fn query_info_async<
-        P: IsA<Cancellable>,
-        Q: FnOnce(Result<FileInfo, glib::Error>) + Send + 'static,
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        Q: IsA<Cancellable>,
+        R: FnOnce(Result<FileInfo, glib::Error>) + Send + 'static,
     >(
         &self,
-        attributes: &str,
+        attributes: &'static P,
         io_priority: glib::Priority,
-        cancellable: Option<&P>,
-        callback: Q,
+        cancellable: Option<&Q>,
+        callback: R,
     ) {
-        let user_data: Box_<Q> = Box_::new(callback);
+        let user_data: Box_<R> = Box_::new(callback);
         unsafe extern "C" fn query_info_async_trampoline<
-            Q: FnOnce(Result<FileInfo, glib::Error>) + Send + 'static,
+            R: FnOnce(Result<FileInfo, glib::Error>) + Send + 'static,
         >(
             _source_object: *mut glib::gobject_ffi::GObject,
             res: *mut crate::ffi::GAsyncResult,
@@ -112,10 +117,10 @@ impl<O: IsA<FileIOStream>> FileIOStreamExt for O {
             } else {
                 Err(from_glib_full(error))
             };
-            let callback: Box_<Q> = Box_::from_raw(user_data as *mut _);
+            let callback: Box_<R> = Box_::from_raw(user_data as *mut _);
             callback(result);
         }
-        let callback = query_info_async_trampoline::<Q>;
+        let callback = query_info_async_trampoline::<R>;
         unsafe {
             ffi::g_file_io_stream_query_info_async(
                 self.as_ref().to_glib_none().0,
@@ -128,15 +133,14 @@ impl<O: IsA<FileIOStream>> FileIOStreamExt for O {
         }
     }
 
-    fn query_info_async_future(
+    fn query_info_async_future<'s, P: ToGlibPtr<'static, *const libc::c_char> + Clone + 'static>(
         &self,
-        attributes: &str,
+        attributes: &'static P,
         io_priority: glib::Priority,
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<FileInfo, glib::Error>> + 'static>> {
-        let attributes = String::from(attributes);
         Box_::pin(crate::GioFuture::new(self, move |obj, send| {
             let cancellable = Cancellable::new();
-            obj.query_info_async(&attributes, io_priority, Some(&cancellable), move |res| {
+            obj.query_info_async(attributes, io_priority, Some(&cancellable), move |res| {
                 send.resolve(res);
             });
 

@@ -7,6 +7,7 @@ use glib::object::ObjectType as ObjectType_;
 use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -22,7 +23,10 @@ glib::wrapper! {
 
 impl SimpleAction {
     #[doc(alias = "g_simple_action_new")]
-    pub fn new(name: &str, parameter_type: Option<&glib::VariantTy>) -> SimpleAction {
+    pub fn new<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        name: &'s P,
+        parameter_type: Option<&glib::VariantTy>,
+    ) -> SimpleAction {
         unsafe {
             from_glib_full(ffi::g_simple_action_new(
                 name.to_glib_none().0,
@@ -32,8 +36,8 @@ impl SimpleAction {
     }
 
     #[doc(alias = "g_simple_action_new_stateful")]
-    pub fn new_stateful(
-        name: &str,
+    pub fn new_stateful<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        name: &'s P,
         parameter_type: Option<&glib::VariantTy>,
         state: &glib::Variant,
     ) -> SimpleAction {

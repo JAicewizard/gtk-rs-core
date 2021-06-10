@@ -8664,25 +8664,33 @@ extern "C" {
     // GDBusError
     //=========================================================================
     pub fn g_dbus_error_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_error_encode_gerror(error: *const glib::GError) -> *mut c_char;
+    /*BO*/
     pub fn g_dbus_error_get_remote_error(error: *const glib::GError) -> *mut c_char;
+    /*BO*/
     pub fn g_dbus_error_is_remote_error(error: *const glib::GError) -> gboolean;
+    /*BO*/
     pub fn g_dbus_error_new_for_dbus_error(
         dbus_error_name: *const c_char,
         dbus_error_message: *const c_char,
     ) -> *mut glib::GError;
+    /*BO*/
     pub fn g_dbus_error_quark() -> glib::GQuark;
+    /*BO*/
     pub fn g_dbus_error_register_error(
         error_domain: glib::GQuark,
         error_code: c_int,
         dbus_error_name: *const c_char,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dbus_error_register_error_domain(
         error_domain_quark_name: *const c_char,
         quark_volatile: *mut size_t,
         entries: *const GDBusErrorEntry,
         num_entries: c_uint,
     );
+    /*BO*/
     pub fn g_dbus_error_set_dbus_error(
         error: *mut *mut glib::GError,
         dbus_error_name: *const c_char,
@@ -8690,8 +8698,10 @@ extern "C" {
         format: *const c_char,
         ...
     );
-    //pub fn g_dbus_error_set_dbus_error_valist(error: *mut *mut glib::GError, dbus_error_name: *const c_char, dbus_error_message: *const c_char, format: *const c_char, var_args: /*Unimplemented*/va_list);
+    /*BO*///pub fn g_dbus_error_set_dbus_error_valist(error: *mut *mut glib::GError, dbus_error_name: *const c_char, dbus_error_message: *const c_char, format: *const c_char, var_args: /*Unimplemented*/va_list);
+    /*BO*/
     pub fn g_dbus_error_strip_remote_error(error: *mut glib::GError) -> gboolean;
+    /*BO*/
     pub fn g_dbus_error_unregister_error(
         error_domain: glib::GQuark,
         error_code: c_int,
@@ -8806,6 +8816,7 @@ extern "C" {
     // GResolverError
     //=========================================================================
     pub fn g_resolver_error_get_type() -> GType;
+    /*BO*/
     pub fn g_resolver_error_quark() -> glib::GQuark;
 
     //=========================================================================
@@ -8817,6 +8828,7 @@ extern "C" {
     // GResourceError
     //=========================================================================
     pub fn g_resource_error_get_type() -> GType;
+    /*BO*/
     pub fn g_resource_error_quark() -> glib::GQuark;
 
     //=========================================================================
@@ -8862,6 +8874,7 @@ extern "C" {
     pub fn g_tls_channel_binding_error_get_type() -> GType;
     #[cfg(any(feature = "v2_66", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_66")))]
+    /*BO*/
     pub fn g_tls_channel_binding_error_quark() -> glib::GQuark;
 
     //=========================================================================
@@ -8880,6 +8893,7 @@ extern "C" {
     // GTlsError
     //=========================================================================
     pub fn g_tls_error_get_type() -> GType;
+    /*BO*/
     pub fn g_tls_error_quark() -> glib::GQuark;
 
     //=========================================================================
@@ -9103,8 +9117,11 @@ extern "C" {
     // GDBusAnnotationInfo
     //=========================================================================
     pub fn g_dbus_annotation_info_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_annotation_info_ref(info: *mut GDBusAnnotationInfo) -> *mut GDBusAnnotationInfo;
+    /*BO*/
     pub fn g_dbus_annotation_info_unref(info: *mut GDBusAnnotationInfo);
+    /*BO*/
     pub fn g_dbus_annotation_info_lookup(
         annotations: *mut *mut GDBusAnnotationInfo,
         name: *const c_char,
@@ -9114,178 +9131,230 @@ extern "C" {
     // GDBusArgInfo
     //=========================================================================
     pub fn g_dbus_arg_info_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_arg_info_ref(info: *mut GDBusArgInfo) -> *mut GDBusArgInfo;
+    /*BO*/
     pub fn g_dbus_arg_info_unref(info: *mut GDBusArgInfo);
 
     //=========================================================================
     // GDBusInterfaceInfo
     //=========================================================================
     pub fn g_dbus_interface_info_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_interface_info_cache_build(info: *mut GDBusInterfaceInfo);
+    /*BO*/
     pub fn g_dbus_interface_info_cache_release(info: *mut GDBusInterfaceInfo);
+    /*BO*/
     pub fn g_dbus_interface_info_generate_xml(
         info: *mut GDBusInterfaceInfo,
         indent: c_uint,
         string_builder: *mut glib::GString,
     );
+    /*BO*/
     pub fn g_dbus_interface_info_lookup_method(
         info: *mut GDBusInterfaceInfo,
         name: *const c_char,
     ) -> *mut GDBusMethodInfo;
+    /*BO*/
     pub fn g_dbus_interface_info_lookup_property(
         info: *mut GDBusInterfaceInfo,
         name: *const c_char,
     ) -> *mut GDBusPropertyInfo;
+    /*BO*/
     pub fn g_dbus_interface_info_lookup_signal(
         info: *mut GDBusInterfaceInfo,
         name: *const c_char,
     ) -> *mut GDBusSignalInfo;
+    /*BO*/
     pub fn g_dbus_interface_info_ref(info: *mut GDBusInterfaceInfo) -> *mut GDBusInterfaceInfo;
+    /*BO*/
     pub fn g_dbus_interface_info_unref(info: *mut GDBusInterfaceInfo);
 
     //=========================================================================
     // GDBusMethodInfo
     //=========================================================================
     pub fn g_dbus_method_info_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_method_info_ref(info: *mut GDBusMethodInfo) -> *mut GDBusMethodInfo;
+    /*BO*/
     pub fn g_dbus_method_info_unref(info: *mut GDBusMethodInfo);
 
     //=========================================================================
     // GDBusNodeInfo
     //=========================================================================
     pub fn g_dbus_node_info_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_node_info_new_for_xml(
         xml_data: *const c_char,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusNodeInfo;
+    /*BO*/
     pub fn g_dbus_node_info_generate_xml(
         info: *mut GDBusNodeInfo,
         indent: c_uint,
         string_builder: *mut glib::GString,
     );
+    /*BO*/
     pub fn g_dbus_node_info_lookup_interface(
         info: *mut GDBusNodeInfo,
         name: *const c_char,
     ) -> *mut GDBusInterfaceInfo;
+    /*BO*/
     pub fn g_dbus_node_info_ref(info: *mut GDBusNodeInfo) -> *mut GDBusNodeInfo;
+    /*BO*/
     pub fn g_dbus_node_info_unref(info: *mut GDBusNodeInfo);
 
     //=========================================================================
     // GDBusPropertyInfo
     //=========================================================================
     pub fn g_dbus_property_info_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_property_info_ref(info: *mut GDBusPropertyInfo) -> *mut GDBusPropertyInfo;
+    /*BO*/
     pub fn g_dbus_property_info_unref(info: *mut GDBusPropertyInfo);
 
     //=========================================================================
     // GDBusSignalInfo
     //=========================================================================
     pub fn g_dbus_signal_info_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_signal_info_ref(info: *mut GDBusSignalInfo) -> *mut GDBusSignalInfo;
+    /*BO*/
     pub fn g_dbus_signal_info_unref(info: *mut GDBusSignalInfo);
 
     //=========================================================================
     // GFileAttributeInfoList
     //=========================================================================
     pub fn g_file_attribute_info_list_get_type() -> GType;
+    /*BO*/
     pub fn g_file_attribute_info_list_new() -> *mut GFileAttributeInfoList;
+    /*BO*/
     pub fn g_file_attribute_info_list_add(
         list: *mut GFileAttributeInfoList,
         name: *const c_char,
         type_: GFileAttributeType,
         flags: GFileAttributeInfoFlags,
     );
+    /*BO*/
     pub fn g_file_attribute_info_list_dup(
         list: *mut GFileAttributeInfoList,
     ) -> *mut GFileAttributeInfoList;
+    /*BO*/
     pub fn g_file_attribute_info_list_lookup(
         list: *mut GFileAttributeInfoList,
         name: *const c_char,
     ) -> *const GFileAttributeInfo;
+    /*BO*/
     pub fn g_file_attribute_info_list_ref(
         list: *mut GFileAttributeInfoList,
     ) -> *mut GFileAttributeInfoList;
+    /*BO*/
     pub fn g_file_attribute_info_list_unref(list: *mut GFileAttributeInfoList);
 
     //=========================================================================
     // GFileAttributeMatcher
     //=========================================================================
     pub fn g_file_attribute_matcher_get_type() -> GType;
+    /*BO*/
     pub fn g_file_attribute_matcher_new(attributes: *const c_char) -> *mut GFileAttributeMatcher;
+    /*BO*/
     pub fn g_file_attribute_matcher_enumerate_namespace(
         matcher: *mut GFileAttributeMatcher,
         ns: *const c_char,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_attribute_matcher_enumerate_next(
         matcher: *mut GFileAttributeMatcher,
     ) -> *const c_char;
+    /*BO*/
     pub fn g_file_attribute_matcher_matches(
         matcher: *mut GFileAttributeMatcher,
         attribute: *const c_char,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_attribute_matcher_matches_only(
         matcher: *mut GFileAttributeMatcher,
         attribute: *const c_char,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_attribute_matcher_ref(
         matcher: *mut GFileAttributeMatcher,
     ) -> *mut GFileAttributeMatcher;
+    /*BO*/
     pub fn g_file_attribute_matcher_subtract(
         matcher: *mut GFileAttributeMatcher,
         subtract: *mut GFileAttributeMatcher,
     ) -> *mut GFileAttributeMatcher;
+    /*BO*/
     pub fn g_file_attribute_matcher_to_string(matcher: *mut GFileAttributeMatcher) -> *mut c_char;
+    /*BO*/
     pub fn g_file_attribute_matcher_unref(matcher: *mut GFileAttributeMatcher);
 
     //=========================================================================
     // GIOExtension
     //=========================================================================
+    /*BO*/
     pub fn g_io_extension_get_name(extension: *mut GIOExtension) -> *const c_char;
+    /*BO*/
     pub fn g_io_extension_get_priority(extension: *mut GIOExtension) -> c_int;
+    /*BO*/
     pub fn g_io_extension_get_type(extension: *mut GIOExtension) -> GType;
+    /*BO*/
     pub fn g_io_extension_ref_class(extension: *mut GIOExtension) -> *mut gobject::GTypeClass;
 
     //=========================================================================
     // GIOExtensionPoint
     //=========================================================================
+    /*BO*/
     pub fn g_io_extension_point_get_extension_by_name(
         extension_point: *mut GIOExtensionPoint,
         name: *const c_char,
     ) -> *mut GIOExtension;
+    /*BO*/
     pub fn g_io_extension_point_get_extensions(
         extension_point: *mut GIOExtensionPoint,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_io_extension_point_get_required_type(extension_point: *mut GIOExtensionPoint)
         -> GType;
+    /*BO*/
     pub fn g_io_extension_point_set_required_type(
         extension_point: *mut GIOExtensionPoint,
         type_: GType,
     );
+    /*BO*/
     pub fn g_io_extension_point_implement(
         extension_point_name: *const c_char,
         type_: GType,
         extension_name: *const c_char,
         priority: c_int,
     ) -> *mut GIOExtension;
+    /*BO*/
     pub fn g_io_extension_point_lookup(name: *const c_char) -> *mut GIOExtensionPoint;
+    /*BO*/
     pub fn g_io_extension_point_register(name: *const c_char) -> *mut GIOExtensionPoint;
 
     //=========================================================================
     // GIOModuleScope
     //=========================================================================
+    /*BO*/
     pub fn g_io_module_scope_block(scope: *mut GIOModuleScope, basename: *const c_char);
+    /*BO*/
     pub fn g_io_module_scope_free(scope: *mut GIOModuleScope);
+    /*BO*/
     pub fn g_io_module_scope_new(flags: GIOModuleScopeFlags) -> *mut GIOModuleScope;
 
     //=========================================================================
     // GIOSchedulerJob
     //=========================================================================
+    /*BO*/
     pub fn g_io_scheduler_job_send_to_mainloop(
         job: *mut GIOSchedulerJob,
         func: glib::GSourceFunc,
         user_data: gpointer,
         notify: glib::GDestroyNotify,
     ) -> gboolean;
+    /*BO*/
     pub fn g_io_scheduler_job_send_to_mainloop_async(
         job: *mut GIOSchedulerJob,
         func: glib::GSourceFunc,
@@ -9297,16 +9366,19 @@ extern "C" {
     // GResource
     //=========================================================================
     pub fn g_resource_get_type() -> GType;
+    /*BO*/
     pub fn g_resource_new_from_data(
         data: *mut glib::GBytes,
         error: *mut *mut glib::GError,
     ) -> *mut GResource;
+    /*BO*/
     pub fn g_resource_enumerate_children(
         resource: *mut GResource,
         path: *const c_char,
         lookup_flags: GResourceLookupFlags,
         error: *mut *mut glib::GError,
     ) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_resource_get_info(
         resource: *mut GResource,
         path: *const c_char,
@@ -9315,20 +9387,25 @@ extern "C" {
         flags: *mut u32,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_resource_lookup_data(
         resource: *mut GResource,
         path: *const c_char,
         lookup_flags: GResourceLookupFlags,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GBytes;
+    /*BO*/
     pub fn g_resource_open_stream(
         resource: *mut GResource,
         path: *const c_char,
         lookup_flags: GResourceLookupFlags,
         error: *mut *mut glib::GError,
     ) -> *mut GInputStream;
+    /*BO*/
     pub fn g_resource_ref(resource: *mut GResource) -> *mut GResource;
+    /*BO*/
     pub fn g_resource_unref(resource: *mut GResource);
+    /*BO*/
     pub fn g_resource_load(
         filename: *const c_char,
         error: *mut *mut glib::GError,
@@ -9338,90 +9415,124 @@ extern "C" {
     // GSettingsSchema
     //=========================================================================
     pub fn g_settings_schema_get_type() -> GType;
+    /*BO*/
     pub fn g_settings_schema_get_id(schema: *mut GSettingsSchema) -> *const c_char;
+    /*BO*/
     pub fn g_settings_schema_get_key(
         schema: *mut GSettingsSchema,
         name: *const c_char,
     ) -> *mut GSettingsSchemaKey;
+    /*BO*/
     pub fn g_settings_schema_get_path(schema: *mut GSettingsSchema) -> *const c_char;
+    /*BO*/
     pub fn g_settings_schema_has_key(schema: *mut GSettingsSchema, name: *const c_char)
         -> gboolean;
+    /*BO*/
     pub fn g_settings_schema_list_children(schema: *mut GSettingsSchema) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_settings_schema_list_keys(schema: *mut GSettingsSchema) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_settings_schema_ref(schema: *mut GSettingsSchema) -> *mut GSettingsSchema;
+    /*BO*/
     pub fn g_settings_schema_unref(schema: *mut GSettingsSchema);
 
     //=========================================================================
     // GSettingsSchemaKey
     //=========================================================================
     pub fn g_settings_schema_key_get_type() -> GType;
+    /*BO*/
     pub fn g_settings_schema_key_get_default_value(
         key: *mut GSettingsSchemaKey,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_settings_schema_key_get_description(key: *mut GSettingsSchemaKey) -> *const c_char;
+    /*BO*/
     pub fn g_settings_schema_key_get_name(key: *mut GSettingsSchemaKey) -> *const c_char;
+    /*BO*/
     pub fn g_settings_schema_key_get_range(key: *mut GSettingsSchemaKey) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_settings_schema_key_get_summary(key: *mut GSettingsSchemaKey) -> *const c_char;
+    /*BO*/
     pub fn g_settings_schema_key_get_value_type(
         key: *mut GSettingsSchemaKey,
     ) -> *const glib::GVariantType;
+    /*BO*/
     pub fn g_settings_schema_key_range_check(
         key: *mut GSettingsSchemaKey,
         value: *mut glib::GVariant,
     ) -> gboolean;
+    /*BO*/
     pub fn g_settings_schema_key_ref(key: *mut GSettingsSchemaKey) -> *mut GSettingsSchemaKey;
+    /*BO*/
     pub fn g_settings_schema_key_unref(key: *mut GSettingsSchemaKey);
 
     //=========================================================================
     // GSettingsSchemaSource
     //=========================================================================
     pub fn g_settings_schema_source_get_type() -> GType;
+    /*BO*/
     pub fn g_settings_schema_source_new_from_directory(
         directory: *const c_char,
         parent: *mut GSettingsSchemaSource,
         trusted: gboolean,
         error: *mut *mut glib::GError,
     ) -> *mut GSettingsSchemaSource;
+    /*BO*/
     pub fn g_settings_schema_source_list_schemas(
         source: *mut GSettingsSchemaSource,
         recursive: gboolean,
         non_relocatable: *mut *mut *mut c_char,
         relocatable: *mut *mut *mut c_char,
     );
+    /*BO*/
     pub fn g_settings_schema_source_lookup(
         source: *mut GSettingsSchemaSource,
         schema_id: *const c_char,
         recursive: gboolean,
     ) -> *mut GSettingsSchema;
+    /*BO*/
     pub fn g_settings_schema_source_ref(
         source: *mut GSettingsSchemaSource,
     ) -> *mut GSettingsSchemaSource;
+    /*BO*/
     pub fn g_settings_schema_source_unref(source: *mut GSettingsSchemaSource);
+    /*BO*/
     pub fn g_settings_schema_source_get_default() -> *mut GSettingsSchemaSource;
 
     //=========================================================================
     // GSrvTarget
     //=========================================================================
     pub fn g_srv_target_get_type() -> GType;
+    /*BO*/
     pub fn g_srv_target_new(
         hostname: *const c_char,
         port: u16,
         priority: u16,
         weight: u16,
     ) -> *mut GSrvTarget;
+    /*BO*/
     pub fn g_srv_target_copy(target: *mut GSrvTarget) -> *mut GSrvTarget;
+    /*BO*/
     pub fn g_srv_target_free(target: *mut GSrvTarget);
+    /*BO*/
     pub fn g_srv_target_get_hostname(target: *mut GSrvTarget) -> *const c_char;
+    /*BO*/
     pub fn g_srv_target_get_port(target: *mut GSrvTarget) -> u16;
+    /*BO*/
     pub fn g_srv_target_get_priority(target: *mut GSrvTarget) -> u16;
+    /*BO*/
     pub fn g_srv_target_get_weight(target: *mut GSrvTarget) -> u16;
+    /*BO*/
     pub fn g_srv_target_list_sort(targets: *mut glib::GList) -> *mut glib::GList;
 
     //=========================================================================
     // GStaticResource
     //=========================================================================
+    /*BO*/
     pub fn g_static_resource_fini(static_resource: *mut GStaticResource);
+    /*BO*/
     pub fn g_static_resource_get_resource(static_resource: *mut GStaticResource) -> *mut GResource;
+    /*BO*/
     pub fn g_static_resource_init(static_resource: *mut GStaticResource);
 
     //=========================================================================
@@ -9437,27 +9548,42 @@ extern "C" {
     #[cfg(any(feature = "v2_54", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_54")))]
     pub fn g_unix_mount_point_get_type() -> GType;
+    /*BO*/
     pub fn g_unix_mount_point_compare(
         mount1: *mut GUnixMountPoint,
         mount2: *mut GUnixMountPoint,
     ) -> c_int;
     #[cfg(any(feature = "v2_54", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_54")))]
+    /*BO*/
     pub fn g_unix_mount_point_copy(mount_point: *mut GUnixMountPoint) -> *mut GUnixMountPoint;
+    /*BO*/
     pub fn g_unix_mount_point_free(mount_point: *mut GUnixMountPoint);
+    /*BO*/
     pub fn g_unix_mount_point_get_device_path(mount_point: *mut GUnixMountPoint) -> *const c_char;
+    /*BO*/
     pub fn g_unix_mount_point_get_fs_type(mount_point: *mut GUnixMountPoint) -> *const c_char;
+    /*BO*/
     pub fn g_unix_mount_point_get_mount_path(mount_point: *mut GUnixMountPoint) -> *const c_char;
+    /*BO*/
     pub fn g_unix_mount_point_get_options(mount_point: *mut GUnixMountPoint) -> *const c_char;
+    /*BO*/
     pub fn g_unix_mount_point_guess_can_eject(mount_point: *mut GUnixMountPoint) -> gboolean;
+    /*BO*/
     pub fn g_unix_mount_point_guess_icon(mount_point: *mut GUnixMountPoint) -> *mut GIcon;
+    /*BO*/
     pub fn g_unix_mount_point_guess_name(mount_point: *mut GUnixMountPoint) -> *mut c_char;
+    /*BO*/
     pub fn g_unix_mount_point_guess_symbolic_icon(mount_point: *mut GUnixMountPoint) -> *mut GIcon;
+    /*BO*/
     pub fn g_unix_mount_point_is_loopback(mount_point: *mut GUnixMountPoint) -> gboolean;
+    /*BO*/
     pub fn g_unix_mount_point_is_readonly(mount_point: *mut GUnixMountPoint) -> gboolean;
+    /*BO*/
     pub fn g_unix_mount_point_is_user_mountable(mount_point: *mut GUnixMountPoint) -> gboolean;
     #[cfg(any(feature = "v2_66", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_66")))]
+    /*BO*/
     pub fn g_unix_mount_point_at(
         mount_path: *const c_char,
         time_read: *mut u64,
@@ -9467,48 +9593,61 @@ extern "C" {
     // GAppInfoMonitor
     //=========================================================================
     pub fn g_app_info_monitor_get_type() -> GType;
+    /*BO*/
     pub fn g_app_info_monitor_get() -> *mut GAppInfoMonitor;
 
     //=========================================================================
     // GAppLaunchContext
     //=========================================================================
     pub fn g_app_launch_context_get_type() -> GType;
+    /*BO*/
     pub fn g_app_launch_context_new() -> *mut GAppLaunchContext;
+    /*BO*/
     pub fn g_app_launch_context_get_display(
         context: *mut GAppLaunchContext,
         info: *mut GAppInfo,
         files: *mut glib::GList,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_app_launch_context_get_environment(
         context: *mut GAppLaunchContext,
     ) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_app_launch_context_get_startup_notify_id(
         context: *mut GAppLaunchContext,
         info: *mut GAppInfo,
         files: *mut glib::GList,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_app_launch_context_launch_failed(
         context: *mut GAppLaunchContext,
         startup_notify_id: *const c_char,
     );
+    /*BO*/
     pub fn g_app_launch_context_setenv(
         context: *mut GAppLaunchContext,
         variable: *const c_char,
         value: *const c_char,
     );
+    /*BO*/
     pub fn g_app_launch_context_unsetenv(context: *mut GAppLaunchContext, variable: *const c_char);
 
     //=========================================================================
     // GApplication
     //=========================================================================
     pub fn g_application_get_type() -> GType;
+    /*BO*/
     pub fn g_application_new(
         application_id: *const c_char,
         flags: GApplicationFlags,
     ) -> *mut GApplication;
+    /*BO*/
     pub fn g_application_get_default() -> *mut GApplication;
+    /*BO*/
     pub fn g_application_id_is_valid(application_id: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_application_activate(application: *mut GApplication);
+    /*BO*/
     pub fn g_application_add_main_option(
         application: *mut GApplication,
         long_name: *const c_char,
@@ -9518,146 +9657,191 @@ extern "C" {
         description: *const c_char,
         arg_description: *const c_char,
     );
+    /*BO*/
     pub fn g_application_add_main_option_entries(
         application: *mut GApplication,
         entries: *const glib::GOptionEntry,
     );
+    /*BO*/
     pub fn g_application_add_option_group(
         application: *mut GApplication,
         group: *mut glib::GOptionGroup,
     );
+    /*BO*/
     pub fn g_application_bind_busy_property(
         application: *mut GApplication,
         object: *mut gobject::GObject,
         property: *const c_char,
     );
+    /*BO*/
     pub fn g_application_get_application_id(application: *mut GApplication) -> *const c_char;
+    /*BO*/
     pub fn g_application_get_dbus_connection(
         application: *mut GApplication,
     ) -> *mut GDBusConnection;
+    /*BO*/
     pub fn g_application_get_dbus_object_path(application: *mut GApplication) -> *const c_char;
+    /*BO*/
     pub fn g_application_get_flags(application: *mut GApplication) -> GApplicationFlags;
+    /*BO*/
     pub fn g_application_get_inactivity_timeout(application: *mut GApplication) -> c_uint;
+    /*BO*/
     pub fn g_application_get_is_busy(application: *mut GApplication) -> gboolean;
+    /*BO*/
     pub fn g_application_get_is_registered(application: *mut GApplication) -> gboolean;
+    /*BO*/
     pub fn g_application_get_is_remote(application: *mut GApplication) -> gboolean;
+    /*BO*/
     pub fn g_application_get_resource_base_path(application: *mut GApplication) -> *const c_char;
+    /*BO*/
     pub fn g_application_hold(application: *mut GApplication);
+    /*BO*/
     pub fn g_application_mark_busy(application: *mut GApplication);
+    /*BO*/
     pub fn g_application_open(
         application: *mut GApplication,
         files: *mut *mut GFile,
         n_files: c_int,
         hint: *const c_char,
     );
+    /*BO*/
     pub fn g_application_quit(application: *mut GApplication);
+    /*BO*/
     pub fn g_application_register(
         application: *mut GApplication,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_application_release(application: *mut GApplication);
+    /*BO*/
     pub fn g_application_run(
         application: *mut GApplication,
         argc: c_int,
         argv: *mut *mut c_char,
     ) -> c_int;
+    /*BO*/
     pub fn g_application_send_notification(
         application: *mut GApplication,
         id: *const c_char,
         notification: *mut GNotification,
     );
+    /*BO*/
     pub fn g_application_set_action_group(
         application: *mut GApplication,
         action_group: *mut GActionGroup,
     );
+    /*BO*/
     pub fn g_application_set_application_id(
         application: *mut GApplication,
         application_id: *const c_char,
     );
+    /*BO*/
     pub fn g_application_set_default(application: *mut GApplication);
+    /*BO*/
     pub fn g_application_set_flags(application: *mut GApplication, flags: GApplicationFlags);
+    /*BO*/
     pub fn g_application_set_inactivity_timeout(
         application: *mut GApplication,
         inactivity_timeout: c_uint,
     );
     #[cfg(any(feature = "v2_56", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
+    /*BO*/
     pub fn g_application_set_option_context_description(
         application: *mut GApplication,
         description: *const c_char,
     );
     #[cfg(any(feature = "v2_56", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
+    /*BO*/
     pub fn g_application_set_option_context_parameter_string(
         application: *mut GApplication,
         parameter_string: *const c_char,
     );
     #[cfg(any(feature = "v2_56", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
+    /*BO*/
     pub fn g_application_set_option_context_summary(
         application: *mut GApplication,
         summary: *const c_char,
     );
+    /*BO*/
     pub fn g_application_set_resource_base_path(
         application: *mut GApplication,
         resource_path: *const c_char,
     );
+    /*BO*/
     pub fn g_application_unbind_busy_property(
         application: *mut GApplication,
         object: *mut gobject::GObject,
         property: *const c_char,
     );
+    /*BO*/
     pub fn g_application_unmark_busy(application: *mut GApplication);
+    /*BO*/
     pub fn g_application_withdraw_notification(application: *mut GApplication, id: *const c_char);
 
     //=========================================================================
     // GApplicationCommandLine
     //=========================================================================
     pub fn g_application_command_line_get_type() -> GType;
+    /*BO*/
     pub fn g_application_command_line_create_file_for_arg(
         cmdline: *mut GApplicationCommandLine,
         arg: *const c_char,
     ) -> *mut GFile;
+    /*BO*/
     pub fn g_application_command_line_get_arguments(
         cmdline: *mut GApplicationCommandLine,
         argc: *mut c_int,
     ) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_application_command_line_get_cwd(
         cmdline: *mut GApplicationCommandLine,
     ) -> *const c_char;
+    /*BO*/
     pub fn g_application_command_line_get_environ(
         cmdline: *mut GApplicationCommandLine,
     ) -> *const *const c_char;
+    /*BO*/
     pub fn g_application_command_line_get_exit_status(
         cmdline: *mut GApplicationCommandLine,
     ) -> c_int;
+    /*BO*/
     pub fn g_application_command_line_get_is_remote(
         cmdline: *mut GApplicationCommandLine,
     ) -> gboolean;
+    /*BO*/
     pub fn g_application_command_line_get_options_dict(
         cmdline: *mut GApplicationCommandLine,
     ) -> *mut glib::GVariantDict;
+    /*BO*/
     pub fn g_application_command_line_get_platform_data(
         cmdline: *mut GApplicationCommandLine,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_application_command_line_get_stdin(
         cmdline: *mut GApplicationCommandLine,
     ) -> *mut GInputStream;
+    /*BO*/
     pub fn g_application_command_line_getenv(
         cmdline: *mut GApplicationCommandLine,
         name: *const c_char,
     ) -> *const c_char;
+    /*BO*/
     pub fn g_application_command_line_print(
         cmdline: *mut GApplicationCommandLine,
         format: *const c_char,
         ...
     );
+    /*BO*/
     pub fn g_application_command_line_printerr(
         cmdline: *mut GApplicationCommandLine,
         format: *const c_char,
         ...
     );
+    /*BO*/
     pub fn g_application_command_line_set_exit_status(
         cmdline: *mut GApplicationCommandLine,
         exit_status: c_int,
@@ -9667,17 +9851,21 @@ extern "C" {
     // GBufferedInputStream
     //=========================================================================
     pub fn g_buffered_input_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_buffered_input_stream_new(base_stream: *mut GInputStream) -> *mut GInputStream;
+    /*BO*/
     pub fn g_buffered_input_stream_new_sized(
         base_stream: *mut GInputStream,
         size: size_t,
     ) -> *mut GInputStream;
+    /*BO*/
     pub fn g_buffered_input_stream_fill(
         stream: *mut GBufferedInputStream,
         count: ssize_t,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_buffered_input_stream_fill_async(
         stream: *mut GBufferedInputStream,
         count: ssize_t,
@@ -9686,45 +9874,58 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_buffered_input_stream_fill_finish(
         stream: *mut GBufferedInputStream,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_buffered_input_stream_get_available(stream: *mut GBufferedInputStream) -> size_t;
+    /*BO*/
     pub fn g_buffered_input_stream_get_buffer_size(stream: *mut GBufferedInputStream) -> size_t;
+    /*BO*/
     pub fn g_buffered_input_stream_peek(
         stream: *mut GBufferedInputStream,
         buffer: *mut u8,
         offset: size_t,
         count: size_t,
     ) -> size_t;
+    /*BO*/
     pub fn g_buffered_input_stream_peek_buffer(
         stream: *mut GBufferedInputStream,
         count: *mut size_t,
     ) -> *mut u8;
+    /*BO*/
     pub fn g_buffered_input_stream_read_byte(
         stream: *mut GBufferedInputStream,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> c_int;
+    /*BO*/
     pub fn g_buffered_input_stream_set_buffer_size(stream: *mut GBufferedInputStream, size: size_t);
 
     //=========================================================================
     // GBufferedOutputStream
     //=========================================================================
     pub fn g_buffered_output_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_buffered_output_stream_new(base_stream: *mut GOutputStream) -> *mut GOutputStream;
+    /*BO*/
     pub fn g_buffered_output_stream_new_sized(
         base_stream: *mut GOutputStream,
         size: size_t,
     ) -> *mut GOutputStream;
+    /*BO*/
     pub fn g_buffered_output_stream_get_auto_grow(stream: *mut GBufferedOutputStream) -> gboolean;
+    /*BO*/
     pub fn g_buffered_output_stream_get_buffer_size(stream: *mut GBufferedOutputStream) -> size_t;
+    /*BO*/
     pub fn g_buffered_output_stream_set_auto_grow(
         stream: *mut GBufferedOutputStream,
         auto_grow: gboolean,
     );
+    /*BO*/
     pub fn g_buffered_output_stream_set_buffer_size(
         stream: *mut GBufferedOutputStream,
         size: size_t,
@@ -9734,50 +9935,70 @@ extern "C" {
     // GBytesIcon
     //=========================================================================
     pub fn g_bytes_icon_get_type() -> GType;
+    /*BO*/
     pub fn g_bytes_icon_new(bytes: *mut glib::GBytes) -> *mut GBytesIcon;
+    /*BO*/
     pub fn g_bytes_icon_get_bytes(icon: *mut GBytesIcon) -> *mut glib::GBytes;
 
     //=========================================================================
     // GCancellable
     //=========================================================================
     pub fn g_cancellable_get_type() -> GType;
+    /*BO*/
     pub fn g_cancellable_new() -> *mut GCancellable;
+    /*BO*/
     pub fn g_cancellable_get_current() -> *mut GCancellable;
+    /*BO*/
     pub fn g_cancellable_cancel(cancellable: *mut GCancellable);
+    /*BO*/
     pub fn g_cancellable_connect(
         cancellable: *mut GCancellable,
         callback: gobject::GCallback,
         data: gpointer,
         data_destroy_func: glib::GDestroyNotify,
     ) -> c_ulong;
+    /*BO*/
     pub fn g_cancellable_disconnect(cancellable: *mut GCancellable, handler_id: c_ulong);
+    /*BO*/
     pub fn g_cancellable_get_fd(cancellable: *mut GCancellable) -> c_int;
+    /*BO*/
     pub fn g_cancellable_is_cancelled(cancellable: *mut GCancellable) -> gboolean;
+    /*BO*/
     pub fn g_cancellable_make_pollfd(
         cancellable: *mut GCancellable,
         pollfd: *mut glib::GPollFD,
     ) -> gboolean;
+    /*BO*/
     pub fn g_cancellable_pop_current(cancellable: *mut GCancellable);
+    /*BO*/
     pub fn g_cancellable_push_current(cancellable: *mut GCancellable);
+    /*BO*/
     pub fn g_cancellable_release_fd(cancellable: *mut GCancellable);
+    /*BO*/
     pub fn g_cancellable_reset(cancellable: *mut GCancellable);
+    /*BO*/
     pub fn g_cancellable_set_error_if_cancelled(
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_cancellable_source_new(cancellable: *mut GCancellable) -> *mut glib::GSource;
 
     //=========================================================================
     // GCharsetConverter
     //=========================================================================
     pub fn g_charset_converter_get_type() -> GType;
+    /*BO*/
     pub fn g_charset_converter_new(
         to_charset: *const c_char,
         from_charset: *const c_char,
         error: *mut *mut glib::GError,
     ) -> *mut GCharsetConverter;
+    /*BO*/
     pub fn g_charset_converter_get_num_fallbacks(converter: *mut GCharsetConverter) -> c_uint;
+    /*BO*/
     pub fn g_charset_converter_get_use_fallback(converter: *mut GCharsetConverter) -> gboolean;
+    /*BO*/
     pub fn g_charset_converter_set_use_fallback(
         converter: *mut GCharsetConverter,
         use_fallback: gboolean,
@@ -9787,10 +10008,12 @@ extern "C" {
     // GConverterInputStream
     //=========================================================================
     pub fn g_converter_input_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_converter_input_stream_new(
         base_stream: *mut GInputStream,
         converter: *mut GConverter,
     ) -> *mut GInputStream;
+    /*BO*/
     pub fn g_converter_input_stream_get_converter(
         converter_stream: *mut GConverterInputStream,
     ) -> *mut GConverter;
@@ -9799,10 +10022,12 @@ extern "C" {
     // GConverterOutputStream
     //=========================================================================
     pub fn g_converter_output_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_converter_output_stream_new(
         base_stream: *mut GOutputStream,
         converter: *mut GConverter,
     ) -> *mut GOutputStream;
+    /*BO*/
     pub fn g_converter_output_stream_get_converter(
         converter_stream: *mut GConverterOutputStream,
     ) -> *mut GConverter;
@@ -9811,40 +10036,49 @@ extern "C" {
     // GCredentials
     //=========================================================================
     pub fn g_credentials_get_type() -> GType;
+    /*BO*/
     pub fn g_credentials_new() -> *mut GCredentials;
+    /*BO*/
     pub fn g_credentials_get_native(
         credentials: *mut GCredentials,
         native_type: GCredentialsType,
     ) -> gpointer;
+    /*BO*/
     pub fn g_credentials_get_unix_pid(
         credentials: *mut GCredentials,
         error: *mut *mut glib::GError,
     ) -> c_int;
+    /*BO*/
     pub fn g_credentials_get_unix_user(
         credentials: *mut GCredentials,
         error: *mut *mut glib::GError,
     ) -> c_uint;
+    /*BO*/
     pub fn g_credentials_is_same_user(
         credentials: *mut GCredentials,
         other_credentials: *mut GCredentials,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_credentials_set_native(
         credentials: *mut GCredentials,
         native_type: GCredentialsType,
         native: gpointer,
     );
+    /*BO*/
     pub fn g_credentials_set_unix_user(
         credentials: *mut GCredentials,
         uid: c_uint,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_credentials_to_string(credentials: *mut GCredentials) -> *mut c_char;
 
     //=========================================================================
     // GDBusActionGroup
     //=========================================================================
     pub fn g_dbus_action_group_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_action_group_get(
         connection: *mut GDBusConnection,
         bus_name: *const c_char,
@@ -9855,11 +10089,14 @@ extern "C" {
     // GDBusAuthObserver
     //=========================================================================
     pub fn g_dbus_auth_observer_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_auth_observer_new() -> *mut GDBusAuthObserver;
+    /*BO*/
     pub fn g_dbus_auth_observer_allow_mechanism(
         observer: *mut GDBusAuthObserver,
         mechanism: *const c_char,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dbus_auth_observer_authorize_authenticated_peer(
         observer: *mut GDBusAuthObserver,
         stream: *mut GIOStream,
@@ -9870,14 +10107,17 @@ extern "C" {
     // GDBusConnection
     //=========================================================================
     pub fn g_dbus_connection_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_connection_new_finish(
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusConnection;
+    /*BO*/
     pub fn g_dbus_connection_new_for_address_finish(
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusConnection;
+    /*BO*/
     pub fn g_dbus_connection_new_for_address_sync(
         address: *const c_char,
         flags: GDBusConnectionFlags,
@@ -9885,6 +10125,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusConnection;
+    /*BO*/
     pub fn g_dbus_connection_new_sync(
         stream: *mut GIOStream,
         guid: *const c_char,
@@ -9893,6 +10134,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusConnection;
+    /*BO*/
     pub fn g_dbus_connection_new(
         stream: *mut GIOStream,
         guid: *const c_char,
@@ -9902,6 +10144,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dbus_connection_new_for_address(
         address: *const c_char,
         flags: GDBusConnectionFlags,
@@ -9910,12 +10153,14 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dbus_connection_add_filter(
         connection: *mut GDBusConnection,
         filter_function: GDBusMessageFilterFunction,
         user_data: gpointer,
         user_data_free_func: glib::GDestroyNotify,
     ) -> c_uint;
+    /*BO*/
     pub fn g_dbus_connection_call(
         connection: *mut GDBusConnection,
         bus_name: *const c_char,
@@ -9930,11 +10175,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dbus_connection_call_finish(
         connection: *mut GDBusConnection,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_dbus_connection_call_sync(
         connection: *mut GDBusConnection,
         bus_name: *const c_char,
@@ -9948,6 +10195,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_dbus_connection_call_with_unix_fd_list(
         connection: *mut GDBusConnection,
         bus_name: *const c_char,
@@ -9963,12 +10211,14 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dbus_connection_call_with_unix_fd_list_finish(
         connection: *mut GDBusConnection,
         out_fd_list: *mut *mut GUnixFDList,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_dbus_connection_call_with_unix_fd_list_sync(
         connection: *mut GDBusConnection,
         bus_name: *const c_char,
@@ -9984,22 +10234,26 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_dbus_connection_close(
         connection: *mut GDBusConnection,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dbus_connection_close_finish(
         connection: *mut GDBusConnection,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dbus_connection_close_sync(
         connection: *mut GDBusConnection,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dbus_connection_emit_signal(
         connection: *mut GDBusConnection,
         destination_bus_name: *const c_char,
@@ -10009,49 +10263,64 @@ extern "C" {
         parameters: *mut glib::GVariant,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dbus_connection_export_action_group(
         connection: *mut GDBusConnection,
         object_path: *const c_char,
         action_group: *mut GActionGroup,
         error: *mut *mut glib::GError,
     ) -> c_uint;
+    /*BO*/
     pub fn g_dbus_connection_export_menu_model(
         connection: *mut GDBusConnection,
         object_path: *const c_char,
         menu: *mut GMenuModel,
         error: *mut *mut glib::GError,
     ) -> c_uint;
+    /*BO*/
     pub fn g_dbus_connection_flush(
         connection: *mut GDBusConnection,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dbus_connection_flush_finish(
         connection: *mut GDBusConnection,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dbus_connection_flush_sync(
         connection: *mut GDBusConnection,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dbus_connection_get_capabilities(
         connection: *mut GDBusConnection,
     ) -> GDBusCapabilityFlags;
+    /*BO*/
     pub fn g_dbus_connection_get_exit_on_close(connection: *mut GDBusConnection) -> gboolean;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_dbus_connection_get_flags(connection: *mut GDBusConnection) -> GDBusConnectionFlags;
+    /*BO*/
     pub fn g_dbus_connection_get_guid(connection: *mut GDBusConnection) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_connection_get_last_serial(connection: *mut GDBusConnection) -> u32;
+    /*BO*/
     pub fn g_dbus_connection_get_peer_credentials(
         connection: *mut GDBusConnection,
     ) -> *mut GCredentials;
+    /*BO*/
     pub fn g_dbus_connection_get_stream(connection: *mut GDBusConnection) -> *mut GIOStream;
+    /*BO*/
     pub fn g_dbus_connection_get_unique_name(connection: *mut GDBusConnection) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_connection_is_closed(connection: *mut GDBusConnection) -> gboolean;
+    /*BO*/
     pub fn g_dbus_connection_register_object(
         connection: *mut GDBusConnection,
         object_path: *const c_char,
@@ -10061,6 +10330,7 @@ extern "C" {
         user_data_free_func: glib::GDestroyNotify,
         error: *mut *mut glib::GError,
     ) -> c_uint;
+    /*BO*/
     pub fn g_dbus_connection_register_object_with_closures(
         connection: *mut GDBusConnection,
         object_path: *const c_char,
@@ -10070,6 +10340,7 @@ extern "C" {
         set_property_closure: *mut gobject::GClosure,
         error: *mut *mut glib::GError,
     ) -> c_uint;
+    /*BO*/
     pub fn g_dbus_connection_register_subtree(
         connection: *mut GDBusConnection,
         object_path: *const c_char,
@@ -10079,7 +10350,9 @@ extern "C" {
         user_data_free_func: glib::GDestroyNotify,
         error: *mut *mut glib::GError,
     ) -> c_uint;
+    /*BO*/
     pub fn g_dbus_connection_remove_filter(connection: *mut GDBusConnection, filter_id: c_uint);
+    /*BO*/
     pub fn g_dbus_connection_send_message(
         connection: *mut GDBusConnection,
         message: *mut GDBusMessage,
@@ -10087,6 +10360,7 @@ extern "C" {
         out_serial: *mut u32,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dbus_connection_send_message_with_reply(
         connection: *mut GDBusConnection,
         message: *mut GDBusMessage,
@@ -10097,11 +10371,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dbus_connection_send_message_with_reply_finish(
         connection: *mut GDBusConnection,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusMessage;
+    /*BO*/
     pub fn g_dbus_connection_send_message_with_reply_sync(
         connection: *mut GDBusConnection,
         message: *mut GDBusMessage,
@@ -10111,10 +10387,12 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusMessage;
+    /*BO*/
     pub fn g_dbus_connection_set_exit_on_close(
         connection: *mut GDBusConnection,
         exit_on_close: gboolean,
     );
+    /*BO*/
     pub fn g_dbus_connection_signal_subscribe(
         connection: *mut GDBusConnection,
         sender: *const c_char,
@@ -10127,23 +10405,29 @@ extern "C" {
         user_data: gpointer,
         user_data_free_func: glib::GDestroyNotify,
     ) -> c_uint;
+    /*BO*/
     pub fn g_dbus_connection_signal_unsubscribe(
         connection: *mut GDBusConnection,
         subscription_id: c_uint,
     );
+    /*BO*/
     pub fn g_dbus_connection_start_message_processing(connection: *mut GDBusConnection);
+    /*BO*/
     pub fn g_dbus_connection_unexport_action_group(
         connection: *mut GDBusConnection,
         export_id: c_uint,
     );
+    /*BO*/
     pub fn g_dbus_connection_unexport_menu_model(
         connection: *mut GDBusConnection,
         export_id: c_uint,
     );
+    /*BO*/
     pub fn g_dbus_connection_unregister_object(
         connection: *mut GDBusConnection,
         registration_id: c_uint,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dbus_connection_unregister_subtree(
         connection: *mut GDBusConnection,
         registration_id: c_uint,
@@ -10153,43 +10437,56 @@ extern "C" {
     // GDBusInterfaceSkeleton
     //=========================================================================
     pub fn g_dbus_interface_skeleton_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_interface_skeleton_export(
         interface_: *mut GDBusInterfaceSkeleton,
         connection: *mut GDBusConnection,
         object_path: *const c_char,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dbus_interface_skeleton_flush(interface_: *mut GDBusInterfaceSkeleton);
+    /*BO*/
     pub fn g_dbus_interface_skeleton_get_connection(
         interface_: *mut GDBusInterfaceSkeleton,
     ) -> *mut GDBusConnection;
+    /*BO*/
     pub fn g_dbus_interface_skeleton_get_connections(
         interface_: *mut GDBusInterfaceSkeleton,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_dbus_interface_skeleton_get_flags(
         interface_: *mut GDBusInterfaceSkeleton,
     ) -> GDBusInterfaceSkeletonFlags;
+    /*BO*/
     pub fn g_dbus_interface_skeleton_get_info(
         interface_: *mut GDBusInterfaceSkeleton,
     ) -> *mut GDBusInterfaceInfo;
+    /*BO*/
     pub fn g_dbus_interface_skeleton_get_object_path(
         interface_: *mut GDBusInterfaceSkeleton,
     ) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_interface_skeleton_get_properties(
         interface_: *mut GDBusInterfaceSkeleton,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_dbus_interface_skeleton_get_vtable(
         interface_: *mut GDBusInterfaceSkeleton,
     ) -> *mut GDBusInterfaceVTable;
+    /*BO*/
     pub fn g_dbus_interface_skeleton_has_connection(
         interface_: *mut GDBusInterfaceSkeleton,
         connection: *mut GDBusConnection,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dbus_interface_skeleton_set_flags(
         interface_: *mut GDBusInterfaceSkeleton,
         flags: GDBusInterfaceSkeletonFlags,
     );
+    /*BO*/
     pub fn g_dbus_interface_skeleton_unexport(interface_: *mut GDBusInterfaceSkeleton);
+    /*BO*/
     pub fn g_dbus_interface_skeleton_unexport_from_connection(
         interface_: *mut GDBusInterfaceSkeleton,
         connection: *mut GDBusConnection,
@@ -10199,6 +10496,7 @@ extern "C" {
     // GDBusMenuModel
     //=========================================================================
     pub fn g_dbus_menu_model_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_menu_model_get(
         connection: *mut GDBusConnection,
         bus_name: *const c_char,
@@ -10209,101 +10507,149 @@ extern "C" {
     // GDBusMessage
     //=========================================================================
     pub fn g_dbus_message_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_message_new() -> *mut GDBusMessage;
+    /*BO*/
     pub fn g_dbus_message_new_from_blob(
         blob: *mut u8,
         blob_len: size_t,
         capabilities: GDBusCapabilityFlags,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusMessage;
+    /*BO*/
     pub fn g_dbus_message_new_method_call(
         name: *const c_char,
         path: *const c_char,
         interface_: *const c_char,
         method: *const c_char,
     ) -> *mut GDBusMessage;
+    /*BO*/
     pub fn g_dbus_message_new_signal(
         path: *const c_char,
         interface_: *const c_char,
         signal: *const c_char,
     ) -> *mut GDBusMessage;
+    /*BO*/
     pub fn g_dbus_message_bytes_needed(
         blob: *mut u8,
         blob_len: size_t,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_dbus_message_copy(
         message: *mut GDBusMessage,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusMessage;
+    /*BO*/
     pub fn g_dbus_message_get_arg0(message: *mut GDBusMessage) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_message_get_body(message: *mut GDBusMessage) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_dbus_message_get_byte_order(message: *mut GDBusMessage) -> GDBusMessageByteOrder;
+    /*BO*/
     pub fn g_dbus_message_get_destination(message: *mut GDBusMessage) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_message_get_error_name(message: *mut GDBusMessage) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_message_get_flags(message: *mut GDBusMessage) -> GDBusMessageFlags;
+    /*BO*/
     pub fn g_dbus_message_get_header(
         message: *mut GDBusMessage,
         header_field: GDBusMessageHeaderField,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_dbus_message_get_header_fields(message: *mut GDBusMessage) -> *mut u8;
+    /*BO*/
     pub fn g_dbus_message_get_interface(message: *mut GDBusMessage) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_message_get_locked(message: *mut GDBusMessage) -> gboolean;
+    /*BO*/
     pub fn g_dbus_message_get_member(message: *mut GDBusMessage) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_message_get_message_type(message: *mut GDBusMessage) -> GDBusMessageType;
+    /*BO*/
     pub fn g_dbus_message_get_num_unix_fds(message: *mut GDBusMessage) -> u32;
+    /*BO*/
     pub fn g_dbus_message_get_path(message: *mut GDBusMessage) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_message_get_reply_serial(message: *mut GDBusMessage) -> u32;
+    /*BO*/
     pub fn g_dbus_message_get_sender(message: *mut GDBusMessage) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_message_get_serial(message: *mut GDBusMessage) -> u32;
+    /*BO*/
     pub fn g_dbus_message_get_signature(message: *mut GDBusMessage) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_message_get_unix_fd_list(message: *mut GDBusMessage) -> *mut GUnixFDList;
+    /*BO*/
     pub fn g_dbus_message_lock(message: *mut GDBusMessage);
+    /*BO*/
     pub fn g_dbus_message_new_method_error(
         method_call_message: *mut GDBusMessage,
         error_name: *const c_char,
         error_message_format: *const c_char,
         ...
     ) -> *mut GDBusMessage;
+    /*BO*/
     pub fn g_dbus_message_new_method_error_literal(
         method_call_message: *mut GDBusMessage,
         error_name: *const c_char,
         error_message: *const c_char,
     ) -> *mut GDBusMessage;
-    //pub fn g_dbus_message_new_method_error_valist(method_call_message: *mut GDBusMessage, error_name: *const c_char, error_message_format: *const c_char, var_args: /*Unimplemented*/va_list) -> *mut GDBusMessage;
+    /*BO*///pub fn g_dbus_message_new_method_error_valist(method_call_message: *mut GDBusMessage, error_name: *const c_char, error_message_format: *const c_char, var_args: /*Unimplemented*/va_list) -> *mut GDBusMessage;
+    /*BO*/
     pub fn g_dbus_message_new_method_reply(
         method_call_message: *mut GDBusMessage,
     ) -> *mut GDBusMessage;
+    /*BO*/
     pub fn g_dbus_message_print(message: *mut GDBusMessage, indent: c_uint) -> *mut c_char;
+    /*BO*/
     pub fn g_dbus_message_set_body(message: *mut GDBusMessage, body: *mut glib::GVariant);
+    /*BO*/
     pub fn g_dbus_message_set_byte_order(
         message: *mut GDBusMessage,
         byte_order: GDBusMessageByteOrder,
     );
+    /*BO*/
     pub fn g_dbus_message_set_destination(message: *mut GDBusMessage, value: *const c_char);
+    /*BO*/
     pub fn g_dbus_message_set_error_name(message: *mut GDBusMessage, value: *const c_char);
+    /*BO*/
     pub fn g_dbus_message_set_flags(message: *mut GDBusMessage, flags: GDBusMessageFlags);
+    /*BO*/
     pub fn g_dbus_message_set_header(
         message: *mut GDBusMessage,
         header_field: GDBusMessageHeaderField,
         value: *mut glib::GVariant,
     );
+    /*BO*/
     pub fn g_dbus_message_set_interface(message: *mut GDBusMessage, value: *const c_char);
+    /*BO*/
     pub fn g_dbus_message_set_member(message: *mut GDBusMessage, value: *const c_char);
+    /*BO*/
     pub fn g_dbus_message_set_message_type(message: *mut GDBusMessage, type_: GDBusMessageType);
+    /*BO*/
     pub fn g_dbus_message_set_num_unix_fds(message: *mut GDBusMessage, value: u32);
+    /*BO*/
     pub fn g_dbus_message_set_path(message: *mut GDBusMessage, value: *const c_char);
+    /*BO*/
     pub fn g_dbus_message_set_reply_serial(message: *mut GDBusMessage, value: u32);
+    /*BO*/
     pub fn g_dbus_message_set_sender(message: *mut GDBusMessage, value: *const c_char);
+    /*BO*/
     pub fn g_dbus_message_set_serial(message: *mut GDBusMessage, serial: u32);
+    /*BO*/
     pub fn g_dbus_message_set_signature(message: *mut GDBusMessage, value: *const c_char);
+    /*BO*/
     pub fn g_dbus_message_set_unix_fd_list(message: *mut GDBusMessage, fd_list: *mut GUnixFDList);
+    /*BO*/
     pub fn g_dbus_message_to_blob(
         message: *mut GDBusMessage,
         out_size: *mut size_t,
         capabilities: GDBusCapabilityFlags,
         error: *mut *mut glib::GError,
     ) -> *mut u8;
+    /*BO*/
     pub fn g_dbus_message_to_gerror(
         message: *mut GDBusMessage,
         error: *mut *mut glib::GError,
@@ -10313,41 +10659,53 @@ extern "C" {
     // GDBusMethodInvocation
     //=========================================================================
     pub fn g_dbus_method_invocation_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_method_invocation_get_connection(
         invocation: *mut GDBusMethodInvocation,
     ) -> *mut GDBusConnection;
+    /*BO*/
     pub fn g_dbus_method_invocation_get_interface_name(
         invocation: *mut GDBusMethodInvocation,
     ) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_method_invocation_get_message(
         invocation: *mut GDBusMethodInvocation,
     ) -> *mut GDBusMessage;
+    /*BO*/
     pub fn g_dbus_method_invocation_get_method_info(
         invocation: *mut GDBusMethodInvocation,
     ) -> *const GDBusMethodInfo;
+    /*BO*/
     pub fn g_dbus_method_invocation_get_method_name(
         invocation: *mut GDBusMethodInvocation,
     ) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_method_invocation_get_object_path(
         invocation: *mut GDBusMethodInvocation,
     ) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_method_invocation_get_parameters(
         invocation: *mut GDBusMethodInvocation,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_dbus_method_invocation_get_property_info(
         invocation: *mut GDBusMethodInvocation,
     ) -> *const GDBusPropertyInfo;
+    /*BO*/
     pub fn g_dbus_method_invocation_get_sender(
         invocation: *mut GDBusMethodInvocation,
     ) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_method_invocation_get_user_data(
         invocation: *mut GDBusMethodInvocation,
     ) -> gpointer;
+    /*BO*/
     pub fn g_dbus_method_invocation_return_dbus_error(
         invocation: *mut GDBusMethodInvocation,
         error_name: *const c_char,
         error_message: *const c_char,
     );
+    /*BO*/
     pub fn g_dbus_method_invocation_return_error(
         invocation: *mut GDBusMethodInvocation,
         domain: glib::GQuark,
@@ -10355,26 +10713,31 @@ extern "C" {
         format: *const c_char,
         ...
     );
+    /*BO*/
     pub fn g_dbus_method_invocation_return_error_literal(
         invocation: *mut GDBusMethodInvocation,
         domain: glib::GQuark,
         code: c_int,
         message: *const c_char,
     );
-    //pub fn g_dbus_method_invocation_return_error_valist(invocation: *mut GDBusMethodInvocation, domain: glib::GQuark, code: c_int, format: *const c_char, var_args: /*Unimplemented*/va_list);
+    /*BO*///pub fn g_dbus_method_invocation_return_error_valist(invocation: *mut GDBusMethodInvocation, domain: glib::GQuark, code: c_int, format: *const c_char, var_args: /*Unimplemented*/va_list);
+    /*BO*/
     pub fn g_dbus_method_invocation_return_gerror(
         invocation: *mut GDBusMethodInvocation,
         error: *const glib::GError,
     );
+    /*BO*/
     pub fn g_dbus_method_invocation_return_value(
         invocation: *mut GDBusMethodInvocation,
         parameters: *mut glib::GVariant,
     );
+    /*BO*/
     pub fn g_dbus_method_invocation_return_value_with_unix_fd_list(
         invocation: *mut GDBusMethodInvocation,
         parameters: *mut glib::GVariant,
         fd_list: *mut GUnixFDList,
     );
+    /*BO*/
     pub fn g_dbus_method_invocation_take_error(
         invocation: *mut GDBusMethodInvocation,
         error: *mut glib::GError,
@@ -10384,14 +10747,17 @@ extern "C" {
     // GDBusObjectManagerClient
     //=========================================================================
     pub fn g_dbus_object_manager_client_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_object_manager_client_new_finish(
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusObjectManagerClient;
+    /*BO*/
     pub fn g_dbus_object_manager_client_new_for_bus_finish(
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusObjectManagerClient;
+    /*BO*/
     pub fn g_dbus_object_manager_client_new_for_bus_sync(
         bus_type: GBusType,
         flags: GDBusObjectManagerClientFlags,
@@ -10403,6 +10769,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusObjectManagerClient;
+    /*BO*/
     pub fn g_dbus_object_manager_client_new_sync(
         connection: *mut GDBusConnection,
         flags: GDBusObjectManagerClientFlags,
@@ -10414,6 +10781,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusObjectManagerClient;
+    /*BO*/
     pub fn g_dbus_object_manager_client_new(
         connection: *mut GDBusConnection,
         flags: GDBusObjectManagerClientFlags,
@@ -10426,6 +10794,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dbus_object_manager_client_new_for_bus(
         bus_type: GBusType,
         flags: GDBusObjectManagerClientFlags,
@@ -10438,15 +10807,19 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dbus_object_manager_client_get_connection(
         manager: *mut GDBusObjectManagerClient,
     ) -> *mut GDBusConnection;
+    /*BO*/
     pub fn g_dbus_object_manager_client_get_flags(
         manager: *mut GDBusObjectManagerClient,
     ) -> GDBusObjectManagerClientFlags;
+    /*BO*/
     pub fn g_dbus_object_manager_client_get_name(
         manager: *mut GDBusObjectManagerClient,
     ) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_object_manager_client_get_name_owner(
         manager: *mut GDBusObjectManagerClient,
     ) -> *mut c_char;
@@ -10455,28 +10828,35 @@ extern "C" {
     // GDBusObjectManagerServer
     //=========================================================================
     pub fn g_dbus_object_manager_server_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_object_manager_server_new(
         object_path: *const c_char,
     ) -> *mut GDBusObjectManagerServer;
+    /*BO*/
     pub fn g_dbus_object_manager_server_export(
         manager: *mut GDBusObjectManagerServer,
         object: *mut GDBusObjectSkeleton,
     );
+    /*BO*/
     pub fn g_dbus_object_manager_server_export_uniquely(
         manager: *mut GDBusObjectManagerServer,
         object: *mut GDBusObjectSkeleton,
     );
+    /*BO*/
     pub fn g_dbus_object_manager_server_get_connection(
         manager: *mut GDBusObjectManagerServer,
     ) -> *mut GDBusConnection;
+    /*BO*/
     pub fn g_dbus_object_manager_server_is_exported(
         manager: *mut GDBusObjectManagerServer,
         object: *mut GDBusObjectSkeleton,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dbus_object_manager_server_set_connection(
         manager: *mut GDBusObjectManagerServer,
         connection: *mut GDBusConnection,
     );
+    /*BO*/
     pub fn g_dbus_object_manager_server_unexport(
         manager: *mut GDBusObjectManagerServer,
         object_path: *const c_char,
@@ -10486,10 +10866,12 @@ extern "C" {
     // GDBusObjectProxy
     //=========================================================================
     pub fn g_dbus_object_proxy_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_object_proxy_new(
         connection: *mut GDBusConnection,
         object_path: *const c_char,
     ) -> *mut GDBusObjectProxy;
+    /*BO*/
     pub fn g_dbus_object_proxy_get_connection(proxy: *mut GDBusObjectProxy)
         -> *mut GDBusConnection;
 
@@ -10497,20 +10879,26 @@ extern "C" {
     // GDBusObjectSkeleton
     //=========================================================================
     pub fn g_dbus_object_skeleton_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_object_skeleton_new(object_path: *const c_char) -> *mut GDBusObjectSkeleton;
+    /*BO*/
     pub fn g_dbus_object_skeleton_add_interface(
         object: *mut GDBusObjectSkeleton,
         interface_: *mut GDBusInterfaceSkeleton,
     );
+    /*BO*/
     pub fn g_dbus_object_skeleton_flush(object: *mut GDBusObjectSkeleton);
+    /*BO*/
     pub fn g_dbus_object_skeleton_remove_interface(
         object: *mut GDBusObjectSkeleton,
         interface_: *mut GDBusInterfaceSkeleton,
     );
+    /*BO*/
     pub fn g_dbus_object_skeleton_remove_interface_by_name(
         object: *mut GDBusObjectSkeleton,
         interface_name: *const c_char,
     );
+    /*BO*/
     pub fn g_dbus_object_skeleton_set_object_path(
         object: *mut GDBusObjectSkeleton,
         object_path: *const c_char,
@@ -10520,14 +10908,17 @@ extern "C" {
     // GDBusProxy
     //=========================================================================
     pub fn g_dbus_proxy_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_proxy_new_finish(
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusProxy;
+    /*BO*/
     pub fn g_dbus_proxy_new_for_bus_finish(
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusProxy;
+    /*BO*/
     pub fn g_dbus_proxy_new_for_bus_sync(
         bus_type: GBusType,
         flags: GDBusProxyFlags,
@@ -10538,6 +10929,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusProxy;
+    /*BO*/
     pub fn g_dbus_proxy_new_sync(
         connection: *mut GDBusConnection,
         flags: GDBusProxyFlags,
@@ -10548,6 +10940,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusProxy;
+    /*BO*/
     pub fn g_dbus_proxy_new(
         connection: *mut GDBusConnection,
         flags: GDBusProxyFlags,
@@ -10559,6 +10952,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dbus_proxy_new_for_bus(
         bus_type: GBusType,
         flags: GDBusProxyFlags,
@@ -10570,6 +10964,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dbus_proxy_call(
         proxy: *mut GDBusProxy,
         method_name: *const c_char,
@@ -10580,11 +10975,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dbus_proxy_call_finish(
         proxy: *mut GDBusProxy,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_dbus_proxy_call_sync(
         proxy: *mut GDBusProxy,
         method_name: *const c_char,
@@ -10594,6 +10991,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_dbus_proxy_call_with_unix_fd_list(
         proxy: *mut GDBusProxy,
         method_name: *const c_char,
@@ -10605,12 +11003,14 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dbus_proxy_call_with_unix_fd_list_finish(
         proxy: *mut GDBusProxy,
         out_fd_list: *mut *mut GUnixFDList,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_dbus_proxy_call_with_unix_fd_list_sync(
         proxy: *mut GDBusProxy,
         method_name: *const c_char,
@@ -10622,31 +11022,45 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_dbus_proxy_get_cached_property(
         proxy: *mut GDBusProxy,
         property_name: *const c_char,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_dbus_proxy_get_cached_property_names(proxy: *mut GDBusProxy) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_dbus_proxy_get_connection(proxy: *mut GDBusProxy) -> *mut GDBusConnection;
+    /*BO*/
     pub fn g_dbus_proxy_get_default_timeout(proxy: *mut GDBusProxy) -> c_int;
+    /*BO*/
     pub fn g_dbus_proxy_get_flags(proxy: *mut GDBusProxy) -> GDBusProxyFlags;
+    /*BO*/
     pub fn g_dbus_proxy_get_interface_info(proxy: *mut GDBusProxy) -> *mut GDBusInterfaceInfo;
+    /*BO*/
     pub fn g_dbus_proxy_get_interface_name(proxy: *mut GDBusProxy) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_proxy_get_name(proxy: *mut GDBusProxy) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_proxy_get_name_owner(proxy: *mut GDBusProxy) -> *mut c_char;
+    /*BO*/
     pub fn g_dbus_proxy_get_object_path(proxy: *mut GDBusProxy) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_proxy_set_cached_property(
         proxy: *mut GDBusProxy,
         property_name: *const c_char,
         value: *mut glib::GVariant,
     );
+    /*BO*/
     pub fn g_dbus_proxy_set_default_timeout(proxy: *mut GDBusProxy, timeout_msec: c_int);
+    /*BO*/
     pub fn g_dbus_proxy_set_interface_info(proxy: *mut GDBusProxy, info: *mut GDBusInterfaceInfo);
 
     //=========================================================================
     // GDBusServer
     //=========================================================================
     pub fn g_dbus_server_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_server_new_sync(
         address: *const c_char,
         flags: GDBusServerFlags,
@@ -10655,50 +11069,65 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusServer;
+    /*BO*/
     pub fn g_dbus_server_get_client_address(server: *mut GDBusServer) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_server_get_flags(server: *mut GDBusServer) -> GDBusServerFlags;
+    /*BO*/
     pub fn g_dbus_server_get_guid(server: *mut GDBusServer) -> *const c_char;
+    /*BO*/
     pub fn g_dbus_server_is_active(server: *mut GDBusServer) -> gboolean;
+    /*BO*/
     pub fn g_dbus_server_start(server: *mut GDBusServer);
+    /*BO*/
     pub fn g_dbus_server_stop(server: *mut GDBusServer);
 
     //=========================================================================
     // GDataInputStream
     //=========================================================================
     pub fn g_data_input_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_data_input_stream_new(base_stream: *mut GInputStream) -> *mut GDataInputStream;
+    /*BO*/
     pub fn g_data_input_stream_get_byte_order(
         stream: *mut GDataInputStream,
     ) -> GDataStreamByteOrder;
+    /*BO*/
     pub fn g_data_input_stream_get_newline_type(
         stream: *mut GDataInputStream,
     ) -> GDataStreamNewlineType;
+    /*BO*/
     pub fn g_data_input_stream_read_byte(
         stream: *mut GDataInputStream,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> c_uchar;
+    /*BO*/
     pub fn g_data_input_stream_read_int16(
         stream: *mut GDataInputStream,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> i16;
+    /*BO*/
     pub fn g_data_input_stream_read_int32(
         stream: *mut GDataInputStream,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> i32;
+    /*BO*/
     pub fn g_data_input_stream_read_int64(
         stream: *mut GDataInputStream,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> i64;
+    /*BO*/
     pub fn g_data_input_stream_read_line(
         stream: *mut GDataInputStream,
         length: *mut size_t,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut u8;
+    /*BO*/
     pub fn g_data_input_stream_read_line_async(
         stream: *mut GDataInputStream,
         io_priority: c_int,
@@ -10706,39 +11135,46 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_data_input_stream_read_line_finish(
         stream: *mut GDataInputStream,
         result: *mut GAsyncResult,
         length: *mut size_t,
         error: *mut *mut glib::GError,
     ) -> *mut u8;
+    /*BO*/
     pub fn g_data_input_stream_read_line_finish_utf8(
         stream: *mut GDataInputStream,
         result: *mut GAsyncResult,
         length: *mut size_t,
         error: *mut *mut glib::GError,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_data_input_stream_read_line_utf8(
         stream: *mut GDataInputStream,
         length: *mut size_t,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_data_input_stream_read_uint16(
         stream: *mut GDataInputStream,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> u16;
+    /*BO*/
     pub fn g_data_input_stream_read_uint32(
         stream: *mut GDataInputStream,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> u32;
+    /*BO*/
     pub fn g_data_input_stream_read_uint64(
         stream: *mut GDataInputStream,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> u64;
+    /*BO*/
     pub fn g_data_input_stream_read_until(
         stream: *mut GDataInputStream,
         stop_chars: *const c_char,
@@ -10746,6 +11182,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_data_input_stream_read_until_async(
         stream: *mut GDataInputStream,
         stop_chars: *const c_char,
@@ -10754,12 +11191,14 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_data_input_stream_read_until_finish(
         stream: *mut GDataInputStream,
         result: *mut GAsyncResult,
         length: *mut size_t,
         error: *mut *mut glib::GError,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_data_input_stream_read_upto(
         stream: *mut GDataInputStream,
         stop_chars: *const c_char,
@@ -10768,6 +11207,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_data_input_stream_read_upto_async(
         stream: *mut GDataInputStream,
         stop_chars: *const c_char,
@@ -10777,16 +11217,19 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_data_input_stream_read_upto_finish(
         stream: *mut GDataInputStream,
         result: *mut GAsyncResult,
         length: *mut size_t,
         error: *mut *mut glib::GError,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_data_input_stream_set_byte_order(
         stream: *mut GDataInputStream,
         order: GDataStreamByteOrder,
     );
+    /*BO*/
     pub fn g_data_input_stream_set_newline_type(
         stream: *mut GDataInputStream,
         type_: GDataStreamNewlineType,
@@ -10796,58 +11239,69 @@ extern "C" {
     // GDataOutputStream
     //=========================================================================
     pub fn g_data_output_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_data_output_stream_new(base_stream: *mut GOutputStream) -> *mut GDataOutputStream;
+    /*BO*/
     pub fn g_data_output_stream_get_byte_order(
         stream: *mut GDataOutputStream,
     ) -> GDataStreamByteOrder;
+    /*BO*/
     pub fn g_data_output_stream_put_byte(
         stream: *mut GDataOutputStream,
         data: c_uchar,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_data_output_stream_put_int16(
         stream: *mut GDataOutputStream,
         data: i16,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_data_output_stream_put_int32(
         stream: *mut GDataOutputStream,
         data: i32,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_data_output_stream_put_int64(
         stream: *mut GDataOutputStream,
         data: i64,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_data_output_stream_put_string(
         stream: *mut GDataOutputStream,
         str: *const c_char,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_data_output_stream_put_uint16(
         stream: *mut GDataOutputStream,
         data: u16,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_data_output_stream_put_uint32(
         stream: *mut GDataOutputStream,
         data: u32,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_data_output_stream_put_uint64(
         stream: *mut GDataOutputStream,
         data: u64,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_data_output_stream_set_byte_order(
         stream: *mut GDataOutputStream,
         order: GDataStreamByteOrder,
@@ -10857,56 +11311,78 @@ extern "C" {
     // GDesktopAppInfo
     //=========================================================================
     pub fn g_desktop_app_info_get_type() -> GType;
+    /*BO*/
     pub fn g_desktop_app_info_new(desktop_id: *const c_char) -> *mut GDesktopAppInfo;
+    /*BO*/
     pub fn g_desktop_app_info_new_from_filename(filename: *const c_char) -> *mut GDesktopAppInfo;
+    /*BO*/
     pub fn g_desktop_app_info_new_from_keyfile(
         key_file: *mut glib::GKeyFile,
     ) -> *mut GDesktopAppInfo;
+    /*BO*/
     pub fn g_desktop_app_info_get_implementations(interface: *const c_char) -> *mut glib::GList;
+    /*BO*/
     pub fn g_desktop_app_info_search(search_string: *const c_char) -> *mut *mut *mut c_char;
+    /*BO*/
     pub fn g_desktop_app_info_set_desktop_env(desktop_env: *const c_char);
+    /*BO*/
     pub fn g_desktop_app_info_get_action_name(
         info: *mut GDesktopAppInfo,
         action_name: *const c_char,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_desktop_app_info_get_boolean(
         info: *mut GDesktopAppInfo,
         key: *const c_char,
     ) -> gboolean;
+    /*BO*/
     pub fn g_desktop_app_info_get_categories(info: *mut GDesktopAppInfo) -> *const c_char;
+    /*BO*/
     pub fn g_desktop_app_info_get_filename(info: *mut GDesktopAppInfo) -> *const c_char;
+    /*BO*/
     pub fn g_desktop_app_info_get_generic_name(info: *mut GDesktopAppInfo) -> *const c_char;
+    /*BO*/
     pub fn g_desktop_app_info_get_is_hidden(info: *mut GDesktopAppInfo) -> gboolean;
+    /*BO*/
     pub fn g_desktop_app_info_get_keywords(info: *mut GDesktopAppInfo) -> *const *const c_char;
     #[cfg(any(feature = "v2_56", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
+    /*BO*/
     pub fn g_desktop_app_info_get_locale_string(
         info: *mut GDesktopAppInfo,
         key: *const c_char,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_desktop_app_info_get_nodisplay(info: *mut GDesktopAppInfo) -> gboolean;
+    /*BO*/
     pub fn g_desktop_app_info_get_show_in(
         info: *mut GDesktopAppInfo,
         desktop_env: *const c_char,
     ) -> gboolean;
+    /*BO*/
     pub fn g_desktop_app_info_get_startup_wm_class(info: *mut GDesktopAppInfo) -> *const c_char;
+    /*BO*/
     pub fn g_desktop_app_info_get_string(
         info: *mut GDesktopAppInfo,
         key: *const c_char,
     ) -> *mut c_char;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_desktop_app_info_get_string_list(
         info: *mut GDesktopAppInfo,
         key: *const c_char,
         length: *mut size_t,
     ) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_desktop_app_info_has_key(info: *mut GDesktopAppInfo, key: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_desktop_app_info_launch_action(
         info: *mut GDesktopAppInfo,
         action_name: *const c_char,
         launch_context: *mut GAppLaunchContext,
     );
+    /*BO*/
     pub fn g_desktop_app_info_launch_uris_as_manager(
         appinfo: *mut GDesktopAppInfo,
         uris: *mut glib::GList,
@@ -10920,6 +11396,7 @@ extern "C" {
     ) -> gboolean;
     #[cfg(any(feature = "v2_58", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_58")))]
+    /*BO*/
     pub fn g_desktop_app_info_launch_uris_as_manager_with_fds(
         appinfo: *mut GDesktopAppInfo,
         uris: *mut glib::GList,
@@ -10934,36 +11411,48 @@ extern "C" {
         stderr_fd: c_int,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_desktop_app_info_list_actions(info: *mut GDesktopAppInfo) -> *const *const c_char;
 
     //=========================================================================
     // GEmblem
     //=========================================================================
     pub fn g_emblem_get_type() -> GType;
+    /*BO*/
     pub fn g_emblem_new(icon: *mut GIcon) -> *mut GEmblem;
+    /*BO*/
     pub fn g_emblem_new_with_origin(icon: *mut GIcon, origin: GEmblemOrigin) -> *mut GEmblem;
+    /*BO*/
     pub fn g_emblem_get_icon(emblem: *mut GEmblem) -> *mut GIcon;
+    /*BO*/
     pub fn g_emblem_get_origin(emblem: *mut GEmblem) -> GEmblemOrigin;
 
     //=========================================================================
     // GEmblemedIcon
     //=========================================================================
     pub fn g_emblemed_icon_get_type() -> GType;
+    /*BO*/
     pub fn g_emblemed_icon_new(icon: *mut GIcon, emblem: *mut GEmblem) -> *mut GEmblemedIcon;
+    /*BO*/
     pub fn g_emblemed_icon_add_emblem(emblemed: *mut GEmblemedIcon, emblem: *mut GEmblem);
+    /*BO*/
     pub fn g_emblemed_icon_clear_emblems(emblemed: *mut GEmblemedIcon);
+    /*BO*/
     pub fn g_emblemed_icon_get_emblems(emblemed: *mut GEmblemedIcon) -> *mut glib::GList;
+    /*BO*/
     pub fn g_emblemed_icon_get_icon(emblemed: *mut GEmblemedIcon) -> *mut GIcon;
 
     //=========================================================================
     // GFileEnumerator
     //=========================================================================
     pub fn g_file_enumerator_get_type() -> GType;
+    /*BO*/
     pub fn g_file_enumerator_close(
         enumerator: *mut GFileEnumerator,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_enumerator_close_async(
         enumerator: *mut GFileEnumerator,
         io_priority: c_int,
@@ -10971,18 +11460,24 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_enumerator_close_finish(
         enumerator: *mut GFileEnumerator,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_enumerator_get_child(
         enumerator: *mut GFileEnumerator,
         info: *mut GFileInfo,
     ) -> *mut GFile;
+    /*BO*/
     pub fn g_file_enumerator_get_container(enumerator: *mut GFileEnumerator) -> *mut GFile;
+    /*BO*/
     pub fn g_file_enumerator_has_pending(enumerator: *mut GFileEnumerator) -> gboolean;
+    /*BO*/
     pub fn g_file_enumerator_is_closed(enumerator: *mut GFileEnumerator) -> gboolean;
+    /*BO*/
     pub fn g_file_enumerator_iterate(
         direnum: *mut GFileEnumerator,
         out_info: *mut *mut GFileInfo,
@@ -10990,11 +11485,13 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_enumerator_next_file(
         enumerator: *mut GFileEnumerator,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileInfo;
+    /*BO*/
     pub fn g_file_enumerator_next_files_async(
         enumerator: *mut GFileEnumerator,
         num_files: c_int,
@@ -11003,24 +11500,29 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_enumerator_next_files_finish(
         enumerator: *mut GFileEnumerator,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_file_enumerator_set_pending(enumerator: *mut GFileEnumerator, pending: gboolean);
 
     //=========================================================================
     // GFileIOStream
     //=========================================================================
     pub fn g_file_io_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_file_io_stream_get_etag(stream: *mut GFileIOStream) -> *mut c_char;
+    /*BO*/
     pub fn g_file_io_stream_query_info(
         stream: *mut GFileIOStream,
         attributes: *const c_char,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileInfo;
+    /*BO*/
     pub fn g_file_io_stream_query_info_async(
         stream: *mut GFileIOStream,
         attributes: *const c_char,
@@ -11029,6 +11531,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_io_stream_query_info_finish(
         stream: *mut GFileIOStream,
         result: *mut GAsyncResult,
@@ -11039,29 +11542,39 @@ extern "C" {
     // GFileIcon
     //=========================================================================
     pub fn g_file_icon_get_type() -> GType;
+    /*BO*/
     pub fn g_file_icon_new(file: *mut GFile) -> *mut GFileIcon;
+    /*BO*/
     pub fn g_file_icon_get_file(icon: *mut GFileIcon) -> *mut GFile;
 
     //=========================================================================
     // GFileInfo
     //=========================================================================
     pub fn g_file_info_get_type() -> GType;
+    /*BO*/
     pub fn g_file_info_new() -> *mut GFileInfo;
+    /*BO*/
     pub fn g_file_info_clear_status(info: *mut GFileInfo);
+    /*BO*/
     pub fn g_file_info_copy_into(src_info: *mut GFileInfo, dest_info: *mut GFileInfo);
+    /*BO*/
     pub fn g_file_info_dup(other: *mut GFileInfo) -> *mut GFileInfo;
+    /*BO*/
     pub fn g_file_info_get_attribute_as_string(
         info: *mut GFileInfo,
         attribute: *const c_char,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_file_info_get_attribute_boolean(
         info: *mut GFileInfo,
         attribute: *const c_char,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_info_get_attribute_byte_string(
         info: *mut GFileInfo,
         attribute: *const c_char,
     ) -> *const c_char;
+    /*BO*/
     pub fn g_file_info_get_attribute_data(
         info: *mut GFileInfo,
         attribute: *const c_char,
@@ -11069,144 +11582,203 @@ extern "C" {
         value_pp: *mut gpointer,
         status: *mut GFileAttributeStatus,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_info_get_attribute_int32(info: *mut GFileInfo, attribute: *const c_char) -> i32;
+    /*BO*/
     pub fn g_file_info_get_attribute_int64(info: *mut GFileInfo, attribute: *const c_char) -> i64;
+    /*BO*/
     pub fn g_file_info_get_attribute_object(
         info: *mut GFileInfo,
         attribute: *const c_char,
     ) -> *mut gobject::GObject;
+    /*BO*/
     pub fn g_file_info_get_attribute_status(
         info: *mut GFileInfo,
         attribute: *const c_char,
     ) -> GFileAttributeStatus;
+    /*BO*/
     pub fn g_file_info_get_attribute_string(
         info: *mut GFileInfo,
         attribute: *const c_char,
     ) -> *const c_char;
+    /*BO*/
     pub fn g_file_info_get_attribute_stringv(
         info: *mut GFileInfo,
         attribute: *const c_char,
     ) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_file_info_get_attribute_type(
         info: *mut GFileInfo,
         attribute: *const c_char,
     ) -> GFileAttributeType;
+    /*BO*/
     pub fn g_file_info_get_attribute_uint32(info: *mut GFileInfo, attribute: *const c_char) -> u32;
+    /*BO*/
     pub fn g_file_info_get_attribute_uint64(info: *mut GFileInfo, attribute: *const c_char) -> u64;
+    /*BO*/
     pub fn g_file_info_get_content_type(info: *mut GFileInfo) -> *const c_char;
+    /*BO*/
     pub fn g_file_info_get_deletion_date(info: *mut GFileInfo) -> *mut glib::GDateTime;
+    /*BO*/
     pub fn g_file_info_get_display_name(info: *mut GFileInfo) -> *const c_char;
+    /*BO*/
     pub fn g_file_info_get_edit_name(info: *mut GFileInfo) -> *const c_char;
+    /*BO*/
     pub fn g_file_info_get_etag(info: *mut GFileInfo) -> *const c_char;
+    /*BO*/
     pub fn g_file_info_get_file_type(info: *mut GFileInfo) -> GFileType;
+    /*BO*/
     pub fn g_file_info_get_icon(info: *mut GFileInfo) -> *mut GIcon;
+    /*BO*/
     pub fn g_file_info_get_is_backup(info: *mut GFileInfo) -> gboolean;
+    /*BO*/
     pub fn g_file_info_get_is_hidden(info: *mut GFileInfo) -> gboolean;
+    /*BO*/
     pub fn g_file_info_get_is_symlink(info: *mut GFileInfo) -> gboolean;
     #[cfg(any(feature = "v2_62", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_62")))]
+    /*BO*/
     pub fn g_file_info_get_modification_date_time(info: *mut GFileInfo) -> *mut glib::GDateTime;
+    /*BO*/
     pub fn g_file_info_get_modification_time(info: *mut GFileInfo, result: *mut glib::GTimeVal);
+    /*BO*/
     pub fn g_file_info_get_name(info: *mut GFileInfo) -> *const c_char;
+    /*BO*/
     pub fn g_file_info_get_size(info: *mut GFileInfo) -> i64;
+    /*BO*/
     pub fn g_file_info_get_sort_order(info: *mut GFileInfo) -> i32;
+    /*BO*/
     pub fn g_file_info_get_symbolic_icon(info: *mut GFileInfo) -> *mut GIcon;
+    /*BO*/
     pub fn g_file_info_get_symlink_target(info: *mut GFileInfo) -> *const c_char;
+    /*BO*/
     pub fn g_file_info_has_attribute(info: *mut GFileInfo, attribute: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_file_info_has_namespace(info: *mut GFileInfo, name_space: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_file_info_list_attributes(
         info: *mut GFileInfo,
         name_space: *const c_char,
     ) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_file_info_remove_attribute(info: *mut GFileInfo, attribute: *const c_char);
+    /*BO*/
     pub fn g_file_info_set_attribute(
         info: *mut GFileInfo,
         attribute: *const c_char,
         type_: GFileAttributeType,
         value_p: gpointer,
     );
+    /*BO*/
     pub fn g_file_info_set_attribute_boolean(
         info: *mut GFileInfo,
         attribute: *const c_char,
         attr_value: gboolean,
     );
+    /*BO*/
     pub fn g_file_info_set_attribute_byte_string(
         info: *mut GFileInfo,
         attribute: *const c_char,
         attr_value: *const c_char,
     );
+    /*BO*/
     pub fn g_file_info_set_attribute_int32(
         info: *mut GFileInfo,
         attribute: *const c_char,
         attr_value: i32,
     );
+    /*BO*/
     pub fn g_file_info_set_attribute_int64(
         info: *mut GFileInfo,
         attribute: *const c_char,
         attr_value: i64,
     );
+    /*BO*/
     pub fn g_file_info_set_attribute_mask(info: *mut GFileInfo, mask: *mut GFileAttributeMatcher);
+    /*BO*/
     pub fn g_file_info_set_attribute_object(
         info: *mut GFileInfo,
         attribute: *const c_char,
         attr_value: *mut gobject::GObject,
     );
+    /*BO*/
     pub fn g_file_info_set_attribute_status(
         info: *mut GFileInfo,
         attribute: *const c_char,
         status: GFileAttributeStatus,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_info_set_attribute_string(
         info: *mut GFileInfo,
         attribute: *const c_char,
         attr_value: *const c_char,
     );
+    /*BO*/
     pub fn g_file_info_set_attribute_stringv(
         info: *mut GFileInfo,
         attribute: *const c_char,
         attr_value: *mut *mut c_char,
     );
+    /*BO*/
     pub fn g_file_info_set_attribute_uint32(
         info: *mut GFileInfo,
         attribute: *const c_char,
         attr_value: u32,
     );
+    /*BO*/
     pub fn g_file_info_set_attribute_uint64(
         info: *mut GFileInfo,
         attribute: *const c_char,
         attr_value: u64,
     );
+    /*BO*/
     pub fn g_file_info_set_content_type(info: *mut GFileInfo, content_type: *const c_char);
+    /*BO*/
     pub fn g_file_info_set_display_name(info: *mut GFileInfo, display_name: *const c_char);
+    /*BO*/
     pub fn g_file_info_set_edit_name(info: *mut GFileInfo, edit_name: *const c_char);
+    /*BO*/
     pub fn g_file_info_set_file_type(info: *mut GFileInfo, type_: GFileType);
+    /*BO*/
     pub fn g_file_info_set_icon(info: *mut GFileInfo, icon: *mut GIcon);
+    /*BO*/
     pub fn g_file_info_set_is_hidden(info: *mut GFileInfo, is_hidden: gboolean);
+    /*BO*/
     pub fn g_file_info_set_is_symlink(info: *mut GFileInfo, is_symlink: gboolean);
     #[cfg(any(feature = "v2_62", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_62")))]
+    /*BO*/
     pub fn g_file_info_set_modification_date_time(
         info: *mut GFileInfo,
         mtime: *mut glib::GDateTime,
     );
+    /*BO*/
     pub fn g_file_info_set_modification_time(info: *mut GFileInfo, mtime: *mut glib::GTimeVal);
+    /*BO*/
     pub fn g_file_info_set_name(info: *mut GFileInfo, name: *const c_char);
+    /*BO*/
     pub fn g_file_info_set_size(info: *mut GFileInfo, size: i64);
+    /*BO*/
     pub fn g_file_info_set_sort_order(info: *mut GFileInfo, sort_order: i32);
+    /*BO*/
     pub fn g_file_info_set_symbolic_icon(info: *mut GFileInfo, icon: *mut GIcon);
+    /*BO*/
     pub fn g_file_info_set_symlink_target(info: *mut GFileInfo, symlink_target: *const c_char);
+    /*BO*/
     pub fn g_file_info_unset_attribute_mask(info: *mut GFileInfo);
 
     //=========================================================================
     // GFileInputStream
     //=========================================================================
     pub fn g_file_input_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_file_input_stream_query_info(
         stream: *mut GFileInputStream,
         attributes: *const c_char,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileInfo;
+    /*BO*/
     pub fn g_file_input_stream_query_info_async(
         stream: *mut GFileInputStream,
         attributes: *const c_char,
@@ -11215,6 +11787,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_input_stream_query_info_finish(
         stream: *mut GFileInputStream,
         result: *mut GAsyncResult,
@@ -11225,27 +11798,34 @@ extern "C" {
     // GFileMonitor
     //=========================================================================
     pub fn g_file_monitor_get_type() -> GType;
+    /*BO*/
     pub fn g_file_monitor_cancel(monitor: *mut GFileMonitor) -> gboolean;
+    /*BO*/
     pub fn g_file_monitor_emit_event(
         monitor: *mut GFileMonitor,
         child: *mut GFile,
         other_file: *mut GFile,
         event_type: GFileMonitorEvent,
     );
+    /*BO*/
     pub fn g_file_monitor_is_cancelled(monitor: *mut GFileMonitor) -> gboolean;
+    /*BO*/
     pub fn g_file_monitor_set_rate_limit(monitor: *mut GFileMonitor, limit_msecs: c_int);
 
     //=========================================================================
     // GFileOutputStream
     //=========================================================================
     pub fn g_file_output_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_file_output_stream_get_etag(stream: *mut GFileOutputStream) -> *mut c_char;
+    /*BO*/
     pub fn g_file_output_stream_query_info(
         stream: *mut GFileOutputStream,
         attributes: *const c_char,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileInfo;
+    /*BO*/
     pub fn g_file_output_stream_query_info_async(
         stream: *mut GFileOutputStream,
         attributes: *const c_char,
@@ -11254,6 +11834,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_output_stream_query_info_finish(
         stream: *mut GFileOutputStream,
         result: *mut GAsyncResult,
@@ -11264,15 +11845,19 @@ extern "C" {
     // GFilenameCompleter
     //=========================================================================
     pub fn g_filename_completer_get_type() -> GType;
+    /*BO*/
     pub fn g_filename_completer_new() -> *mut GFilenameCompleter;
+    /*BO*/
     pub fn g_filename_completer_get_completion_suffix(
         completer: *mut GFilenameCompleter,
         initial_text: *const c_char,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_filename_completer_get_completions(
         completer: *mut GFilenameCompleter,
         initial_text: *const c_char,
     ) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_filename_completer_set_dirs_only(
         completer: *mut GFilenameCompleter,
         dirs_only: gboolean,
@@ -11282,11 +11867,14 @@ extern "C" {
     // GFilterInputStream
     //=========================================================================
     pub fn g_filter_input_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_filter_input_stream_get_base_stream(
         stream: *mut GFilterInputStream,
     ) -> *mut GInputStream;
+    /*BO*/
     pub fn g_filter_input_stream_get_close_base_stream(stream: *mut GFilterInputStream)
         -> gboolean;
+    /*BO*/
     pub fn g_filter_input_stream_set_close_base_stream(
         stream: *mut GFilterInputStream,
         close_base: gboolean,
@@ -11296,12 +11884,15 @@ extern "C" {
     // GFilterOutputStream
     //=========================================================================
     pub fn g_filter_output_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_filter_output_stream_get_base_stream(
         stream: *mut GFilterOutputStream,
     ) -> *mut GOutputStream;
+    /*BO*/
     pub fn g_filter_output_stream_get_close_base_stream(
         stream: *mut GFilterOutputStream,
     ) -> gboolean;
+    /*BO*/
     pub fn g_filter_output_stream_set_close_base_stream(
         stream: *mut GFilterOutputStream,
         close_base: gboolean,
@@ -11311,25 +11902,33 @@ extern "C" {
     // GIOModule
     //=========================================================================
     pub fn g_io_module_get_type() -> GType;
+    /*BO*/
     pub fn g_io_module_new(filename: *const c_char) -> *mut GIOModule;
+    /*BO*/
     pub fn g_io_module_query() -> *mut *mut c_char;
+    /*BO*/
     pub fn g_io_module_load(module: *mut GIOModule);
+    /*BO*/
     pub fn g_io_module_unload(module: *mut GIOModule);
 
     //=========================================================================
     // GIOStream
     //=========================================================================
     pub fn g_io_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_io_stream_splice_finish(
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_io_stream_clear_pending(stream: *mut GIOStream);
+    /*BO*/
     pub fn g_io_stream_close(
         stream: *mut GIOStream,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_io_stream_close_async(
         stream: *mut GIOStream,
         io_priority: c_int,
@@ -11337,19 +11936,26 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_io_stream_close_finish(
         stream: *mut GIOStream,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_io_stream_get_input_stream(stream: *mut GIOStream) -> *mut GInputStream;
+    /*BO*/
     pub fn g_io_stream_get_output_stream(stream: *mut GIOStream) -> *mut GOutputStream;
+    /*BO*/
     pub fn g_io_stream_has_pending(stream: *mut GIOStream) -> gboolean;
+    /*BO*/
     pub fn g_io_stream_is_closed(stream: *mut GIOStream) -> gboolean;
+    /*BO*/
     pub fn g_io_stream_set_pending(
         stream: *mut GIOStream,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_io_stream_splice_async(
         stream1: *mut GIOStream,
         stream2: *mut GIOStream,
@@ -11364,83 +11970,119 @@ extern "C" {
     // GInetAddress
     //=========================================================================
     pub fn g_inet_address_get_type() -> GType;
+    /*BO*/
     pub fn g_inet_address_new_any(family: GSocketFamily) -> *mut GInetAddress;
+    /*BO*/
     pub fn g_inet_address_new_from_bytes(
         bytes: *const u8,
         family: GSocketFamily,
     ) -> *mut GInetAddress;
+    /*BO*/
     pub fn g_inet_address_new_from_string(string: *const c_char) -> *mut GInetAddress;
+    /*BO*/
     pub fn g_inet_address_new_loopback(family: GSocketFamily) -> *mut GInetAddress;
+    /*BO*/
     pub fn g_inet_address_equal(
         address: *mut GInetAddress,
         other_address: *mut GInetAddress,
     ) -> gboolean;
+    /*BO*/
     pub fn g_inet_address_get_family(address: *mut GInetAddress) -> GSocketFamily;
+    /*BO*/
     pub fn g_inet_address_get_is_any(address: *mut GInetAddress) -> gboolean;
+    /*BO*/
     pub fn g_inet_address_get_is_link_local(address: *mut GInetAddress) -> gboolean;
+    /*BO*/
     pub fn g_inet_address_get_is_loopback(address: *mut GInetAddress) -> gboolean;
+    /*BO*/
     pub fn g_inet_address_get_is_mc_global(address: *mut GInetAddress) -> gboolean;
+    /*BO*/
     pub fn g_inet_address_get_is_mc_link_local(address: *mut GInetAddress) -> gboolean;
+    /*BO*/
     pub fn g_inet_address_get_is_mc_node_local(address: *mut GInetAddress) -> gboolean;
+    /*BO*/
     pub fn g_inet_address_get_is_mc_org_local(address: *mut GInetAddress) -> gboolean;
+    /*BO*/
     pub fn g_inet_address_get_is_mc_site_local(address: *mut GInetAddress) -> gboolean;
+    /*BO*/
     pub fn g_inet_address_get_is_multicast(address: *mut GInetAddress) -> gboolean;
+    /*BO*/
     pub fn g_inet_address_get_is_site_local(address: *mut GInetAddress) -> gboolean;
+    /*BO*/
     pub fn g_inet_address_get_native_size(address: *mut GInetAddress) -> size_t;
+    /*BO*/
     pub fn g_inet_address_to_bytes(address: *mut GInetAddress) -> *const u8;
+    /*BO*/
     pub fn g_inet_address_to_string(address: *mut GInetAddress) -> *mut c_char;
 
     //=========================================================================
     // GInetAddressMask
     //=========================================================================
     pub fn g_inet_address_mask_get_type() -> GType;
+    /*BO*/
     pub fn g_inet_address_mask_new(
         addr: *mut GInetAddress,
         length: c_uint,
         error: *mut *mut glib::GError,
     ) -> *mut GInetAddressMask;
+    /*BO*/
     pub fn g_inet_address_mask_new_from_string(
         mask_string: *const c_char,
         error: *mut *mut glib::GError,
     ) -> *mut GInetAddressMask;
+    /*BO*/
     pub fn g_inet_address_mask_equal(
         mask: *mut GInetAddressMask,
         mask2: *mut GInetAddressMask,
     ) -> gboolean;
+    /*BO*/
     pub fn g_inet_address_mask_get_address(mask: *mut GInetAddressMask) -> *mut GInetAddress;
+    /*BO*/
     pub fn g_inet_address_mask_get_family(mask: *mut GInetAddressMask) -> GSocketFamily;
+    /*BO*/
     pub fn g_inet_address_mask_get_length(mask: *mut GInetAddressMask) -> c_uint;
+    /*BO*/
     pub fn g_inet_address_mask_matches(
         mask: *mut GInetAddressMask,
         address: *mut GInetAddress,
     ) -> gboolean;
+    /*BO*/
     pub fn g_inet_address_mask_to_string(mask: *mut GInetAddressMask) -> *mut c_char;
 
     //=========================================================================
     // GInetSocketAddress
     //=========================================================================
     pub fn g_inet_socket_address_get_type() -> GType;
+    /*BO*/
     pub fn g_inet_socket_address_new(address: *mut GInetAddress, port: u16) -> *mut GSocketAddress;
+    /*BO*/
     pub fn g_inet_socket_address_new_from_string(
         address: *const c_char,
         port: c_uint,
     ) -> *mut GSocketAddress;
+    /*BO*/
     pub fn g_inet_socket_address_get_address(address: *mut GInetSocketAddress)
         -> *mut GInetAddress;
+    /*BO*/
     pub fn g_inet_socket_address_get_flowinfo(address: *mut GInetSocketAddress) -> u32;
+    /*BO*/
     pub fn g_inet_socket_address_get_port(address: *mut GInetSocketAddress) -> u16;
+    /*BO*/
     pub fn g_inet_socket_address_get_scope_id(address: *mut GInetSocketAddress) -> u32;
 
     //=========================================================================
     // GInputStream
     //=========================================================================
     pub fn g_input_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_input_stream_clear_pending(stream: *mut GInputStream);
+    /*BO*/
     pub fn g_input_stream_close(
         stream: *mut GInputStream,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_input_stream_close_async(
         stream: *mut GInputStream,
         io_priority: c_int,
@@ -11448,13 +12090,17 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_input_stream_close_finish(
         stream: *mut GInputStream,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_input_stream_has_pending(stream: *mut GInputStream) -> gboolean;
+    /*BO*/
     pub fn g_input_stream_is_closed(stream: *mut GInputStream) -> gboolean;
+    /*BO*/
     pub fn g_input_stream_read(
         stream: *mut GInputStream,
         buffer: *mut u8,
@@ -11462,6 +12108,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_input_stream_read_all(
         stream: *mut GInputStream,
         buffer: *mut u8,
@@ -11470,6 +12117,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_input_stream_read_all_async(
         stream: *mut GInputStream,
         buffer: *mut u8,
@@ -11479,12 +12127,14 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_input_stream_read_all_finish(
         stream: *mut GInputStream,
         result: *mut GAsyncResult,
         bytes_read: *mut size_t,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_input_stream_read_async(
         stream: *mut GInputStream,
         buffer: *mut u8,
@@ -11494,12 +12144,14 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_input_stream_read_bytes(
         stream: *mut GInputStream,
         count: size_t,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GBytes;
+    /*BO*/
     pub fn g_input_stream_read_bytes_async(
         stream: *mut GInputStream,
         count: size_t,
@@ -11508,26 +12160,31 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_input_stream_read_bytes_finish(
         stream: *mut GInputStream,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GBytes;
+    /*BO*/
     pub fn g_input_stream_read_finish(
         stream: *mut GInputStream,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_input_stream_set_pending(
         stream: *mut GInputStream,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_input_stream_skip(
         stream: *mut GInputStream,
         count: size_t,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_input_stream_skip_async(
         stream: *mut GInputStream,
         count: size_t,
@@ -11536,6 +12193,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_input_stream_skip_finish(
         stream: *mut GInputStream,
         result: *mut GAsyncResult,
@@ -11546,10 +12204,13 @@ extern "C" {
     // GListStore
     //=========================================================================
     pub fn g_list_store_get_type() -> GType;
+    /*BO*/
     pub fn g_list_store_new(item_type: GType) -> *mut GListStore;
+    /*BO*/
     pub fn g_list_store_append(store: *mut GListStore, item: *mut gobject::GObject);
     #[cfg(any(feature = "v2_64", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_64")))]
+    /*BO*/
     pub fn g_list_store_find(
         store: *mut GListStore,
         item: *mut gobject::GObject,
@@ -11557,30 +12218,37 @@ extern "C" {
     ) -> gboolean;
     #[cfg(any(feature = "v2_64", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_64")))]
+    /*BO*/
     pub fn g_list_store_find_with_equal_func(
         store: *mut GListStore,
         item: *mut gobject::GObject,
         equal_func: glib::GEqualFunc,
         position: *mut c_uint,
     ) -> gboolean;
+    /*BO*/
     pub fn g_list_store_insert(
         store: *mut GListStore,
         position: c_uint,
         item: *mut gobject::GObject,
     );
+    /*BO*/
     pub fn g_list_store_insert_sorted(
         store: *mut GListStore,
         item: *mut gobject::GObject,
         compare_func: glib::GCompareDataFunc,
         user_data: gpointer,
     ) -> c_uint;
+    /*BO*/
     pub fn g_list_store_remove(store: *mut GListStore, position: c_uint);
+    /*BO*/
     pub fn g_list_store_remove_all(store: *mut GListStore);
+    /*BO*/
     pub fn g_list_store_sort(
         store: *mut GListStore,
         compare_func: glib::GCompareDataFunc,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_list_store_splice(
         store: *mut GListStore,
         position: c_uint,
@@ -11593,17 +12261,22 @@ extern "C" {
     // GMemoryInputStream
     //=========================================================================
     pub fn g_memory_input_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_memory_input_stream_new() -> *mut GInputStream;
+    /*BO*/
     pub fn g_memory_input_stream_new_from_bytes(bytes: *mut glib::GBytes) -> *mut GInputStream;
+    /*BO*/
     pub fn g_memory_input_stream_new_from_data(
         data: *mut u8,
         len: ssize_t,
         destroy: glib::GDestroyNotify,
     ) -> *mut GInputStream;
+    /*BO*/
     pub fn g_memory_input_stream_add_bytes(
         stream: *mut GMemoryInputStream,
         bytes: *mut glib::GBytes,
     );
+    /*BO*/
     pub fn g_memory_input_stream_add_data(
         stream: *mut GMemoryInputStream,
         data: *mut u8,
@@ -11615,149 +12288,198 @@ extern "C" {
     // GMemoryOutputStream
     //=========================================================================
     pub fn g_memory_output_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_memory_output_stream_new(
         data: gpointer,
         size: size_t,
         realloc_function: GReallocFunc,
         destroy_function: glib::GDestroyNotify,
     ) -> *mut GOutputStream;
+    /*BO*/
     pub fn g_memory_output_stream_new_resizable() -> *mut GOutputStream;
+    /*BO*/
     pub fn g_memory_output_stream_get_data(ostream: *mut GMemoryOutputStream) -> gpointer;
+    /*BO*/
     pub fn g_memory_output_stream_get_data_size(ostream: *mut GMemoryOutputStream) -> size_t;
+    /*BO*/
     pub fn g_memory_output_stream_get_size(ostream: *mut GMemoryOutputStream) -> size_t;
+    /*BO*/
     pub fn g_memory_output_stream_steal_as_bytes(
         ostream: *mut GMemoryOutputStream,
     ) -> *mut glib::GBytes;
+    /*BO*/
     pub fn g_memory_output_stream_steal_data(ostream: *mut GMemoryOutputStream) -> gpointer;
 
     //=========================================================================
     // GMenu
     //=========================================================================
     pub fn g_menu_get_type() -> GType;
+    /*BO*/
     pub fn g_menu_new() -> *mut GMenu;
+    /*BO*/
     pub fn g_menu_append(menu: *mut GMenu, label: *const c_char, detailed_action: *const c_char);
+    /*BO*/
     pub fn g_menu_append_item(menu: *mut GMenu, item: *mut GMenuItem);
+    /*BO*/
     pub fn g_menu_append_section(menu: *mut GMenu, label: *const c_char, section: *mut GMenuModel);
+    /*BO*/
     pub fn g_menu_append_submenu(menu: *mut GMenu, label: *const c_char, submenu: *mut GMenuModel);
+    /*BO*/
     pub fn g_menu_freeze(menu: *mut GMenu);
+    /*BO*/
     pub fn g_menu_insert(
         menu: *mut GMenu,
         position: c_int,
         label: *const c_char,
         detailed_action: *const c_char,
     );
+    /*BO*/
     pub fn g_menu_insert_item(menu: *mut GMenu, position: c_int, item: *mut GMenuItem);
+    /*BO*/
     pub fn g_menu_insert_section(
         menu: *mut GMenu,
         position: c_int,
         label: *const c_char,
         section: *mut GMenuModel,
     );
+    /*BO*/
     pub fn g_menu_insert_submenu(
         menu: *mut GMenu,
         position: c_int,
         label: *const c_char,
         submenu: *mut GMenuModel,
     );
+    /*BO*/
     pub fn g_menu_prepend(menu: *mut GMenu, label: *const c_char, detailed_action: *const c_char);
+    /*BO*/
     pub fn g_menu_prepend_item(menu: *mut GMenu, item: *mut GMenuItem);
+    /*BO*/
     pub fn g_menu_prepend_section(menu: *mut GMenu, label: *const c_char, section: *mut GMenuModel);
+    /*BO*/
     pub fn g_menu_prepend_submenu(menu: *mut GMenu, label: *const c_char, submenu: *mut GMenuModel);
+    /*BO*/
     pub fn g_menu_remove(menu: *mut GMenu, position: c_int);
+    /*BO*/
     pub fn g_menu_remove_all(menu: *mut GMenu);
 
     //=========================================================================
     // GMenuAttributeIter
     //=========================================================================
     pub fn g_menu_attribute_iter_get_type() -> GType;
+    /*BO*/
     pub fn g_menu_attribute_iter_get_name(iter: *mut GMenuAttributeIter) -> *const c_char;
+    /*BO*/
     pub fn g_menu_attribute_iter_get_next(
         iter: *mut GMenuAttributeIter,
         out_name: *mut *const c_char,
         value: *mut *mut glib::GVariant,
     ) -> gboolean;
+    /*BO*/
     pub fn g_menu_attribute_iter_get_value(iter: *mut GMenuAttributeIter) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_menu_attribute_iter_next(iter: *mut GMenuAttributeIter) -> gboolean;
 
     //=========================================================================
     // GMenuItem
     //=========================================================================
     pub fn g_menu_item_get_type() -> GType;
+    /*BO*/
     pub fn g_menu_item_new(label: *const c_char, detailed_action: *const c_char) -> *mut GMenuItem;
+    /*BO*/
     pub fn g_menu_item_new_from_model(model: *mut GMenuModel, item_index: c_int) -> *mut GMenuItem;
+    /*BO*/
     pub fn g_menu_item_new_section(
         label: *const c_char,
         section: *mut GMenuModel,
     ) -> *mut GMenuItem;
+    /*BO*/
     pub fn g_menu_item_new_submenu(
         label: *const c_char,
         submenu: *mut GMenuModel,
     ) -> *mut GMenuItem;
+    /*BO*/
     pub fn g_menu_item_get_attribute(
         menu_item: *mut GMenuItem,
         attribute: *const c_char,
         format_string: *const c_char,
         ...
     ) -> gboolean;
+    /*BO*/
     pub fn g_menu_item_get_attribute_value(
         menu_item: *mut GMenuItem,
         attribute: *const c_char,
         expected_type: *const glib::GVariantType,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_menu_item_get_link(menu_item: *mut GMenuItem, link: *const c_char) -> *mut GMenuModel;
+    /*BO*/
     pub fn g_menu_item_set_action_and_target(
         menu_item: *mut GMenuItem,
         action: *const c_char,
         format_string: *const c_char,
         ...
     );
+    /*BO*/
     pub fn g_menu_item_set_action_and_target_value(
         menu_item: *mut GMenuItem,
         action: *const c_char,
         target_value: *mut glib::GVariant,
     );
+    /*BO*/
     pub fn g_menu_item_set_attribute(
         menu_item: *mut GMenuItem,
         attribute: *const c_char,
         format_string: *const c_char,
         ...
     );
+    /*BO*/
     pub fn g_menu_item_set_attribute_value(
         menu_item: *mut GMenuItem,
         attribute: *const c_char,
         value: *mut glib::GVariant,
     );
+    /*BO*/
     pub fn g_menu_item_set_detailed_action(
         menu_item: *mut GMenuItem,
         detailed_action: *const c_char,
     );
+    /*BO*/
     pub fn g_menu_item_set_icon(menu_item: *mut GMenuItem, icon: *mut GIcon);
+    /*BO*/
     pub fn g_menu_item_set_label(menu_item: *mut GMenuItem, label: *const c_char);
+    /*BO*/
     pub fn g_menu_item_set_link(
         menu_item: *mut GMenuItem,
         link: *const c_char,
         model: *mut GMenuModel,
     );
+    /*BO*/
     pub fn g_menu_item_set_section(menu_item: *mut GMenuItem, section: *mut GMenuModel);
+    /*BO*/
     pub fn g_menu_item_set_submenu(menu_item: *mut GMenuItem, submenu: *mut GMenuModel);
 
     //=========================================================================
     // GMenuLinkIter
     //=========================================================================
     pub fn g_menu_link_iter_get_type() -> GType;
+    /*BO*/
     pub fn g_menu_link_iter_get_name(iter: *mut GMenuLinkIter) -> *const c_char;
+    /*BO*/
     pub fn g_menu_link_iter_get_next(
         iter: *mut GMenuLinkIter,
         out_link: *mut *const c_char,
         value: *mut *mut GMenuModel,
     ) -> gboolean;
+    /*BO*/
     pub fn g_menu_link_iter_get_value(iter: *mut GMenuLinkIter) -> *mut GMenuModel;
+    /*BO*/
     pub fn g_menu_link_iter_next(iter: *mut GMenuLinkIter) -> gboolean;
 
     //=========================================================================
     // GMenuModel
     //=========================================================================
     pub fn g_menu_model_get_type() -> GType;
+    /*BO*/
     pub fn g_menu_model_get_item_attribute(
         model: *mut GMenuModel,
         item_index: c_int,
@@ -11765,29 +12487,36 @@ extern "C" {
         format_string: *const c_char,
         ...
     ) -> gboolean;
+    /*BO*/
     pub fn g_menu_model_get_item_attribute_value(
         model: *mut GMenuModel,
         item_index: c_int,
         attribute: *const c_char,
         expected_type: *const glib::GVariantType,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_menu_model_get_item_link(
         model: *mut GMenuModel,
         item_index: c_int,
         link: *const c_char,
     ) -> *mut GMenuModel;
+    /*BO*/
     pub fn g_menu_model_get_n_items(model: *mut GMenuModel) -> c_int;
+    /*BO*/
     pub fn g_menu_model_is_mutable(model: *mut GMenuModel) -> gboolean;
+    /*BO*/
     pub fn g_menu_model_items_changed(
         model: *mut GMenuModel,
         position: c_int,
         removed: c_int,
         added: c_int,
     );
+    /*BO*/
     pub fn g_menu_model_iterate_item_attributes(
         model: *mut GMenuModel,
         item_index: c_int,
     ) -> *mut GMenuAttributeIter;
+    /*BO*/
     pub fn g_menu_model_iterate_item_links(
         model: *mut GMenuModel,
         item_index: c_int,
@@ -11797,49 +12526,70 @@ extern "C" {
     // GMountOperation
     //=========================================================================
     pub fn g_mount_operation_get_type() -> GType;
+    /*BO*/
     pub fn g_mount_operation_new() -> *mut GMountOperation;
+    /*BO*/
     pub fn g_mount_operation_get_anonymous(op: *mut GMountOperation) -> gboolean;
+    /*BO*/
     pub fn g_mount_operation_get_choice(op: *mut GMountOperation) -> c_int;
+    /*BO*/
     pub fn g_mount_operation_get_domain(op: *mut GMountOperation) -> *const c_char;
     #[cfg(any(feature = "v2_58", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_58")))]
+    /*BO*/
     pub fn g_mount_operation_get_is_tcrypt_hidden_volume(op: *mut GMountOperation) -> gboolean;
     #[cfg(any(feature = "v2_58", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_58")))]
+    /*BO*/
     pub fn g_mount_operation_get_is_tcrypt_system_volume(op: *mut GMountOperation) -> gboolean;
+    /*BO*/
     pub fn g_mount_operation_get_password(op: *mut GMountOperation) -> *const c_char;
+    /*BO*/
     pub fn g_mount_operation_get_password_save(op: *mut GMountOperation) -> GPasswordSave;
     #[cfg(any(feature = "v2_58", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_58")))]
+    /*BO*/
     pub fn g_mount_operation_get_pim(op: *mut GMountOperation) -> c_uint;
+    /*BO*/
     pub fn g_mount_operation_get_username(op: *mut GMountOperation) -> *const c_char;
+    /*BO*/
     pub fn g_mount_operation_reply(op: *mut GMountOperation, result: GMountOperationResult);
+    /*BO*/
     pub fn g_mount_operation_set_anonymous(op: *mut GMountOperation, anonymous: gboolean);
+    /*BO*/
     pub fn g_mount_operation_set_choice(op: *mut GMountOperation, choice: c_int);
+    /*BO*/
     pub fn g_mount_operation_set_domain(op: *mut GMountOperation, domain: *const c_char);
     #[cfg(any(feature = "v2_58", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_58")))]
+    /*BO*/
     pub fn g_mount_operation_set_is_tcrypt_hidden_volume(
         op: *mut GMountOperation,
         hidden_volume: gboolean,
     );
     #[cfg(any(feature = "v2_58", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_58")))]
+    /*BO*/
     pub fn g_mount_operation_set_is_tcrypt_system_volume(
         op: *mut GMountOperation,
         system_volume: gboolean,
     );
+    /*BO*/
     pub fn g_mount_operation_set_password(op: *mut GMountOperation, password: *const c_char);
+    /*BO*/
     pub fn g_mount_operation_set_password_save(op: *mut GMountOperation, save: GPasswordSave);
     #[cfg(any(feature = "v2_58", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_58")))]
+    /*BO*/
     pub fn g_mount_operation_set_pim(op: *mut GMountOperation, pim: c_uint);
+    /*BO*/
     pub fn g_mount_operation_set_username(op: *mut GMountOperation, username: *const c_char);
 
     //=========================================================================
     // GNativeSocketAddress
     //=========================================================================
     pub fn g_native_socket_address_get_type() -> GType;
+    /*BO*/
     pub fn g_native_socket_address_new(native: gpointer, len: size_t) -> *mut GSocketAddress;
 
     //=========================================================================
@@ -11851,47 +12601,63 @@ extern "C" {
     // GNetworkAddress
     //=========================================================================
     pub fn g_network_address_get_type() -> GType;
+    /*BO*/
     pub fn g_network_address_new(hostname: *const c_char, port: u16) -> *mut GNetworkAddress;
+    /*BO*/
     pub fn g_network_address_new_loopback(port: u16) -> *mut GNetworkAddress;
+    /*BO*/
     pub fn g_network_address_parse(
         host_and_port: *const c_char,
         default_port: u16,
         error: *mut *mut glib::GError,
     ) -> *mut GNetworkAddress;
+    /*BO*/
     pub fn g_network_address_parse_uri(
         uri: *const c_char,
         default_port: u16,
         error: *mut *mut glib::GError,
     ) -> *mut GNetworkAddress;
+    /*BO*/
     pub fn g_network_address_get_hostname(addr: *mut GNetworkAddress) -> *const c_char;
+    /*BO*/
     pub fn g_network_address_get_port(addr: *mut GNetworkAddress) -> u16;
+    /*BO*/
     pub fn g_network_address_get_scheme(addr: *mut GNetworkAddress) -> *const c_char;
 
     //=========================================================================
     // GNetworkService
     //=========================================================================
     pub fn g_network_service_get_type() -> GType;
+    /*BO*/
     pub fn g_network_service_new(
         service: *const c_char,
         protocol: *const c_char,
         domain: *const c_char,
     ) -> *mut GNetworkService;
+    /*BO*/
     pub fn g_network_service_get_domain(srv: *mut GNetworkService) -> *const c_char;
+    /*BO*/
     pub fn g_network_service_get_protocol(srv: *mut GNetworkService) -> *const c_char;
+    /*BO*/
     pub fn g_network_service_get_scheme(srv: *mut GNetworkService) -> *const c_char;
+    /*BO*/
     pub fn g_network_service_get_service(srv: *mut GNetworkService) -> *const c_char;
+    /*BO*/
     pub fn g_network_service_set_scheme(srv: *mut GNetworkService, scheme: *const c_char);
 
     //=========================================================================
     // GNotification
     //=========================================================================
     pub fn g_notification_get_type() -> GType;
+    /*BO*/
     pub fn g_notification_new(title: *const c_char) -> *mut GNotification;
+    /*BO*/
     pub fn g_notification_add_button(
         notification: *mut GNotification,
         label: *const c_char,
         detailed_action: *const c_char,
     );
+    /*BO*/
     pub fn g_notification_add_button_with_target(
         notification: *mut GNotification,
         label: *const c_char,
@@ -11899,46 +12665,58 @@ extern "C" {
         target_format: *const c_char,
         ...
     );
+    /*BO*/
     pub fn g_notification_add_button_with_target_value(
         notification: *mut GNotification,
         label: *const c_char,
         action: *const c_char,
         target: *mut glib::GVariant,
     );
+    /*BO*/
     pub fn g_notification_set_body(notification: *mut GNotification, body: *const c_char);
+    /*BO*/
     pub fn g_notification_set_default_action(
         notification: *mut GNotification,
         detailed_action: *const c_char,
     );
+    /*BO*/
     pub fn g_notification_set_default_action_and_target(
         notification: *mut GNotification,
         action: *const c_char,
         target_format: *const c_char,
         ...
     );
+    /*BO*/
     pub fn g_notification_set_default_action_and_target_value(
         notification: *mut GNotification,
         action: *const c_char,
         target: *mut glib::GVariant,
     );
+    /*BO*/
     pub fn g_notification_set_icon(notification: *mut GNotification, icon: *mut GIcon);
+    /*BO*/
     pub fn g_notification_set_priority(
         notification: *mut GNotification,
         priority: GNotificationPriority,
     );
+    /*BO*/
     pub fn g_notification_set_title(notification: *mut GNotification, title: *const c_char);
+    /*BO*/
     pub fn g_notification_set_urgent(notification: *mut GNotification, urgent: gboolean);
 
     //=========================================================================
     // GOutputStream
     //=========================================================================
     pub fn g_output_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_output_stream_clear_pending(stream: *mut GOutputStream);
+    /*BO*/
     pub fn g_output_stream_close(
         stream: *mut GOutputStream,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_output_stream_close_async(
         stream: *mut GOutputStream,
         io_priority: c_int,
@@ -11946,16 +12724,19 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_output_stream_close_finish(
         stream: *mut GOutputStream,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_output_stream_flush(
         stream: *mut GOutputStream,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_output_stream_flush_async(
         stream: *mut GOutputStream,
         io_priority: c_int,
@@ -11963,14 +12744,19 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_output_stream_flush_finish(
         stream: *mut GOutputStream,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_output_stream_has_pending(stream: *mut GOutputStream) -> gboolean;
+    /*BO*/
     pub fn g_output_stream_is_closed(stream: *mut GOutputStream) -> gboolean;
+    /*BO*/
     pub fn g_output_stream_is_closing(stream: *mut GOutputStream) -> gboolean;
+    /*BO*/
     pub fn g_output_stream_printf(
         stream: *mut GOutputStream,
         bytes_written: *mut size_t,
@@ -11979,10 +12765,12 @@ extern "C" {
         format: *const c_char,
         ...
     ) -> gboolean;
+    /*BO*/
     pub fn g_output_stream_set_pending(
         stream: *mut GOutputStream,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_output_stream_splice(
         stream: *mut GOutputStream,
         source: *mut GInputStream,
@@ -11990,6 +12778,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_output_stream_splice_async(
         stream: *mut GOutputStream,
         source: *mut GInputStream,
@@ -11999,12 +12788,14 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_output_stream_splice_finish(
         stream: *mut GOutputStream,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
-    //pub fn g_output_stream_vprintf(stream: *mut GOutputStream, bytes_written: *mut size_t, cancellable: *mut GCancellable, error: *mut *mut glib::GError, format: *const c_char, args: /*Unimplemented*/va_list) -> gboolean;
+    /*BO*///pub fn g_output_stream_vprintf(stream: *mut GOutputStream, bytes_written: *mut size_t, cancellable: *mut GCancellable, error: *mut *mut glib::GError, format: *const c_char, args: /*Unimplemented*/va_list) -> gboolean;
+    /*BO*/
     pub fn g_output_stream_write(
         stream: *mut GOutputStream,
         buffer: *mut u8,
@@ -12012,6 +12803,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_output_stream_write_all(
         stream: *mut GOutputStream,
         buffer: *mut u8,
@@ -12020,6 +12812,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_output_stream_write_all_async(
         stream: *mut GOutputStream,
         buffer: *mut u8,
@@ -12029,12 +12822,14 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_output_stream_write_all_finish(
         stream: *mut GOutputStream,
         result: *mut GAsyncResult,
         bytes_written: *mut size_t,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_output_stream_write_async(
         stream: *mut GOutputStream,
         buffer: *mut u8,
@@ -12044,12 +12839,14 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_output_stream_write_bytes(
         stream: *mut GOutputStream,
         bytes: *mut glib::GBytes,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_output_stream_write_bytes_async(
         stream: *mut GOutputStream,
         bytes: *mut glib::GBytes,
@@ -12058,11 +12855,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_output_stream_write_bytes_finish(
         stream: *mut GOutputStream,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_output_stream_write_finish(
         stream: *mut GOutputStream,
         result: *mut GAsyncResult,
@@ -12070,6 +12869,7 @@ extern "C" {
     ) -> ssize_t;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_output_stream_writev(
         stream: *mut GOutputStream,
         vectors: *const GOutputVector,
@@ -12080,6 +12880,7 @@ extern "C" {
     ) -> gboolean;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_output_stream_writev_all(
         stream: *mut GOutputStream,
         vectors: *mut GOutputVector,
@@ -12090,6 +12891,7 @@ extern "C" {
     ) -> gboolean;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_output_stream_writev_all_async(
         stream: *mut GOutputStream,
         vectors: *mut GOutputVector,
@@ -12101,6 +12903,7 @@ extern "C" {
     );
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_output_stream_writev_all_finish(
         stream: *mut GOutputStream,
         result: *mut GAsyncResult,
@@ -12109,6 +12912,7 @@ extern "C" {
     ) -> gboolean;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_output_stream_writev_async(
         stream: *mut GOutputStream,
         vectors: *const GOutputVector,
@@ -12120,6 +12924,7 @@ extern "C" {
     );
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_output_stream_writev_finish(
         stream: *mut GOutputStream,
         result: *mut GAsyncResult,
@@ -12131,42 +12936,52 @@ extern "C" {
     // GPermission
     //=========================================================================
     pub fn g_permission_get_type() -> GType;
+    /*BO*/
     pub fn g_permission_acquire(
         permission: *mut GPermission,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_permission_acquire_async(
         permission: *mut GPermission,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_permission_acquire_finish(
         permission: *mut GPermission,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_permission_get_allowed(permission: *mut GPermission) -> gboolean;
+    /*BO*/
     pub fn g_permission_get_can_acquire(permission: *mut GPermission) -> gboolean;
+    /*BO*/
     pub fn g_permission_get_can_release(permission: *mut GPermission) -> gboolean;
+    /*BO*/
     pub fn g_permission_impl_update(
         permission: *mut GPermission,
         allowed: gboolean,
         can_acquire: gboolean,
         can_release: gboolean,
     );
+    /*BO*/
     pub fn g_permission_release(
         permission: *mut GPermission,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_permission_release_async(
         permission: *mut GPermission,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_permission_release_finish(
         permission: *mut GPermission,
         result: *mut GAsyncResult,
@@ -12177,6 +12992,7 @@ extern "C" {
     // GPropertyAction
     //=========================================================================
     pub fn g_property_action_get_type() -> GType;
+    /*BO*/
     pub fn g_property_action_new(
         name: *const c_char,
         object: *mut gobject::GObject,
@@ -12187,6 +13003,7 @@ extern "C" {
     // GProxyAddress
     //=========================================================================
     pub fn g_proxy_address_get_type() -> GType;
+    /*BO*/
     pub fn g_proxy_address_new(
         inetaddr: *mut GInetAddress,
         port: u16,
@@ -12196,12 +13013,19 @@ extern "C" {
         username: *const c_char,
         password: *const c_char,
     ) -> *mut GSocketAddress;
+    /*BO*/
     pub fn g_proxy_address_get_destination_hostname(proxy: *mut GProxyAddress) -> *const c_char;
+    /*BO*/
     pub fn g_proxy_address_get_destination_port(proxy: *mut GProxyAddress) -> u16;
+    /*BO*/
     pub fn g_proxy_address_get_destination_protocol(proxy: *mut GProxyAddress) -> *const c_char;
+    /*BO*/
     pub fn g_proxy_address_get_password(proxy: *mut GProxyAddress) -> *const c_char;
+    /*BO*/
     pub fn g_proxy_address_get_protocol(proxy: *mut GProxyAddress) -> *const c_char;
+    /*BO*/
     pub fn g_proxy_address_get_uri(proxy: *mut GProxyAddress) -> *const c_char;
+    /*BO*/
     pub fn g_proxy_address_get_username(proxy: *mut GProxyAddress) -> *const c_char;
 
     //=========================================================================
@@ -12213,15 +13037,20 @@ extern "C" {
     // GResolver
     //=========================================================================
     pub fn g_resolver_get_type() -> GType;
+    /*BO*/
     pub fn g_resolver_free_addresses(addresses: *mut glib::GList);
+    /*BO*/
     pub fn g_resolver_free_targets(targets: *mut glib::GList);
+    /*BO*/
     pub fn g_resolver_get_default() -> *mut GResolver;
+    /*BO*/
     pub fn g_resolver_lookup_by_address(
         resolver: *mut GResolver,
         address: *mut GInetAddress,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_resolver_lookup_by_address_async(
         resolver: *mut GResolver,
         address: *mut GInetAddress,
@@ -12229,17 +13058,20 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_resolver_lookup_by_address_finish(
         resolver: *mut GResolver,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_resolver_lookup_by_name(
         resolver: *mut GResolver,
         hostname: *const c_char,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_resolver_lookup_by_name_async(
         resolver: *mut GResolver,
         hostname: *const c_char,
@@ -12247,6 +13079,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_resolver_lookup_by_name_finish(
         resolver: *mut GResolver,
         result: *mut GAsyncResult,
@@ -12254,6 +13087,7 @@ extern "C" {
     ) -> *mut glib::GList;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_resolver_lookup_by_name_with_flags(
         resolver: *mut GResolver,
         hostname: *const c_char,
@@ -12263,6 +13097,7 @@ extern "C" {
     ) -> *mut glib::GList;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_resolver_lookup_by_name_with_flags_async(
         resolver: *mut GResolver,
         hostname: *const c_char,
@@ -12273,11 +13108,13 @@ extern "C" {
     );
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_resolver_lookup_by_name_with_flags_finish(
         resolver: *mut GResolver,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_resolver_lookup_records(
         resolver: *mut GResolver,
         rrname: *const c_char,
@@ -12285,6 +13122,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_resolver_lookup_records_async(
         resolver: *mut GResolver,
         rrname: *const c_char,
@@ -12293,11 +13131,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_resolver_lookup_records_finish(
         resolver: *mut GResolver,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_resolver_lookup_service(
         resolver: *mut GResolver,
         service: *const c_char,
@@ -12306,6 +13146,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_resolver_lookup_service_async(
         resolver: *mut GResolver,
         service: *const c_char,
@@ -12315,41 +13156,54 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_resolver_lookup_service_finish(
         resolver: *mut GResolver,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_resolver_set_default(resolver: *mut GResolver);
 
     //=========================================================================
     // GSettings
     //=========================================================================
     pub fn g_settings_get_type() -> GType;
+    /*BO*/
     pub fn g_settings_new(schema_id: *const c_char) -> *mut GSettings;
+    /*BO*/
     pub fn g_settings_new_full(
         schema: *mut GSettingsSchema,
         backend: *mut GSettingsBackend,
         path: *const c_char,
     ) -> *mut GSettings;
+    /*BO*/
     pub fn g_settings_new_with_backend(
         schema_id: *const c_char,
         backend: *mut GSettingsBackend,
     ) -> *mut GSettings;
+    /*BO*/
     pub fn g_settings_new_with_backend_and_path(
         schema_id: *const c_char,
         backend: *mut GSettingsBackend,
         path: *const c_char,
     ) -> *mut GSettings;
+    /*BO*/
     pub fn g_settings_new_with_path(
         schema_id: *const c_char,
         path: *const c_char,
     ) -> *mut GSettings;
+    /*BO*/
     pub fn g_settings_list_relocatable_schemas() -> *const *const c_char;
+    /*BO*/
     pub fn g_settings_list_schemas() -> *const *const c_char;
+    /*BO*/
     pub fn g_settings_sync();
+    /*BO*/
     pub fn g_settings_unbind(object: *mut gobject::GObject, property: *const c_char);
+    /*BO*/
     pub fn g_settings_apply(settings: *mut GSettings);
+    /*BO*/
     pub fn g_settings_bind(
         settings: *mut GSettings,
         key: *const c_char,
@@ -12357,6 +13211,7 @@ extern "C" {
         property: *const c_char,
         flags: GSettingsBindFlags,
     );
+    /*BO*/
     pub fn g_settings_bind_with_mapping(
         settings: *mut GSettings,
         key: *const c_char,
@@ -12368,6 +13223,7 @@ extern "C" {
         user_data: gpointer,
         destroy: glib::GDestroyNotify,
     );
+    /*BO*/
     pub fn g_settings_bind_writable(
         settings: *mut GSettings,
         key: *const c_char,
@@ -12375,83 +13231,115 @@ extern "C" {
         property: *const c_char,
         inverted: gboolean,
     );
+    /*BO*/
     pub fn g_settings_create_action(settings: *mut GSettings, key: *const c_char) -> *mut GAction;
+    /*BO*/
     pub fn g_settings_delay(settings: *mut GSettings);
+    /*BO*/
     pub fn g_settings_get(settings: *mut GSettings, key: *const c_char, format: *const c_char, ...);
+    /*BO*/
     pub fn g_settings_get_boolean(settings: *mut GSettings, key: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_settings_get_child(settings: *mut GSettings, name: *const c_char) -> *mut GSettings;
+    /*BO*/
     pub fn g_settings_get_default_value(
         settings: *mut GSettings,
         key: *const c_char,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_settings_get_double(settings: *mut GSettings, key: *const c_char) -> c_double;
+    /*BO*/
     pub fn g_settings_get_enum(settings: *mut GSettings, key: *const c_char) -> c_int;
+    /*BO*/
     pub fn g_settings_get_flags(settings: *mut GSettings, key: *const c_char) -> c_uint;
+    /*BO*/
     pub fn g_settings_get_has_unapplied(settings: *mut GSettings) -> gboolean;
+    /*BO*/
     pub fn g_settings_get_int(settings: *mut GSettings, key: *const c_char) -> c_int;
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
+    /*BO*/
     pub fn g_settings_get_int64(settings: *mut GSettings, key: *const c_char) -> i64;
+    /*BO*/
     pub fn g_settings_get_mapped(
         settings: *mut GSettings,
         key: *const c_char,
         mapping: GSettingsGetMapping,
         user_data: gpointer,
     ) -> gpointer;
+    /*BO*/
     pub fn g_settings_get_range(
         settings: *mut GSettings,
         key: *const c_char,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_settings_get_string(settings: *mut GSettings, key: *const c_char) -> *mut c_char;
+    /*BO*/
     pub fn g_settings_get_strv(settings: *mut GSettings, key: *const c_char) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_settings_get_uint(settings: *mut GSettings, key: *const c_char) -> c_uint;
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
+    /*BO*/
     pub fn g_settings_get_uint64(settings: *mut GSettings, key: *const c_char) -> u64;
+    /*BO*/
     pub fn g_settings_get_user_value(
         settings: *mut GSettings,
         key: *const c_char,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_settings_get_value(
         settings: *mut GSettings,
         key: *const c_char,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_settings_is_writable(settings: *mut GSettings, name: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_settings_list_children(settings: *mut GSettings) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_settings_list_keys(settings: *mut GSettings) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_settings_range_check(
         settings: *mut GSettings,
         key: *const c_char,
         value: *mut glib::GVariant,
     ) -> gboolean;
+    /*BO*/
     pub fn g_settings_reset(settings: *mut GSettings, key: *const c_char);
+    /*BO*/
     pub fn g_settings_revert(settings: *mut GSettings);
+    /*BO*/
     pub fn g_settings_set(
         settings: *mut GSettings,
         key: *const c_char,
         format: *const c_char,
         ...
     ) -> gboolean;
+    /*BO*/
     pub fn g_settings_set_boolean(
         settings: *mut GSettings,
         key: *const c_char,
         value: gboolean,
     ) -> gboolean;
+    /*BO*/
     pub fn g_settings_set_double(
         settings: *mut GSettings,
         key: *const c_char,
         value: c_double,
     ) -> gboolean;
+    /*BO*/
     pub fn g_settings_set_enum(
         settings: *mut GSettings,
         key: *const c_char,
         value: c_int,
     ) -> gboolean;
+    /*BO*/
     pub fn g_settings_set_flags(
         settings: *mut GSettings,
         key: *const c_char,
         value: c_uint,
     ) -> gboolean;
+    /*BO*/
     pub fn g_settings_set_int(
         settings: *mut GSettings,
         key: *const c_char,
@@ -12459,21 +13347,25 @@ extern "C" {
     ) -> gboolean;
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
+    /*BO*/
     pub fn g_settings_set_int64(
         settings: *mut GSettings,
         key: *const c_char,
         value: i64,
     ) -> gboolean;
+    /*BO*/
     pub fn g_settings_set_string(
         settings: *mut GSettings,
         key: *const c_char,
         value: *const c_char,
     ) -> gboolean;
+    /*BO*/
     pub fn g_settings_set_strv(
         settings: *mut GSettings,
         key: *const c_char,
         value: *const *const c_char,
     ) -> gboolean;
+    /*BO*/
     pub fn g_settings_set_uint(
         settings: *mut GSettings,
         key: *const c_char,
@@ -12481,11 +13373,13 @@ extern "C" {
     ) -> gboolean;
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
+    /*BO*/
     pub fn g_settings_set_uint64(
         settings: *mut GSettings,
         key: *const c_char,
         value: u64,
     ) -> gboolean;
+    /*BO*/
     pub fn g_settings_set_value(
         settings: *mut GSettings,
         key: *const c_char,
@@ -12496,55 +13390,68 @@ extern "C" {
     // GSettingsBackend
     //=========================================================================
     pub fn g_settings_backend_get_type() -> GType;
+    /*BO*/
     pub fn g_settings_backend_flatten_tree(
         tree: *mut glib::GTree,
         path: *mut *mut c_char,
         keys: *mut *mut *const c_char,
         values: *mut *mut *mut glib::GVariant,
     );
+    /*BO*/
     pub fn g_settings_backend_get_default() -> *mut GSettingsBackend;
+    /*BO*/
     pub fn g_settings_backend_changed(
         backend: *mut GSettingsBackend,
         key: *const c_char,
         origin_tag: gpointer,
     );
+    /*BO*/
     pub fn g_settings_backend_changed_tree(
         backend: *mut GSettingsBackend,
         tree: *mut glib::GTree,
         origin_tag: gpointer,
     );
+    /*BO*/
     pub fn g_settings_backend_keys_changed(
         backend: *mut GSettingsBackend,
         path: *const c_char,
         items: *const *const c_char,
         origin_tag: gpointer,
     );
+    /*BO*/
     pub fn g_settings_backend_path_changed(
         backend: *mut GSettingsBackend,
         path: *const c_char,
         origin_tag: gpointer,
     );
+    /*BO*/
     pub fn g_settings_backend_path_writable_changed(
         backend: *mut GSettingsBackend,
         path: *const c_char,
     );
+    /*BO*/
     pub fn g_settings_backend_writable_changed(backend: *mut GSettingsBackend, key: *const c_char);
 
     //=========================================================================
     // GSimpleAction
     //=========================================================================
     pub fn g_simple_action_get_type() -> GType;
+    /*BO*/
     pub fn g_simple_action_new(
         name: *const c_char,
         parameter_type: *const glib::GVariantType,
     ) -> *mut GSimpleAction;
+    /*BO*/
     pub fn g_simple_action_new_stateful(
         name: *const c_char,
         parameter_type: *const glib::GVariantType,
         state: *mut glib::GVariant,
     ) -> *mut GSimpleAction;
+    /*BO*/
     pub fn g_simple_action_set_enabled(simple: *mut GSimpleAction, enabled: gboolean);
+    /*BO*/
     pub fn g_simple_action_set_state(simple: *mut GSimpleAction, value: *mut glib::GVariant);
+    /*BO*/
     pub fn g_simple_action_set_state_hint(
         simple: *mut GSimpleAction,
         state_hint: *mut glib::GVariant,
@@ -12554,18 +13461,23 @@ extern "C" {
     // GSimpleActionGroup
     //=========================================================================
     pub fn g_simple_action_group_get_type() -> GType;
+    /*BO*/
     pub fn g_simple_action_group_new() -> *mut GSimpleActionGroup;
+    /*BO*/
     pub fn g_simple_action_group_add_entries(
         simple: *mut GSimpleActionGroup,
         entries: *const GActionEntry,
         n_entries: c_int,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_simple_action_group_insert(simple: *mut GSimpleActionGroup, action: *mut GAction);
+    /*BO*/
     pub fn g_simple_action_group_lookup(
         simple: *mut GSimpleActionGroup,
         action_name: *const c_char,
     ) -> *mut GAction;
+    /*BO*/
     pub fn g_simple_action_group_remove(
         simple: *mut GSimpleActionGroup,
         action_name: *const c_char,
@@ -12575,12 +13487,14 @@ extern "C" {
     // GSimpleAsyncResult
     //=========================================================================
     pub fn g_simple_async_result_get_type() -> GType;
+    /*BO*/
     pub fn g_simple_async_result_new(
         source_object: *mut gobject::GObject,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
         source_tag: gpointer,
     ) -> *mut GSimpleAsyncResult;
+    /*BO*/
     pub fn g_simple_async_result_new_error(
         source_object: *mut gobject::GObject,
         callback: GAsyncReadyCallback,
@@ -12590,43 +13504,56 @@ extern "C" {
         format: *const c_char,
         ...
     ) -> *mut GSimpleAsyncResult;
+    /*BO*/
     pub fn g_simple_async_result_new_from_error(
         source_object: *mut gobject::GObject,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
         error: *const glib::GError,
     ) -> *mut GSimpleAsyncResult;
+    /*BO*/
     pub fn g_simple_async_result_new_take_error(
         source_object: *mut gobject::GObject,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
         error: *mut glib::GError,
     ) -> *mut GSimpleAsyncResult;
+    /*BO*/
     pub fn g_simple_async_result_is_valid(
         result: *mut GAsyncResult,
         source: *mut gobject::GObject,
         source_tag: gpointer,
     ) -> gboolean;
+    /*BO*/
     pub fn g_simple_async_result_complete(simple: *mut GSimpleAsyncResult);
+    /*BO*/
     pub fn g_simple_async_result_complete_in_idle(simple: *mut GSimpleAsyncResult);
+    /*BO*/
     pub fn g_simple_async_result_get_op_res_gboolean(simple: *mut GSimpleAsyncResult) -> gboolean;
+    /*BO*/
     pub fn g_simple_async_result_get_op_res_gpointer(simple: *mut GSimpleAsyncResult) -> gpointer;
+    /*BO*/
     pub fn g_simple_async_result_get_op_res_gssize(simple: *mut GSimpleAsyncResult) -> ssize_t;
+    /*BO*/
     pub fn g_simple_async_result_get_source_tag(simple: *mut GSimpleAsyncResult) -> gpointer;
+    /*BO*/
     pub fn g_simple_async_result_propagate_error(
         simple: *mut GSimpleAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_simple_async_result_run_in_thread(
         simple: *mut GSimpleAsyncResult,
         func: GSimpleAsyncThreadFunc,
         io_priority: c_int,
         cancellable: *mut GCancellable,
     );
+    /*BO*/
     pub fn g_simple_async_result_set_check_cancellable(
         simple: *mut GSimpleAsyncResult,
         check_cancellable: *mut GCancellable,
     );
+    /*BO*/
     pub fn g_simple_async_result_set_error(
         simple: *mut GSimpleAsyncResult,
         domain: glib::GQuark,
@@ -12634,28 +13561,34 @@ extern "C" {
         format: *const c_char,
         ...
     );
-    //pub fn g_simple_async_result_set_error_va(simple: *mut GSimpleAsyncResult, domain: glib::GQuark, code: c_int, format: *const c_char, args: /*Unimplemented*/va_list);
+    /*BO*///pub fn g_simple_async_result_set_error_va(simple: *mut GSimpleAsyncResult, domain: glib::GQuark, code: c_int, format: *const c_char, args: /*Unimplemented*/va_list);
+    /*BO*/
     pub fn g_simple_async_result_set_from_error(
         simple: *mut GSimpleAsyncResult,
         error: *const glib::GError,
     );
+    /*BO*/
     pub fn g_simple_async_result_set_handle_cancellation(
         simple: *mut GSimpleAsyncResult,
         handle_cancellation: gboolean,
     );
+    /*BO*/
     pub fn g_simple_async_result_set_op_res_gboolean(
         simple: *mut GSimpleAsyncResult,
         op_res: gboolean,
     );
+    /*BO*/
     pub fn g_simple_async_result_set_op_res_gpointer(
         simple: *mut GSimpleAsyncResult,
         op_res: gpointer,
         destroy_op_res: glib::GDestroyNotify,
     );
+    /*BO*/
     pub fn g_simple_async_result_set_op_res_gssize(
         simple: *mut GSimpleAsyncResult,
         op_res: ssize_t,
     );
+    /*BO*/
     pub fn g_simple_async_result_take_error(
         simple: *mut GSimpleAsyncResult,
         error: *mut glib::GError,
@@ -12665,6 +13598,7 @@ extern "C" {
     // GSimpleIOStream
     //=========================================================================
     pub fn g_simple_io_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_simple_io_stream_new(
         input_stream: *mut GInputStream,
         output_stream: *mut GOutputStream,
@@ -12674,24 +13608,29 @@ extern "C" {
     // GSimplePermission
     //=========================================================================
     pub fn g_simple_permission_get_type() -> GType;
+    /*BO*/
     pub fn g_simple_permission_new(allowed: gboolean) -> *mut GPermission;
 
     //=========================================================================
     // GSimpleProxyResolver
     //=========================================================================
     pub fn g_simple_proxy_resolver_get_type() -> GType;
+    /*BO*/
     pub fn g_simple_proxy_resolver_new(
         default_proxy: *const c_char,
         ignore_hosts: *mut *mut c_char,
     ) -> *mut GProxyResolver;
+    /*BO*/
     pub fn g_simple_proxy_resolver_set_default_proxy(
         resolver: *mut GSimpleProxyResolver,
         default_proxy: *const c_char,
     );
+    /*BO*/
     pub fn g_simple_proxy_resolver_set_ignore_hosts(
         resolver: *mut GSimpleProxyResolver,
         ignore_hosts: *mut *mut c_char,
     );
+    /*BO*/
     pub fn g_simple_proxy_resolver_set_uri_proxy(
         resolver: *mut GSimpleProxyResolver,
         uri_scheme: *const c_char,
@@ -12702,33 +13641,41 @@ extern "C" {
     // GSocket
     //=========================================================================
     pub fn g_socket_get_type() -> GType;
+    /*BO*/
     pub fn g_socket_new(
         family: GSocketFamily,
         type_: GSocketType,
         protocol: GSocketProtocol,
         error: *mut *mut glib::GError,
     ) -> *mut GSocket;
+    /*BO*/
     pub fn g_socket_new_from_fd(fd: c_int, error: *mut *mut glib::GError) -> *mut GSocket;
+    /*BO*/
     pub fn g_socket_accept(
         socket: *mut GSocket,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GSocket;
+    /*BO*/
     pub fn g_socket_bind(
         socket: *mut GSocket,
         address: *mut GSocketAddress,
         allow_reuse: gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_socket_check_connect_result(
         socket: *mut GSocket,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_socket_close(socket: *mut GSocket, error: *mut *mut glib::GError) -> gboolean;
+    /*BO*/
     pub fn g_socket_condition_check(
         socket: *mut GSocket,
         condition: glib::GIOCondition,
     ) -> glib::GIOCondition;
+    /*BO*/
     pub fn g_socket_condition_timed_wait(
         socket: *mut GSocket,
         condition: glib::GIOCondition,
@@ -12736,43 +13683,59 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_socket_condition_wait(
         socket: *mut GSocket,
         condition: glib::GIOCondition,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_socket_connect(
         socket: *mut GSocket,
         address: *mut GSocketAddress,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_socket_connection_factory_create_connection(
         socket: *mut GSocket,
     ) -> *mut GSocketConnection;
+    /*BO*/
     pub fn g_socket_create_source(
         socket: *mut GSocket,
         condition: glib::GIOCondition,
         cancellable: *mut GCancellable,
     ) -> *mut glib::GSource;
+    /*BO*/
     pub fn g_socket_get_available_bytes(socket: *mut GSocket) -> ssize_t;
+    /*BO*/
     pub fn g_socket_get_blocking(socket: *mut GSocket) -> gboolean;
+    /*BO*/
     pub fn g_socket_get_broadcast(socket: *mut GSocket) -> gboolean;
+    /*BO*/
     pub fn g_socket_get_credentials(
         socket: *mut GSocket,
         error: *mut *mut glib::GError,
     ) -> *mut GCredentials;
+    /*BO*/
     pub fn g_socket_get_family(socket: *mut GSocket) -> GSocketFamily;
+    /*BO*/
     pub fn g_socket_get_fd(socket: *mut GSocket) -> c_int;
+    /*BO*/
     pub fn g_socket_get_keepalive(socket: *mut GSocket) -> gboolean;
+    /*BO*/
     pub fn g_socket_get_listen_backlog(socket: *mut GSocket) -> c_int;
+    /*BO*/
     pub fn g_socket_get_local_address(
         socket: *mut GSocket,
         error: *mut *mut glib::GError,
     ) -> *mut GSocketAddress;
+    /*BO*/
     pub fn g_socket_get_multicast_loopback(socket: *mut GSocket) -> gboolean;
+    /*BO*/
     pub fn g_socket_get_multicast_ttl(socket: *mut GSocket) -> c_uint;
+    /*BO*/
     pub fn g_socket_get_option(
         socket: *mut GSocket,
         level: c_int,
@@ -12780,16 +13743,24 @@ extern "C" {
         value: *mut c_int,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_socket_get_protocol(socket: *mut GSocket) -> GSocketProtocol;
+    /*BO*/
     pub fn g_socket_get_remote_address(
         socket: *mut GSocket,
         error: *mut *mut glib::GError,
     ) -> *mut GSocketAddress;
+    /*BO*/
     pub fn g_socket_get_socket_type(socket: *mut GSocket) -> GSocketType;
+    /*BO*/
     pub fn g_socket_get_timeout(socket: *mut GSocket) -> c_uint;
+    /*BO*/
     pub fn g_socket_get_ttl(socket: *mut GSocket) -> c_uint;
+    /*BO*/
     pub fn g_socket_is_closed(socket: *mut GSocket) -> gboolean;
+    /*BO*/
     pub fn g_socket_is_connected(socket: *mut GSocket) -> gboolean;
+    /*BO*/
     pub fn g_socket_join_multicast_group(
         socket: *mut GSocket,
         group: *mut GInetAddress,
@@ -12799,6 +13770,7 @@ extern "C" {
     ) -> gboolean;
     #[cfg(any(feature = "v2_56", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
+    /*BO*/
     pub fn g_socket_join_multicast_group_ssm(
         socket: *mut GSocket,
         group: *mut GInetAddress,
@@ -12806,6 +13778,7 @@ extern "C" {
         iface: *const c_char,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_socket_leave_multicast_group(
         socket: *mut GSocket,
         group: *mut GInetAddress,
@@ -12815,6 +13788,7 @@ extern "C" {
     ) -> gboolean;
     #[cfg(any(feature = "v2_56", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
+    /*BO*/
     pub fn g_socket_leave_multicast_group_ssm(
         socket: *mut GSocket,
         group: *mut GInetAddress,
@@ -12822,7 +13796,9 @@ extern "C" {
         iface: *const c_char,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_socket_listen(socket: *mut GSocket, error: *mut *mut glib::GError) -> gboolean;
+    /*BO*/
     pub fn g_socket_receive(
         socket: *mut GSocket,
         buffer: *mut u8,
@@ -12830,6 +13806,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_socket_receive_from(
         socket: *mut GSocket,
         address: *mut *mut GSocketAddress,
@@ -12838,6 +13815,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_socket_receive_message(
         socket: *mut GSocket,
         address: *mut *mut GSocketAddress,
@@ -12849,6 +13827,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_socket_receive_messages(
         socket: *mut GSocket,
         messages: *mut GInputMessage,
@@ -12857,6 +13836,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> c_int;
+    /*BO*/
     pub fn g_socket_receive_with_blocking(
         socket: *mut GSocket,
         buffer: *mut u8,
@@ -12865,6 +13845,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_socket_send(
         socket: *mut GSocket,
         buffer: *const u8,
@@ -12872,6 +13853,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_socket_send_message(
         socket: *mut GSocket,
         address: *mut GSocketAddress,
@@ -12885,6 +13867,7 @@ extern "C" {
     ) -> ssize_t;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_socket_send_message_with_timeout(
         socket: *mut GSocket,
         address: *mut GSocketAddress,
@@ -12898,6 +13881,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> GPollableReturn;
+    /*BO*/
     pub fn g_socket_send_messages(
         socket: *mut GSocket,
         messages: *mut GOutputMessage,
@@ -12906,6 +13890,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> c_int;
+    /*BO*/
     pub fn g_socket_send_to(
         socket: *mut GSocket,
         address: *mut GSocketAddress,
@@ -12914,6 +13899,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_socket_send_with_blocking(
         socket: *mut GSocket,
         buffer: *const u8,
@@ -12922,12 +13908,19 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_socket_set_blocking(socket: *mut GSocket, blocking: gboolean);
+    /*BO*/
     pub fn g_socket_set_broadcast(socket: *mut GSocket, broadcast: gboolean);
+    /*BO*/
     pub fn g_socket_set_keepalive(socket: *mut GSocket, keepalive: gboolean);
+    /*BO*/
     pub fn g_socket_set_listen_backlog(socket: *mut GSocket, backlog: c_int);
+    /*BO*/
     pub fn g_socket_set_multicast_loopback(socket: *mut GSocket, loopback: gboolean);
+    /*BO*/
     pub fn g_socket_set_multicast_ttl(socket: *mut GSocket, ttl: c_uint);
+    /*BO*/
     pub fn g_socket_set_option(
         socket: *mut GSocket,
         level: c_int,
@@ -12935,23 +13928,31 @@ extern "C" {
         value: c_int,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_socket_set_timeout(socket: *mut GSocket, timeout: c_uint);
+    /*BO*/
     pub fn g_socket_set_ttl(socket: *mut GSocket, ttl: c_uint);
+    /*BO*/
     pub fn g_socket_shutdown(
         socket: *mut GSocket,
         shutdown_read: gboolean,
         shutdown_write: gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_socket_speaks_ipv4(socket: *mut GSocket) -> gboolean;
 
     //=========================================================================
     // GSocketAddress
     //=========================================================================
     pub fn g_socket_address_get_type() -> GType;
+    /*BO*/
     pub fn g_socket_address_new_from_native(native: gpointer, len: size_t) -> *mut GSocketAddress;
+    /*BO*/
     pub fn g_socket_address_get_family(address: *mut GSocketAddress) -> GSocketFamily;
+    /*BO*/
     pub fn g_socket_address_get_native_size(address: *mut GSocketAddress) -> ssize_t;
+    /*BO*/
     pub fn g_socket_address_to_native(
         address: *mut GSocketAddress,
         dest: gpointer,
@@ -12963,17 +13964,20 @@ extern "C" {
     // GSocketAddressEnumerator
     //=========================================================================
     pub fn g_socket_address_enumerator_get_type() -> GType;
+    /*BO*/
     pub fn g_socket_address_enumerator_next(
         enumerator: *mut GSocketAddressEnumerator,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GSocketAddress;
+    /*BO*/
     pub fn g_socket_address_enumerator_next_async(
         enumerator: *mut GSocketAddressEnumerator,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_socket_address_enumerator_next_finish(
         enumerator: *mut GSocketAddressEnumerator,
         result: *mut GAsyncResult,
@@ -12984,17 +13988,21 @@ extern "C" {
     // GSocketClient
     //=========================================================================
     pub fn g_socket_client_get_type() -> GType;
+    /*BO*/
     pub fn g_socket_client_new() -> *mut GSocketClient;
+    /*BO*/
     pub fn g_socket_client_add_application_proxy(
         client: *mut GSocketClient,
         protocol: *const c_char,
     );
+    /*BO*/
     pub fn g_socket_client_connect(
         client: *mut GSocketClient,
         connectable: *mut GSocketConnectable,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GSocketConnection;
+    /*BO*/
     pub fn g_socket_client_connect_async(
         client: *mut GSocketClient,
         connectable: *mut GSocketConnectable,
@@ -13002,11 +14010,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_socket_client_connect_finish(
         client: *mut GSocketClient,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GSocketConnection;
+    /*BO*/
     pub fn g_socket_client_connect_to_host(
         client: *mut GSocketClient,
         host_and_port: *const c_char,
@@ -13014,6 +14024,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GSocketConnection;
+    /*BO*/
     pub fn g_socket_client_connect_to_host_async(
         client: *mut GSocketClient,
         host_and_port: *const c_char,
@@ -13022,11 +14033,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_socket_client_connect_to_host_finish(
         client: *mut GSocketClient,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GSocketConnection;
+    /*BO*/
     pub fn g_socket_client_connect_to_service(
         client: *mut GSocketClient,
         domain: *const c_char,
@@ -13034,6 +14047,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GSocketConnection;
+    /*BO*/
     pub fn g_socket_client_connect_to_service_async(
         client: *mut GSocketClient,
         domain: *const c_char,
@@ -13042,11 +14056,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_socket_client_connect_to_service_finish(
         client: *mut GSocketClient,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GSocketConnection;
+    /*BO*/
     pub fn g_socket_client_connect_to_uri(
         client: *mut GSocketClient,
         uri: *const c_char,
@@ -13054,6 +14070,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GSocketConnection;
+    /*BO*/
     pub fn g_socket_client_connect_to_uri_async(
         client: *mut GSocketClient,
         uri: *const c_char,
@@ -13062,36 +14079,55 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_socket_client_connect_to_uri_finish(
         client: *mut GSocketClient,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GSocketConnection;
+    /*BO*/
     pub fn g_socket_client_get_enable_proxy(client: *mut GSocketClient) -> gboolean;
+    /*BO*/
     pub fn g_socket_client_get_family(client: *mut GSocketClient) -> GSocketFamily;
+    /*BO*/
     pub fn g_socket_client_get_local_address(client: *mut GSocketClient) -> *mut GSocketAddress;
+    /*BO*/
     pub fn g_socket_client_get_protocol(client: *mut GSocketClient) -> GSocketProtocol;
+    /*BO*/
     pub fn g_socket_client_get_proxy_resolver(client: *mut GSocketClient) -> *mut GProxyResolver;
+    /*BO*/
     pub fn g_socket_client_get_socket_type(client: *mut GSocketClient) -> GSocketType;
+    /*BO*/
     pub fn g_socket_client_get_timeout(client: *mut GSocketClient) -> c_uint;
+    /*BO*/
     pub fn g_socket_client_get_tls(client: *mut GSocketClient) -> gboolean;
+    /*BO*/
     pub fn g_socket_client_get_tls_validation_flags(
         client: *mut GSocketClient,
     ) -> GTlsCertificateFlags;
+    /*BO*/
     pub fn g_socket_client_set_enable_proxy(client: *mut GSocketClient, enable: gboolean);
+    /*BO*/
     pub fn g_socket_client_set_family(client: *mut GSocketClient, family: GSocketFamily);
+    /*BO*/
     pub fn g_socket_client_set_local_address(
         client: *mut GSocketClient,
         address: *mut GSocketAddress,
     );
+    /*BO*/
     pub fn g_socket_client_set_protocol(client: *mut GSocketClient, protocol: GSocketProtocol);
+    /*BO*/
     pub fn g_socket_client_set_proxy_resolver(
         client: *mut GSocketClient,
         proxy_resolver: *mut GProxyResolver,
     );
+    /*BO*/
     pub fn g_socket_client_set_socket_type(client: *mut GSocketClient, type_: GSocketType);
+    /*BO*/
     pub fn g_socket_client_set_timeout(client: *mut GSocketClient, timeout: c_uint);
+    /*BO*/
     pub fn g_socket_client_set_tls(client: *mut GSocketClient, tls: gboolean);
+    /*BO*/
     pub fn g_socket_client_set_tls_validation_flags(
         client: *mut GSocketClient,
         flags: GTlsCertificateFlags,
@@ -13101,23 +14137,27 @@ extern "C" {
     // GSocketConnection
     //=========================================================================
     pub fn g_socket_connection_get_type() -> GType;
+    /*BO*/
     pub fn g_socket_connection_factory_lookup_type(
         family: GSocketFamily,
         type_: GSocketType,
         protocol_id: c_int,
     ) -> GType;
+    /*BO*/
     pub fn g_socket_connection_factory_register_type(
         g_type: GType,
         family: GSocketFamily,
         type_: GSocketType,
         protocol: c_int,
     );
+    /*BO*/
     pub fn g_socket_connection_connect(
         connection: *mut GSocketConnection,
         address: *mut GSocketAddress,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_socket_connection_connect_async(
         connection: *mut GSocketConnection,
         address: *mut GSocketAddress,
@@ -13125,78 +14165,96 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_socket_connection_connect_finish(
         connection: *mut GSocketConnection,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_socket_connection_get_local_address(
         connection: *mut GSocketConnection,
         error: *mut *mut glib::GError,
     ) -> *mut GSocketAddress;
+    /*BO*/
     pub fn g_socket_connection_get_remote_address(
         connection: *mut GSocketConnection,
         error: *mut *mut glib::GError,
     ) -> *mut GSocketAddress;
+    /*BO*/
     pub fn g_socket_connection_get_socket(connection: *mut GSocketConnection) -> *mut GSocket;
+    /*BO*/
     pub fn g_socket_connection_is_connected(connection: *mut GSocketConnection) -> gboolean;
 
     //=========================================================================
     // GSocketControlMessage
     //=========================================================================
     pub fn g_socket_control_message_get_type() -> GType;
+    /*BO*/
     pub fn g_socket_control_message_deserialize(
         level: c_int,
         type_: c_int,
         size: size_t,
         data: gpointer,
     ) -> *mut GSocketControlMessage;
+    /*BO*/
     pub fn g_socket_control_message_get_level(message: *mut GSocketControlMessage) -> c_int;
+    /*BO*/
     pub fn g_socket_control_message_get_msg_type(message: *mut GSocketControlMessage) -> c_int;
+    /*BO*/
     pub fn g_socket_control_message_get_size(message: *mut GSocketControlMessage) -> size_t;
+    /*BO*/
     pub fn g_socket_control_message_serialize(message: *mut GSocketControlMessage, data: gpointer);
 
     //=========================================================================
     // GSocketListener
     //=========================================================================
     pub fn g_socket_listener_get_type() -> GType;
+    /*BO*/
     pub fn g_socket_listener_new() -> *mut GSocketListener;
+    /*BO*/
     pub fn g_socket_listener_accept(
         listener: *mut GSocketListener,
         source_object: *mut *mut gobject::GObject,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GSocketConnection;
+    /*BO*/
     pub fn g_socket_listener_accept_async(
         listener: *mut GSocketListener,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_socket_listener_accept_finish(
         listener: *mut GSocketListener,
         result: *mut GAsyncResult,
         source_object: *mut *mut gobject::GObject,
         error: *mut *mut glib::GError,
     ) -> *mut GSocketConnection;
+    /*BO*/
     pub fn g_socket_listener_accept_socket(
         listener: *mut GSocketListener,
         source_object: *mut *mut gobject::GObject,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GSocket;
+    /*BO*/
     pub fn g_socket_listener_accept_socket_async(
         listener: *mut GSocketListener,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_socket_listener_accept_socket_finish(
         listener: *mut GSocketListener,
         result: *mut GAsyncResult,
         source_object: *mut *mut gobject::GObject,
         error: *mut *mut glib::GError,
     ) -> *mut GSocket;
+    /*BO*/
     pub fn g_socket_listener_add_address(
         listener: *mut GSocketListener,
         address: *mut GSocketAddress,
@@ -13206,50 +14264,62 @@ extern "C" {
         effective_address: *mut *mut GSocketAddress,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_socket_listener_add_any_inet_port(
         listener: *mut GSocketListener,
         source_object: *mut gobject::GObject,
         error: *mut *mut glib::GError,
     ) -> u16;
+    /*BO*/
     pub fn g_socket_listener_add_inet_port(
         listener: *mut GSocketListener,
         port: u16,
         source_object: *mut gobject::GObject,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_socket_listener_add_socket(
         listener: *mut GSocketListener,
         socket: *mut GSocket,
         source_object: *mut gobject::GObject,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_socket_listener_close(listener: *mut GSocketListener);
+    /*BO*/
     pub fn g_socket_listener_set_backlog(listener: *mut GSocketListener, listen_backlog: c_int);
 
     //=========================================================================
     // GSocketService
     //=========================================================================
     pub fn g_socket_service_get_type() -> GType;
+    /*BO*/
     pub fn g_socket_service_new() -> *mut GSocketService;
+    /*BO*/
     pub fn g_socket_service_is_active(service: *mut GSocketService) -> gboolean;
+    /*BO*/
     pub fn g_socket_service_start(service: *mut GSocketService);
+    /*BO*/
     pub fn g_socket_service_stop(service: *mut GSocketService);
 
     //=========================================================================
     // GSubprocess
     //=========================================================================
     pub fn g_subprocess_get_type() -> GType;
+    /*BO*/
     pub fn g_subprocess_new(
         flags: GSubprocessFlags,
         error: *mut *mut glib::GError,
         argv0: *const c_char,
         ...
     ) -> *mut GSubprocess;
+    /*BO*/
     pub fn g_subprocess_newv(
         argv: *const *const c_char,
         flags: GSubprocessFlags,
         error: *mut *mut glib::GError,
     ) -> *mut GSubprocess;
+    /*BO*/
     pub fn g_subprocess_communicate(
         subprocess: *mut GSubprocess,
         stdin_buf: *mut glib::GBytes,
@@ -13258,6 +14328,7 @@ extern "C" {
         stderr_buf: *mut *mut glib::GBytes,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_subprocess_communicate_async(
         subprocess: *mut GSubprocess,
         stdin_buf: *mut glib::GBytes,
@@ -13265,6 +14336,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_subprocess_communicate_finish(
         subprocess: *mut GSubprocess,
         result: *mut GAsyncResult,
@@ -13272,6 +14344,7 @@ extern "C" {
         stderr_buf: *mut *mut glib::GBytes,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_subprocess_communicate_utf8(
         subprocess: *mut GSubprocess,
         stdin_buf: *const c_char,
@@ -13280,6 +14353,7 @@ extern "C" {
         stderr_buf: *mut *mut c_char,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_subprocess_communicate_utf8_async(
         subprocess: *mut GSubprocess,
         stdin_buf: *const c_char,
@@ -13287,6 +14361,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_subprocess_communicate_utf8_finish(
         subprocess: *mut GSubprocess,
         result: *mut GAsyncResult,
@@ -13294,45 +14369,63 @@ extern "C" {
         stderr_buf: *mut *mut c_char,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_subprocess_force_exit(subprocess: *mut GSubprocess);
+    /*BO*/
     pub fn g_subprocess_get_exit_status(subprocess: *mut GSubprocess) -> c_int;
+    /*BO*/
     pub fn g_subprocess_get_identifier(subprocess: *mut GSubprocess) -> *const c_char;
+    /*BO*/
     pub fn g_subprocess_get_if_exited(subprocess: *mut GSubprocess) -> gboolean;
+    /*BO*/
     pub fn g_subprocess_get_if_signaled(subprocess: *mut GSubprocess) -> gboolean;
+    /*BO*/
     pub fn g_subprocess_get_status(subprocess: *mut GSubprocess) -> c_int;
+    /*BO*/
     pub fn g_subprocess_get_stderr_pipe(subprocess: *mut GSubprocess) -> *mut GInputStream;
+    /*BO*/
     pub fn g_subprocess_get_stdin_pipe(subprocess: *mut GSubprocess) -> *mut GOutputStream;
+    /*BO*/
     pub fn g_subprocess_get_stdout_pipe(subprocess: *mut GSubprocess) -> *mut GInputStream;
+    /*BO*/
     pub fn g_subprocess_get_successful(subprocess: *mut GSubprocess) -> gboolean;
+    /*BO*/
     pub fn g_subprocess_get_term_sig(subprocess: *mut GSubprocess) -> c_int;
+    /*BO*/
     pub fn g_subprocess_send_signal(subprocess: *mut GSubprocess, signal_num: c_int);
+    /*BO*/
     pub fn g_subprocess_wait(
         subprocess: *mut GSubprocess,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_subprocess_wait_async(
         subprocess: *mut GSubprocess,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_subprocess_wait_check(
         subprocess: *mut GSubprocess,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_subprocess_wait_check_async(
         subprocess: *mut GSubprocess,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_subprocess_wait_check_finish(
         subprocess: *mut GSubprocess,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_subprocess_wait_finish(
         subprocess: *mut GSubprocess,
         result: *mut GAsyncResult,
@@ -13343,79 +14436,99 @@ extern "C" {
     // GSubprocessLauncher
     //=========================================================================
     pub fn g_subprocess_launcher_get_type() -> GType;
+    /*BO*/
     pub fn g_subprocess_launcher_new(flags: GSubprocessFlags) -> *mut GSubprocessLauncher;
+    /*BO*/
     pub fn g_subprocess_launcher_getenv(
         self_: *mut GSubprocessLauncher,
         variable: *const c_char,
     ) -> *const c_char;
+    /*BO*/
     pub fn g_subprocess_launcher_set_child_setup(
         self_: *mut GSubprocessLauncher,
         child_setup: glib::GSpawnChildSetupFunc,
         user_data: gpointer,
         destroy_notify: glib::GDestroyNotify,
     );
+    /*BO*/
     pub fn g_subprocess_launcher_set_cwd(self_: *mut GSubprocessLauncher, cwd: *const c_char);
+    /*BO*/
     pub fn g_subprocess_launcher_set_environ(
         self_: *mut GSubprocessLauncher,
         env: *mut *mut c_char,
     );
+    /*BO*/
     pub fn g_subprocess_launcher_set_flags(
         self_: *mut GSubprocessLauncher,
         flags: GSubprocessFlags,
     );
+    /*BO*/
     pub fn g_subprocess_launcher_set_stderr_file_path(
         self_: *mut GSubprocessLauncher,
         path: *const c_char,
     );
+    /*BO*/
     pub fn g_subprocess_launcher_set_stdin_file_path(
         self_: *mut GSubprocessLauncher,
         path: *const c_char,
     );
+    /*BO*/
     pub fn g_subprocess_launcher_set_stdout_file_path(
         self_: *mut GSubprocessLauncher,
         path: *const c_char,
     );
+    /*BO*/
     pub fn g_subprocess_launcher_setenv(
         self_: *mut GSubprocessLauncher,
         variable: *const c_char,
         value: *const c_char,
         overwrite: gboolean,
     );
+    /*BO*/
     pub fn g_subprocess_launcher_spawn(
         self_: *mut GSubprocessLauncher,
         error: *mut *mut glib::GError,
         argv0: *const c_char,
         ...
     ) -> *mut GSubprocess;
+    /*BO*/
     pub fn g_subprocess_launcher_spawnv(
         self_: *mut GSubprocessLauncher,
         argv: *const *const c_char,
         error: *mut *mut glib::GError,
     ) -> *mut GSubprocess;
+    /*BO*/
     pub fn g_subprocess_launcher_take_fd(
         self_: *mut GSubprocessLauncher,
         source_fd: c_int,
         target_fd: c_int,
     );
+    /*BO*/
     pub fn g_subprocess_launcher_take_stderr_fd(self_: *mut GSubprocessLauncher, fd: c_int);
+    /*BO*/
     pub fn g_subprocess_launcher_take_stdin_fd(self_: *mut GSubprocessLauncher, fd: c_int);
+    /*BO*/
     pub fn g_subprocess_launcher_take_stdout_fd(self_: *mut GSubprocessLauncher, fd: c_int);
+    /*BO*/
     pub fn g_subprocess_launcher_unsetenv(self_: *mut GSubprocessLauncher, variable: *const c_char);
 
     //=========================================================================
     // GTask
     //=========================================================================
     pub fn g_task_get_type() -> GType;
+    /*BO*/
     pub fn g_task_new(
         source_object: *mut gobject::GObject,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         callback_data: gpointer,
     ) -> *mut GTask;
+    /*BO*/
     pub fn g_task_is_valid(
         result: *mut GAsyncResult,
         source_object: *mut gobject::GObject,
     ) -> gboolean;
+    /*BO*/
     pub fn g_task_report_error(
         source_object: *mut gobject::GObject,
         callback: GAsyncReadyCallback,
@@ -13423,6 +14536,7 @@ extern "C" {
         source_tag: gpointer,
         error: *mut glib::GError,
     );
+    /*BO*/
     pub fn g_task_report_new_error(
         source_object: *mut gobject::GObject,
         callback: GAsyncReadyCallback,
@@ -13433,38 +14547,59 @@ extern "C" {
         format: *const c_char,
         ...
     );
+    /*BO*/
     pub fn g_task_attach_source(
         task: *mut GTask,
         source: *mut glib::GSource,
         callback: glib::GSourceFunc,
     );
+    /*BO*/
     pub fn g_task_get_cancellable(task: *mut GTask) -> *mut GCancellable;
+    /*BO*/
     pub fn g_task_get_check_cancellable(task: *mut GTask) -> gboolean;
+    /*BO*/
     pub fn g_task_get_completed(task: *mut GTask) -> gboolean;
+    /*BO*/
     pub fn g_task_get_context(task: *mut GTask) -> *mut glib::GMainContext;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_task_get_name(task: *mut GTask) -> *const c_char;
+    /*BO*/
     pub fn g_task_get_priority(task: *mut GTask) -> c_int;
+    /*BO*/
     pub fn g_task_get_return_on_cancel(task: *mut GTask) -> gboolean;
+    /*BO*/
     pub fn g_task_get_source_object(task: *mut GTask) -> *mut gobject::GObject;
+    /*BO*/
     pub fn g_task_get_source_tag(task: *mut GTask) -> gpointer;
+    /*BO*/
     pub fn g_task_get_task_data(task: *mut GTask) -> gpointer;
+    /*BO*/
     pub fn g_task_had_error(task: *mut GTask) -> gboolean;
+    /*BO*/
     pub fn g_task_propagate_boolean(task: *mut GTask, error: *mut *mut glib::GError) -> gboolean;
+    /*BO*/
     pub fn g_task_propagate_int(task: *mut GTask, error: *mut *mut glib::GError) -> ssize_t;
+    /*BO*/
     pub fn g_task_propagate_pointer(task: *mut GTask, error: *mut *mut glib::GError) -> gpointer;
     #[cfg(any(feature = "v2_64", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_64")))]
+    /*BO*/
     pub fn g_task_propagate_value(
         task: *mut GTask,
         value: *mut gobject::GValue,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_task_return_boolean(task: *mut GTask, result: gboolean);
+    /*BO*/
     pub fn g_task_return_error(task: *mut GTask, error: *mut glib::GError);
+    /*BO*/
     pub fn g_task_return_error_if_cancelled(task: *mut GTask) -> gboolean;
+    /*BO*/
     pub fn g_task_return_int(task: *mut GTask, result: ssize_t);
+    /*BO*/
     pub fn g_task_return_new_error(
         task: *mut GTask,
         domain: glib::GQuark,
@@ -13472,6 +14607,7 @@ extern "C" {
         format: *const c_char,
         ...
     );
+    /*BO*/
     pub fn g_task_return_pointer(
         task: *mut GTask,
         result: gpointer,
@@ -13479,16 +14615,25 @@ extern "C" {
     );
     #[cfg(any(feature = "v2_64", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_64")))]
+    /*BO*/
     pub fn g_task_return_value(task: *mut GTask, result: *mut gobject::GValue);
+    /*BO*/
     pub fn g_task_run_in_thread(task: *mut GTask, task_func: GTaskThreadFunc);
+    /*BO*/
     pub fn g_task_run_in_thread_sync(task: *mut GTask, task_func: GTaskThreadFunc);
+    /*BO*/
     pub fn g_task_set_check_cancellable(task: *mut GTask, check_cancellable: gboolean);
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_task_set_name(task: *mut GTask, name: *const c_char);
+    /*BO*/
     pub fn g_task_set_priority(task: *mut GTask, priority: c_int);
+    /*BO*/
     pub fn g_task_set_return_on_cancel(task: *mut GTask, return_on_cancel: gboolean) -> gboolean;
+    /*BO*/
     pub fn g_task_set_source_tag(task: *mut GTask, source_tag: gpointer);
+    /*BO*/
     pub fn g_task_set_task_data(
         task: *mut GTask,
         task_data: gpointer,
@@ -13499,7 +14644,9 @@ extern "C" {
     // GTcpConnection
     //=========================================================================
     pub fn g_tcp_connection_get_type() -> GType;
+    /*BO*/
     pub fn g_tcp_connection_get_graceful_disconnect(connection: *mut GTcpConnection) -> gboolean;
+    /*BO*/
     pub fn g_tcp_connection_set_graceful_disconnect(
         connection: *mut GTcpConnection,
         graceful_disconnect: gboolean,
@@ -13509,10 +14656,12 @@ extern "C" {
     // GTcpWrapperConnection
     //=========================================================================
     pub fn g_tcp_wrapper_connection_get_type() -> GType;
+    /*BO*/
     pub fn g_tcp_wrapper_connection_new(
         base_io_stream: *mut GIOStream,
         socket: *mut GSocket,
     ) -> *mut GSocketConnection;
+    /*BO*/
     pub fn g_tcp_wrapper_connection_get_base_io_stream(
         conn: *mut GTcpWrapperConnection,
     ) -> *mut GIOStream;
@@ -13521,62 +14670,84 @@ extern "C" {
     // GTestDBus
     //=========================================================================
     pub fn g_test_dbus_get_type() -> GType;
+    /*BO*/
     pub fn g_test_dbus_new(flags: GTestDBusFlags) -> *mut GTestDBus;
+    /*BO*/
     pub fn g_test_dbus_unset();
+    /*BO*/
     pub fn g_test_dbus_add_service_dir(self_: *mut GTestDBus, path: *const c_char);
+    /*BO*/
     pub fn g_test_dbus_down(self_: *mut GTestDBus);
+    /*BO*/
     pub fn g_test_dbus_get_bus_address(self_: *mut GTestDBus) -> *const c_char;
+    /*BO*/
     pub fn g_test_dbus_get_flags(self_: *mut GTestDBus) -> GTestDBusFlags;
+    /*BO*/
     pub fn g_test_dbus_stop(self_: *mut GTestDBus);
+    /*BO*/
     pub fn g_test_dbus_up(self_: *mut GTestDBus);
 
     //=========================================================================
     // GThemedIcon
     //=========================================================================
     pub fn g_themed_icon_get_type() -> GType;
+    /*BO*/
     pub fn g_themed_icon_new(iconname: *const c_char) -> *mut GThemedIcon;
+    /*BO*/
     pub fn g_themed_icon_new_from_names(
         iconnames: *mut *mut c_char,
         len: c_int,
     ) -> *mut GThemedIcon;
+    /*BO*/
     pub fn g_themed_icon_new_with_default_fallbacks(iconname: *const c_char) -> *mut GThemedIcon;
+    /*BO*/
     pub fn g_themed_icon_append_name(icon: *mut GThemedIcon, iconname: *const c_char);
+    /*BO*/
     pub fn g_themed_icon_get_names(icon: *mut GThemedIcon) -> *const *const c_char;
+    /*BO*/
     pub fn g_themed_icon_prepend_name(icon: *mut GThemedIcon, iconname: *const c_char);
 
     //=========================================================================
     // GThreadedSocketService
     //=========================================================================
     pub fn g_threaded_socket_service_get_type() -> GType;
+    /*BO*/
     pub fn g_threaded_socket_service_new(max_threads: c_int) -> *mut GSocketService;
 
     //=========================================================================
     // GTlsCertificate
     //=========================================================================
     pub fn g_tls_certificate_get_type() -> GType;
+    /*BO*/
     pub fn g_tls_certificate_new_from_file(
         file: *const c_char,
         error: *mut *mut glib::GError,
     ) -> *mut GTlsCertificate;
+    /*BO*/
     pub fn g_tls_certificate_new_from_files(
         cert_file: *const c_char,
         key_file: *const c_char,
         error: *mut *mut glib::GError,
     ) -> *mut GTlsCertificate;
+    /*BO*/
     pub fn g_tls_certificate_new_from_pem(
         data: *const c_char,
         length: ssize_t,
         error: *mut *mut glib::GError,
     ) -> *mut GTlsCertificate;
+    /*BO*/
     pub fn g_tls_certificate_list_new_from_file(
         file: *const c_char,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_tls_certificate_get_issuer(cert: *mut GTlsCertificate) -> *mut GTlsCertificate;
+    /*BO*/
     pub fn g_tls_certificate_is_same(
         cert_one: *mut GTlsCertificate,
         cert_two: *mut GTlsCertificate,
     ) -> gboolean;
+    /*BO*/
     pub fn g_tls_certificate_verify(
         cert: *mut GTlsCertificate,
         identity: *mut GSocketConnectable,
@@ -13587,38 +14758,51 @@ extern "C" {
     // GTlsConnection
     //=========================================================================
     pub fn g_tls_connection_get_type() -> GType;
+    /*BO*/
     pub fn g_tls_connection_emit_accept_certificate(
         conn: *mut GTlsConnection,
         peer_cert: *mut GTlsCertificate,
         errors: GTlsCertificateFlags,
     ) -> gboolean;
+    /*BO*/
     pub fn g_tls_connection_get_certificate(conn: *mut GTlsConnection) -> *mut GTlsCertificate;
     #[cfg(any(feature = "v2_66", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_66")))]
+    /*BO*/
     pub fn g_tls_connection_get_channel_binding_data(
         conn: *mut GTlsConnection,
         type_: GTlsChannelBindingType,
         data: *mut glib::GByteArray,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_tls_connection_get_database(conn: *mut GTlsConnection) -> *mut GTlsDatabase;
+    /*BO*/
     pub fn g_tls_connection_get_interaction(conn: *mut GTlsConnection) -> *mut GTlsInteraction;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_tls_connection_get_negotiated_protocol(conn: *mut GTlsConnection) -> *const c_char;
+    /*BO*/
     pub fn g_tls_connection_get_peer_certificate(conn: *mut GTlsConnection)
         -> *mut GTlsCertificate;
+    /*BO*/
     pub fn g_tls_connection_get_peer_certificate_errors(
         conn: *mut GTlsConnection,
     ) -> GTlsCertificateFlags;
+    /*BO*/
     pub fn g_tls_connection_get_rehandshake_mode(conn: *mut GTlsConnection) -> GTlsRehandshakeMode;
+    /*BO*/
     pub fn g_tls_connection_get_require_close_notify(conn: *mut GTlsConnection) -> gboolean;
+    /*BO*/
     pub fn g_tls_connection_get_use_system_certdb(conn: *mut GTlsConnection) -> gboolean;
+    /*BO*/
     pub fn g_tls_connection_handshake(
         conn: *mut GTlsConnection,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_tls_connection_handshake_async(
         conn: *mut GTlsConnection,
         io_priority: c_int,
@@ -13626,6 +14810,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_tls_connection_handshake_finish(
         conn: *mut GTlsConnection,
         result: *mut GAsyncResult,
@@ -13633,27 +14818,34 @@ extern "C" {
     ) -> gboolean;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_tls_connection_set_advertised_protocols(
         conn: *mut GTlsConnection,
         protocols: *const *const c_char,
     );
+    /*BO*/
     pub fn g_tls_connection_set_certificate(
         conn: *mut GTlsConnection,
         certificate: *mut GTlsCertificate,
     );
+    /*BO*/
     pub fn g_tls_connection_set_database(conn: *mut GTlsConnection, database: *mut GTlsDatabase);
+    /*BO*/
     pub fn g_tls_connection_set_interaction(
         conn: *mut GTlsConnection,
         interaction: *mut GTlsInteraction,
     );
+    /*BO*/
     pub fn g_tls_connection_set_rehandshake_mode(
         conn: *mut GTlsConnection,
         mode: GTlsRehandshakeMode,
     );
+    /*BO*/
     pub fn g_tls_connection_set_require_close_notify(
         conn: *mut GTlsConnection,
         require_close_notify: gboolean,
     );
+    /*BO*/
     pub fn g_tls_connection_set_use_system_certdb(
         conn: *mut GTlsConnection,
         use_system_certdb: gboolean,
@@ -13663,10 +14855,12 @@ extern "C" {
     // GTlsDatabase
     //=========================================================================
     pub fn g_tls_database_get_type() -> GType;
+    /*BO*/
     pub fn g_tls_database_create_certificate_handle(
         self_: *mut GTlsDatabase,
         certificate: *mut GTlsCertificate,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_tls_database_lookup_certificate_for_handle(
         self_: *mut GTlsDatabase,
         handle: *const c_char,
@@ -13675,6 +14869,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GTlsCertificate;
+    /*BO*/
     pub fn g_tls_database_lookup_certificate_for_handle_async(
         self_: *mut GTlsDatabase,
         handle: *const c_char,
@@ -13684,11 +14879,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_tls_database_lookup_certificate_for_handle_finish(
         self_: *mut GTlsDatabase,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GTlsCertificate;
+    /*BO*/
     pub fn g_tls_database_lookup_certificate_issuer(
         self_: *mut GTlsDatabase,
         certificate: *mut GTlsCertificate,
@@ -13697,6 +14894,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GTlsCertificate;
+    /*BO*/
     pub fn g_tls_database_lookup_certificate_issuer_async(
         self_: *mut GTlsDatabase,
         certificate: *mut GTlsCertificate,
@@ -13706,11 +14904,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_tls_database_lookup_certificate_issuer_finish(
         self_: *mut GTlsDatabase,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GTlsCertificate;
+    /*BO*/
     pub fn g_tls_database_lookup_certificates_issued_by(
         self_: *mut GTlsDatabase,
         issuer_raw_dn: *mut glib::GByteArray,
@@ -13719,6 +14919,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_tls_database_lookup_certificates_issued_by_async(
         self_: *mut GTlsDatabase,
         issuer_raw_dn: *mut glib::GByteArray,
@@ -13728,11 +14929,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_tls_database_lookup_certificates_issued_by_finish(
         self_: *mut GTlsDatabase,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_tls_database_verify_chain(
         self_: *mut GTlsDatabase,
         chain: *mut GTlsCertificate,
@@ -13743,6 +14946,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> GTlsCertificateFlags;
+    /*BO*/
     pub fn g_tls_database_verify_chain_async(
         self_: *mut GTlsDatabase,
         chain: *mut GTlsCertificate,
@@ -13754,6 +14958,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_tls_database_verify_chain_finish(
         self_: *mut GTlsDatabase,
         result: *mut GAsyncResult,
@@ -13764,12 +14969,14 @@ extern "C" {
     // GTlsInteraction
     //=========================================================================
     pub fn g_tls_interaction_get_type() -> GType;
+    /*BO*/
     pub fn g_tls_interaction_ask_password(
         interaction: *mut GTlsInteraction,
         password: *mut GTlsPassword,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> GTlsInteractionResult;
+    /*BO*/
     pub fn g_tls_interaction_ask_password_async(
         interaction: *mut GTlsInteraction,
         password: *mut GTlsPassword,
@@ -13777,17 +14984,20 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_tls_interaction_ask_password_finish(
         interaction: *mut GTlsInteraction,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> GTlsInteractionResult;
+    /*BO*/
     pub fn g_tls_interaction_invoke_ask_password(
         interaction: *mut GTlsInteraction,
         password: *mut GTlsPassword,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> GTlsInteractionResult;
+    /*BO*/
     pub fn g_tls_interaction_invoke_request_certificate(
         interaction: *mut GTlsInteraction,
         connection: *mut GTlsConnection,
@@ -13795,6 +15005,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> GTlsInteractionResult;
+    /*BO*/
     pub fn g_tls_interaction_request_certificate(
         interaction: *mut GTlsInteraction,
         connection: *mut GTlsConnection,
@@ -13802,6 +15013,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> GTlsInteractionResult;
+    /*BO*/
     pub fn g_tls_interaction_request_certificate_async(
         interaction: *mut GTlsInteraction,
         connection: *mut GTlsConnection,
@@ -13810,6 +15022,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_tls_interaction_request_certificate_finish(
         interaction: *mut GTlsInteraction,
         result: *mut GAsyncResult,
@@ -13820,66 +15033,84 @@ extern "C" {
     // GTlsPassword
     //=========================================================================
     pub fn g_tls_password_get_type() -> GType;
+    /*BO*/
     pub fn g_tls_password_new(
         flags: GTlsPasswordFlags,
         description: *const c_char,
     ) -> *mut GTlsPassword;
+    /*BO*/
     pub fn g_tls_password_get_description(password: *mut GTlsPassword) -> *const c_char;
+    /*BO*/
     pub fn g_tls_password_get_flags(password: *mut GTlsPassword) -> GTlsPasswordFlags;
+    /*BO*/
     pub fn g_tls_password_get_value(password: *mut GTlsPassword, length: *mut size_t) -> *const u8;
+    /*BO*/
     pub fn g_tls_password_get_warning(password: *mut GTlsPassword) -> *const c_char;
+    /*BO*/
     pub fn g_tls_password_set_description(password: *mut GTlsPassword, description: *const c_char);
+    /*BO*/
     pub fn g_tls_password_set_flags(password: *mut GTlsPassword, flags: GTlsPasswordFlags);
+    /*BO*/
     pub fn g_tls_password_set_value(password: *mut GTlsPassword, value: *const u8, length: ssize_t);
+    /*BO*/
     pub fn g_tls_password_set_value_full(
         password: *mut GTlsPassword,
         value: *mut u8,
         length: ssize_t,
         destroy: glib::GDestroyNotify,
     );
+    /*BO*/
     pub fn g_tls_password_set_warning(password: *mut GTlsPassword, warning: *const c_char);
 
     //=========================================================================
     // GUnixConnection
     //=========================================================================
     pub fn g_unix_connection_get_type() -> GType;
+    /*BO*/
     pub fn g_unix_connection_receive_credentials(
         connection: *mut GUnixConnection,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GCredentials;
+    /*BO*/
     pub fn g_unix_connection_receive_credentials_async(
         connection: *mut GUnixConnection,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_unix_connection_receive_credentials_finish(
         connection: *mut GUnixConnection,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GCredentials;
+    /*BO*/
     pub fn g_unix_connection_receive_fd(
         connection: *mut GUnixConnection,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> c_int;
+    /*BO*/
     pub fn g_unix_connection_send_credentials(
         connection: *mut GUnixConnection,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_unix_connection_send_credentials_async(
         connection: *mut GUnixConnection,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_unix_connection_send_credentials_finish(
         connection: *mut GUnixConnection,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_unix_connection_send_fd(
         connection: *mut GUnixConnection,
         fd: c_int,
@@ -13891,11 +15122,15 @@ extern "C" {
     // GUnixCredentialsMessage
     //=========================================================================
     pub fn g_unix_credentials_message_get_type() -> GType;
+    /*BO*/
     pub fn g_unix_credentials_message_new() -> *mut GSocketControlMessage;
+    /*BO*/
     pub fn g_unix_credentials_message_new_with_credentials(
         credentials: *mut GCredentials,
     ) -> *mut GSocketControlMessage;
+    /*BO*/
     pub fn g_unix_credentials_message_is_supported() -> gboolean;
+    /*BO*/
     pub fn g_unix_credentials_message_get_credentials(
         message: *mut GUnixCredentialsMessage,
     ) -> *mut GCredentials;
@@ -13904,36 +15139,48 @@ extern "C" {
     // GUnixFDList
     //=========================================================================
     pub fn g_unix_fd_list_get_type() -> GType;
+    /*BO*/
     pub fn g_unix_fd_list_new() -> *mut GUnixFDList;
+    /*BO*/
     pub fn g_unix_fd_list_new_from_array(fds: *const c_int, n_fds: c_int) -> *mut GUnixFDList;
+    /*BO*/
     pub fn g_unix_fd_list_append(
         list: *mut GUnixFDList,
         fd: c_int,
         error: *mut *mut glib::GError,
     ) -> c_int;
+    /*BO*/
     pub fn g_unix_fd_list_get(
         list: *mut GUnixFDList,
         index_: c_int,
         error: *mut *mut glib::GError,
     ) -> c_int;
+    /*BO*/
     pub fn g_unix_fd_list_get_length(list: *mut GUnixFDList) -> c_int;
+    /*BO*/
     pub fn g_unix_fd_list_peek_fds(list: *mut GUnixFDList, length: *mut c_int) -> *const c_int;
+    /*BO*/
     pub fn g_unix_fd_list_steal_fds(list: *mut GUnixFDList, length: *mut c_int) -> *mut c_int;
 
     //=========================================================================
     // GUnixFDMessage
     //=========================================================================
     pub fn g_unix_fd_message_get_type() -> GType;
+    /*BO*/
     pub fn g_unix_fd_message_new() -> *mut GSocketControlMessage;
+    /*BO*/
     pub fn g_unix_fd_message_new_with_fd_list(
         fd_list: *mut GUnixFDList,
     ) -> *mut GSocketControlMessage;
+    /*BO*/
     pub fn g_unix_fd_message_append_fd(
         message: *mut GUnixFDMessage,
         fd: c_int,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_unix_fd_message_get_fd_list(message: *mut GUnixFDMessage) -> *mut GUnixFDList;
+    /*BO*/
     pub fn g_unix_fd_message_steal_fds(
         message: *mut GUnixFDMessage,
         length: *mut c_int,
@@ -13943,17 +15190,24 @@ extern "C" {
     // GUnixInputStream
     //=========================================================================
     pub fn g_unix_input_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_unix_input_stream_new(fd: c_int, close_fd: gboolean) -> *mut GInputStream;
+    /*BO*/
     pub fn g_unix_input_stream_get_close_fd(stream: *mut GUnixInputStream) -> gboolean;
+    /*BO*/
     pub fn g_unix_input_stream_get_fd(stream: *mut GUnixInputStream) -> c_int;
+    /*BO*/
     pub fn g_unix_input_stream_set_close_fd(stream: *mut GUnixInputStream, close_fd: gboolean);
 
     //=========================================================================
     // GUnixMountMonitor
     //=========================================================================
     pub fn g_unix_mount_monitor_get_type() -> GType;
+    /*BO*/
     pub fn g_unix_mount_monitor_new() -> *mut GUnixMountMonitor;
+    /*BO*/
     pub fn g_unix_mount_monitor_get() -> *mut GUnixMountMonitor;
+    /*BO*/
     pub fn g_unix_mount_monitor_set_rate_limit(
         mount_monitor: *mut GUnixMountMonitor,
         limit_msec: c_int,
@@ -13963,46 +15217,66 @@ extern "C" {
     // GUnixOutputStream
     //=========================================================================
     pub fn g_unix_output_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_unix_output_stream_new(fd: c_int, close_fd: gboolean) -> *mut GOutputStream;
+    /*BO*/
     pub fn g_unix_output_stream_get_close_fd(stream: *mut GUnixOutputStream) -> gboolean;
+    /*BO*/
     pub fn g_unix_output_stream_get_fd(stream: *mut GUnixOutputStream) -> c_int;
+    /*BO*/
     pub fn g_unix_output_stream_set_close_fd(stream: *mut GUnixOutputStream, close_fd: gboolean);
 
     //=========================================================================
     // GUnixSocketAddress
     //=========================================================================
     pub fn g_unix_socket_address_get_type() -> GType;
+    /*BO*/
     pub fn g_unix_socket_address_new(path: *const c_char) -> *mut GSocketAddress;
+    /*BO*/
     pub fn g_unix_socket_address_new_abstract(
         path: *const c_char,
         path_len: c_int,
     ) -> *mut GSocketAddress;
+    /*BO*/
     pub fn g_unix_socket_address_new_with_type(
         path: *const c_char,
         path_len: c_int,
         type_: GUnixSocketAddressType,
     ) -> *mut GSocketAddress;
+    /*BO*/
     pub fn g_unix_socket_address_abstract_names_supported() -> gboolean;
+    /*BO*/
     pub fn g_unix_socket_address_get_address_type(
         address: *mut GUnixSocketAddress,
     ) -> GUnixSocketAddressType;
+    /*BO*/
     pub fn g_unix_socket_address_get_is_abstract(address: *mut GUnixSocketAddress) -> gboolean;
+    /*BO*/
     pub fn g_unix_socket_address_get_path(address: *mut GUnixSocketAddress) -> *const c_char;
+    /*BO*/
     pub fn g_unix_socket_address_get_path_len(address: *mut GUnixSocketAddress) -> size_t;
 
     //=========================================================================
     // GVfs
     //=========================================================================
     pub fn g_vfs_get_type() -> GType;
+    /*BO*/
     pub fn g_vfs_get_default() -> *mut GVfs;
+    /*BO*/
     pub fn g_vfs_get_local() -> *mut GVfs;
+    /*BO*/
     pub fn g_vfs_get_file_for_path(vfs: *mut GVfs, path: *const c_char) -> *mut GFile;
+    /*BO*/
     pub fn g_vfs_get_file_for_uri(vfs: *mut GVfs, uri: *const c_char) -> *mut GFile;
+    /*BO*/
     pub fn g_vfs_get_supported_uri_schemes(vfs: *mut GVfs) -> *const *const c_char;
+    /*BO*/
     pub fn g_vfs_is_active(vfs: *mut GVfs) -> gboolean;
+    /*BO*/
     pub fn g_vfs_parse_name(vfs: *mut GVfs, parse_name: *const c_char) -> *mut GFile;
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
+    /*BO*/
     pub fn g_vfs_register_uri_scheme(
         vfs: *mut GVfs,
         scheme: *const c_char,
@@ -14015,37 +15289,48 @@ extern "C" {
     ) -> gboolean;
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
+    /*BO*/
     pub fn g_vfs_unregister_uri_scheme(vfs: *mut GVfs, scheme: *const c_char) -> gboolean;
 
     //=========================================================================
     // GVolumeMonitor
     //=========================================================================
     pub fn g_volume_monitor_get_type() -> GType;
+    /*BO*/
     pub fn g_volume_monitor_adopt_orphan_mount(mount: *mut GMount) -> *mut GVolume;
+    /*BO*/
     pub fn g_volume_monitor_get() -> *mut GVolumeMonitor;
+    /*BO*/
     pub fn g_volume_monitor_get_connected_drives(
         volume_monitor: *mut GVolumeMonitor,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_volume_monitor_get_mount_for_uuid(
         volume_monitor: *mut GVolumeMonitor,
         uuid: *const c_char,
     ) -> *mut GMount;
+    /*BO*/
     pub fn g_volume_monitor_get_mounts(volume_monitor: *mut GVolumeMonitor) -> *mut glib::GList;
+    /*BO*/
     pub fn g_volume_monitor_get_volume_for_uuid(
         volume_monitor: *mut GVolumeMonitor,
         uuid: *const c_char,
     ) -> *mut GVolume;
+    /*BO*/
     pub fn g_volume_monitor_get_volumes(volume_monitor: *mut GVolumeMonitor) -> *mut glib::GList;
 
     //=========================================================================
     // GZlibCompressor
     //=========================================================================
     pub fn g_zlib_compressor_get_type() -> GType;
+    /*BO*/
     pub fn g_zlib_compressor_new(
         format: GZlibCompressorFormat,
         level: c_int,
     ) -> *mut GZlibCompressor;
+    /*BO*/
     pub fn g_zlib_compressor_get_file_info(compressor: *mut GZlibCompressor) -> *mut GFileInfo;
+    /*BO*/
     pub fn g_zlib_compressor_set_file_info(
         compressor: *mut GZlibCompressor,
         file_info: *mut GFileInfo,
@@ -14055,7 +15340,9 @@ extern "C" {
     // GZlibDecompressor
     //=========================================================================
     pub fn g_zlib_decompressor_get_type() -> GType;
+    /*BO*/
     pub fn g_zlib_decompressor_new(format: GZlibCompressorFormat) -> *mut GZlibDecompressor;
+    /*BO*/
     pub fn g_zlib_decompressor_get_file_info(
         decompressor: *mut GZlibDecompressor,
     ) -> *mut GFileInfo;
@@ -14064,80 +15351,105 @@ extern "C" {
     // GAction
     //=========================================================================
     pub fn g_action_get_type() -> GType;
+    /*BO*/
     pub fn g_action_name_is_valid(action_name: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_action_parse_detailed_name(
         detailed_name: *const c_char,
         action_name: *mut *mut c_char,
         target_value: *mut *mut glib::GVariant,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_action_print_detailed_name(
         action_name: *const c_char,
         target_value: *mut glib::GVariant,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_action_activate(action: *mut GAction, parameter: *mut glib::GVariant);
+    /*BO*/
     pub fn g_action_change_state(action: *mut GAction, value: *mut glib::GVariant);
+    /*BO*/
     pub fn g_action_get_enabled(action: *mut GAction) -> gboolean;
+    /*BO*/
     pub fn g_action_get_name(action: *mut GAction) -> *const c_char;
+    /*BO*/
     pub fn g_action_get_parameter_type(action: *mut GAction) -> *const glib::GVariantType;
+    /*BO*/
     pub fn g_action_get_state(action: *mut GAction) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_action_get_state_hint(action: *mut GAction) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_action_get_state_type(action: *mut GAction) -> *const glib::GVariantType;
 
     //=========================================================================
     // GActionGroup
     //=========================================================================
     pub fn g_action_group_get_type() -> GType;
+    /*BO*/
     pub fn g_action_group_action_added(action_group: *mut GActionGroup, action_name: *const c_char);
+    /*BO*/
     pub fn g_action_group_action_enabled_changed(
         action_group: *mut GActionGroup,
         action_name: *const c_char,
         enabled: gboolean,
     );
+    /*BO*/
     pub fn g_action_group_action_removed(
         action_group: *mut GActionGroup,
         action_name: *const c_char,
     );
+    /*BO*/
     pub fn g_action_group_action_state_changed(
         action_group: *mut GActionGroup,
         action_name: *const c_char,
         state: *mut glib::GVariant,
     );
+    /*BO*/
     pub fn g_action_group_activate_action(
         action_group: *mut GActionGroup,
         action_name: *const c_char,
         parameter: *mut glib::GVariant,
     );
+    /*BO*/
     pub fn g_action_group_change_action_state(
         action_group: *mut GActionGroup,
         action_name: *const c_char,
         value: *mut glib::GVariant,
     );
+    /*BO*/
     pub fn g_action_group_get_action_enabled(
         action_group: *mut GActionGroup,
         action_name: *const c_char,
     ) -> gboolean;
+    /*BO*/
     pub fn g_action_group_get_action_parameter_type(
         action_group: *mut GActionGroup,
         action_name: *const c_char,
     ) -> *const glib::GVariantType;
+    /*BO*/
     pub fn g_action_group_get_action_state(
         action_group: *mut GActionGroup,
         action_name: *const c_char,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_action_group_get_action_state_hint(
         action_group: *mut GActionGroup,
         action_name: *const c_char,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_action_group_get_action_state_type(
         action_group: *mut GActionGroup,
         action_name: *const c_char,
     ) -> *const glib::GVariantType;
+    /*BO*/
     pub fn g_action_group_has_action(
         action_group: *mut GActionGroup,
         action_name: *const c_char,
     ) -> gboolean;
+    /*BO*/
     pub fn g_action_group_list_actions(action_group: *mut GActionGroup) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_action_group_query_action(
         action_group: *mut GActionGroup,
         action_name: *const c_char,
@@ -14152,38 +15464,50 @@ extern "C" {
     // GActionMap
     //=========================================================================
     pub fn g_action_map_get_type() -> GType;
+    /*BO*/
     pub fn g_action_map_add_action(action_map: *mut GActionMap, action: *mut GAction);
+    /*BO*/
     pub fn g_action_map_add_action_entries(
         action_map: *mut GActionMap,
         entries: *const GActionEntry,
         n_entries: c_int,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_action_map_lookup_action(
         action_map: *mut GActionMap,
         action_name: *const c_char,
     ) -> *mut GAction;
+    /*BO*/
     pub fn g_action_map_remove_action(action_map: *mut GActionMap, action_name: *const c_char);
 
     //=========================================================================
     // GAppInfo
     //=========================================================================
     pub fn g_app_info_get_type() -> GType;
+    /*BO*/
     pub fn g_app_info_create_from_commandline(
         commandline: *const c_char,
         application_name: *const c_char,
         flags: GAppInfoCreateFlags,
         error: *mut *mut glib::GError,
     ) -> *mut GAppInfo;
+    /*BO*/
     pub fn g_app_info_get_all() -> *mut glib::GList;
+    /*BO*/
     pub fn g_app_info_get_all_for_type(content_type: *const c_char) -> *mut glib::GList;
+    /*BO*/
     pub fn g_app_info_get_default_for_type(
         content_type: *const c_char,
         must_support_uris: gboolean,
     ) -> *mut GAppInfo;
+    /*BO*/
     pub fn g_app_info_get_default_for_uri_scheme(uri_scheme: *const c_char) -> *mut GAppInfo;
+    /*BO*/
     pub fn g_app_info_get_fallback_for_type(content_type: *const c_char) -> *mut glib::GList;
+    /*BO*/
     pub fn g_app_info_get_recommended_for_type(content_type: *const c_char) -> *mut glib::GList;
+    /*BO*/
     pub fn g_app_info_launch_default_for_uri(
         uri: *const c_char,
         context: *mut GAppLaunchContext,
@@ -14191,6 +15515,7 @@ extern "C" {
     ) -> gboolean;
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
+    /*BO*/
     pub fn g_app_info_launch_default_for_uri_async(
         uri: *const c_char,
         context: *mut GAppLaunchContext,
@@ -14200,35 +15525,53 @@ extern "C" {
     );
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
+    /*BO*/
     pub fn g_app_info_launch_default_for_uri_finish(
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_app_info_reset_type_associations(content_type: *const c_char);
+    /*BO*/
     pub fn g_app_info_add_supports_type(
         appinfo: *mut GAppInfo,
         content_type: *const c_char,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_app_info_can_delete(appinfo: *mut GAppInfo) -> gboolean;
+    /*BO*/
     pub fn g_app_info_can_remove_supports_type(appinfo: *mut GAppInfo) -> gboolean;
+    /*BO*/
     pub fn g_app_info_delete(appinfo: *mut GAppInfo) -> gboolean;
+    /*BO*/
     pub fn g_app_info_dup(appinfo: *mut GAppInfo) -> *mut GAppInfo;
+    /*BO*/
     pub fn g_app_info_equal(appinfo1: *mut GAppInfo, appinfo2: *mut GAppInfo) -> gboolean;
+    /*BO*/
     pub fn g_app_info_get_commandline(appinfo: *mut GAppInfo) -> *const c_char;
+    /*BO*/
     pub fn g_app_info_get_description(appinfo: *mut GAppInfo) -> *const c_char;
+    /*BO*/
     pub fn g_app_info_get_display_name(appinfo: *mut GAppInfo) -> *const c_char;
+    /*BO*/
     pub fn g_app_info_get_executable(appinfo: *mut GAppInfo) -> *const c_char;
+    /*BO*/
     pub fn g_app_info_get_icon(appinfo: *mut GAppInfo) -> *mut GIcon;
+    /*BO*/
     pub fn g_app_info_get_id(appinfo: *mut GAppInfo) -> *const c_char;
+    /*BO*/
     pub fn g_app_info_get_name(appinfo: *mut GAppInfo) -> *const c_char;
+    /*BO*/
     pub fn g_app_info_get_supported_types(appinfo: *mut GAppInfo) -> *mut *const c_char;
+    /*BO*/
     pub fn g_app_info_launch(
         appinfo: *mut GAppInfo,
         files: *mut glib::GList,
         context: *mut GAppLaunchContext,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_app_info_launch_uris(
         appinfo: *mut GAppInfo,
         uris: *mut glib::GList,
@@ -14237,6 +15580,7 @@ extern "C" {
     ) -> gboolean;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_app_info_launch_uris_async(
         appinfo: *mut GAppInfo,
         uris: *mut glib::GList,
@@ -14247,39 +15591,48 @@ extern "C" {
     );
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_app_info_launch_uris_finish(
         appinfo: *mut GAppInfo,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_app_info_remove_supports_type(
         appinfo: *mut GAppInfo,
         content_type: *const c_char,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_app_info_set_as_default_for_extension(
         appinfo: *mut GAppInfo,
         extension: *const c_char,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_app_info_set_as_default_for_type(
         appinfo: *mut GAppInfo,
         content_type: *const c_char,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_app_info_set_as_last_used_for_type(
         appinfo: *mut GAppInfo,
         content_type: *const c_char,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_app_info_should_show(appinfo: *mut GAppInfo) -> gboolean;
+    /*BO*/
     pub fn g_app_info_supports_files(appinfo: *mut GAppInfo) -> gboolean;
+    /*BO*/
     pub fn g_app_info_supports_uris(appinfo: *mut GAppInfo) -> gboolean;
 
     //=========================================================================
     // GAsyncInitable
     //=========================================================================
     pub fn g_async_initable_get_type() -> GType;
+    /*BO*/
     pub fn g_async_initable_new_async(
         object_type: GType,
         io_priority: c_int,
@@ -14289,7 +15642,8 @@ extern "C" {
         first_property_name: *const c_char,
         ...
     );
-    //pub fn g_async_initable_new_valist_async(object_type: GType, first_property_name: *const c_char, var_args: /*Unimplemented*/va_list, io_priority: c_int, cancellable: *mut GCancellable, callback: GAsyncReadyCallback, user_data: gpointer);
+    /*BO*///pub fn g_async_initable_new_valist_async(object_type: GType, first_property_name: *const c_char, var_args: /*Unimplemented*/va_list, io_priority: c_int, cancellable: *mut GCancellable, callback: GAsyncReadyCallback, user_data: gpointer);
+    /*BO*/
     pub fn g_async_initable_newv_async(
         object_type: GType,
         n_parameters: c_uint,
@@ -14299,6 +15653,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_async_initable_init_async(
         initable: *mut GAsyncInitable,
         io_priority: c_int,
@@ -14306,11 +15661,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_async_initable_init_finish(
         initable: *mut GAsyncInitable,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_async_initable_new_finish(
         initable: *mut GAsyncInitable,
         res: *mut GAsyncResult,
@@ -14321,9 +15678,13 @@ extern "C" {
     // GAsyncResult
     //=========================================================================
     pub fn g_async_result_get_type() -> GType;
+    /*BO*/
     pub fn g_async_result_get_source_object(res: *mut GAsyncResult) -> *mut gobject::GObject;
+    /*BO*/
     pub fn g_async_result_get_user_data(res: *mut GAsyncResult) -> gpointer;
+    /*BO*/
     pub fn g_async_result_is_tagged(res: *mut GAsyncResult, source_tag: gpointer) -> gboolean;
+    /*BO*/
     pub fn g_async_result_legacy_propagate_error(
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
@@ -14333,6 +15694,7 @@ extern "C" {
     // GConverter
     //=========================================================================
     pub fn g_converter_get_type() -> GType;
+    /*BO*/
     pub fn g_converter_convert(
         converter: *mut GConverter,
         inbuf: *mut u8,
@@ -14344,53 +15706,67 @@ extern "C" {
         bytes_written: *mut size_t,
         error: *mut *mut glib::GError,
     ) -> GConverterResult;
+    /*BO*/
     pub fn g_converter_reset(converter: *mut GConverter);
 
     //=========================================================================
     // GDBusInterface
     //=========================================================================
     pub fn g_dbus_interface_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_interface_dup_object(interface_: *mut GDBusInterface) -> *mut GDBusObject;
+    /*BO*/
     pub fn g_dbus_interface_get_info(interface_: *mut GDBusInterface) -> *mut GDBusInterfaceInfo;
+    /*BO*/
     pub fn g_dbus_interface_get_object(interface_: *mut GDBusInterface) -> *mut GDBusObject;
+    /*BO*/
     pub fn g_dbus_interface_set_object(interface_: *mut GDBusInterface, object: *mut GDBusObject);
 
     //=========================================================================
     // GDBusObject
     //=========================================================================
     pub fn g_dbus_object_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_object_get_interface(
         object: *mut GDBusObject,
         interface_name: *const c_char,
     ) -> *mut GDBusInterface;
+    /*BO*/
     pub fn g_dbus_object_get_interfaces(object: *mut GDBusObject) -> *mut glib::GList;
+    /*BO*/
     pub fn g_dbus_object_get_object_path(object: *mut GDBusObject) -> *const c_char;
 
     //=========================================================================
     // GDBusObjectManager
     //=========================================================================
     pub fn g_dbus_object_manager_get_type() -> GType;
+    /*BO*/
     pub fn g_dbus_object_manager_get_interface(
         manager: *mut GDBusObjectManager,
         object_path: *const c_char,
         interface_name: *const c_char,
     ) -> *mut GDBusInterface;
+    /*BO*/
     pub fn g_dbus_object_manager_get_object(
         manager: *mut GDBusObjectManager,
         object_path: *const c_char,
     ) -> *mut GDBusObject;
+    /*BO*/
     pub fn g_dbus_object_manager_get_object_path(manager: *mut GDBusObjectManager)
         -> *const c_char;
+    /*BO*/
     pub fn g_dbus_object_manager_get_objects(manager: *mut GDBusObjectManager) -> *mut glib::GList;
 
     //=========================================================================
     // GDatagramBased
     //=========================================================================
     pub fn g_datagram_based_get_type() -> GType;
+    /*BO*/
     pub fn g_datagram_based_condition_check(
         datagram_based: *mut GDatagramBased,
         condition: glib::GIOCondition,
     ) -> glib::GIOCondition;
+    /*BO*/
     pub fn g_datagram_based_condition_wait(
         datagram_based: *mut GDatagramBased,
         condition: glib::GIOCondition,
@@ -14398,11 +15774,13 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_datagram_based_create_source(
         datagram_based: *mut GDatagramBased,
         condition: glib::GIOCondition,
         cancellable: *mut GCancellable,
     ) -> *mut glib::GSource;
+    /*BO*/
     pub fn g_datagram_based_receive_messages(
         datagram_based: *mut GDatagramBased,
         messages: *mut GInputMessage,
@@ -14412,6 +15790,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> c_int;
+    /*BO*/
     pub fn g_datagram_based_send_messages(
         datagram_based: *mut GDatagramBased,
         messages: *mut GOutputMessage,
@@ -14426,6 +15805,7 @@ extern "C" {
     // GDesktopAppInfoLookup
     //=========================================================================
     pub fn g_desktop_app_info_lookup_get_type() -> GType;
+    /*BO*/
     pub fn g_desktop_app_info_lookup_get_default_for_uri_scheme(
         lookup: *mut GDesktopAppInfoLookup,
         uri_scheme: *const c_char,
@@ -14435,11 +15815,17 @@ extern "C" {
     // GDrive
     //=========================================================================
     pub fn g_drive_get_type() -> GType;
+    /*BO*/
     pub fn g_drive_can_eject(drive: *mut GDrive) -> gboolean;
+    /*BO*/
     pub fn g_drive_can_poll_for_media(drive: *mut GDrive) -> gboolean;
+    /*BO*/
     pub fn g_drive_can_start(drive: *mut GDrive) -> gboolean;
+    /*BO*/
     pub fn g_drive_can_start_degraded(drive: *mut GDrive) -> gboolean;
+    /*BO*/
     pub fn g_drive_can_stop(drive: *mut GDrive) -> gboolean;
+    /*BO*/
     pub fn g_drive_eject(
         drive: *mut GDrive,
         flags: GMountUnmountFlags,
@@ -14447,11 +15833,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_drive_eject_finish(
         drive: *mut GDrive,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_drive_eject_with_operation(
         drive: *mut GDrive,
         flags: GMountUnmountFlags,
@@ -14460,37 +15848,54 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_drive_eject_with_operation_finish(
         drive: *mut GDrive,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_drive_enumerate_identifiers(drive: *mut GDrive) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_drive_get_icon(drive: *mut GDrive) -> *mut GIcon;
+    /*BO*/
     pub fn g_drive_get_identifier(drive: *mut GDrive, kind: *const c_char) -> *mut c_char;
+    /*BO*/
     pub fn g_drive_get_name(drive: *mut GDrive) -> *mut c_char;
+    /*BO*/
     pub fn g_drive_get_sort_key(drive: *mut GDrive) -> *const c_char;
+    /*BO*/
     pub fn g_drive_get_start_stop_type(drive: *mut GDrive) -> GDriveStartStopType;
+    /*BO*/
     pub fn g_drive_get_symbolic_icon(drive: *mut GDrive) -> *mut GIcon;
+    /*BO*/
     pub fn g_drive_get_volumes(drive: *mut GDrive) -> *mut glib::GList;
+    /*BO*/
     pub fn g_drive_has_media(drive: *mut GDrive) -> gboolean;
+    /*BO*/
     pub fn g_drive_has_volumes(drive: *mut GDrive) -> gboolean;
+    /*BO*/
     pub fn g_drive_is_media_check_automatic(drive: *mut GDrive) -> gboolean;
+    /*BO*/
     pub fn g_drive_is_media_removable(drive: *mut GDrive) -> gboolean;
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
+    /*BO*/
     pub fn g_drive_is_removable(drive: *mut GDrive) -> gboolean;
+    /*BO*/
     pub fn g_drive_poll_for_media(
         drive: *mut GDrive,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_drive_poll_for_media_finish(
         drive: *mut GDrive,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_drive_start(
         drive: *mut GDrive,
         flags: GDriveStartFlags,
@@ -14499,11 +15904,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_drive_start_finish(
         drive: *mut GDrive,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_drive_stop(
         drive: *mut GDrive,
         flags: GMountUnmountFlags,
@@ -14512,6 +15919,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_drive_stop_finish(
         drive: *mut GDrive,
         result: *mut GAsyncResult,
@@ -14522,24 +15930,30 @@ extern "C" {
     // GDtlsClientConnection
     //=========================================================================
     pub fn g_dtls_client_connection_get_type() -> GType;
+    /*BO*/
     pub fn g_dtls_client_connection_new(
         base_socket: *mut GDatagramBased,
         server_identity: *mut GSocketConnectable,
         error: *mut *mut glib::GError,
     ) -> *mut GDtlsClientConnection;
+    /*BO*/
     pub fn g_dtls_client_connection_get_accepted_cas(
         conn: *mut GDtlsClientConnection,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_dtls_client_connection_get_server_identity(
         conn: *mut GDtlsClientConnection,
     ) -> *mut GSocketConnectable;
+    /*BO*/
     pub fn g_dtls_client_connection_get_validation_flags(
         conn: *mut GDtlsClientConnection,
     ) -> GTlsCertificateFlags;
+    /*BO*/
     pub fn g_dtls_client_connection_set_server_identity(
         conn: *mut GDtlsClientConnection,
         identity: *mut GSocketConnectable,
     );
+    /*BO*/
     pub fn g_dtls_client_connection_set_validation_flags(
         conn: *mut GDtlsClientConnection,
         flags: GTlsCertificateFlags,
@@ -14549,11 +15963,13 @@ extern "C" {
     // GDtlsConnection
     //=========================================================================
     pub fn g_dtls_connection_get_type() -> GType;
+    /*BO*/
     pub fn g_dtls_connection_close(
         conn: *mut GDtlsConnection,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dtls_connection_close_async(
         conn: *mut GDtlsConnection,
         io_priority: c_int,
@@ -14561,45 +15977,58 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dtls_connection_close_finish(
         conn: *mut GDtlsConnection,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dtls_connection_emit_accept_certificate(
         conn: *mut GDtlsConnection,
         peer_cert: *mut GTlsCertificate,
         errors: GTlsCertificateFlags,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dtls_connection_get_certificate(conn: *mut GDtlsConnection) -> *mut GTlsCertificate;
     #[cfg(any(feature = "v2_66", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_66")))]
+    /*BO*/
     pub fn g_dtls_connection_get_channel_binding_data(
         conn: *mut GDtlsConnection,
         type_: GTlsChannelBindingType,
         data: *mut glib::GByteArray,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dtls_connection_get_database(conn: *mut GDtlsConnection) -> *mut GTlsDatabase;
+    /*BO*/
     pub fn g_dtls_connection_get_interaction(conn: *mut GDtlsConnection) -> *mut GTlsInteraction;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_dtls_connection_get_negotiated_protocol(conn: *mut GDtlsConnection) -> *const c_char;
+    /*BO*/
     pub fn g_dtls_connection_get_peer_certificate(
         conn: *mut GDtlsConnection,
     ) -> *mut GTlsCertificate;
+    /*BO*/
     pub fn g_dtls_connection_get_peer_certificate_errors(
         conn: *mut GDtlsConnection,
     ) -> GTlsCertificateFlags;
+    /*BO*/
     pub fn g_dtls_connection_get_rehandshake_mode(
         conn: *mut GDtlsConnection,
     ) -> GTlsRehandshakeMode;
+    /*BO*/
     pub fn g_dtls_connection_get_require_close_notify(conn: *mut GDtlsConnection) -> gboolean;
+    /*BO*/
     pub fn g_dtls_connection_handshake(
         conn: *mut GDtlsConnection,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dtls_connection_handshake_async(
         conn: *mut GDtlsConnection,
         io_priority: c_int,
@@ -14607,6 +16036,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dtls_connection_handshake_finish(
         conn: *mut GDtlsConnection,
         result: *mut GAsyncResult,
@@ -14614,27 +16044,34 @@ extern "C" {
     ) -> gboolean;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_dtls_connection_set_advertised_protocols(
         conn: *mut GDtlsConnection,
         protocols: *const *const c_char,
     );
+    /*BO*/
     pub fn g_dtls_connection_set_certificate(
         conn: *mut GDtlsConnection,
         certificate: *mut GTlsCertificate,
     );
+    /*BO*/
     pub fn g_dtls_connection_set_database(conn: *mut GDtlsConnection, database: *mut GTlsDatabase);
+    /*BO*/
     pub fn g_dtls_connection_set_interaction(
         conn: *mut GDtlsConnection,
         interaction: *mut GTlsInteraction,
     );
+    /*BO*/
     pub fn g_dtls_connection_set_rehandshake_mode(
         conn: *mut GDtlsConnection,
         mode: GTlsRehandshakeMode,
     );
+    /*BO*/
     pub fn g_dtls_connection_set_require_close_notify(
         conn: *mut GDtlsConnection,
         require_close_notify: gboolean,
     );
+    /*BO*/
     pub fn g_dtls_connection_shutdown(
         conn: *mut GDtlsConnection,
         shutdown_read: gboolean,
@@ -14642,6 +16079,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dtls_connection_shutdown_async(
         conn: *mut GDtlsConnection,
         shutdown_read: gboolean,
@@ -14651,6 +16089,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dtls_connection_shutdown_finish(
         conn: *mut GDtlsConnection,
         result: *mut GAsyncResult,
@@ -14661,6 +16100,7 @@ extern "C" {
     // GDtlsServerConnection
     //=========================================================================
     pub fn g_dtls_server_connection_get_type() -> GType;
+    /*BO*/
     pub fn g_dtls_server_connection_new(
         base_socket: *mut GDatagramBased,
         certificate: *mut GTlsCertificate,
@@ -14673,26 +16113,35 @@ extern "C" {
     pub fn g_file_get_type() -> GType;
     #[cfg(any(feature = "v2_56", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
+    /*BO*/
     pub fn g_file_new_build_filename(first_element: *const c_char, ...) -> *mut GFile;
+    /*BO*/
     pub fn g_file_new_for_commandline_arg(arg: *const c_char) -> *mut GFile;
+    /*BO*/
     pub fn g_file_new_for_commandline_arg_and_cwd(
         arg: *const c_char,
         cwd: *const c_char,
     ) -> *mut GFile;
+    /*BO*/
     pub fn g_file_new_for_path(path: *const c_char) -> *mut GFile;
+    /*BO*/
     pub fn g_file_new_for_uri(uri: *const c_char) -> *mut GFile;
+    /*BO*/
     pub fn g_file_new_tmp(
         tmpl: *const c_char,
         iostream: *mut *mut GFileIOStream,
         error: *mut *mut glib::GError,
     ) -> *mut GFile;
+    /*BO*/
     pub fn g_file_parse_name(parse_name: *const c_char) -> *mut GFile;
+    /*BO*/
     pub fn g_file_append_to(
         file: *mut GFile,
         flags: GFileCreateFlags,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileOutputStream;
+    /*BO*/
     pub fn g_file_append_to_async(
         file: *mut GFile,
         flags: GFileCreateFlags,
@@ -14701,11 +16150,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_append_to_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GFileOutputStream;
+    /*BO*/
     pub fn g_file_copy(
         source: *mut GFile,
         destination: *mut GFile,
@@ -14715,6 +16166,7 @@ extern "C" {
         progress_callback_data: gpointer,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_copy_async(
         source: *mut GFile,
         destination: *mut GFile,
@@ -14726,6 +16178,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_copy_attributes(
         source: *mut GFile,
         destination: *mut GFile,
@@ -14733,17 +16186,20 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_copy_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_create(
         file: *mut GFile,
         flags: GFileCreateFlags,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileOutputStream;
+    /*BO*/
     pub fn g_file_create_async(
         file: *mut GFile,
         flags: GFileCreateFlags,
@@ -14752,17 +16208,20 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_create_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GFileOutputStream;
+    /*BO*/
     pub fn g_file_create_readwrite(
         file: *mut GFile,
         flags: GFileCreateFlags,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileIOStream;
+    /*BO*/
     pub fn g_file_create_readwrite_async(
         file: *mut GFile,
         flags: GFileCreateFlags,
@@ -14771,16 +16230,19 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_create_readwrite_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GFileIOStream;
+    /*BO*/
     pub fn g_file_delete(
         file: *mut GFile,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_delete_async(
         file: *mut GFile,
         io_priority: c_int,
@@ -14788,12 +16250,15 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_delete_finish(
         file: *mut GFile,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_dup(file: *mut GFile) -> *mut GFile;
+    /*BO*/
     pub fn g_file_eject_mountable(
         file: *mut GFile,
         flags: GMountUnmountFlags,
@@ -14801,11 +16266,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_eject_mountable_finish(
         file: *mut GFile,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_eject_mountable_with_operation(
         file: *mut GFile,
         flags: GMountUnmountFlags,
@@ -14814,11 +16281,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_eject_mountable_with_operation_finish(
         file: *mut GFile,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_enumerate_children(
         file: *mut GFile,
         attributes: *const c_char,
@@ -14826,6 +16295,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileEnumerator;
+    /*BO*/
     pub fn g_file_enumerate_children_async(
         file: *mut GFile,
         attributes: *const c_char,
@@ -14835,17 +16305,21 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_enumerate_children_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GFileEnumerator;
+    /*BO*/
     pub fn g_file_equal(file1: *mut GFile, file2: *mut GFile) -> gboolean;
+    /*BO*/
     pub fn g_file_find_enclosing_mount(
         file: *mut GFile,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GMount;
+    /*BO*/
     pub fn g_file_find_enclosing_mount_async(
         file: *mut GFile,
         io_priority: c_int,
@@ -14853,31 +16327,47 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_find_enclosing_mount_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GMount;
+    /*BO*/
     pub fn g_file_get_basename(file: *mut GFile) -> *mut c_char;
+    /*BO*/
     pub fn g_file_get_child(file: *mut GFile, name: *const c_char) -> *mut GFile;
+    /*BO*/
     pub fn g_file_get_child_for_display_name(
         file: *mut GFile,
         display_name: *const c_char,
         error: *mut *mut glib::GError,
     ) -> *mut GFile;
+    /*BO*/
     pub fn g_file_get_parent(file: *mut GFile) -> *mut GFile;
+    /*BO*/
     pub fn g_file_get_parse_name(file: *mut GFile) -> *mut c_char;
+    /*BO*/
     pub fn g_file_get_path(file: *mut GFile) -> *mut c_char;
+    /*BO*/
     pub fn g_file_get_relative_path(parent: *mut GFile, descendant: *mut GFile) -> *mut c_char;
+    /*BO*/
     pub fn g_file_get_uri(file: *mut GFile) -> *mut c_char;
+    /*BO*/
     pub fn g_file_get_uri_scheme(file: *mut GFile) -> *mut c_char;
+    /*BO*/
     pub fn g_file_has_parent(file: *mut GFile, parent: *mut GFile) -> gboolean;
+    /*BO*/
     pub fn g_file_has_prefix(file: *mut GFile, prefix: *mut GFile) -> gboolean;
+    /*BO*/
     pub fn g_file_has_uri_scheme(file: *mut GFile, uri_scheme: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_file_hash(file: gconstpointer) -> c_uint;
+    /*BO*/
     pub fn g_file_is_native(file: *mut GFile) -> gboolean;
     #[cfg(any(feature = "v2_56", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
+    /*BO*/
     pub fn g_file_load_bytes(
         file: *mut GFile,
         cancellable: *mut GCancellable,
@@ -14886,6 +16376,7 @@ extern "C" {
     ) -> *mut glib::GBytes;
     #[cfg(any(feature = "v2_56", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
+    /*BO*/
     pub fn g_file_load_bytes_async(
         file: *mut GFile,
         cancellable: *mut GCancellable,
@@ -14894,12 +16385,14 @@ extern "C" {
     );
     #[cfg(any(feature = "v2_56", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
+    /*BO*/
     pub fn g_file_load_bytes_finish(
         file: *mut GFile,
         result: *mut GAsyncResult,
         etag_out: *mut *mut c_char,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GBytes;
+    /*BO*/
     pub fn g_file_load_contents(
         file: *mut GFile,
         cancellable: *mut GCancellable,
@@ -14908,12 +16401,14 @@ extern "C" {
         etag_out: *mut *mut c_char,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_load_contents_async(
         file: *mut GFile,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_load_contents_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
@@ -14922,6 +16417,7 @@ extern "C" {
         etag_out: *mut *mut c_char,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_load_partial_contents_async(
         file: *mut GFile,
         cancellable: *mut GCancellable,
@@ -14929,6 +16425,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_load_partial_contents_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
@@ -14937,11 +16434,13 @@ extern "C" {
         etag_out: *mut *mut c_char,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_make_directory(
         file: *mut GFile,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_make_directory_async(
         file: *mut GFile,
         io_priority: c_int,
@@ -14949,22 +16448,26 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_make_directory_finish(
         file: *mut GFile,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_make_directory_with_parents(
         file: *mut GFile,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_make_symbolic_link(
         file: *mut GFile,
         symlink_value: *const c_char,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_measure_disk_usage(
         file: *mut GFile,
         flags: GFileMeasureFlags,
@@ -14976,6 +16479,7 @@ extern "C" {
         num_files: *mut u64,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_measure_disk_usage_async(
         file: *mut GFile,
         flags: GFileMeasureFlags,
@@ -14986,6 +16490,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_measure_disk_usage_finish(
         file: *mut GFile,
         result: *mut GAsyncResult,
@@ -14994,24 +16499,28 @@ extern "C" {
         num_files: *mut u64,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_monitor(
         file: *mut GFile,
         flags: GFileMonitorFlags,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileMonitor;
+    /*BO*/
     pub fn g_file_monitor_directory(
         file: *mut GFile,
         flags: GFileMonitorFlags,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileMonitor;
+    /*BO*/
     pub fn g_file_monitor_file(
         file: *mut GFile,
         flags: GFileMonitorFlags,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileMonitor;
+    /*BO*/
     pub fn g_file_mount_enclosing_volume(
         location: *mut GFile,
         flags: GMountMountFlags,
@@ -15020,11 +16529,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_mount_enclosing_volume_finish(
         location: *mut GFile,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_mount_mountable(
         file: *mut GFile,
         flags: GMountMountFlags,
@@ -15033,11 +16544,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_mount_mountable_finish(
         file: *mut GFile,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GFile;
+    /*BO*/
     pub fn g_file_move(
         source: *mut GFile,
         destination: *mut GFile,
@@ -15047,11 +16560,13 @@ extern "C" {
         progress_callback_data: gpointer,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_open_readwrite(
         file: *mut GFile,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileIOStream;
+    /*BO*/
     pub fn g_file_open_readwrite_async(
         file: *mut GFile,
         io_priority: c_int,
@@ -15059,6 +16574,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_open_readwrite_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
@@ -15066,18 +16582,22 @@ extern "C" {
     ) -> *mut GFileIOStream;
     #[cfg(any(feature = "v2_56", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
+    /*BO*/
     pub fn g_file_peek_path(file: *mut GFile) -> *const c_char;
+    /*BO*/
     pub fn g_file_poll_mountable(
         file: *mut GFile,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_poll_mountable_finish(
         file: *mut GFile,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_query_default_handler(
         file: *mut GFile,
         cancellable: *mut GCancellable,
@@ -15085,6 +16605,7 @@ extern "C" {
     ) -> *mut GAppInfo;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_file_query_default_handler_async(
         file: *mut GFile,
         io_priority: c_int,
@@ -15094,23 +16615,28 @@ extern "C" {
     );
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_file_query_default_handler_finish(
         file: *mut GFile,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GAppInfo;
+    /*BO*/
     pub fn g_file_query_exists(file: *mut GFile, cancellable: *mut GCancellable) -> gboolean;
+    /*BO*/
     pub fn g_file_query_file_type(
         file: *mut GFile,
         flags: GFileQueryInfoFlags,
         cancellable: *mut GCancellable,
     ) -> GFileType;
+    /*BO*/
     pub fn g_file_query_filesystem_info(
         file: *mut GFile,
         attributes: *const c_char,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileInfo;
+    /*BO*/
     pub fn g_file_query_filesystem_info_async(
         file: *mut GFile,
         attributes: *const c_char,
@@ -15119,11 +16645,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_query_filesystem_info_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GFileInfo;
+    /*BO*/
     pub fn g_file_query_info(
         file: *mut GFile,
         attributes: *const c_char,
@@ -15131,6 +16659,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileInfo;
+    /*BO*/
     pub fn g_file_query_info_async(
         file: *mut GFile,
         attributes: *const c_char,
@@ -15140,26 +16669,31 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_query_info_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GFileInfo;
+    /*BO*/
     pub fn g_file_query_settable_attributes(
         file: *mut GFile,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileAttributeInfoList;
+    /*BO*/
     pub fn g_file_query_writable_namespaces(
         file: *mut GFile,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileAttributeInfoList;
+    /*BO*/
     pub fn g_file_read(
         file: *mut GFile,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileInputStream;
+    /*BO*/
     pub fn g_file_read_async(
         file: *mut GFile,
         io_priority: c_int,
@@ -15167,11 +16701,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_read_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GFileInputStream;
+    /*BO*/
     pub fn g_file_replace(
         file: *mut GFile,
         etag: *const c_char,
@@ -15180,6 +16716,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileOutputStream;
+    /*BO*/
     pub fn g_file_replace_async(
         file: *mut GFile,
         etag: *const c_char,
@@ -15190,6 +16727,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_replace_contents(
         file: *mut GFile,
         contents: *const u8,
@@ -15201,6 +16739,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_replace_contents_async(
         file: *mut GFile,
         contents: *const u8,
@@ -15212,6 +16751,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_replace_contents_bytes_async(
         file: *mut GFile,
         contents: *mut glib::GBytes,
@@ -15222,17 +16762,20 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_replace_contents_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
         new_etag: *mut *mut c_char,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_replace_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GFileOutputStream;
+    /*BO*/
     pub fn g_file_replace_readwrite(
         file: *mut GFile,
         etag: *const c_char,
@@ -15241,6 +16784,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFileIOStream;
+    /*BO*/
     pub fn g_file_replace_readwrite_async(
         file: *mut GFile,
         etag: *const c_char,
@@ -15251,15 +16795,18 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_replace_readwrite_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GFileIOStream;
+    /*BO*/
     pub fn g_file_resolve_relative_path(
         file: *mut GFile,
         relative_path: *const c_char,
     ) -> *mut GFile;
+    /*BO*/
     pub fn g_file_set_attribute(
         file: *mut GFile,
         attribute: *const c_char,
@@ -15269,6 +16816,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_set_attribute_byte_string(
         file: *mut GFile,
         attribute: *const c_char,
@@ -15277,6 +16825,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_set_attribute_int32(
         file: *mut GFile,
         attribute: *const c_char,
@@ -15285,6 +16834,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_set_attribute_int64(
         file: *mut GFile,
         attribute: *const c_char,
@@ -15293,6 +16843,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_set_attribute_string(
         file: *mut GFile,
         attribute: *const c_char,
@@ -15301,6 +16852,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_set_attribute_uint32(
         file: *mut GFile,
         attribute: *const c_char,
@@ -15309,6 +16861,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_set_attribute_uint64(
         file: *mut GFile,
         attribute: *const c_char,
@@ -15317,6 +16870,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_set_attributes_async(
         file: *mut GFile,
         info: *mut GFileInfo,
@@ -15326,12 +16880,14 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_set_attributes_finish(
         file: *mut GFile,
         result: *mut GAsyncResult,
         info: *mut *mut GFileInfo,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_set_attributes_from_info(
         file: *mut GFile,
         info: *mut GFileInfo,
@@ -15339,12 +16895,14 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_set_display_name(
         file: *mut GFile,
         display_name: *const c_char,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GFile;
+    /*BO*/
     pub fn g_file_set_display_name_async(
         file: *mut GFile,
         display_name: *const c_char,
@@ -15353,11 +16911,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_set_display_name_finish(
         file: *mut GFile,
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GFile;
+    /*BO*/
     pub fn g_file_start_mountable(
         file: *mut GFile,
         flags: GDriveStartFlags,
@@ -15366,11 +16926,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_start_mountable_finish(
         file: *mut GFile,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_stop_mountable(
         file: *mut GFile,
         flags: GMountUnmountFlags,
@@ -15379,17 +16941,21 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_stop_mountable_finish(
         file: *mut GFile,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_supports_thread_contexts(file: *mut GFile) -> gboolean;
+    /*BO*/
     pub fn g_file_trash(
         file: *mut GFile,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_trash_async(
         file: *mut GFile,
         io_priority: c_int,
@@ -15397,11 +16963,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_trash_finish(
         file: *mut GFile,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_unmount_mountable(
         file: *mut GFile,
         flags: GMountUnmountFlags,
@@ -15409,11 +16977,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_unmount_mountable_finish(
         file: *mut GFile,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_file_unmount_mountable_with_operation(
         file: *mut GFile,
         flags: GMountUnmountFlags,
@@ -15422,6 +16992,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_file_unmount_mountable_with_operation_finish(
         file: *mut GFile,
         result: *mut GAsyncResult,
@@ -15432,23 +17003,31 @@ extern "C" {
     // GFileDescriptorBased
     //=========================================================================
     pub fn g_file_descriptor_based_get_type() -> GType;
+    /*BO*/
     pub fn g_file_descriptor_based_get_fd(fd_based: *mut GFileDescriptorBased) -> c_int;
 
     //=========================================================================
     // GIcon
     //=========================================================================
     pub fn g_icon_get_type() -> GType;
+    /*BO*/
     pub fn g_icon_deserialize(value: *mut glib::GVariant) -> *mut GIcon;
+    /*BO*/
     pub fn g_icon_hash(icon: gconstpointer) -> c_uint;
+    /*BO*/
     pub fn g_icon_new_for_string(str: *const c_char, error: *mut *mut glib::GError) -> *mut GIcon;
+    /*BO*/
     pub fn g_icon_equal(icon1: *mut GIcon, icon2: *mut GIcon) -> gboolean;
+    /*BO*/
     pub fn g_icon_serialize(icon: *mut GIcon) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_icon_to_string(icon: *mut GIcon) -> *mut c_char;
 
     //=========================================================================
     // GInitable
     //=========================================================================
     pub fn g_initable_get_type() -> GType;
+    /*BO*/
     pub fn g_initable_new(
         object_type: GType,
         cancellable: *mut GCancellable,
@@ -15456,7 +17035,8 @@ extern "C" {
         first_property_name: *const c_char,
         ...
     ) -> *mut gobject::GObject;
-    //pub fn g_initable_new_valist(object_type: GType, first_property_name: *const c_char, var_args: /*Unimplemented*/va_list, cancellable: *mut GCancellable, error: *mut *mut glib::GError) -> *mut gobject::GObject;
+    /*BO*///pub fn g_initable_new_valist(object_type: GType, first_property_name: *const c_char, var_args: /*Unimplemented*/va_list, cancellable: *mut GCancellable, error: *mut *mut glib::GError) -> *mut gobject::GObject;
+    /*BO*/
     pub fn g_initable_newv(
         object_type: GType,
         n_parameters: c_uint,
@@ -15464,6 +17044,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut gobject::GObject;
+    /*BO*/
     pub fn g_initable_init(
         initable: *mut GInitable,
         cancellable: *mut GCancellable,
@@ -15474,13 +17055,18 @@ extern "C" {
     // GListModel
     //=========================================================================
     pub fn g_list_model_get_type() -> GType;
+    /*BO*/
     pub fn g_list_model_get_item(list: *mut GListModel, position: c_uint) -> gpointer;
+    /*BO*/
     pub fn g_list_model_get_item_type(list: *mut GListModel) -> GType;
+    /*BO*/
     pub fn g_list_model_get_n_items(list: *mut GListModel) -> c_uint;
+    /*BO*/
     pub fn g_list_model_get_object(
         list: *mut GListModel,
         position: c_uint,
     ) -> *mut gobject::GObject;
+    /*BO*/
     pub fn g_list_model_items_changed(
         list: *mut GListModel,
         position: c_uint,
@@ -15492,6 +17078,7 @@ extern "C" {
     // GLoadableIcon
     //=========================================================================
     pub fn g_loadable_icon_get_type() -> GType;
+    /*BO*/
     pub fn g_loadable_icon_load(
         icon: *mut GLoadableIcon,
         size: c_int,
@@ -15499,6 +17086,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GInputStream;
+    /*BO*/
     pub fn g_loadable_icon_load_async(
         icon: *mut GLoadableIcon,
         size: c_int,
@@ -15506,6 +17094,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_loadable_icon_load_finish(
         icon: *mut GLoadableIcon,
         res: *mut GAsyncResult,
@@ -15521,14 +17110,18 @@ extern "C" {
     pub fn g_memory_monitor_get_type() -> GType;
     #[cfg(any(feature = "v2_64", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_64")))]
+    /*BO*/
     pub fn g_memory_monitor_dup_default() -> *mut GMemoryMonitor;
 
     //=========================================================================
     // GMount
     //=========================================================================
     pub fn g_mount_get_type() -> GType;
+    /*BO*/
     pub fn g_mount_can_eject(mount: *mut GMount) -> gboolean;
+    /*BO*/
     pub fn g_mount_can_unmount(mount: *mut GMount) -> gboolean;
+    /*BO*/
     pub fn g_mount_eject(
         mount: *mut GMount,
         flags: GMountUnmountFlags,
@@ -15536,11 +17129,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_mount_eject_finish(
         mount: *mut GMount,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_mount_eject_with_operation(
         mount: *mut GMount,
         flags: GMountUnmountFlags,
@@ -15549,20 +17144,31 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_mount_eject_with_operation_finish(
         mount: *mut GMount,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_mount_get_default_location(mount: *mut GMount) -> *mut GFile;
+    /*BO*/
     pub fn g_mount_get_drive(mount: *mut GMount) -> *mut GDrive;
+    /*BO*/
     pub fn g_mount_get_icon(mount: *mut GMount) -> *mut GIcon;
+    /*BO*/
     pub fn g_mount_get_name(mount: *mut GMount) -> *mut c_char;
+    /*BO*/
     pub fn g_mount_get_root(mount: *mut GMount) -> *mut GFile;
+    /*BO*/
     pub fn g_mount_get_sort_key(mount: *mut GMount) -> *const c_char;
+    /*BO*/
     pub fn g_mount_get_symbolic_icon(mount: *mut GMount) -> *mut GIcon;
+    /*BO*/
     pub fn g_mount_get_uuid(mount: *mut GMount) -> *mut c_char;
+    /*BO*/
     pub fn g_mount_get_volume(mount: *mut GMount) -> *mut GVolume;
+    /*BO*/
     pub fn g_mount_guess_content_type(
         mount: *mut GMount,
         force_rescan: gboolean,
@@ -15570,18 +17176,22 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_mount_guess_content_type_finish(
         mount: *mut GMount,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_mount_guess_content_type_sync(
         mount: *mut GMount,
         force_rescan: gboolean,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_mount_is_shadowed(mount: *mut GMount) -> gboolean;
+    /*BO*/
     pub fn g_mount_remount(
         mount: *mut GMount,
         flags: GMountMountFlags,
@@ -15590,12 +17200,15 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_mount_remount_finish(
         mount: *mut GMount,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_mount_shadow(mount: *mut GMount);
+    /*BO*/
     pub fn g_mount_unmount(
         mount: *mut GMount,
         flags: GMountUnmountFlags,
@@ -15603,11 +17216,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_mount_unmount_finish(
         mount: *mut GMount,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_mount_unmount_with_operation(
         mount: *mut GMount,
         flags: GMountUnmountFlags,
@@ -15616,24 +17231,29 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_mount_unmount_with_operation_finish(
         mount: *mut GMount,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_mount_unshadow(mount: *mut GMount);
 
     //=========================================================================
     // GNetworkMonitor
     //=========================================================================
     pub fn g_network_monitor_get_type() -> GType;
+    /*BO*/
     pub fn g_network_monitor_get_default() -> *mut GNetworkMonitor;
+    /*BO*/
     pub fn g_network_monitor_can_reach(
         monitor: *mut GNetworkMonitor,
         connectable: *mut GSocketConnectable,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_network_monitor_can_reach_async(
         monitor: *mut GNetworkMonitor,
         connectable: *mut GSocketConnectable,
@@ -15641,27 +17261,35 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_network_monitor_can_reach_finish(
         monitor: *mut GNetworkMonitor,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_network_monitor_get_connectivity(
         monitor: *mut GNetworkMonitor,
     ) -> GNetworkConnectivity;
+    /*BO*/
     pub fn g_network_monitor_get_network_available(monitor: *mut GNetworkMonitor) -> gboolean;
+    /*BO*/
     pub fn g_network_monitor_get_network_metered(monitor: *mut GNetworkMonitor) -> gboolean;
 
     //=========================================================================
     // GPollableInputStream
     //=========================================================================
     pub fn g_pollable_input_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_pollable_input_stream_can_poll(stream: *mut GPollableInputStream) -> gboolean;
+    /*BO*/
     pub fn g_pollable_input_stream_create_source(
         stream: *mut GPollableInputStream,
         cancellable: *mut GCancellable,
     ) -> *mut glib::GSource;
+    /*BO*/
     pub fn g_pollable_input_stream_is_readable(stream: *mut GPollableInputStream) -> gboolean;
+    /*BO*/
     pub fn g_pollable_input_stream_read_nonblocking(
         stream: *mut GPollableInputStream,
         buffer: *mut u8,
@@ -15674,12 +17302,16 @@ extern "C" {
     // GPollableOutputStream
     //=========================================================================
     pub fn g_pollable_output_stream_get_type() -> GType;
+    /*BO*/
     pub fn g_pollable_output_stream_can_poll(stream: *mut GPollableOutputStream) -> gboolean;
+    /*BO*/
     pub fn g_pollable_output_stream_create_source(
         stream: *mut GPollableOutputStream,
         cancellable: *mut GCancellable,
     ) -> *mut glib::GSource;
+    /*BO*/
     pub fn g_pollable_output_stream_is_writable(stream: *mut GPollableOutputStream) -> gboolean;
+    /*BO*/
     pub fn g_pollable_output_stream_write_nonblocking(
         stream: *mut GPollableOutputStream,
         buffer: *mut u8,
@@ -15689,6 +17321,7 @@ extern "C" {
     ) -> ssize_t;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_pollable_output_stream_writev_nonblocking(
         stream: *mut GPollableOutputStream,
         vectors: *const GOutputVector,
@@ -15702,7 +17335,9 @@ extern "C" {
     // GProxy
     //=========================================================================
     pub fn g_proxy_get_type() -> GType;
+    /*BO*/
     pub fn g_proxy_get_default_for_protocol(protocol: *const c_char) -> *mut GProxy;
+    /*BO*/
     pub fn g_proxy_connect(
         proxy: *mut GProxy,
         connection: *mut GIOStream,
@@ -15710,6 +17345,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GIOStream;
+    /*BO*/
     pub fn g_proxy_connect_async(
         proxy: *mut GProxy,
         connection: *mut GIOStream,
@@ -15718,25 +17354,31 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_proxy_connect_finish(
         proxy: *mut GProxy,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GIOStream;
+    /*BO*/
     pub fn g_proxy_supports_hostname(proxy: *mut GProxy) -> gboolean;
 
     //=========================================================================
     // GProxyResolver
     //=========================================================================
     pub fn g_proxy_resolver_get_type() -> GType;
+    /*BO*/
     pub fn g_proxy_resolver_get_default() -> *mut GProxyResolver;
+    /*BO*/
     pub fn g_proxy_resolver_is_supported(resolver: *mut GProxyResolver) -> gboolean;
+    /*BO*/
     pub fn g_proxy_resolver_lookup(
         resolver: *mut GProxyResolver,
         uri: *const c_char,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_proxy_resolver_lookup_async(
         resolver: *mut GProxyResolver,
         uri: *const c_char,
@@ -15744,6 +17386,7 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_proxy_resolver_lookup_finish(
         resolver: *mut GProxyResolver,
         result: *mut GAsyncResult,
@@ -15754,12 +17397,14 @@ extern "C" {
     // GRemoteActionGroup
     //=========================================================================
     pub fn g_remote_action_group_get_type() -> GType;
+    /*BO*/
     pub fn g_remote_action_group_activate_action_full(
         remote: *mut GRemoteActionGroup,
         action_name: *const c_char,
         parameter: *mut glib::GVariant,
         platform_data: *mut glib::GVariant,
     );
+    /*BO*/
     pub fn g_remote_action_group_change_action_state_full(
         remote: *mut GRemoteActionGroup,
         action_name: *const c_char,
@@ -15771,8 +17416,11 @@ extern "C" {
     // GSeekable
     //=========================================================================
     pub fn g_seekable_get_type() -> GType;
+    /*BO*/
     pub fn g_seekable_can_seek(seekable: *mut GSeekable) -> gboolean;
+    /*BO*/
     pub fn g_seekable_can_truncate(seekable: *mut GSeekable) -> gboolean;
+    /*BO*/
     pub fn g_seekable_seek(
         seekable: *mut GSeekable,
         offset: i64,
@@ -15780,7 +17428,9 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_seekable_tell(seekable: *mut GSeekable) -> i64;
+    /*BO*/
     pub fn g_seekable_truncate(
         seekable: *mut GSeekable,
         offset: i64,
@@ -15792,66 +17442,89 @@ extern "C" {
     // GSocketConnectable
     //=========================================================================
     pub fn g_socket_connectable_get_type() -> GType;
+    /*BO*/
     pub fn g_socket_connectable_enumerate(
         connectable: *mut GSocketConnectable,
     ) -> *mut GSocketAddressEnumerator;
+    /*BO*/
     pub fn g_socket_connectable_proxy_enumerate(
         connectable: *mut GSocketConnectable,
     ) -> *mut GSocketAddressEnumerator;
+    /*BO*/
     pub fn g_socket_connectable_to_string(connectable: *mut GSocketConnectable) -> *mut c_char;
 
     //=========================================================================
     // GTlsBackend
     //=========================================================================
     pub fn g_tls_backend_get_type() -> GType;
+    /*BO*/
     pub fn g_tls_backend_get_default() -> *mut GTlsBackend;
+    /*BO*/
     pub fn g_tls_backend_get_certificate_type(backend: *mut GTlsBackend) -> GType;
+    /*BO*/
     pub fn g_tls_backend_get_client_connection_type(backend: *mut GTlsBackend) -> GType;
+    /*BO*/
     pub fn g_tls_backend_get_default_database(backend: *mut GTlsBackend) -> *mut GTlsDatabase;
+    /*BO*/
     pub fn g_tls_backend_get_dtls_client_connection_type(backend: *mut GTlsBackend) -> GType;
+    /*BO*/
     pub fn g_tls_backend_get_dtls_server_connection_type(backend: *mut GTlsBackend) -> GType;
+    /*BO*/
     pub fn g_tls_backend_get_file_database_type(backend: *mut GTlsBackend) -> GType;
+    /*BO*/
     pub fn g_tls_backend_get_server_connection_type(backend: *mut GTlsBackend) -> GType;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_tls_backend_set_default_database(
         backend: *mut GTlsBackend,
         database: *mut GTlsDatabase,
     );
+    /*BO*/
     pub fn g_tls_backend_supports_dtls(backend: *mut GTlsBackend) -> gboolean;
+    /*BO*/
     pub fn g_tls_backend_supports_tls(backend: *mut GTlsBackend) -> gboolean;
 
     //=========================================================================
     // GTlsClientConnection
     //=========================================================================
     pub fn g_tls_client_connection_get_type() -> GType;
+    /*BO*/
     pub fn g_tls_client_connection_new(
         base_io_stream: *mut GIOStream,
         server_identity: *mut GSocketConnectable,
         error: *mut *mut glib::GError,
     ) -> *mut GTlsClientConnection;
+    /*BO*/
     pub fn g_tls_client_connection_copy_session_state(
         conn: *mut GTlsClientConnection,
         source: *mut GTlsClientConnection,
     );
+    /*BO*/
     pub fn g_tls_client_connection_get_accepted_cas(
         conn: *mut GTlsClientConnection,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_tls_client_connection_get_server_identity(
         conn: *mut GTlsClientConnection,
     ) -> *mut GSocketConnectable;
+    /*BO*/
     pub fn g_tls_client_connection_get_use_ssl3(conn: *mut GTlsClientConnection) -> gboolean;
+    /*BO*/
     pub fn g_tls_client_connection_get_validation_flags(
         conn: *mut GTlsClientConnection,
     ) -> GTlsCertificateFlags;
+    /*BO*/
     pub fn g_tls_client_connection_set_server_identity(
         conn: *mut GTlsClientConnection,
         identity: *mut GSocketConnectable,
     );
+    /*BO*/
     pub fn g_tls_client_connection_set_use_ssl3(
         conn: *mut GTlsClientConnection,
         use_ssl3: gboolean,
     );
+    /*BO*/
     pub fn g_tls_client_connection_set_validation_flags(
         conn: *mut GTlsClientConnection,
         flags: GTlsCertificateFlags,
@@ -15861,6 +17534,7 @@ extern "C" {
     // GTlsFileDatabase
     //=========================================================================
     pub fn g_tls_file_database_get_type() -> GType;
+    /*BO*/
     pub fn g_tls_file_database_new(
         anchors: *const c_char,
         error: *mut *mut glib::GError,
@@ -15870,6 +17544,7 @@ extern "C" {
     // GTlsServerConnection
     //=========================================================================
     pub fn g_tls_server_connection_get_type() -> GType;
+    /*BO*/
     pub fn g_tls_server_connection_new(
         base_io_stream: *mut GIOStream,
         certificate: *mut GTlsCertificate,
@@ -15880,8 +17555,11 @@ extern "C" {
     // GVolume
     //=========================================================================
     pub fn g_volume_get_type() -> GType;
+    /*BO*/
     pub fn g_volume_can_eject(volume: *mut GVolume) -> gboolean;
+    /*BO*/
     pub fn g_volume_can_mount(volume: *mut GVolume) -> gboolean;
+    /*BO*/
     pub fn g_volume_eject(
         volume: *mut GVolume,
         flags: GMountUnmountFlags,
@@ -15889,11 +17567,13 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_volume_eject_finish(
         volume: *mut GVolume,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_volume_eject_with_operation(
         volume: *mut GVolume,
         flags: GMountUnmountFlags,
@@ -15902,21 +17582,33 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_volume_eject_with_operation_finish(
         volume: *mut GVolume,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_volume_enumerate_identifiers(volume: *mut GVolume) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_volume_get_activation_root(volume: *mut GVolume) -> *mut GFile;
+    /*BO*/
     pub fn g_volume_get_drive(volume: *mut GVolume) -> *mut GDrive;
+    /*BO*/
     pub fn g_volume_get_icon(volume: *mut GVolume) -> *mut GIcon;
+    /*BO*/
     pub fn g_volume_get_identifier(volume: *mut GVolume, kind: *const c_char) -> *mut c_char;
+    /*BO*/
     pub fn g_volume_get_mount(volume: *mut GVolume) -> *mut GMount;
+    /*BO*/
     pub fn g_volume_get_name(volume: *mut GVolume) -> *mut c_char;
+    /*BO*/
     pub fn g_volume_get_sort_key(volume: *mut GVolume) -> *const c_char;
+    /*BO*/
     pub fn g_volume_get_symbolic_icon(volume: *mut GVolume) -> *mut GIcon;
+    /*BO*/
     pub fn g_volume_get_uuid(volume: *mut GVolume) -> *mut c_char;
+    /*BO*/
     pub fn g_volume_mount(
         volume: *mut GVolume,
         flags: GMountMountFlags,
@@ -15925,31 +17617,37 @@ extern "C" {
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_volume_mount_finish(
         volume: *mut GVolume,
         result: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_volume_should_automount(volume: *mut GVolume) -> gboolean;
 
     //=========================================================================
     // Other functions
     //=========================================================================
+    /*BO*/
     pub fn g_bus_get(
         bus_type: GBusType,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_bus_get_finish(
         res: *mut GAsyncResult,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusConnection;
+    /*BO*/
     pub fn g_bus_get_sync(
         bus_type: GBusType,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GDBusConnection;
+    /*BO*/
     pub fn g_bus_own_name(
         bus_type: GBusType,
         name: *const c_char,
@@ -15960,6 +17658,7 @@ extern "C" {
         user_data: gpointer,
         user_data_free_func: glib::GDestroyNotify,
     ) -> c_uint;
+    /*BO*/
     pub fn g_bus_own_name_on_connection(
         connection: *mut GDBusConnection,
         name: *const c_char,
@@ -15969,6 +17668,7 @@ extern "C" {
         user_data: gpointer,
         user_data_free_func: glib::GDestroyNotify,
     ) -> c_uint;
+    /*BO*/
     pub fn g_bus_own_name_on_connection_with_closures(
         connection: *mut GDBusConnection,
         name: *const c_char,
@@ -15976,6 +17676,7 @@ extern "C" {
         name_acquired_closure: *mut gobject::GClosure,
         name_lost_closure: *mut gobject::GClosure,
     ) -> c_uint;
+    /*BO*/
     pub fn g_bus_own_name_with_closures(
         bus_type: GBusType,
         name: *const c_char,
@@ -15984,8 +17685,11 @@ extern "C" {
         name_acquired_closure: *mut gobject::GClosure,
         name_lost_closure: *mut gobject::GClosure,
     ) -> c_uint;
+    /*BO*/
     pub fn g_bus_unown_name(owner_id: c_uint);
+    /*BO*/
     pub fn g_bus_unwatch_name(watcher_id: c_uint);
+    /*BO*/
     pub fn g_bus_watch_name(
         bus_type: GBusType,
         name: *const c_char,
@@ -15995,6 +17699,7 @@ extern "C" {
         user_data: gpointer,
         user_data_free_func: glib::GDestroyNotify,
     ) -> c_uint;
+    /*BO*/
     pub fn g_bus_watch_name_on_connection(
         connection: *mut GDBusConnection,
         name: *const c_char,
@@ -16004,6 +17709,7 @@ extern "C" {
         user_data: gpointer,
         user_data_free_func: glib::GDestroyNotify,
     ) -> c_uint;
+    /*BO*/
     pub fn g_bus_watch_name_on_connection_with_closures(
         connection: *mut GDBusConnection,
         name: *const c_char,
@@ -16011,6 +17717,7 @@ extern "C" {
         name_appeared_closure: *mut gobject::GClosure,
         name_vanished_closure: *mut gobject::GClosure,
     ) -> c_uint;
+    /*BO*/
     pub fn g_bus_watch_name_with_closures(
         bus_type: GBusType,
         name: *const c_char,
@@ -16018,85 +17725,124 @@ extern "C" {
         name_appeared_closure: *mut gobject::GClosure,
         name_vanished_closure: *mut gobject::GClosure,
     ) -> c_uint;
+    /*BO*/
     pub fn g_content_type_can_be_executable(type_: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_content_type_equals(type1: *const c_char, type2: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_content_type_from_mime_type(mime_type: *const c_char) -> *mut c_char;
+    /*BO*/
     pub fn g_content_type_get_description(type_: *const c_char) -> *mut c_char;
+    /*BO*/
     pub fn g_content_type_get_generic_icon_name(type_: *const c_char) -> *mut c_char;
+    /*BO*/
     pub fn g_content_type_get_icon(type_: *const c_char) -> *mut GIcon;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_content_type_get_mime_dirs() -> *const *const c_char;
+    /*BO*/
     pub fn g_content_type_get_mime_type(type_: *const c_char) -> *mut c_char;
+    /*BO*/
     pub fn g_content_type_get_symbolic_icon(type_: *const c_char) -> *mut GIcon;
+    /*BO*/
     pub fn g_content_type_guess(
         filename: *const c_char,
         data: *const u8,
         data_size: size_t,
         result_uncertain: *mut gboolean,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_content_type_guess_for_tree(root: *mut GFile) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_content_type_is_a(type_: *const c_char, supertype: *const c_char) -> gboolean;
     #[cfg(any(feature = "v2_52", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_52")))]
+    /*BO*/
     pub fn g_content_type_is_mime_type(type_: *const c_char, mime_type: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_content_type_is_unknown(type_: *const c_char) -> gboolean;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_content_type_set_mime_dirs(dirs: *const *const c_char);
+    /*BO*/
     pub fn g_content_types_get_registered() -> *mut glib::GList;
+    /*BO*/
     pub fn g_dbus_address_escape_value(string: *const c_char) -> *mut c_char;
+    /*BO*/
     pub fn g_dbus_address_get_for_bus_sync(
         bus_type: GBusType,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut c_char;
+    /*BO*/
     pub fn g_dbus_address_get_stream(
         address: *const c_char,
         cancellable: *mut GCancellable,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
     );
+    /*BO*/
     pub fn g_dbus_address_get_stream_finish(
         res: *mut GAsyncResult,
         out_guid: *mut *mut c_char,
         error: *mut *mut glib::GError,
     ) -> *mut GIOStream;
+    /*BO*/
     pub fn g_dbus_address_get_stream_sync(
         address: *const c_char,
         out_guid: *mut *mut c_char,
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> *mut GIOStream;
+    /*BO*/
     pub fn g_dbus_generate_guid() -> *mut c_char;
+    /*BO*/
     pub fn g_dbus_gvalue_to_gvariant(
         gvalue: *const gobject::GValue,
         type_: *const glib::GVariantType,
     ) -> *mut glib::GVariant;
+    /*BO*/
     pub fn g_dbus_gvariant_to_gvalue(value: *mut glib::GVariant, out_gvalue: *mut gobject::GValue);
+    /*BO*/
     pub fn g_dbus_is_address(string: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_dbus_is_guid(string: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_dbus_is_interface_name(string: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_dbus_is_member_name(string: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_dbus_is_name(string: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_dbus_is_supported_address(
         string: *const c_char,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_dbus_is_unique_name(string: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_io_error_from_errno(err_no: c_int) -> GIOErrorEnum;
+    /*BO*/
     pub fn g_io_error_quark() -> glib::GQuark;
+    /*BO*/
     pub fn g_io_modules_load_all_in_directory(dirname: *const c_char) -> *mut glib::GList;
+    /*BO*/
     pub fn g_io_modules_load_all_in_directory_with_scope(
         dirname: *const c_char,
         scope: *mut GIOModuleScope,
     ) -> *mut glib::GList;
+    /*BO*/
     pub fn g_io_modules_scan_all_in_directory(dirname: *const c_char);
+    /*BO*/
     pub fn g_io_modules_scan_all_in_directory_with_scope(
         dirname: *const c_char,
         scope: *mut GIOModuleScope,
     );
+    /*BO*/
     pub fn g_io_scheduler_cancel_all_jobs();
+    /*BO*/
     pub fn g_io_scheduler_push_job(
         job_func: GIOSchedulerJobFunc,
         user_data: gpointer,
@@ -16104,20 +17850,27 @@ extern "C" {
         io_priority: c_int,
         cancellable: *mut GCancellable,
     );
+    /*BO*/
     pub fn g_keyfile_settings_backend_new(
         filename: *const c_char,
         root_path: *const c_char,
         root_group: *const c_char,
     ) -> *mut GSettingsBackend;
+    /*BO*/
     pub fn g_memory_settings_backend_new() -> *mut GSettingsBackend;
+    /*BO*/
     pub fn g_networking_init();
+    /*BO*/
     pub fn g_null_settings_backend_new() -> *mut GSettingsBackend;
+    /*BO*/
     pub fn g_pollable_source_new(pollable_stream: *mut gobject::GObject) -> *mut glib::GSource;
+    /*BO*/
     pub fn g_pollable_source_new_full(
         pollable_stream: *mut gobject::GObject,
         child_source: *mut glib::GSource,
         cancellable: *mut GCancellable,
     ) -> *mut glib::GSource;
+    /*BO*/
     pub fn g_pollable_stream_read(
         stream: *mut GInputStream,
         buffer: *mut u8,
@@ -16126,6 +17879,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_pollable_stream_write(
         stream: *mut GOutputStream,
         buffer: *mut u8,
@@ -16134,6 +17888,7 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> ssize_t;
+    /*BO*/
     pub fn g_pollable_stream_write_all(
         stream: *mut GOutputStream,
         buffer: *mut u8,
@@ -16143,11 +17898,13 @@ extern "C" {
         cancellable: *mut GCancellable,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_resources_enumerate_children(
         path: *const c_char,
         lookup_flags: GResourceLookupFlags,
         error: *mut *mut glib::GError,
     ) -> *mut *mut c_char;
+    /*BO*/
     pub fn g_resources_get_info(
         path: *const c_char,
         lookup_flags: GResourceLookupFlags,
@@ -16155,18 +17912,23 @@ extern "C" {
         flags: *mut u32,
         error: *mut *mut glib::GError,
     ) -> gboolean;
+    /*BO*/
     pub fn g_resources_lookup_data(
         path: *const c_char,
         lookup_flags: GResourceLookupFlags,
         error: *mut *mut glib::GError,
     ) -> *mut glib::GBytes;
+    /*BO*/
     pub fn g_resources_open_stream(
         path: *const c_char,
         lookup_flags: GResourceLookupFlags,
         error: *mut *mut glib::GError,
     ) -> *mut GInputStream;
+    /*BO*/
     pub fn g_resources_register(resource: *mut GResource);
+    /*BO*/
     pub fn g_resources_unregister(resource: *mut GResource);
+    /*BO*/
     pub fn g_simple_async_report_error_in_idle(
         object: *mut gobject::GObject,
         callback: GAsyncReadyCallback,
@@ -16176,56 +17938,82 @@ extern "C" {
         format: *const c_char,
         ...
     );
+    /*BO*/
     pub fn g_simple_async_report_gerror_in_idle(
         object: *mut gobject::GObject,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
         error: *const glib::GError,
     );
+    /*BO*/
     pub fn g_simple_async_report_take_gerror_in_idle(
         object: *mut gobject::GObject,
         callback: GAsyncReadyCallback,
         user_data: gpointer,
         error: *mut glib::GError,
     );
+    /*BO*/
     pub fn g_unix_is_mount_path_system_internal(mount_path: *const c_char) -> gboolean;
     #[cfg(any(feature = "v2_56", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
+    /*BO*/
     pub fn g_unix_is_system_device_path(device_path: *const c_char) -> gboolean;
     #[cfg(any(feature = "v2_56", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
+    /*BO*/
     pub fn g_unix_is_system_fs_type(fs_type: *const c_char) -> gboolean;
+    /*BO*/
     pub fn g_unix_mount_at(mount_path: *const c_char, time_read: *mut u64) -> *mut GUnixMountEntry;
+    /*BO*/
     pub fn g_unix_mount_compare(
         mount1: *mut GUnixMountEntry,
         mount2: *mut GUnixMountEntry,
     ) -> c_int;
     #[cfg(any(feature = "v2_54", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_54")))]
+    /*BO*/
     pub fn g_unix_mount_copy(mount_entry: *mut GUnixMountEntry) -> *mut GUnixMountEntry;
     #[cfg(any(feature = "v2_52", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_52")))]
+    /*BO*/
     pub fn g_unix_mount_for(file_path: *const c_char, time_read: *mut u64) -> *mut GUnixMountEntry;
+    /*BO*/
     pub fn g_unix_mount_free(mount_entry: *mut GUnixMountEntry);
+    /*BO*/
     pub fn g_unix_mount_get_device_path(mount_entry: *mut GUnixMountEntry) -> *const c_char;
+    /*BO*/
     pub fn g_unix_mount_get_fs_type(mount_entry: *mut GUnixMountEntry) -> *const c_char;
+    /*BO*/
     pub fn g_unix_mount_get_mount_path(mount_entry: *mut GUnixMountEntry) -> *const c_char;
     #[cfg(any(feature = "v2_58", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_58")))]
+    /*BO*/
     pub fn g_unix_mount_get_options(mount_entry: *mut GUnixMountEntry) -> *const c_char;
     #[cfg(any(feature = "v2_60", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
+    /*BO*/
     pub fn g_unix_mount_get_root_path(mount_entry: *mut GUnixMountEntry) -> *const c_char;
+    /*BO*/
     pub fn g_unix_mount_guess_can_eject(mount_entry: *mut GUnixMountEntry) -> gboolean;
+    /*BO*/
     pub fn g_unix_mount_guess_icon(mount_entry: *mut GUnixMountEntry) -> *mut GIcon;
+    /*BO*/
     pub fn g_unix_mount_guess_name(mount_entry: *mut GUnixMountEntry) -> *mut c_char;
+    /*BO*/
     pub fn g_unix_mount_guess_should_display(mount_entry: *mut GUnixMountEntry) -> gboolean;
+    /*BO*/
     pub fn g_unix_mount_guess_symbolic_icon(mount_entry: *mut GUnixMountEntry) -> *mut GIcon;
+    /*BO*/
     pub fn g_unix_mount_is_readonly(mount_entry: *mut GUnixMountEntry) -> gboolean;
+    /*BO*/
     pub fn g_unix_mount_is_system_internal(mount_entry: *mut GUnixMountEntry) -> gboolean;
+    /*BO*/
     pub fn g_unix_mount_points_changed_since(time: u64) -> gboolean;
+    /*BO*/
     pub fn g_unix_mount_points_get(time_read: *mut u64) -> *mut glib::GList;
+    /*BO*/
     pub fn g_unix_mounts_changed_since(time: u64) -> gboolean;
+    /*BO*/
     pub fn g_unix_mounts_get(time_read: *mut u64) -> *mut glib::GList;
 
 }

@@ -8,6 +8,7 @@ use crate::SocketConnectable;
 use glib::object::Cast;
 use glib::object::IsA;
 use glib::translate::*;
+use libc::c_char;
 use std::fmt;
 
 glib::wrapper! {
@@ -33,7 +34,10 @@ impl InetSocketAddress {
 
     #[doc(alias = "g_inet_socket_address_new_from_string")]
     #[doc(alias = "new_from_string")]
-    pub fn from_string(address: &str, port: u32) -> Option<InetSocketAddress> {
+    pub fn from_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        address: &'s P,
+        port: u32,
+    ) -> Option<InetSocketAddress> {
         unsafe {
             Option::<SocketAddress>::from_glib_full(ffi::g_inet_socket_address_new_from_string(
                 address.to_glib_none().0,

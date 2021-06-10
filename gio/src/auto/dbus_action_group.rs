@@ -6,6 +6,7 @@ use crate::ActionGroup;
 use crate::DBusConnection;
 use crate::RemoteActionGroup;
 use glib::translate::*;
+use libc::c_char;
 use std::fmt;
 
 glib::wrapper! {
@@ -19,10 +20,10 @@ glib::wrapper! {
 
 impl DBusActionGroup {
     #[doc(alias = "g_dbus_action_group_get")]
-    pub fn get(
+    pub fn get<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
         connection: &DBusConnection,
         bus_name: Option<&str>,
-        object_path: &str,
+        object_path: &'s P,
     ) -> DBusActionGroup {
         unsafe {
             from_glib_full(ffi::g_dbus_action_group_get(

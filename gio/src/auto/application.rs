@@ -17,6 +17,7 @@ use glib::signal::SignalHandlerId;
 use glib::translate::*;
 use glib::StaticType;
 use glib::ToValue;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -57,7 +58,9 @@ impl Application {
     }
 
     #[doc(alias = "g_application_id_is_valid")]
-    pub fn id_is_valid(application_id: &str) -> bool {
+    pub fn id_is_valid<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        application_id: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::g_application_id_is_valid(
                 application_id.to_glib_none().0,
@@ -140,13 +143,17 @@ pub trait ApplicationExt: 'static {
     fn activate(&self);
 
     #[doc(alias = "g_application_add_main_option")]
-    fn add_main_option(
+    fn add_main_option<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+    >(
         &self,
-        long_name: &str,
+        long_name: &'s P,
         short_name: glib::Char,
         flags: glib::OptionFlags,
         arg: glib::OptionArg,
-        description: &str,
+        description: &'s Q,
         arg_description: Option<&str>,
     );
 
@@ -157,7 +164,11 @@ pub trait ApplicationExt: 'static {
     //fn add_option_group(&self, group: /*Ignored*/&glib::OptionGroup);
 
     #[doc(alias = "g_application_bind_busy_property")]
-    fn bind_busy_property<P: IsA<glib::Object>>(&self, object: &P, property: &str);
+    fn bind_busy_property<'s, P: IsA<glib::Object>, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        object: &P,
+        property: &'s Q,
+    );
 
     #[doc(alias = "g_application_get_application_id")]
     #[doc(alias = "get_application_id")]
@@ -202,7 +213,7 @@ pub trait ApplicationExt: 'static {
     fn mark_busy(&self);
 
     #[doc(alias = "g_application_open")]
-    fn open(&self, files: &[File], hint: &str);
+    fn open<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, files: &[File], hint: &'s P);
 
     #[doc(alias = "g_application_quit")]
     fn quit(&self);
@@ -247,13 +258,17 @@ pub trait ApplicationExt: 'static {
     fn set_resource_base_path(&self, resource_path: Option<&str>);
 
     #[doc(alias = "g_application_unbind_busy_property")]
-    fn unbind_busy_property<P: IsA<glib::Object>>(&self, object: &P, property: &str);
+    fn unbind_busy_property<'s, P: IsA<glib::Object>, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        object: &P,
+        property: &'s Q,
+    );
 
     #[doc(alias = "g_application_unmark_busy")]
     fn unmark_busy(&self);
 
     #[doc(alias = "g_application_withdraw_notification")]
-    fn withdraw_notification(&self, id: &str);
+    fn withdraw_notification<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, id: &'s P);
 
     #[doc(alias = "action-group")]
     fn set_action_group<P: IsA<ActionGroup>>(&self, action_group: Option<&P>);
@@ -316,13 +331,17 @@ impl<O: IsA<Application>> ApplicationExt for O {
         }
     }
 
-    fn add_main_option(
+    fn add_main_option<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+    >(
         &self,
-        long_name: &str,
+        long_name: &'s P,
         short_name: glib::Char,
         flags: glib::OptionFlags,
         arg: glib::OptionArg,
-        description: &str,
+        description: &'s Q,
         arg_description: Option<&str>,
     ) {
         unsafe {
@@ -346,7 +365,11 @@ impl<O: IsA<Application>> ApplicationExt for O {
     //    unsafe { TODO: call ffi:g_application_add_option_group() }
     //}
 
-    fn bind_busy_property<P: IsA<glib::Object>>(&self, object: &P, property: &str) {
+    fn bind_busy_property<'s, P: IsA<glib::Object>, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        object: &P,
+        property: &'s Q,
+    ) {
         unsafe {
             ffi::g_application_bind_busy_property(
                 self.as_ref().to_glib_none().0,
@@ -432,7 +455,7 @@ impl<O: IsA<Application>> ApplicationExt for O {
         }
     }
 
-    fn open(&self, files: &[File], hint: &str) {
+    fn open<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, files: &[File], hint: &'s P) {
         let n_files = files.len() as i32;
         unsafe {
             ffi::g_application_open(
@@ -554,7 +577,11 @@ impl<O: IsA<Application>> ApplicationExt for O {
         }
     }
 
-    fn unbind_busy_property<P: IsA<glib::Object>>(&self, object: &P, property: &str) {
+    fn unbind_busy_property<'s, P: IsA<glib::Object>, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        object: &P,
+        property: &'s Q,
+    ) {
         unsafe {
             ffi::g_application_unbind_busy_property(
                 self.as_ref().to_glib_none().0,
@@ -570,7 +597,7 @@ impl<O: IsA<Application>> ApplicationExt for O {
         }
     }
 
-    fn withdraw_notification(&self, id: &str) {
+    fn withdraw_notification<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, id: &'s P) {
         unsafe {
             ffi::g_application_withdraw_notification(
                 self.as_ref().to_glib_none().0,

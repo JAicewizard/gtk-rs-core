@@ -89,7 +89,7 @@ impl MainContext {
     }
 
     //#[doc(alias = "g_main_context_query")]
-    //pub fn query(&self, max_priority: i32, fds: /*Ignored*/Vec<PollFD>) -> (i32, i32) {
+    //pub fn query(&self, max_priority: i32, fds: /*Ignored*/&mut Vec<PollFD>) -> (i32, i32) {
     //    unsafe { TODO: call ffi:g_main_context_query() }
     //}
 

@@ -408,6 +408,10 @@ pub trait ToGlibPtr<'a, P: Copy> {
     fn to_glib_full(&self) -> P {
         unimplemented!();
     }
+
+    fn len(&self) -> usize {
+        unimplemented!();
+    }
 }
 ///
 /// Translate to a pointer with a mutable borrow.
@@ -466,6 +470,11 @@ impl<'a, P: Ptr, T: ?Sized + ToGlibPtr<'a, P>> ToGlibPtr<'a, P> for &'a T {
     fn to_glib_full(&self) -> P {
         (*self).to_glib_full()
     }
+
+    #[inline]
+    fn len(&self) -> usize {
+        (*self).len()
+    }
 }
 
 impl<'a> ToGlibPtr<'a, *const c_char> for str {
@@ -483,6 +492,11 @@ impl<'a> ToGlibPtr<'a, *const c_char> for str {
         unsafe {
             ffi::g_strndup(self.as_ptr() as *const c_char, self.len() as size_t) as *const c_char
         }
+    }
+
+    #[inline]
+    fn len(&self) -> usize {
+        self.len()
     }
 }
 
@@ -518,6 +532,11 @@ impl<'a> ToGlibPtr<'a, *const c_char> for String {
             ffi::g_strndup(self.as_ptr() as *const c_char, self.len() as size_t) as *const c_char
         }
     }
+
+    #[inline]
+    fn len(&self) -> usize {
+        self.len()
+    }
 }
 
 impl<'a> ToGlibPtr<'a, *mut c_char> for String {
@@ -535,6 +554,11 @@ impl<'a> ToGlibPtr<'a, *mut c_char> for String {
         unsafe {
             ffi::g_strndup(self.as_ptr() as *const c_char, self.len() as size_t) as *mut c_char
         }
+    }
+
+    #[inline]
+    fn len(&self) -> usize {
+        self.len()
     }
 }
 
@@ -621,6 +645,11 @@ impl<'a> ToGlibPtr<'a, *const c_char> for Path {
         let tmp = path_to_c(self);
         Stash(tmp.as_ptr(), tmp)
     }
+
+    #[inline]
+    fn len(&self) -> usize {
+        self.as_os_str().as_bytes().len()
+    }
 }
 
 impl<'a> ToGlibPtr<'a, *mut c_char> for Path {
@@ -630,6 +659,11 @@ impl<'a> ToGlibPtr<'a, *mut c_char> for Path {
     fn to_glib_none(&'a self) -> Stash<'a, *mut c_char, Self> {
         let tmp = path_to_c(self);
         Stash(tmp.as_ptr() as *mut c_char, tmp)
+    }
+
+    #[inline]
+    fn len(&self) -> usize {
+        self.as_os_str().as_bytes().len()
     }
 }
 
@@ -641,6 +675,11 @@ impl<'a> ToGlibPtr<'a, *const c_char> for PathBuf {
         let tmp = path_to_c(self);
         Stash(tmp.as_ptr(), tmp)
     }
+
+    #[inline]
+    fn len(&self) -> usize {
+        self.as_os_str().as_bytes().len()
+    }
 }
 
 impl<'a> ToGlibPtr<'a, *mut c_char> for PathBuf {
@@ -650,6 +689,11 @@ impl<'a> ToGlibPtr<'a, *mut c_char> for PathBuf {
     fn to_glib_none(&'a self) -> Stash<'a, *mut c_char, Self> {
         let tmp = path_to_c(self);
         Stash(tmp.as_ptr() as *mut c_char, tmp)
+    }
+
+    #[inline]
+    fn len(&self) -> usize {
+        self.as_os_str().as_bytes().len()
     }
 }
 
@@ -669,6 +713,11 @@ impl<'a> ToGlibPtr<'a, *const c_char> for OsStr {
         let tmp = os_str_to_c(self);
         Stash(tmp.as_ptr(), tmp)
     }
+
+    #[inline]
+    fn len(&self) -> usize {
+        self.len()
+    }
 }
 
 impl<'a> ToGlibPtr<'a, *mut c_char> for OsStr {
@@ -678,6 +727,11 @@ impl<'a> ToGlibPtr<'a, *mut c_char> for OsStr {
     fn to_glib_none(&'a self) -> Stash<'a, *mut c_char, Self> {
         let tmp = os_str_to_c(self);
         Stash(tmp.as_ptr() as *mut c_char, tmp)
+    }
+
+    #[inline]
+    fn len(&self) -> usize {
+        self.len()
     }
 }
 
@@ -689,6 +743,11 @@ impl<'a> ToGlibPtr<'a, *const c_char> for OsString {
         let tmp = os_str_to_c(self);
         Stash(tmp.as_ptr(), tmp)
     }
+
+    #[inline]
+    fn len(&self) -> usize {
+        self.as_bytes().len()
+    }
 }
 
 impl<'a> ToGlibPtr<'a, *mut c_char> for OsString {
@@ -698,6 +757,11 @@ impl<'a> ToGlibPtr<'a, *mut c_char> for OsString {
     fn to_glib_none(&'a self) -> Stash<'a, *mut c_char, Self> {
         let tmp = os_str_to_c(self);
         Stash(tmp.as_ptr() as *mut c_char, tmp)
+    }
+
+    #[inline]
+    fn len(&self) -> usize {
+        self.as_bytes().len()
     }
 }
 

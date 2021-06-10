@@ -8,6 +8,7 @@ use glib::object::IsA;
 use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -26,7 +27,10 @@ pub const NONE_DBUS_OBJECT: Option<&DBusObject> = None;
 pub trait DBusObjectExt: 'static {
     #[doc(alias = "g_dbus_object_get_interface")]
     #[doc(alias = "get_interface")]
-    fn interface(&self, interface_name: &str) -> Option<DBusInterface>;
+    fn interface<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        interface_name: &'s P,
+    ) -> Option<DBusInterface>;
 
     #[doc(alias = "g_dbus_object_get_interfaces")]
     #[doc(alias = "get_interfaces")]
@@ -50,7 +54,10 @@ pub trait DBusObjectExt: 'static {
 }
 
 impl<O: IsA<DBusObject>> DBusObjectExt for O {
-    fn interface(&self, interface_name: &str) -> Option<DBusInterface> {
+    fn interface<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        interface_name: &'s P,
+    ) -> Option<DBusInterface> {
         unsafe {
             from_glib_full(ffi::g_dbus_object_get_interface(
                 self.as_ref().to_glib_none().0,

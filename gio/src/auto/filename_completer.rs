@@ -6,6 +6,7 @@ use glib::object::ObjectType as ObjectType_;
 use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -27,7 +28,10 @@ impl FilenameCompleter {
 
     #[doc(alias = "g_filename_completer_get_completion_suffix")]
     #[doc(alias = "get_completion_suffix")]
-    pub fn completion_suffix(&self, initial_text: &str) -> Option<glib::GString> {
+    pub fn completion_suffix<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        initial_text: &'s P,
+    ) -> Option<glib::GString> {
         unsafe {
             from_glib_full(ffi::g_filename_completer_get_completion_suffix(
                 self.to_glib_none().0,
@@ -38,7 +42,10 @@ impl FilenameCompleter {
 
     #[doc(alias = "g_filename_completer_get_completions")]
     #[doc(alias = "get_completions")]
-    pub fn completions(&self, initial_text: &str) -> Vec<glib::GString> {
+    pub fn completions<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        initial_text: &'s P,
+    ) -> Vec<glib::GString> {
         unsafe {
             FromGlibPtrContainer::from_glib_full(ffi::g_filename_completer_get_completions(
                 self.to_glib_none().0,

@@ -363,123 +363,168 @@ extern "C" {
     // graphene_box_t
     //=========================================================================
     pub fn graphene_box_get_type() -> GType;
+    /*BO*/
     pub fn graphene_box_alloc() -> *mut graphene_box_t;
+    /*BO*/
     pub fn graphene_box_contains_box(
         a: *const graphene_box_t,
         b: *const graphene_box_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_box_contains_point(
         box_: *const graphene_box_t,
         point: *const graphene_point3d_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_box_equal(a: *const graphene_box_t, b: *const graphene_box_t) -> gboolean;
+    /*BO*/
     pub fn graphene_box_expand(
         box_: *const graphene_box_t,
         point: *const graphene_point3d_t,
         res: *mut graphene_box_t,
     );
+    /*BO*/
     pub fn graphene_box_expand_scalar(
         box_: *const graphene_box_t,
         scalar: c_float,
         res: *mut graphene_box_t,
     );
+    /*BO*/
     pub fn graphene_box_expand_vec3(
         box_: *const graphene_box_t,
         vec: *const graphene_vec3_t,
         res: *mut graphene_box_t,
     );
+    /*BO*/
     pub fn graphene_box_free(box_: *mut graphene_box_t);
+    /*BO*/
     pub fn graphene_box_get_bounding_sphere(
         box_: *const graphene_box_t,
         sphere: *mut graphene_sphere_t,
     );
+    /*BO*/
     pub fn graphene_box_get_center(box_: *const graphene_box_t, center: *mut graphene_point3d_t);
+    /*BO*/
     pub fn graphene_box_get_depth(box_: *const graphene_box_t) -> c_float;
+    /*BO*/
     pub fn graphene_box_get_height(box_: *const graphene_box_t) -> c_float;
+    /*BO*/
     pub fn graphene_box_get_max(box_: *const graphene_box_t, max: *mut graphene_point3d_t);
+    /*BO*/
     pub fn graphene_box_get_min(box_: *const graphene_box_t, min: *mut graphene_point3d_t);
+    /*BO*/
     pub fn graphene_box_get_size(box_: *const graphene_box_t, size: *mut graphene_vec3_t);
+    /*BO*/
     pub fn graphene_box_get_vertices(
         box_: *const graphene_box_t,
         vertices: *mut [graphene_vec3_t; 8],
     );
+    /*BO*/
     pub fn graphene_box_get_width(box_: *const graphene_box_t) -> c_float;
+    /*BO*/
     pub fn graphene_box_init(
         box_: *mut graphene_box_t,
         min: *const graphene_point3d_t,
         max: *const graphene_point3d_t,
     ) -> *mut graphene_box_t;
+    /*BO*/
     pub fn graphene_box_init_from_box(
         box_: *mut graphene_box_t,
         src: *const graphene_box_t,
     ) -> *mut graphene_box_t;
+    /*BO*/
     pub fn graphene_box_init_from_points(
         box_: *mut graphene_box_t,
         n_points: c_uint,
         points: *const graphene_point3d_t,
     ) -> *mut graphene_box_t;
+    /*BO*/
     pub fn graphene_box_init_from_vec3(
         box_: *mut graphene_box_t,
         min: *const graphene_vec3_t,
         max: *const graphene_vec3_t,
     ) -> *mut graphene_box_t;
+    /*BO*/
     pub fn graphene_box_init_from_vectors(
         box_: *mut graphene_box_t,
         n_vectors: c_uint,
         vectors: *const graphene_vec3_t,
     ) -> *mut graphene_box_t;
+    /*BO*/
     pub fn graphene_box_intersection(
         a: *const graphene_box_t,
         b: *const graphene_box_t,
         res: *mut graphene_box_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_box_union(
         a: *const graphene_box_t,
         b: *const graphene_box_t,
         res: *mut graphene_box_t,
     );
+    /*BO*/
     pub fn graphene_box_empty() -> *const graphene_box_t;
+    /*BO*/
     pub fn graphene_box_infinite() -> *const graphene_box_t;
+    /*BO*/
     pub fn graphene_box_minus_one() -> *const graphene_box_t;
+    /*BO*/
     pub fn graphene_box_one() -> *const graphene_box_t;
+    /*BO*/
     pub fn graphene_box_one_minus_one() -> *const graphene_box_t;
+    /*BO*/
     pub fn graphene_box_zero() -> *const graphene_box_t;
 
     //=========================================================================
     // graphene_euler_t
     //=========================================================================
     pub fn graphene_euler_get_type() -> GType;
+    /*BO*/
     pub fn graphene_euler_alloc() -> *mut graphene_euler_t;
+    /*BO*/
     pub fn graphene_euler_equal(a: *const graphene_euler_t, b: *const graphene_euler_t)
         -> gboolean;
+    /*BO*/
     pub fn graphene_euler_free(e: *mut graphene_euler_t);
+    /*BO*/
     pub fn graphene_euler_get_alpha(e: *const graphene_euler_t) -> c_float;
+    /*BO*/
     pub fn graphene_euler_get_beta(e: *const graphene_euler_t) -> c_float;
+    /*BO*/
     pub fn graphene_euler_get_gamma(e: *const graphene_euler_t) -> c_float;
+    /*BO*/
     pub fn graphene_euler_get_order(e: *const graphene_euler_t) -> graphene_euler_order_t;
+    /*BO*/
     pub fn graphene_euler_get_x(e: *const graphene_euler_t) -> c_float;
+    /*BO*/
     pub fn graphene_euler_get_y(e: *const graphene_euler_t) -> c_float;
+    /*BO*/
     pub fn graphene_euler_get_z(e: *const graphene_euler_t) -> c_float;
+    /*BO*/
     pub fn graphene_euler_init(
         e: *mut graphene_euler_t,
         x: c_float,
         y: c_float,
         z: c_float,
     ) -> *mut graphene_euler_t;
+    /*BO*/
     pub fn graphene_euler_init_from_euler(
         e: *mut graphene_euler_t,
         src: *const graphene_euler_t,
     ) -> *mut graphene_euler_t;
+    /*BO*/
     pub fn graphene_euler_init_from_matrix(
         e: *mut graphene_euler_t,
         m: *const graphene_matrix_t,
         order: graphene_euler_order_t,
     ) -> *mut graphene_euler_t;
+    /*BO*/
     pub fn graphene_euler_init_from_quaternion(
         e: *mut graphene_euler_t,
         q: *const graphene_quaternion_t,
         order: graphene_euler_order_t,
     ) -> *mut graphene_euler_t;
+    /*BO*/
     pub fn graphene_euler_init_from_radians(
         e: *mut graphene_euler_t,
         x: c_float,
@@ -487,11 +532,13 @@ extern "C" {
         z: c_float,
         order: graphene_euler_order_t,
     ) -> *mut graphene_euler_t;
+    /*BO*/
     pub fn graphene_euler_init_from_vec3(
         e: *mut graphene_euler_t,
         v: *const graphene_vec3_t,
         order: graphene_euler_order_t,
     ) -> *mut graphene_euler_t;
+    /*BO*/
     pub fn graphene_euler_init_with_order(
         e: *mut graphene_euler_t,
         x: c_float,
@@ -499,36 +546,46 @@ extern "C" {
         z: c_float,
         order: graphene_euler_order_t,
     ) -> *mut graphene_euler_t;
+    /*BO*/
     pub fn graphene_euler_reorder(
         e: *const graphene_euler_t,
         order: graphene_euler_order_t,
         res: *mut graphene_euler_t,
     );
+    /*BO*/
     pub fn graphene_euler_to_matrix(e: *const graphene_euler_t, res: *mut graphene_matrix_t);
+    /*BO*/
     pub fn graphene_euler_to_quaternion(
         e: *const graphene_euler_t,
         res: *mut graphene_quaternion_t,
     );
+    /*BO*/
     pub fn graphene_euler_to_vec3(e: *const graphene_euler_t, res: *mut graphene_vec3_t);
 
     //=========================================================================
     // graphene_frustum_t
     //=========================================================================
     pub fn graphene_frustum_get_type() -> GType;
+    /*BO*/
     pub fn graphene_frustum_alloc() -> *mut graphene_frustum_t;
+    /*BO*/
     pub fn graphene_frustum_contains_point(
         f: *const graphene_frustum_t,
         point: *const graphene_point3d_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_frustum_equal(
         a: *const graphene_frustum_t,
         b: *const graphene_frustum_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_frustum_free(f: *mut graphene_frustum_t);
+    /*BO*/
     pub fn graphene_frustum_get_planes(
         f: *const graphene_frustum_t,
         planes: *mut [graphene_plane_t; 6],
     );
+    /*BO*/
     pub fn graphene_frustum_init(
         f: *mut graphene_frustum_t,
         p0: *const graphene_plane_t,
@@ -538,18 +595,22 @@ extern "C" {
         p4: *const graphene_plane_t,
         p5: *const graphene_plane_t,
     ) -> *mut graphene_frustum_t;
+    /*BO*/
     pub fn graphene_frustum_init_from_frustum(
         f: *mut graphene_frustum_t,
         src: *const graphene_frustum_t,
     ) -> *mut graphene_frustum_t;
+    /*BO*/
     pub fn graphene_frustum_init_from_matrix(
         f: *mut graphene_frustum_t,
         matrix: *const graphene_matrix_t,
     ) -> *mut graphene_frustum_t;
+    /*BO*/
     pub fn graphene_frustum_intersects_box(
         f: *const graphene_frustum_t,
         box_: *const graphene_box_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_frustum_intersects_sphere(
         f: *const graphene_frustum_t,
         sphere: *const graphene_sphere_t,
@@ -559,7 +620,9 @@ extern "C" {
     // graphene_matrix_t
     //=========================================================================
     pub fn graphene_matrix_get_type() -> GType;
+    /*BO*/
     pub fn graphene_matrix_alloc() -> *mut graphene_matrix_t;
+    /*BO*/
     pub fn graphene_matrix_decompose(
         m: *const graphene_matrix_t,
         translate: *mut graphene_vec3_t,
@@ -568,32 +631,45 @@ extern "C" {
         shear: *mut graphene_vec3_t,
         perspective: *mut graphene_vec4_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_matrix_determinant(m: *const graphene_matrix_t) -> c_float;
+    /*BO*/
     pub fn graphene_matrix_equal(
         a: *const graphene_matrix_t,
         b: *const graphene_matrix_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_matrix_equal_fast(
         a: *const graphene_matrix_t,
         b: *const graphene_matrix_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_matrix_free(m: *mut graphene_matrix_t);
+    /*BO*/
     pub fn graphene_matrix_get_row(
         m: *const graphene_matrix_t,
         index_: c_uint,
         res: *mut graphene_vec4_t,
     );
+    /*BO*/
     pub fn graphene_matrix_get_value(
         m: *const graphene_matrix_t,
         row: c_uint,
         col: c_uint,
     ) -> c_float;
+    /*BO*/
     pub fn graphene_matrix_get_x_scale(m: *const graphene_matrix_t) -> c_float;
+    /*BO*/
     pub fn graphene_matrix_get_x_translation(m: *const graphene_matrix_t) -> c_float;
+    /*BO*/
     pub fn graphene_matrix_get_y_scale(m: *const graphene_matrix_t) -> c_float;
+    /*BO*/
     pub fn graphene_matrix_get_y_translation(m: *const graphene_matrix_t) -> c_float;
+    /*BO*/
     pub fn graphene_matrix_get_z_scale(m: *const graphene_matrix_t) -> c_float;
+    /*BO*/
     pub fn graphene_matrix_get_z_translation(m: *const graphene_matrix_t) -> c_float;
+    /*BO*/
     pub fn graphene_matrix_init_from_2d(
         m: *mut graphene_matrix_t,
         xx: c_double,
@@ -603,14 +679,17 @@ extern "C" {
         x_0: c_double,
         y_0: c_double,
     ) -> *mut graphene_matrix_t;
+    /*BO*/
     pub fn graphene_matrix_init_from_float(
         m: *mut graphene_matrix_t,
         v: *const [c_float; 16],
     ) -> *mut graphene_matrix_t;
+    /*BO*/
     pub fn graphene_matrix_init_from_matrix(
         m: *mut graphene_matrix_t,
         src: *const graphene_matrix_t,
     ) -> *mut graphene_matrix_t;
+    /*BO*/
     pub fn graphene_matrix_init_from_vec4(
         m: *mut graphene_matrix_t,
         v0: *const graphene_vec4_t,
@@ -618,6 +697,7 @@ extern "C" {
         v2: *const graphene_vec4_t,
         v3: *const graphene_vec4_t,
     ) -> *mut graphene_matrix_t;
+    /*BO*/
     pub fn graphene_matrix_init_frustum(
         m: *mut graphene_matrix_t,
         left: c_float,
@@ -627,13 +707,16 @@ extern "C" {
         z_near: c_float,
         z_far: c_float,
     ) -> *mut graphene_matrix_t;
+    /*BO*/
     pub fn graphene_matrix_init_identity(m: *mut graphene_matrix_t) -> *mut graphene_matrix_t;
+    /*BO*/
     pub fn graphene_matrix_init_look_at(
         m: *mut graphene_matrix_t,
         eye: *const graphene_vec3_t,
         center: *const graphene_vec3_t,
         up: *const graphene_vec3_t,
     ) -> *mut graphene_matrix_t;
+    /*BO*/
     pub fn graphene_matrix_init_ortho(
         m: *mut graphene_matrix_t,
         left: c_float,
@@ -643,6 +726,7 @@ extern "C" {
         z_near: c_float,
         z_far: c_float,
     ) -> *mut graphene_matrix_t;
+    /*BO*/
     pub fn graphene_matrix_init_perspective(
         m: *mut graphene_matrix_t,
         fovy: c_float,
@@ -650,94 +734,123 @@ extern "C" {
         z_near: c_float,
         z_far: c_float,
     ) -> *mut graphene_matrix_t;
+    /*BO*/
     pub fn graphene_matrix_init_rotate(
         m: *mut graphene_matrix_t,
         angle: c_float,
         axis: *const graphene_vec3_t,
     ) -> *mut graphene_matrix_t;
+    /*BO*/
     pub fn graphene_matrix_init_scale(
         m: *mut graphene_matrix_t,
         x: c_float,
         y: c_float,
         z: c_float,
     ) -> *mut graphene_matrix_t;
+    /*BO*/
     pub fn graphene_matrix_init_skew(
         m: *mut graphene_matrix_t,
         x_skew: c_float,
         y_skew: c_float,
     ) -> *mut graphene_matrix_t;
+    /*BO*/
     pub fn graphene_matrix_init_translate(
         m: *mut graphene_matrix_t,
         p: *const graphene_point3d_t,
     ) -> *mut graphene_matrix_t;
+    /*BO*/
     pub fn graphene_matrix_interpolate(
         a: *const graphene_matrix_t,
         b: *const graphene_matrix_t,
         factor: c_double,
         res: *mut graphene_matrix_t,
     );
+    /*BO*/
     pub fn graphene_matrix_inverse(
         m: *const graphene_matrix_t,
         res: *mut graphene_matrix_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_matrix_is_2d(m: *const graphene_matrix_t) -> gboolean;
+    /*BO*/
     pub fn graphene_matrix_is_backface_visible(m: *const graphene_matrix_t) -> gboolean;
+    /*BO*/
     pub fn graphene_matrix_is_identity(m: *const graphene_matrix_t) -> gboolean;
+    /*BO*/
     pub fn graphene_matrix_is_singular(m: *const graphene_matrix_t) -> gboolean;
+    /*BO*/
     pub fn graphene_matrix_multiply(
         a: *const graphene_matrix_t,
         b: *const graphene_matrix_t,
         res: *mut graphene_matrix_t,
     );
+    /*BO*/
     pub fn graphene_matrix_near(
         a: *const graphene_matrix_t,
         b: *const graphene_matrix_t,
         epsilon: c_float,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_matrix_normalize(m: *const graphene_matrix_t, res: *mut graphene_matrix_t);
+    /*BO*/
     pub fn graphene_matrix_perspective(
         m: *const graphene_matrix_t,
         depth: c_float,
         res: *mut graphene_matrix_t,
     );
+    /*BO*/
     pub fn graphene_matrix_print(m: *const graphene_matrix_t);
+    /*BO*/
     pub fn graphene_matrix_project_point(
         m: *const graphene_matrix_t,
         p: *const graphene_point_t,
         res: *mut graphene_point_t,
     );
+    /*BO*/
     pub fn graphene_matrix_project_rect(
         m: *const graphene_matrix_t,
         r: *const graphene_rect_t,
         res: *mut graphene_quad_t,
     );
+    /*BO*/
     pub fn graphene_matrix_project_rect_bounds(
         m: *const graphene_matrix_t,
         r: *const graphene_rect_t,
         res: *mut graphene_rect_t,
     );
+    /*BO*/
     pub fn graphene_matrix_rotate(
         m: *mut graphene_matrix_t,
         angle: c_float,
         axis: *const graphene_vec3_t,
     );
+    /*BO*/
     pub fn graphene_matrix_rotate_euler(m: *mut graphene_matrix_t, e: *const graphene_euler_t);
+    /*BO*/
     pub fn graphene_matrix_rotate_quaternion(
         m: *mut graphene_matrix_t,
         q: *const graphene_quaternion_t,
     );
+    /*BO*/
     pub fn graphene_matrix_rotate_x(m: *mut graphene_matrix_t, angle: c_float);
+    /*BO*/
     pub fn graphene_matrix_rotate_y(m: *mut graphene_matrix_t, angle: c_float);
+    /*BO*/
     pub fn graphene_matrix_rotate_z(m: *mut graphene_matrix_t, angle: c_float);
+    /*BO*/
     pub fn graphene_matrix_scale(
         m: *mut graphene_matrix_t,
         factor_x: c_float,
         factor_y: c_float,
         factor_z: c_float,
     );
+    /*BO*/
     pub fn graphene_matrix_skew_xy(m: *mut graphene_matrix_t, factor: c_float);
+    /*BO*/
     pub fn graphene_matrix_skew_xz(m: *mut graphene_matrix_t, factor: c_float);
+    /*BO*/
     pub fn graphene_matrix_skew_yz(m: *mut graphene_matrix_t, factor: c_float);
+    /*BO*/
     pub fn graphene_matrix_to_2d(
         m: *const graphene_matrix_t,
         xx: *mut c_double,
@@ -747,66 +860,81 @@ extern "C" {
         x_0: *mut c_double,
         y_0: *mut c_double,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_matrix_to_float(m: *const graphene_matrix_t, v: *mut [c_float; 16]);
+    /*BO*/
     pub fn graphene_matrix_transform_bounds(
         m: *const graphene_matrix_t,
         r: *const graphene_rect_t,
         res: *mut graphene_rect_t,
     );
+    /*BO*/
     pub fn graphene_matrix_transform_box(
         m: *const graphene_matrix_t,
         b: *const graphene_box_t,
         res: *mut graphene_box_t,
     );
+    /*BO*/
     pub fn graphene_matrix_transform_point(
         m: *const graphene_matrix_t,
         p: *const graphene_point_t,
         res: *mut graphene_point_t,
     );
+    /*BO*/
     pub fn graphene_matrix_transform_point3d(
         m: *const graphene_matrix_t,
         p: *const graphene_point3d_t,
         res: *mut graphene_point3d_t,
     );
+    /*BO*/
     pub fn graphene_matrix_transform_ray(
         m: *const graphene_matrix_t,
         r: *const graphene_ray_t,
         res: *mut graphene_ray_t,
     );
+    /*BO*/
     pub fn graphene_matrix_transform_rect(
         m: *const graphene_matrix_t,
         r: *const graphene_rect_t,
         res: *mut graphene_quad_t,
     );
+    /*BO*/
     pub fn graphene_matrix_transform_sphere(
         m: *const graphene_matrix_t,
         s: *const graphene_sphere_t,
         res: *mut graphene_sphere_t,
     );
+    /*BO*/
     pub fn graphene_matrix_transform_vec3(
         m: *const graphene_matrix_t,
         v: *const graphene_vec3_t,
         res: *mut graphene_vec3_t,
     );
+    /*BO*/
     pub fn graphene_matrix_transform_vec4(
         m: *const graphene_matrix_t,
         v: *const graphene_vec4_t,
         res: *mut graphene_vec4_t,
     );
+    /*BO*/
     pub fn graphene_matrix_translate(m: *mut graphene_matrix_t, pos: *const graphene_point3d_t);
+    /*BO*/
     pub fn graphene_matrix_transpose(m: *const graphene_matrix_t, res: *mut graphene_matrix_t);
+    /*BO*/
     pub fn graphene_matrix_unproject_point3d(
         projection: *const graphene_matrix_t,
         modelview: *const graphene_matrix_t,
         point: *const graphene_point3d_t,
         res: *mut graphene_point3d_t,
     );
+    /*BO*/
     pub fn graphene_matrix_untransform_bounds(
         m: *const graphene_matrix_t,
         r: *const graphene_rect_t,
         bounds: *const graphene_rect_t,
         res: *mut graphene_rect_t,
     );
+    /*BO*/
     pub fn graphene_matrix_untransform_point(
         m: *const graphene_matrix_t,
         p: *const graphene_point_t,
@@ -818,42 +946,56 @@ extern "C" {
     // graphene_plane_t
     //=========================================================================
     pub fn graphene_plane_get_type() -> GType;
+    /*BO*/
     pub fn graphene_plane_alloc() -> *mut graphene_plane_t;
+    /*BO*/
     pub fn graphene_plane_distance(
         p: *const graphene_plane_t,
         point: *const graphene_point3d_t,
     ) -> c_float;
+    /*BO*/
     pub fn graphene_plane_equal(a: *const graphene_plane_t, b: *const graphene_plane_t)
         -> gboolean;
+    /*BO*/
     pub fn graphene_plane_free(p: *mut graphene_plane_t);
+    /*BO*/
     pub fn graphene_plane_get_constant(p: *const graphene_plane_t) -> c_float;
+    /*BO*/
     pub fn graphene_plane_get_normal(p: *const graphene_plane_t, normal: *mut graphene_vec3_t);
+    /*BO*/
     pub fn graphene_plane_init(
         p: *mut graphene_plane_t,
         normal: *const graphene_vec3_t,
         constant: c_float,
     ) -> *mut graphene_plane_t;
+    /*BO*/
     pub fn graphene_plane_init_from_plane(
         p: *mut graphene_plane_t,
         src: *const graphene_plane_t,
     ) -> *mut graphene_plane_t;
+    /*BO*/
     pub fn graphene_plane_init_from_point(
         p: *mut graphene_plane_t,
         normal: *const graphene_vec3_t,
         point: *const graphene_point3d_t,
     ) -> *mut graphene_plane_t;
+    /*BO*/
     pub fn graphene_plane_init_from_points(
         p: *mut graphene_plane_t,
         a: *const graphene_point3d_t,
         b: *const graphene_point3d_t,
         c: *const graphene_point3d_t,
     ) -> *mut graphene_plane_t;
+    /*BO*/
     pub fn graphene_plane_init_from_vec4(
         p: *mut graphene_plane_t,
         src: *const graphene_vec4_t,
     ) -> *mut graphene_plane_t;
+    /*BO*/
     pub fn graphene_plane_negate(p: *const graphene_plane_t, res: *mut graphene_plane_t);
+    /*BO*/
     pub fn graphene_plane_normalize(p: *const graphene_plane_t, res: *mut graphene_plane_t);
+    /*BO*/
     pub fn graphene_plane_transform(
         p: *const graphene_plane_t,
         matrix: *const graphene_matrix_t,
@@ -865,53 +1007,67 @@ extern "C" {
     // graphene_point3d_t
     //=========================================================================
     pub fn graphene_point3d_get_type() -> GType;
+    /*BO*/
     pub fn graphene_point3d_alloc() -> *mut graphene_point3d_t;
+    /*BO*/
     pub fn graphene_point3d_cross(
         a: *const graphene_point3d_t,
         b: *const graphene_point3d_t,
         res: *mut graphene_point3d_t,
     );
+    /*BO*/
     pub fn graphene_point3d_distance(
         a: *const graphene_point3d_t,
         b: *const graphene_point3d_t,
         delta: *mut graphene_vec3_t,
     ) -> c_float;
+    /*BO*/
     pub fn graphene_point3d_dot(
         a: *const graphene_point3d_t,
         b: *const graphene_point3d_t,
     ) -> c_float;
+    /*BO*/
     pub fn graphene_point3d_equal(
         a: *const graphene_point3d_t,
         b: *const graphene_point3d_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_point3d_free(p: *mut graphene_point3d_t);
+    /*BO*/
     pub fn graphene_point3d_init(
         p: *mut graphene_point3d_t,
         x: c_float,
         y: c_float,
         z: c_float,
     ) -> *mut graphene_point3d_t;
+    /*BO*/
     pub fn graphene_point3d_init_from_point(
         p: *mut graphene_point3d_t,
         src: *const graphene_point3d_t,
     ) -> *mut graphene_point3d_t;
+    /*BO*/
     pub fn graphene_point3d_init_from_vec3(
         p: *mut graphene_point3d_t,
         v: *const graphene_vec3_t,
     ) -> *mut graphene_point3d_t;
+    /*BO*/
     pub fn graphene_point3d_interpolate(
         a: *const graphene_point3d_t,
         b: *const graphene_point3d_t,
         factor: c_double,
         res: *mut graphene_point3d_t,
     );
+    /*BO*/
     pub fn graphene_point3d_length(p: *const graphene_point3d_t) -> c_float;
+    /*BO*/
     pub fn graphene_point3d_near(
         a: *const graphene_point3d_t,
         b: *const graphene_point3d_t,
         epsilon: c_float,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_point3d_normalize(p: *const graphene_point3d_t, res: *mut graphene_point3d_t);
+    /*BO*/
     pub fn graphene_point3d_normalize_viewport(
         p: *const graphene_point3d_t,
         viewport: *const graphene_rect_t,
@@ -919,70 +1075,90 @@ extern "C" {
         z_far: c_float,
         res: *mut graphene_point3d_t,
     );
+    /*BO*/
     pub fn graphene_point3d_scale(
         p: *const graphene_point3d_t,
         factor: c_float,
         res: *mut graphene_point3d_t,
     );
+    /*BO*/
     pub fn graphene_point3d_to_vec3(p: *const graphene_point3d_t, v: *mut graphene_vec3_t);
+    /*BO*/
     pub fn graphene_point3d_zero() -> *const graphene_point3d_t;
 
     //=========================================================================
     // graphene_point_t
     //=========================================================================
     pub fn graphene_point_get_type() -> GType;
+    /*BO*/
     pub fn graphene_point_alloc() -> *mut graphene_point_t;
+    /*BO*/
     pub fn graphene_point_distance(
         a: *const graphene_point_t,
         b: *const graphene_point_t,
         d_x: *mut c_float,
         d_y: *mut c_float,
     ) -> c_float;
+    /*BO*/
     pub fn graphene_point_equal(a: *const graphene_point_t, b: *const graphene_point_t)
         -> gboolean;
+    /*BO*/
     pub fn graphene_point_free(p: *mut graphene_point_t);
+    /*BO*/
     pub fn graphene_point_init(
         p: *mut graphene_point_t,
         x: c_float,
         y: c_float,
     ) -> *mut graphene_point_t;
+    /*BO*/
     pub fn graphene_point_init_from_point(
         p: *mut graphene_point_t,
         src: *const graphene_point_t,
     ) -> *mut graphene_point_t;
+    /*BO*/
     pub fn graphene_point_init_from_vec2(
         p: *mut graphene_point_t,
         src: *const graphene_vec2_t,
     ) -> *mut graphene_point_t;
+    /*BO*/
     pub fn graphene_point_interpolate(
         a: *const graphene_point_t,
         b: *const graphene_point_t,
         factor: c_double,
         res: *mut graphene_point_t,
     );
+    /*BO*/
     pub fn graphene_point_near(
         a: *const graphene_point_t,
         b: *const graphene_point_t,
         epsilon: c_float,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_point_to_vec2(p: *const graphene_point_t, v: *mut graphene_vec2_t);
+    /*BO*/
     pub fn graphene_point_zero() -> *const graphene_point_t;
 
     //=========================================================================
     // graphene_quad_t
     //=========================================================================
     pub fn graphene_quad_get_type() -> GType;
+    /*BO*/
     pub fn graphene_quad_alloc() -> *mut graphene_quad_t;
+    /*BO*/
     pub fn graphene_quad_bounds(q: *const graphene_quad_t, r: *mut graphene_rect_t);
+    /*BO*/
     pub fn graphene_quad_contains(
         q: *const graphene_quad_t,
         p: *const graphene_point_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_quad_free(q: *mut graphene_quad_t);
+    /*BO*/
     pub fn graphene_quad_get_point(
         q: *const graphene_quad_t,
         index_: c_uint,
     ) -> *const graphene_point_t;
+    /*BO*/
     pub fn graphene_quad_init(
         q: *mut graphene_quad_t,
         p1: *const graphene_point_t,
@@ -990,10 +1166,12 @@ extern "C" {
         p3: *const graphene_point_t,
         p4: *const graphene_point_t,
     ) -> *mut graphene_quad_t;
+    /*BO*/
     pub fn graphene_quad_init_from_points(
         q: *mut graphene_quad_t,
         points: *const [graphene_point_t; 4],
     ) -> *mut graphene_quad_t;
+    /*BO*/
     pub fn graphene_quad_init_from_rect(
         q: *mut graphene_quad_t,
         r: *const graphene_rect_t,
@@ -1003,21 +1181,27 @@ extern "C" {
     // graphene_quaternion_t
     //=========================================================================
     pub fn graphene_quaternion_get_type() -> GType;
+    /*BO*/
     pub fn graphene_quaternion_alloc() -> *mut graphene_quaternion_t;
+    /*BO*/
     pub fn graphene_quaternion_add(
         a: *const graphene_quaternion_t,
         b: *const graphene_quaternion_t,
         res: *mut graphene_quaternion_t,
     );
+    /*BO*/
     pub fn graphene_quaternion_dot(
         a: *const graphene_quaternion_t,
         b: *const graphene_quaternion_t,
     ) -> c_float;
+    /*BO*/
     pub fn graphene_quaternion_equal(
         a: *const graphene_quaternion_t,
         b: *const graphene_quaternion_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_quaternion_free(q: *mut graphene_quaternion_t);
+    /*BO*/
     pub fn graphene_quaternion_init(
         q: *mut graphene_quaternion_t,
         x: c_float,
@@ -1025,153 +1209,189 @@ extern "C" {
         z: c_float,
         w: c_float,
     ) -> *mut graphene_quaternion_t;
+    /*BO*/
     pub fn graphene_quaternion_init_from_angle_vec3(
         q: *mut graphene_quaternion_t,
         angle: c_float,
         axis: *const graphene_vec3_t,
     ) -> *mut graphene_quaternion_t;
+    /*BO*/
     pub fn graphene_quaternion_init_from_angles(
         q: *mut graphene_quaternion_t,
         deg_x: c_float,
         deg_y: c_float,
         deg_z: c_float,
     ) -> *mut graphene_quaternion_t;
+    /*BO*/
     pub fn graphene_quaternion_init_from_euler(
         q: *mut graphene_quaternion_t,
         e: *const graphene_euler_t,
     ) -> *mut graphene_quaternion_t;
+    /*BO*/
     pub fn graphene_quaternion_init_from_matrix(
         q: *mut graphene_quaternion_t,
         m: *const graphene_matrix_t,
     ) -> *mut graphene_quaternion_t;
+    /*BO*/
     pub fn graphene_quaternion_init_from_quaternion(
         q: *mut graphene_quaternion_t,
         src: *const graphene_quaternion_t,
     ) -> *mut graphene_quaternion_t;
+    /*BO*/
     pub fn graphene_quaternion_init_from_radians(
         q: *mut graphene_quaternion_t,
         rad_x: c_float,
         rad_y: c_float,
         rad_z: c_float,
     ) -> *mut graphene_quaternion_t;
+    /*BO*/
     pub fn graphene_quaternion_init_from_vec4(
         q: *mut graphene_quaternion_t,
         src: *const graphene_vec4_t,
     ) -> *mut graphene_quaternion_t;
+    /*BO*/
     pub fn graphene_quaternion_init_identity(
         q: *mut graphene_quaternion_t,
     ) -> *mut graphene_quaternion_t;
+    /*BO*/
     pub fn graphene_quaternion_invert(
         q: *const graphene_quaternion_t,
         res: *mut graphene_quaternion_t,
     );
+    /*BO*/
     pub fn graphene_quaternion_multiply(
         a: *const graphene_quaternion_t,
         b: *const graphene_quaternion_t,
         res: *mut graphene_quaternion_t,
     );
+    /*BO*/
     pub fn graphene_quaternion_normalize(
         q: *const graphene_quaternion_t,
         res: *mut graphene_quaternion_t,
     );
+    /*BO*/
     pub fn graphene_quaternion_scale(
         q: *const graphene_quaternion_t,
         factor: c_float,
         res: *mut graphene_quaternion_t,
     );
+    /*BO*/
     pub fn graphene_quaternion_slerp(
         a: *const graphene_quaternion_t,
         b: *const graphene_quaternion_t,
         factor: c_float,
         res: *mut graphene_quaternion_t,
     );
+    /*BO*/
     pub fn graphene_quaternion_to_angle_vec3(
         q: *const graphene_quaternion_t,
         angle: *mut c_float,
         axis: *mut graphene_vec3_t,
     );
+    /*BO*/
     pub fn graphene_quaternion_to_angles(
         q: *const graphene_quaternion_t,
         deg_x: *mut c_float,
         deg_y: *mut c_float,
         deg_z: *mut c_float,
     );
+    /*BO*/
     pub fn graphene_quaternion_to_matrix(
         q: *const graphene_quaternion_t,
         m: *mut graphene_matrix_t,
     );
+    /*BO*/
     pub fn graphene_quaternion_to_radians(
         q: *const graphene_quaternion_t,
         rad_x: *mut c_float,
         rad_y: *mut c_float,
         rad_z: *mut c_float,
     );
+    /*BO*/
     pub fn graphene_quaternion_to_vec4(q: *const graphene_quaternion_t, res: *mut graphene_vec4_t);
 
     //=========================================================================
     // graphene_ray_t
     //=========================================================================
     pub fn graphene_ray_get_type() -> GType;
+    /*BO*/
     pub fn graphene_ray_alloc() -> *mut graphene_ray_t;
+    /*BO*/
     pub fn graphene_ray_equal(a: *const graphene_ray_t, b: *const graphene_ray_t) -> gboolean;
+    /*BO*/
     pub fn graphene_ray_free(r: *mut graphene_ray_t);
+    /*BO*/
     pub fn graphene_ray_get_closest_point_to_point(
         r: *const graphene_ray_t,
         p: *const graphene_point3d_t,
         res: *mut graphene_point3d_t,
     );
+    /*BO*/
     pub fn graphene_ray_get_direction(r: *const graphene_ray_t, direction: *mut graphene_vec3_t);
+    /*BO*/
     pub fn graphene_ray_get_distance_to_plane(
         r: *const graphene_ray_t,
         p: *const graphene_plane_t,
     ) -> c_float;
+    /*BO*/
     pub fn graphene_ray_get_distance_to_point(
         r: *const graphene_ray_t,
         p: *const graphene_point3d_t,
     ) -> c_float;
+    /*BO*/
     pub fn graphene_ray_get_origin(r: *const graphene_ray_t, origin: *mut graphene_point3d_t);
+    /*BO*/
     pub fn graphene_ray_get_position_at(
         r: *const graphene_ray_t,
         t: c_float,
         position: *mut graphene_point3d_t,
     );
+    /*BO*/
     pub fn graphene_ray_init(
         r: *mut graphene_ray_t,
         origin: *const graphene_point3d_t,
         direction: *const graphene_vec3_t,
     ) -> *mut graphene_ray_t;
+    /*BO*/
     pub fn graphene_ray_init_from_ray(
         r: *mut graphene_ray_t,
         src: *const graphene_ray_t,
     ) -> *mut graphene_ray_t;
+    /*BO*/
     pub fn graphene_ray_init_from_vec3(
         r: *mut graphene_ray_t,
         origin: *const graphene_vec3_t,
         direction: *const graphene_vec3_t,
     ) -> *mut graphene_ray_t;
+    /*BO*/
     pub fn graphene_ray_intersect_box(
         r: *const graphene_ray_t,
         b: *const graphene_box_t,
         t_out: *mut c_float,
     ) -> graphene_ray_intersection_kind_t;
+    /*BO*/
     pub fn graphene_ray_intersect_sphere(
         r: *const graphene_ray_t,
         s: *const graphene_sphere_t,
         t_out: *mut c_float,
     ) -> graphene_ray_intersection_kind_t;
+    /*BO*/
     pub fn graphene_ray_intersect_triangle(
         r: *const graphene_ray_t,
         t: *const graphene_triangle_t,
         t_out: *mut c_float,
     ) -> graphene_ray_intersection_kind_t;
+    /*BO*/
     pub fn graphene_ray_intersects_box(
         r: *const graphene_ray_t,
         b: *const graphene_box_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_ray_intersects_sphere(
         r: *const graphene_ray_t,
         s: *const graphene_sphere_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_ray_intersects_triangle(
         r: *const graphene_ray_t,
         t: *const graphene_triangle_t,
@@ -1181,35 +1401,52 @@ extern "C" {
     // graphene_rect_t
     //=========================================================================
     pub fn graphene_rect_get_type() -> GType;
+    /*BO*/
     pub fn graphene_rect_contains_point(
         r: *const graphene_rect_t,
         p: *const graphene_point_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_rect_contains_rect(
         a: *const graphene_rect_t,
         b: *const graphene_rect_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_rect_equal(a: *const graphene_rect_t, b: *const graphene_rect_t) -> gboolean;
+    /*BO*/
     pub fn graphene_rect_expand(
         r: *const graphene_rect_t,
         p: *const graphene_point_t,
         res: *mut graphene_rect_t,
     );
+    /*BO*/
     pub fn graphene_rect_free(r: *mut graphene_rect_t);
+    /*BO*/
     pub fn graphene_rect_get_area(r: *const graphene_rect_t) -> c_float;
+    /*BO*/
     pub fn graphene_rect_get_bottom_left(r: *const graphene_rect_t, p: *mut graphene_point_t);
+    /*BO*/
     pub fn graphene_rect_get_bottom_right(r: *const graphene_rect_t, p: *mut graphene_point_t);
+    /*BO*/
     pub fn graphene_rect_get_center(r: *const graphene_rect_t, p: *mut graphene_point_t);
+    /*BO*/
     pub fn graphene_rect_get_height(r: *const graphene_rect_t) -> c_float;
+    /*BO*/
     pub fn graphene_rect_get_top_left(r: *const graphene_rect_t, p: *mut graphene_point_t);
+    /*BO*/
     pub fn graphene_rect_get_top_right(r: *const graphene_rect_t, p: *mut graphene_point_t);
+    /*BO*/
     pub fn graphene_rect_get_vertices(
         r: *const graphene_rect_t,
         vertices: *mut [graphene_vec2_t; 4],
     );
+    /*BO*/
     pub fn graphene_rect_get_width(r: *const graphene_rect_t) -> c_float;
+    /*BO*/
     pub fn graphene_rect_get_x(r: *const graphene_rect_t) -> c_float;
+    /*BO*/
     pub fn graphene_rect_get_y(r: *const graphene_rect_t) -> c_float;
+    /*BO*/
     pub fn graphene_rect_init(
         r: *mut graphene_rect_t,
         x: c_float,
@@ -1217,130 +1454,167 @@ extern "C" {
         width: c_float,
         height: c_float,
     ) -> *mut graphene_rect_t;
+    /*BO*/
     pub fn graphene_rect_init_from_rect(
         r: *mut graphene_rect_t,
         src: *const graphene_rect_t,
     ) -> *mut graphene_rect_t;
+    /*BO*/
     pub fn graphene_rect_inset(
         r: *mut graphene_rect_t,
         d_x: c_float,
         d_y: c_float,
     ) -> *mut graphene_rect_t;
+    /*BO*/
     pub fn graphene_rect_inset_r(
         r: *const graphene_rect_t,
         d_x: c_float,
         d_y: c_float,
         res: *mut graphene_rect_t,
     );
+    /*BO*/
     pub fn graphene_rect_interpolate(
         a: *const graphene_rect_t,
         b: *const graphene_rect_t,
         factor: c_double,
         res: *mut graphene_rect_t,
     );
+    /*BO*/
     pub fn graphene_rect_intersection(
         a: *const graphene_rect_t,
         b: *const graphene_rect_t,
         res: *mut graphene_rect_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_rect_normalize(r: *mut graphene_rect_t) -> *mut graphene_rect_t;
+    /*BO*/
     pub fn graphene_rect_normalize_r(r: *const graphene_rect_t, res: *mut graphene_rect_t);
+    /*BO*/
     pub fn graphene_rect_offset(
         r: *mut graphene_rect_t,
         d_x: c_float,
         d_y: c_float,
     ) -> *mut graphene_rect_t;
+    /*BO*/
     pub fn graphene_rect_offset_r(
         r: *const graphene_rect_t,
         d_x: c_float,
         d_y: c_float,
         res: *mut graphene_rect_t,
     );
+    /*BO*/
     pub fn graphene_rect_round(r: *const graphene_rect_t, res: *mut graphene_rect_t);
+    /*BO*/
     pub fn graphene_rect_round_extents(r: *const graphene_rect_t, res: *mut graphene_rect_t);
+    /*BO*/
     pub fn graphene_rect_round_to_pixel(r: *mut graphene_rect_t) -> *mut graphene_rect_t;
+    /*BO*/
     pub fn graphene_rect_scale(
         r: *const graphene_rect_t,
         s_h: c_float,
         s_v: c_float,
         res: *mut graphene_rect_t,
     );
+    /*BO*/
     pub fn graphene_rect_union(
         a: *const graphene_rect_t,
         b: *const graphene_rect_t,
         res: *mut graphene_rect_t,
     );
+    /*BO*/
     pub fn graphene_rect_alloc() -> *mut graphene_rect_t;
+    /*BO*/
     pub fn graphene_rect_zero() -> *const graphene_rect_t;
 
     //=========================================================================
     // graphene_size_t
     //=========================================================================
     pub fn graphene_size_get_type() -> GType;
+    /*BO*/
     pub fn graphene_size_alloc() -> *mut graphene_size_t;
+    /*BO*/
     pub fn graphene_size_equal(a: *const graphene_size_t, b: *const graphene_size_t) -> gboolean;
+    /*BO*/
     pub fn graphene_size_free(s: *mut graphene_size_t);
+    /*BO*/
     pub fn graphene_size_init(
         s: *mut graphene_size_t,
         width: c_float,
         height: c_float,
     ) -> *mut graphene_size_t;
+    /*BO*/
     pub fn graphene_size_init_from_size(
         s: *mut graphene_size_t,
         src: *const graphene_size_t,
     ) -> *mut graphene_size_t;
+    /*BO*/
     pub fn graphene_size_interpolate(
         a: *const graphene_size_t,
         b: *const graphene_size_t,
         factor: c_double,
         res: *mut graphene_size_t,
     );
+    /*BO*/
     pub fn graphene_size_scale(
         s: *const graphene_size_t,
         factor: c_float,
         res: *mut graphene_size_t,
     );
+    /*BO*/
     pub fn graphene_size_zero() -> *const graphene_size_t;
 
     //=========================================================================
     // graphene_sphere_t
     //=========================================================================
     pub fn graphene_sphere_get_type() -> GType;
+    /*BO*/
     pub fn graphene_sphere_alloc() -> *mut graphene_sphere_t;
+    /*BO*/
     pub fn graphene_sphere_contains_point(
         s: *const graphene_sphere_t,
         point: *const graphene_point3d_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_sphere_distance(
         s: *const graphene_sphere_t,
         point: *const graphene_point3d_t,
     ) -> c_float;
+    /*BO*/
     pub fn graphene_sphere_equal(
         a: *const graphene_sphere_t,
         b: *const graphene_sphere_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_sphere_free(s: *mut graphene_sphere_t);
+    /*BO*/
     pub fn graphene_sphere_get_bounding_box(s: *const graphene_sphere_t, box_: *mut graphene_box_t);
+    /*BO*/
     pub fn graphene_sphere_get_center(s: *const graphene_sphere_t, center: *mut graphene_point3d_t);
+    /*BO*/
     pub fn graphene_sphere_get_radius(s: *const graphene_sphere_t) -> c_float;
+    /*BO*/
     pub fn graphene_sphere_init(
         s: *mut graphene_sphere_t,
         center: *const graphene_point3d_t,
         radius: c_float,
     ) -> *mut graphene_sphere_t;
+    /*BO*/
     pub fn graphene_sphere_init_from_points(
         s: *mut graphene_sphere_t,
         n_points: c_uint,
         points: *const graphene_point3d_t,
         center: *const graphene_point3d_t,
     ) -> *mut graphene_sphere_t;
+    /*BO*/
     pub fn graphene_sphere_init_from_vectors(
         s: *mut graphene_sphere_t,
         n_vectors: c_uint,
         vectors: *const graphene_vec3_t,
         center: *const graphene_point3d_t,
     ) -> *mut graphene_sphere_t;
+    /*BO*/
     pub fn graphene_sphere_is_empty(s: *const graphene_sphere_t) -> gboolean;
+    /*BO*/
     pub fn graphene_sphere_translate(
         s: *const graphene_sphere_t,
         point: *const graphene_point3d_t,
@@ -1351,38 +1625,50 @@ extern "C" {
     // graphene_triangle_t
     //=========================================================================
     pub fn graphene_triangle_get_type() -> GType;
+    /*BO*/
     pub fn graphene_triangle_alloc() -> *mut graphene_triangle_t;
+    /*BO*/
     pub fn graphene_triangle_contains_point(
         t: *const graphene_triangle_t,
         p: *const graphene_point3d_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_triangle_equal(
         a: *const graphene_triangle_t,
         b: *const graphene_triangle_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_triangle_free(t: *mut graphene_triangle_t);
+    /*BO*/
     pub fn graphene_triangle_get_area(t: *const graphene_triangle_t) -> c_float;
+    /*BO*/
     pub fn graphene_triangle_get_barycoords(
         t: *const graphene_triangle_t,
         p: *const graphene_point3d_t,
         res: *mut graphene_vec2_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_triangle_get_bounding_box(
         t: *const graphene_triangle_t,
         res: *mut graphene_box_t,
     );
+    /*BO*/
     pub fn graphene_triangle_get_midpoint(
         t: *const graphene_triangle_t,
         res: *mut graphene_point3d_t,
     );
+    /*BO*/
     pub fn graphene_triangle_get_normal(t: *const graphene_triangle_t, res: *mut graphene_vec3_t);
+    /*BO*/
     pub fn graphene_triangle_get_plane(t: *const graphene_triangle_t, res: *mut graphene_plane_t);
+    /*BO*/
     pub fn graphene_triangle_get_points(
         t: *const graphene_triangle_t,
         a: *mut graphene_point3d_t,
         b: *mut graphene_point3d_t,
         c: *mut graphene_point3d_t,
     );
+    /*BO*/
     pub fn graphene_triangle_get_uv(
         t: *const graphene_triangle_t,
         p: *const graphene_point3d_t,
@@ -1391,24 +1677,28 @@ extern "C" {
         uv_c: *const graphene_vec2_t,
         res: *mut graphene_vec2_t,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_triangle_get_vertices(
         t: *const graphene_triangle_t,
         a: *mut graphene_vec3_t,
         b: *mut graphene_vec3_t,
         c: *mut graphene_vec3_t,
     );
+    /*BO*/
     pub fn graphene_triangle_init_from_float(
         t: *mut graphene_triangle_t,
         a: *const [c_float; 3],
         b: *const [c_float; 3],
         c: *const [c_float; 3],
     ) -> *mut graphene_triangle_t;
+    /*BO*/
     pub fn graphene_triangle_init_from_point3d(
         t: *mut graphene_triangle_t,
         a: *const graphene_point3d_t,
         b: *const graphene_point3d_t,
         c: *const graphene_point3d_t,
     ) -> *mut graphene_triangle_t;
+    /*BO*/
     pub fn graphene_triangle_init_from_vec3(
         t: *mut graphene_triangle_t,
         a: *const graphene_vec3_t,
@@ -1420,195 +1710,268 @@ extern "C" {
     // graphene_vec2_t
     //=========================================================================
     pub fn graphene_vec2_get_type() -> GType;
+    /*BO*/
     pub fn graphene_vec2_alloc() -> *mut graphene_vec2_t;
+    /*BO*/
     pub fn graphene_vec2_add(
         a: *const graphene_vec2_t,
         b: *const graphene_vec2_t,
         res: *mut graphene_vec2_t,
     );
+    /*BO*/
     pub fn graphene_vec2_divide(
         a: *const graphene_vec2_t,
         b: *const graphene_vec2_t,
         res: *mut graphene_vec2_t,
     );
+    /*BO*/
     pub fn graphene_vec2_dot(a: *const graphene_vec2_t, b: *const graphene_vec2_t) -> c_float;
+    /*BO*/
     pub fn graphene_vec2_equal(v1: *const graphene_vec2_t, v2: *const graphene_vec2_t) -> gboolean;
+    /*BO*/
     pub fn graphene_vec2_free(v: *mut graphene_vec2_t);
+    /*BO*/
     pub fn graphene_vec2_get_x(v: *const graphene_vec2_t) -> c_float;
+    /*BO*/
     pub fn graphene_vec2_get_y(v: *const graphene_vec2_t) -> c_float;
+    /*BO*/
     pub fn graphene_vec2_init(
         v: *mut graphene_vec2_t,
         x: c_float,
         y: c_float,
     ) -> *mut graphene_vec2_t;
+    /*BO*/
     pub fn graphene_vec2_init_from_float(
         v: *mut graphene_vec2_t,
         src: *const [c_float; 2],
     ) -> *mut graphene_vec2_t;
+    /*BO*/
     pub fn graphene_vec2_init_from_vec2(
         v: *mut graphene_vec2_t,
         src: *const graphene_vec2_t,
     ) -> *mut graphene_vec2_t;
+    /*BO*/
     pub fn graphene_vec2_interpolate(
         v1: *const graphene_vec2_t,
         v2: *const graphene_vec2_t,
         factor: c_double,
         res: *mut graphene_vec2_t,
     );
+    /*BO*/
     pub fn graphene_vec2_length(v: *const graphene_vec2_t) -> c_float;
+    /*BO*/
     pub fn graphene_vec2_max(
         a: *const graphene_vec2_t,
         b: *const graphene_vec2_t,
         res: *mut graphene_vec2_t,
     );
+    /*BO*/
     pub fn graphene_vec2_min(
         a: *const graphene_vec2_t,
         b: *const graphene_vec2_t,
         res: *mut graphene_vec2_t,
     );
+    /*BO*/
     pub fn graphene_vec2_multiply(
         a: *const graphene_vec2_t,
         b: *const graphene_vec2_t,
         res: *mut graphene_vec2_t,
     );
+    /*BO*/
     pub fn graphene_vec2_near(
         v1: *const graphene_vec2_t,
         v2: *const graphene_vec2_t,
         epsilon: c_float,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_vec2_negate(v: *const graphene_vec2_t, res: *mut graphene_vec2_t);
+    /*BO*/
     pub fn graphene_vec2_normalize(v: *const graphene_vec2_t, res: *mut graphene_vec2_t);
+    /*BO*/
     pub fn graphene_vec2_scale(
         v: *const graphene_vec2_t,
         factor: c_float,
         res: *mut graphene_vec2_t,
     );
+    /*BO*/
     pub fn graphene_vec2_subtract(
         a: *const graphene_vec2_t,
         b: *const graphene_vec2_t,
         res: *mut graphene_vec2_t,
     );
+    /*BO*/
     pub fn graphene_vec2_to_float(v: *const graphene_vec2_t, dest: *mut [c_float; 2]);
+    /*BO*/
     pub fn graphene_vec2_one() -> *const graphene_vec2_t;
+    /*BO*/
     pub fn graphene_vec2_x_axis() -> *const graphene_vec2_t;
+    /*BO*/
     pub fn graphene_vec2_y_axis() -> *const graphene_vec2_t;
+    /*BO*/
     pub fn graphene_vec2_zero() -> *const graphene_vec2_t;
 
     //=========================================================================
     // graphene_vec3_t
     //=========================================================================
     pub fn graphene_vec3_get_type() -> GType;
+    /*BO*/
     pub fn graphene_vec3_alloc() -> *mut graphene_vec3_t;
+    /*BO*/
     pub fn graphene_vec3_add(
         a: *const graphene_vec3_t,
         b: *const graphene_vec3_t,
         res: *mut graphene_vec3_t,
     );
+    /*BO*/
     pub fn graphene_vec3_cross(
         a: *const graphene_vec3_t,
         b: *const graphene_vec3_t,
         res: *mut graphene_vec3_t,
     );
+    /*BO*/
     pub fn graphene_vec3_divide(
         a: *const graphene_vec3_t,
         b: *const graphene_vec3_t,
         res: *mut graphene_vec3_t,
     );
+    /*BO*/
     pub fn graphene_vec3_dot(a: *const graphene_vec3_t, b: *const graphene_vec3_t) -> c_float;
+    /*BO*/
     pub fn graphene_vec3_equal(v1: *const graphene_vec3_t, v2: *const graphene_vec3_t) -> gboolean;
+    /*BO*/
     pub fn graphene_vec3_free(v: *mut graphene_vec3_t);
+    /*BO*/
     pub fn graphene_vec3_get_x(v: *const graphene_vec3_t) -> c_float;
+    /*BO*/
     pub fn graphene_vec3_get_xy(v: *const graphene_vec3_t, res: *mut graphene_vec2_t);
+    /*BO*/
     pub fn graphene_vec3_get_xy0(v: *const graphene_vec3_t, res: *mut graphene_vec3_t);
+    /*BO*/
     pub fn graphene_vec3_get_xyz0(v: *const graphene_vec3_t, res: *mut graphene_vec4_t);
+    /*BO*/
     pub fn graphene_vec3_get_xyz1(v: *const graphene_vec3_t, res: *mut graphene_vec4_t);
+    /*BO*/
     pub fn graphene_vec3_get_xyzw(v: *const graphene_vec3_t, w: c_float, res: *mut graphene_vec4_t);
+    /*BO*/
     pub fn graphene_vec3_get_y(v: *const graphene_vec3_t) -> c_float;
+    /*BO*/
     pub fn graphene_vec3_get_z(v: *const graphene_vec3_t) -> c_float;
+    /*BO*/
     pub fn graphene_vec3_init(
         v: *mut graphene_vec3_t,
         x: c_float,
         y: c_float,
         z: c_float,
     ) -> *mut graphene_vec3_t;
+    /*BO*/
     pub fn graphene_vec3_init_from_float(
         v: *mut graphene_vec3_t,
         src: *const [c_float; 3],
     ) -> *mut graphene_vec3_t;
+    /*BO*/
     pub fn graphene_vec3_init_from_vec3(
         v: *mut graphene_vec3_t,
         src: *const graphene_vec3_t,
     ) -> *mut graphene_vec3_t;
+    /*BO*/
     pub fn graphene_vec3_interpolate(
         v1: *const graphene_vec3_t,
         v2: *const graphene_vec3_t,
         factor: c_double,
         res: *mut graphene_vec3_t,
     );
+    /*BO*/
     pub fn graphene_vec3_length(v: *const graphene_vec3_t) -> c_float;
+    /*BO*/
     pub fn graphene_vec3_max(
         a: *const graphene_vec3_t,
         b: *const graphene_vec3_t,
         res: *mut graphene_vec3_t,
     );
+    /*BO*/
     pub fn graphene_vec3_min(
         a: *const graphene_vec3_t,
         b: *const graphene_vec3_t,
         res: *mut graphene_vec3_t,
     );
+    /*BO*/
     pub fn graphene_vec3_multiply(
         a: *const graphene_vec3_t,
         b: *const graphene_vec3_t,
         res: *mut graphene_vec3_t,
     );
+    /*BO*/
     pub fn graphene_vec3_near(
         v1: *const graphene_vec3_t,
         v2: *const graphene_vec3_t,
         epsilon: c_float,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_vec3_negate(v: *const graphene_vec3_t, res: *mut graphene_vec3_t);
+    /*BO*/
     pub fn graphene_vec3_normalize(v: *const graphene_vec3_t, res: *mut graphene_vec3_t);
+    /*BO*/
     pub fn graphene_vec3_scale(
         v: *const graphene_vec3_t,
         factor: c_float,
         res: *mut graphene_vec3_t,
     );
+    /*BO*/
     pub fn graphene_vec3_subtract(
         a: *const graphene_vec3_t,
         b: *const graphene_vec3_t,
         res: *mut graphene_vec3_t,
     );
+    /*BO*/
     pub fn graphene_vec3_to_float(v: *const graphene_vec3_t, dest: *mut [c_float; 3]);
+    /*BO*/
     pub fn graphene_vec3_one() -> *const graphene_vec3_t;
+    /*BO*/
     pub fn graphene_vec3_x_axis() -> *const graphene_vec3_t;
+    /*BO*/
     pub fn graphene_vec3_y_axis() -> *const graphene_vec3_t;
+    /*BO*/
     pub fn graphene_vec3_z_axis() -> *const graphene_vec3_t;
+    /*BO*/
     pub fn graphene_vec3_zero() -> *const graphene_vec3_t;
 
     //=========================================================================
     // graphene_vec4_t
     //=========================================================================
     pub fn graphene_vec4_get_type() -> GType;
+    /*BO*/
     pub fn graphene_vec4_alloc() -> *mut graphene_vec4_t;
+    /*BO*/
     pub fn graphene_vec4_add(
         a: *const graphene_vec4_t,
         b: *const graphene_vec4_t,
         res: *mut graphene_vec4_t,
     );
+    /*BO*/
     pub fn graphene_vec4_divide(
         a: *const graphene_vec4_t,
         b: *const graphene_vec4_t,
         res: *mut graphene_vec4_t,
     );
+    /*BO*/
     pub fn graphene_vec4_dot(a: *const graphene_vec4_t, b: *const graphene_vec4_t) -> c_float;
+    /*BO*/
     pub fn graphene_vec4_equal(v1: *const graphene_vec4_t, v2: *const graphene_vec4_t) -> gboolean;
+    /*BO*/
     pub fn graphene_vec4_free(v: *mut graphene_vec4_t);
+    /*BO*/
     pub fn graphene_vec4_get_w(v: *const graphene_vec4_t) -> c_float;
+    /*BO*/
     pub fn graphene_vec4_get_x(v: *const graphene_vec4_t) -> c_float;
+    /*BO*/
     pub fn graphene_vec4_get_xy(v: *const graphene_vec4_t, res: *mut graphene_vec2_t);
+    /*BO*/
     pub fn graphene_vec4_get_xyz(v: *const graphene_vec4_t, res: *mut graphene_vec3_t);
+    /*BO*/
     pub fn graphene_vec4_get_y(v: *const graphene_vec4_t) -> c_float;
+    /*BO*/
     pub fn graphene_vec4_get_z(v: *const graphene_vec4_t) -> c_float;
+    /*BO*/
     pub fn graphene_vec4_init(
         v: *mut graphene_vec4_t,
         x: c_float,
@@ -1616,70 +1979,91 @@ extern "C" {
         z: c_float,
         w: c_float,
     ) -> *mut graphene_vec4_t;
+    /*BO*/
     pub fn graphene_vec4_init_from_float(
         v: *mut graphene_vec4_t,
         src: *const [c_float; 4],
     ) -> *mut graphene_vec4_t;
+    /*BO*/
     pub fn graphene_vec4_init_from_vec2(
         v: *mut graphene_vec4_t,
         src: *const graphene_vec2_t,
         z: c_float,
         w: c_float,
     ) -> *mut graphene_vec4_t;
+    /*BO*/
     pub fn graphene_vec4_init_from_vec3(
         v: *mut graphene_vec4_t,
         src: *const graphene_vec3_t,
         w: c_float,
     ) -> *mut graphene_vec4_t;
+    /*BO*/
     pub fn graphene_vec4_init_from_vec4(
         v: *mut graphene_vec4_t,
         src: *const graphene_vec4_t,
     ) -> *mut graphene_vec4_t;
+    /*BO*/
     pub fn graphene_vec4_interpolate(
         v1: *const graphene_vec4_t,
         v2: *const graphene_vec4_t,
         factor: c_double,
         res: *mut graphene_vec4_t,
     );
+    /*BO*/
     pub fn graphene_vec4_length(v: *const graphene_vec4_t) -> c_float;
+    /*BO*/
     pub fn graphene_vec4_max(
         a: *const graphene_vec4_t,
         b: *const graphene_vec4_t,
         res: *mut graphene_vec4_t,
     );
+    /*BO*/
     pub fn graphene_vec4_min(
         a: *const graphene_vec4_t,
         b: *const graphene_vec4_t,
         res: *mut graphene_vec4_t,
     );
+    /*BO*/
     pub fn graphene_vec4_multiply(
         a: *const graphene_vec4_t,
         b: *const graphene_vec4_t,
         res: *mut graphene_vec4_t,
     );
+    /*BO*/
     pub fn graphene_vec4_near(
         v1: *const graphene_vec4_t,
         v2: *const graphene_vec4_t,
         epsilon: c_float,
     ) -> gboolean;
+    /*BO*/
     pub fn graphene_vec4_negate(v: *const graphene_vec4_t, res: *mut graphene_vec4_t);
+    /*BO*/
     pub fn graphene_vec4_normalize(v: *const graphene_vec4_t, res: *mut graphene_vec4_t);
+    /*BO*/
     pub fn graphene_vec4_scale(
         v: *const graphene_vec4_t,
         factor: c_float,
         res: *mut graphene_vec4_t,
     );
+    /*BO*/
     pub fn graphene_vec4_subtract(
         a: *const graphene_vec4_t,
         b: *const graphene_vec4_t,
         res: *mut graphene_vec4_t,
     );
+    /*BO*/
     pub fn graphene_vec4_to_float(v: *const graphene_vec4_t, dest: *mut [c_float; 4]);
+    /*BO*/
     pub fn graphene_vec4_one() -> *const graphene_vec4_t;
+    /*BO*/
     pub fn graphene_vec4_w_axis() -> *const graphene_vec4_t;
+    /*BO*/
     pub fn graphene_vec4_x_axis() -> *const graphene_vec4_t;
+    /*BO*/
     pub fn graphene_vec4_y_axis() -> *const graphene_vec4_t;
+    /*BO*/
     pub fn graphene_vec4_z_axis() -> *const graphene_vec4_t;
+    /*BO*/
     pub fn graphene_vec4_zero() -> *const graphene_vec4_t;
 
 }

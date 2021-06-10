@@ -4,6 +4,7 @@
 
 use glib::object::IsA;
 use glib::translate::*;
+use libc::c_char;
 use std::fmt;
 
 glib::wrapper! {
@@ -32,26 +33,26 @@ pub const NONE_SETTINGS_BACKEND: Option<&SettingsBackend> = None;
 
 pub trait SettingsBackendExt: 'static {
     //#[doc(alias = "g_settings_backend_changed")]
-    //fn changed(&self, key: &str, origin_tag: /*Unimplemented*/Option<Fundamental: Pointer>);
+    //fn changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: & 's P, origin_tag: /*Unimplemented*/Option<Fundamental: Pointer>);
 
     //#[doc(alias = "g_settings_backend_changed_tree")]
     //fn changed_tree(&self, tree: /*Ignored*/&glib::Tree, origin_tag: /*Unimplemented*/Option<Fundamental: Pointer>);
 
     //#[doc(alias = "g_settings_backend_keys_changed")]
-    //fn keys_changed(&self, path: &str, items: &[&str], origin_tag: /*Unimplemented*/Option<Fundamental: Pointer>);
+    //fn keys_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, path: & 's P, items: &[&str], origin_tag: /*Unimplemented*/Option<Fundamental: Pointer>);
 
     //#[doc(alias = "g_settings_backend_path_changed")]
-    //fn path_changed(&self, path: &str, origin_tag: /*Unimplemented*/Option<Fundamental: Pointer>);
+    //fn path_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, path: & 's P, origin_tag: /*Unimplemented*/Option<Fundamental: Pointer>);
 
     #[doc(alias = "g_settings_backend_path_writable_changed")]
-    fn path_writable_changed(&self, path: &str);
+    fn path_writable_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, path: &'s P);
 
     #[doc(alias = "g_settings_backend_writable_changed")]
-    fn writable_changed(&self, key: &str);
+    fn writable_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P);
 }
 
 impl<O: IsA<SettingsBackend>> SettingsBackendExt for O {
-    //fn changed(&self, key: &str, origin_tag: /*Unimplemented*/Option<Fundamental: Pointer>) {
+    //fn changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: & 's P, origin_tag: /*Unimplemented*/Option<Fundamental: Pointer>) {
     //    unsafe { TODO: call ffi:g_settings_backend_changed() }
     //}
 
@@ -59,15 +60,15 @@ impl<O: IsA<SettingsBackend>> SettingsBackendExt for O {
     //    unsafe { TODO: call ffi:g_settings_backend_changed_tree() }
     //}
 
-    //fn keys_changed(&self, path: &str, items: &[&str], origin_tag: /*Unimplemented*/Option<Fundamental: Pointer>) {
+    //fn keys_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, path: & 's P, items: &[&str], origin_tag: /*Unimplemented*/Option<Fundamental: Pointer>) {
     //    unsafe { TODO: call ffi:g_settings_backend_keys_changed() }
     //}
 
-    //fn path_changed(&self, path: &str, origin_tag: /*Unimplemented*/Option<Fundamental: Pointer>) {
+    //fn path_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, path: & 's P, origin_tag: /*Unimplemented*/Option<Fundamental: Pointer>) {
     //    unsafe { TODO: call ffi:g_settings_backend_path_changed() }
     //}
 
-    fn path_writable_changed(&self, path: &str) {
+    fn path_writable_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, path: &'s P) {
         unsafe {
             ffi::g_settings_backend_path_writable_changed(
                 self.as_ref().to_glib_none().0,
@@ -76,7 +77,7 @@ impl<O: IsA<SettingsBackend>> SettingsBackendExt for O {
         }
     }
 
-    fn writable_changed(&self, key: &str) {
+    fn writable_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, key: &'s P) {
         unsafe {
             ffi::g_settings_backend_writable_changed(
                 self.as_ref().to_glib_none().0,

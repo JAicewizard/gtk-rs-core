@@ -71,7 +71,7 @@ pub trait OutputStreamExt: 'static {
     fn is_closing(&self) -> bool;
 
     //#[doc(alias = "g_output_stream_printf")]
-    //fn printf<P: IsA<Cancellable>>(&self, cancellable: Option<&P>, error: &mut glib::Error, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> Option<usize>;
+    //fn printf<'s, P: IsA<Cancellable>, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, cancellable: Option<&P>, error: &mut glib::Error, format: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> Option<usize>;
 
     #[doc(alias = "g_output_stream_set_pending")]
     fn set_pending(&self) -> Result<(), glib::Error>;
@@ -106,7 +106,7 @@ pub trait OutputStreamExt: 'static {
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<isize, glib::Error>> + 'static>>;
 
     //#[doc(alias = "g_output_stream_vprintf")]
-    //fn vprintf<P: IsA<Cancellable>>(&self, cancellable: Option<&P>, error: &mut glib::Error, format: &str, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> Option<usize>;
+    //fn vprintf<'s, P: IsA<Cancellable>, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, cancellable: Option<&P>, error: &mut glib::Error, format: & 's Q, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> Option<usize>;
 
     #[doc(alias = "g_output_stream_write")]
     fn write<P: IsA<Cancellable>>(
@@ -334,7 +334,7 @@ impl<O: IsA<OutputStream>> OutputStreamExt for O {
         }
     }
 
-    //fn printf<P: IsA<Cancellable>>(&self, cancellable: Option<&P>, error: &mut glib::Error, format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> Option<usize> {
+    //fn printf<'s, P: IsA<Cancellable>, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, cancellable: Option<&P>, error: &mut glib::Error, format: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> Option<usize> {
     //    unsafe { TODO: call ffi:g_output_stream_printf() }
     //}
 
@@ -440,7 +440,7 @@ impl<O: IsA<OutputStream>> OutputStreamExt for O {
         }))
     }
 
-    //fn vprintf<P: IsA<Cancellable>>(&self, cancellable: Option<&P>, error: &mut glib::Error, format: &str, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> Option<usize> {
+    //fn vprintf<'s, P: IsA<Cancellable>, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, cancellable: Option<&P>, error: &mut glib::Error, format: & 's Q, args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> Option<usize> {
     //    unsafe { TODO: call ffi:g_output_stream_vprintf() }
     //}
 

@@ -3,6 +3,7 @@
 // DO NOT EDIT
 
 use glib::translate::*;
+use libc::c_char;
 
 glib::wrapper! {
     #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -17,7 +18,12 @@ glib::wrapper! {
 
 impl SrvTarget {
     #[doc(alias = "g_srv_target_new")]
-    pub fn new(hostname: &str, port: u16, priority: u16, weight: u16) -> SrvTarget {
+    pub fn new<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        hostname: &'s P,
+        port: u16,
+        priority: u16,
+        weight: u16,
+    ) -> SrvTarget {
         unsafe {
             from_glib_full(ffi::g_srv_target_new(
                 hostname.to_glib_none().0,

@@ -17,6 +17,7 @@ use glib::object::ObjectType as ObjectType_;
 use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::mem;
 use std::mem::transmute;
@@ -61,11 +62,15 @@ impl DBusMessage {
     }
 
     #[doc(alias = "g_dbus_message_new_method_call")]
-    pub fn new_method_call(
+    pub fn new_method_call<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
         name: Option<&str>,
-        path: &str,
+        path: &'s P,
         interface_: Option<&str>,
-        method: &str,
+        method: &'s Q,
     ) -> DBusMessage {
         unsafe {
             from_glib_full(ffi::g_dbus_message_new_method_call(
@@ -78,7 +83,16 @@ impl DBusMessage {
     }
 
     #[doc(alias = "g_dbus_message_new_signal")]
-    pub fn new_signal(path: &str, interface_: &str, signal: &str) -> DBusMessage {
+    pub fn new_signal<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        path: &'s P,
+        interface_: &'s Q,
+        signal: &'s R,
+    ) -> DBusMessage {
         unsafe {
             from_glib_full(ffi::g_dbus_message_new_signal(
                 path.to_glib_none().0,
@@ -226,12 +240,20 @@ impl DBusMessage {
     }
 
     //#[doc(alias = "g_dbus_message_new_method_error")]
-    //pub fn new_method_error(&self, error_name: &str, error_message_format: &str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> DBusMessage {
+    //pub fn new_method_error<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, error_name: & 's P, error_message_format: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> DBusMessage {
     //    unsafe { TODO: call ffi:g_dbus_message_new_method_error() }
     //}
 
     #[doc(alias = "g_dbus_message_new_method_error_literal")]
-    pub fn new_method_error_literal(&self, error_name: &str, error_message: &str) -> DBusMessage {
+    pub fn new_method_error_literal<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
+        &self,
+        error_name: &'s P,
+        error_message: &'s Q,
+    ) -> DBusMessage {
         unsafe {
             from_glib_full(ffi::g_dbus_message_new_method_error_literal(
                 self.to_glib_none().0,
@@ -242,7 +264,7 @@ impl DBusMessage {
     }
 
     //#[doc(alias = "g_dbus_message_new_method_error_valist")]
-    //pub fn new_method_error_valist(&self, error_name: &str, error_message_format: &str, var_args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> DBusMessage {
+    //pub fn new_method_error_valist<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, error_name: & 's P, error_message_format: & 's Q, var_args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> DBusMessage {
     //    unsafe { TODO: call ffi:g_dbus_message_new_method_error_valist() }
     //}
 
@@ -278,7 +300,7 @@ impl DBusMessage {
     }
 
     #[doc(alias = "g_dbus_message_set_error_name")]
-    pub fn set_error_name(&self, value: &str) {
+    pub fn set_error_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, value: &'s P) {
         unsafe {
             ffi::g_dbus_message_set_error_name(self.to_glib_none().0, value.to_glib_none().0);
         }

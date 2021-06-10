@@ -5,6 +5,7 @@
 use crate::InputStream;
 use crate::ResourceLookupFlags;
 use glib::translate::*;
+use libc::c_char;
 use std::mem;
 use std::ptr;
 
@@ -21,9 +22,9 @@ glib::wrapper! {
 
 impl Resource {
     #[doc(alias = "g_resource_enumerate_children")]
-    pub fn enumerate_children(
+    pub fn enumerate_children<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
         &self,
-        path: &str,
+        path: &'s P,
         lookup_flags: ResourceLookupFlags,
     ) -> Result<Vec<glib::GString>, glib::Error> {
         unsafe {
@@ -44,9 +45,9 @@ impl Resource {
 
     #[doc(alias = "g_resource_get_info")]
     #[doc(alias = "get_info")]
-    pub fn info(
+    pub fn info<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
         &self,
-        path: &str,
+        path: &'s P,
         lookup_flags: ResourceLookupFlags,
     ) -> Result<(usize, u32), glib::Error> {
         unsafe {
@@ -72,9 +73,9 @@ impl Resource {
     }
 
     #[doc(alias = "g_resource_lookup_data")]
-    pub fn lookup_data(
+    pub fn lookup_data<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
         &self,
-        path: &str,
+        path: &'s P,
         lookup_flags: ResourceLookupFlags,
     ) -> Result<glib::Bytes, glib::Error> {
         unsafe {
@@ -94,9 +95,9 @@ impl Resource {
     }
 
     #[doc(alias = "g_resource_open_stream")]
-    pub fn open_stream(
+    pub fn open_stream<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
         &self,
-        path: &str,
+        path: &'s P,
         lookup_flags: ResourceLookupFlags,
     ) -> Result<InputStream, glib::Error> {
         unsafe {

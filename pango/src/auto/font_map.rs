@@ -10,6 +10,9 @@ use crate::Fontset;
 use crate::Language;
 use glib::object::IsA;
 use glib::translate::*;
+#[cfg(any(feature = "v1_46", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_46")))]
+use libc::c_char;
 use std::fmt;
 use std::mem;
 use std::ptr;
@@ -36,7 +39,10 @@ pub trait FontMapExt: 'static {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_46")))]
     #[doc(alias = "pango_font_map_get_family")]
     #[doc(alias = "get_family")]
-    fn family(&self, name: &str) -> Option<FontFamily>;
+    fn family<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        name: &'s P,
+    ) -> Option<FontFamily>;
 
     #[doc(alias = "pango_font_map_get_serial")]
     #[doc(alias = "get_serial")]
@@ -74,7 +80,10 @@ impl<O: IsA<FontMap>> FontMapExt for O {
 
     #[cfg(any(feature = "v1_46", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_46")))]
-    fn family(&self, name: &str) -> Option<FontFamily> {
+    fn family<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        name: &'s P,
+    ) -> Option<FontFamily> {
         unsafe {
             from_glib_none(ffi::pango_font_map_get_family(
                 self.as_ref().to_glib_none().0,

@@ -12,6 +12,7 @@ use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
 use glib::StaticType;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -28,12 +29,17 @@ glib::wrapper! {
 
 impl DBusServer {
     #[doc(alias = "g_dbus_server_new_sync")]
-    pub fn new_sync<P: IsA<Cancellable>>(
-        address: &str,
+    pub fn new_sync<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        R: IsA<Cancellable>,
+    >(
+        address: &'s P,
         flags: DBusServerFlags,
-        guid: &str,
+        guid: &'s Q,
         observer: Option<&DBusAuthObserver>,
-        cancellable: Option<&P>,
+        cancellable: Option<&R>,
     ) -> Result<DBusServer, glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();

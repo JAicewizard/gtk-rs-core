@@ -16,6 +16,7 @@ use crate::Rectangle;
 use crate::TabArray;
 use crate::WrapMode;
 use glib::translate::*;
+use libc::c_char;
 use std::fmt;
 use std::mem;
 
@@ -217,7 +218,7 @@ impl Layout {
 
     //#[doc(alias = "pango_layout_get_log_attrs")]
     //#[doc(alias = "get_log_attrs")]
-    //pub fn log_attrs(&self, attrs: /*Ignored*/Vec<LogAttr>) -> i32 {
+    //pub fn log_attrs(&self, attrs: /*Ignored*/&mut Vec<LogAttr>) -> i32 {
     //    unsafe { TODO: call ffi:pango_layout_get_log_attrs() }
     //}
 
@@ -457,7 +458,7 @@ impl Layout {
     }
 
     #[doc(alias = "pango_layout_set_markup")]
-    pub fn set_markup(&self, markup: &str) {
+    pub fn set_markup<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, markup: &'s P) {
         let length = markup.len() as i32;
         unsafe {
             ffi::pango_layout_set_markup(self.to_glib_none().0, markup.to_glib_none().0, length);
@@ -465,7 +466,11 @@ impl Layout {
     }
 
     #[doc(alias = "pango_layout_set_markup_with_accel")]
-    pub fn set_markup_with_accel(&self, markup: &str, accel_marker: char) -> char {
+    pub fn set_markup_with_accel<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        markup: &'s P,
+        accel_marker: char,
+    ) -> char {
         let length = markup.len() as i32;
         unsafe {
             let mut accel_char = mem::MaybeUninit::uninit();
@@ -504,7 +509,7 @@ impl Layout {
     }
 
     #[doc(alias = "pango_layout_set_text")]
-    pub fn set_text(&self, text: &str) {
+    pub fn set_text<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, text: &'s P) {
         let length = text.len() as i32;
         unsafe {
             ffi::pango_layout_set_text(self.to_glib_none().0, text.to_glib_none().0, length);

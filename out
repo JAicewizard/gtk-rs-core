@@ -1,0 +1,5834 @@
+=> Building gir...
+<= Done!
+=> Regenerating crates...
+=> Looking in path `.`
+==> Regenerating `glib/sys/Gir.toml`...
+===> stderr:
+
+[WARN  libgir::library_postprocessing] Field `Cond::i` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `Mutex::i` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `HookList::dummy` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `IOChannel::partial_write_buf` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `Private::future` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `RWLock::i` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `RecMutex::i` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `UriParamsIter::dummy3` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `VariantIter::x` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `VariantBuilder_u_s::y` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `VariantBuilder_u::x` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `VariantDict_u_s::y` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `VariantDict_u::x` missing c:type assumed to be `fixed_array`
+[WARN  libgir::config::gobjects] Configured object `GLib.ANALYZER_ANALYZING` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.DIR_SEPARATOR` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.DIR_SEPARATOR_S` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GINT16_FORMAT` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GINT16_MODIFIER` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GINT32_FORMAT` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GINT32_MODIFIER` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GINT64_FORMAT` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GINT64_MODIFIER` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GINTPTR_FORMAT` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GINTPTR_MODIFIER` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GNUC_FUNCTION` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GNUC_PRETTY_FUNCTION` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GSIZE_FORMAT` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GSIZE_MODIFIER` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GSSIZE_FORMAT` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GSSIZE_MODIFIER` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GUINT16_FORMAT` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GUINT32_FORMAT` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GUINT64_FORMAT` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GUINT64_MODIFIER` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GUINTPTR_FORMAT` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.GUINTPTR_MODIFIER` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.HAVE_GINT64` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.HAVE_GNUC_VARARGS` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.HAVE_GNUC_VISIBILITY` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.HAVE_GROWING_STACK` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.HAVE_ISO_VARARGS` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MAJOR_VERSION` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MAXINT16` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MAXINT32` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MAXINT64` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MAXINT8` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MAXUINT16` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MAXUINT32` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MAXUINT64` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MAXUINT8` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MICRO_VERSION` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MININT16` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MININT32` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MININT64` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MININT8` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MINOR_VERSION` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.MODULE_SUFFIX` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.PID_FORMAT` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.POLLFD_FORMAT` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.SEARCHPATH_SEPARATOR` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.SEARCHPATH_SEPARATOR_S` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.SIZEOF_LONG` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.SIZEOF_SIZE_T` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.SIZEOF_SSIZE_T` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.SIZEOF_VOID_P` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.VA_COPY_AS_ARRAY` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GLib.VERSION_MIN_REQUIRED` missing from the library
+
+==> Regenerating `glib/Gir_GObject.toml`...
+===> stderr:
+
+[WARN  libgir::config::gobjects] `trait` configuration is deprecated and replaced by `final_type` for object GObject.Binding
+[WARN  libgir::library_postprocessing] Field `InitiallyUnownedClass::pdummy` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `ObjectClass::pdummy` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `ParamSpecClass::dummy` missing c:type assumed to be `fixed_array`
+get_flags
+get_source_property
+get_target_property
+unbind
+new
+new_valist
+new_with_properties
+newv
+compat_control
+interface_find_property
+interface_install_property
+interface_list_properties
+add_toggle_ref
+add_weak_pointer
+bind_property
+bind_property_full
+bind_property_with_closures
+connect
+disconnect
+dup_data
+dup_qdata
+force_floating
+freeze_notify
+get
+get_data
+get_property
+get_qdata
+get_valist
+getv
+is_floating
+notify
+notify_by_pspec
+ref
+ref_sink
+remove_toggle_ref
+remove_weak_pointer
+replace_data
+replace_qdata
+run_dispose
+set
+set_data
+set_data_full
+set_property
+set_qdata
+set_qdata_full
+set_valist
+setv
+steal_data
+steal_qdata
+thaw_notify
+unref
+watch_closure
+weak_ref
+weak_unref
+[WARN  libgir::analysis::trampolines] Can't generate GObject.Object trampoline for signal 'notify'
+copy
+dup_boxed
+dup_object
+dup_param
+dup_string
+dup_variant
+fits_pointer
+get_boolean
+get_boxed
+get_double
+get_enum
+get_flags
+get_float
+get_gtype
+get_int
+get_int64
+get_long
+get_object
+get_param
+get_pointer
+get_schar
+get_string
+get_uchar
+get_uint
+get_uint64
+get_ulong
+get_variant
+init
+init_from_instance
+peek_pointer
+reset
+set_boolean
+set_boxed
+set_double
+set_enum
+set_flags
+set_float
+set_gtype
+set_instance
+set_int
+set_int64
+set_interned_string
+set_long
+set_object
+set_param
+set_pointer
+set_schar
+set_static_boxed
+set_static_string
+set_string
+set_uchar
+set_uint
+set_uint64
+set_ulong
+set_variant
+take_boxed
+take_object
+take_param
+take_string
+take_variant
+transform
+unset
+register_transform_func
+type_compatible
+type_transformable
+
+==> Regenerating `glib/gobject-sys/Gir.toml`...
+===> stderr:
+
+[WARN  libgir::library_postprocessing] Field `InitiallyUnownedClass::pdummy` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `ObjectClass::pdummy` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `ParamSpecClass::dummy` missing c:type assumed to be `fixed_array`
+
+==> Regenerating `graphene/sys/Gir.toml`...
+===> stderr:
+
+[WARN  libgir::library_postprocessing] Field `Frustum::planes` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `Quad::points` missing c:type assumed to be `fixed_array`
+[WARN  libgir::config::gobjects] Configured object `Graphene.HAS_GCC` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Graphene.HAS_SCALAR` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Graphene.HAS_SSE` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Graphene.PI` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Graphene.PI_2` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Graphene.SIMD_S` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Graphene.false` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Graphene.true` missing from the library
+
+==> Regenerating `graphene/Gir.toml`...
+===> stderr:
+
+[WARN  libgir::library_postprocessing] Field `Frustum::planes` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `Quad::points` missing c:type assumed to be `fixed_array`
+contains_box
+contains_point
+equal
+expand
+expand_scalar
+expand_vec3
+free
+get_bounding_sphere
+get_center
+get_depth
+get_height
+get_max
+get_min
+get_size
+get_vertices
+[WARN  libgir::analysis::functions] Function graphene_box_get_vertices has unsupported outs
+get_width
+init
+init_from_box
+init_from_points
+init_from_vec3
+init_from_vectors
+intersection
+union
+empty
+infinite
+minus_one
+one
+one_minus_one
+zero
+equal
+free
+get_alpha
+get_beta
+get_gamma
+get_order
+get_x
+get_y
+get_z
+init
+init_from_euler
+init_from_matrix
+init_from_quaternion
+init_from_radians
+init_from_vec3
+init_with_order
+reorder
+to_matrix
+to_quaternion
+to_vec3
+contains_point
+equal
+free
+get_planes
+[WARN  libgir::analysis::functions] Function graphene_frustum_get_planes has unsupported outs
+init
+init_from_frustum
+init_from_matrix
+intersects_box
+intersects_sphere
+decompose
+determinant
+equal
+equal_fast
+free
+get_row
+get_value
+get_x_scale
+get_x_translation
+get_y_scale
+get_y_translation
+get_z_scale
+get_z_translation
+init_from_2d
+init_from_float
+init_from_matrix
+init_from_vec4
+init_frustum
+init_identity
+init_look_at
+init_ortho
+init_perspective
+init_rotate
+init_scale
+init_skew
+init_translate
+interpolate
+inverse
+is_2d
+is_backface_visible
+is_identity
+is_singular
+multiply
+near
+normalize
+perspective
+print
+project_point
+project_rect
+project_rect_bounds
+rotate
+rotate_euler
+rotate_quaternion
+rotate_x
+rotate_y
+rotate_z
+scale
+skew_xy
+skew_xz
+skew_yz
+to_2d
+to_float
+[WARN  libgir::analysis::functions] Function graphene_matrix_to_float has unsupported outs
+transform_bounds
+transform_box
+transform_point
+transform_point3d
+transform_ray
+transform_rect
+transform_sphere
+transform_vec3
+transform_vec4
+translate
+transpose
+unproject_point3d
+untransform_bounds
+untransform_point
+distance
+equal
+free
+get_constant
+get_normal
+init
+init_from_plane
+init_from_point
+init_from_points
+init_from_vec4
+negate
+normalize
+transform
+distance
+equal
+free
+init
+init_from_point
+init_from_vec2
+interpolate
+near
+to_vec2
+zero
+cross
+distance
+dot
+equal
+free
+init
+init_from_point
+init_from_vec3
+interpolate
+length
+near
+normalize
+normalize_viewport
+scale
+to_vec3
+zero
+bounds
+contains
+free
+get_point
+init
+init_from_points
+init_from_rect
+add
+dot
+equal
+free
+init
+init_from_angle_vec3
+init_from_angles
+init_from_euler
+init_from_matrix
+init_from_quaternion
+init_from_radians
+init_from_vec4
+init_identity
+invert
+multiply
+normalize
+scale
+slerp
+to_angle_vec3
+to_angles
+to_matrix
+to_radians
+to_vec4
+equal
+free
+get_closest_point_to_point
+get_direction
+get_distance_to_plane
+get_distance_to_point
+get_origin
+get_position_at
+init
+init_from_ray
+init_from_vec3
+intersect_box
+intersect_sphere
+intersect_triangle
+intersects_box
+intersects_sphere
+intersects_triangle
+contains_point
+contains_rect
+equal
+expand
+free
+get_area
+get_bottom_left
+get_bottom_right
+get_center
+get_height
+get_top_left
+get_top_right
+get_vertices
+[WARN  libgir::analysis::functions] Function graphene_rect_get_vertices has unsupported outs
+get_width
+get_x
+get_y
+init
+init_from_rect
+inset
+inset_r
+interpolate
+intersection
+normalize
+normalize_r
+offset
+offset_r
+round_extents
+scale
+union
+zero
+equal
+free
+init
+init_from_size
+interpolate
+scale
+zero
+contains_point
+distance
+equal
+free
+get_bounding_box
+get_center
+get_radius
+init
+init_from_points
+init_from_vectors
+is_empty
+translate
+contains_point
+equal
+free
+get_area
+get_barycoords
+get_bounding_box
+get_midpoint
+get_normal
+get_plane
+get_points
+get_uv
+get_vertices
+init_from_float
+init_from_point3d
+init_from_vec3
+add
+divide
+dot
+equal
+free
+get_x
+get_y
+init
+init_from_float
+init_from_vec2
+interpolate
+length
+max
+min
+multiply
+near
+negate
+normalize
+scale
+subtract
+to_float
+[WARN  libgir::analysis::functions] Function graphene_vec2_to_float has unsupported outs
+one
+x_axis
+y_axis
+zero
+add
+cross
+divide
+dot
+equal
+free
+get_x
+get_xy
+get_xy0
+get_xyz0
+get_xyz1
+get_xyzw
+get_y
+get_z
+init
+init_from_float
+init_from_vec3
+interpolate
+length
+max
+min
+multiply
+near
+negate
+normalize
+scale
+subtract
+to_float
+[WARN  libgir::analysis::functions] Function graphene_vec3_to_float has unsupported outs
+one
+x_axis
+y_axis
+z_axis
+zero
+add
+divide
+dot
+equal
+free
+get_w
+get_x
+get_xy
+get_xyz
+get_y
+get_z
+init
+init_from_float
+init_from_vec2
+init_from_vec3
+init_from_vec4
+interpolate
+length
+max
+min
+multiply
+near
+negate
+normalize
+scale
+subtract
+to_float
+[WARN  libgir::analysis::functions] Function graphene_vec4_to_float has unsupported outs
+one
+w_axis
+x_axis
+y_axis
+z_axis
+zero
+
+==> Regenerating `pangocairo/sys/Gir.toml`...
+==> Regenerating `pango/Gir.toml`...
+===> stderr:
+
+new
+new_literal
+new_valist
+copy
+free
+matches
+[ERROR libgir::analysis::record] Missing memory management functions for Pango.Analysis
+[ERROR libgir::analysis::record] Missing memory management functions for Pango.AttrClass
+copy
+destroy
+get
+get_attrs
+get_font
+next
+range
+new
+change
+copy
+filter
+get_attributes
+get_iterator
+insert
+insert_before
+ref
+splice
+unref
+update
+copy
+destroy
+equal
+init
+copy
+free
+parse
+ByRef
+parse_with_alpha
+ByRef
+to_string
+new
+changed
+get_base_dir
+get_base_gravity
+get_font_description
+get_font_map
+get_gravity
+get_gravity_hint
+get_language
+get_matrix
+get_metrics
+get_round_glyph_positions
+get_serial
+list_families
+load_font
+load_fontset
+set_base_dir
+set_base_gravity
+set_font_description
+set_font_map
+set_gravity_hint
+set_language
+set_matrix
+set_round_glyph_positions
+new
+from_bytes
+copy
+get
+max
+ref
+set
+to_bytes
+unref
+describe
+describe_with_absolute_size
+find_shaper
+get_coverage
+get_face
+get_features
+[WARN  libgir::analysis::functions] Function pango_font_get_features has unsupported outs
+get_font_map
+get_glyph_extents
+get_hb_font
+get_metrics
+has_char
+new
+better_match
+copy
+equal
+free
+get_family
+get_gravity
+get_set_fields
+get_size
+get_size_is_absolute
+get_stretch
+get_style
+get_variant
+get_variations
+get_weight
+hash
+merge
+set_absolute_size
+set_family
+ByRef
+set_gravity
+set_size
+set_stretch
+set_style
+set_variant
+set_variations
+ByRef
+set_variations_static
+ByRef
+set_weight
+to_filename
+to_string
+unset_fields
+from_string
+ByRef
+describe
+get_face_name
+get_family
+is_synthesized
+list_sizes
+get_face
+get_name
+is_monospace
+is_variable
+list_faces
+changed
+create_context
+get_family
+ByRef
+get_serial
+list_families
+load_font
+load_fontset
+get_approximate_char_width
+get_approximate_digit_width
+get_ascent
+get_descent
+get_height
+get_strikethrough_position
+get_strikethrough_thickness
+get_underline_position
+get_underline_thickness
+ref
+unref
+foreach
+get_font
+get_metrics
+new
+append
+size
+apply_attrs
+ByRef
+copy
+free
+get_logical_widths
+ByRef
+letter_space
+ByRef
+split
+ByRef
+copy
+free
+init_end
+ByRef
+init_start
+ByRef
+next_cluster
+prev_cluster
+new
+copy
+extents
+extents_range
+free
+get_logical_widths
+ByRef
+get_width
+index_to_x
+ByRef
+set_size
+x_to_index
+ByRef
+new
+apply_attrs
+copy
+free
+split
+get_sample_string
+get_scripts
+includes_script
+matches
+to_string
+from_string
+get_default
+new
+context_changed
+copy
+get_alignment
+get_attributes
+get_auto_dir
+get_baseline
+get_character_count
+get_context
+get_cursor_pos
+get_direction
+get_ellipsize
+get_extents
+get_font_description
+get_height
+get_indent
+get_iter
+get_justify
+get_line
+get_line_count
+get_line_readonly
+get_line_spacing
+get_lines
+get_lines_readonly
+get_log_attrs
+[WARN  libgir::analysis::functions] Function pango_layout_get_log_attrs has unsupported outs
+get_log_attrs_readonly
+get_pixel_extents
+get_pixel_size
+get_serial
+get_single_paragraph_mode
+get_size
+get_spacing
+get_tabs
+get_text
+get_unknown_glyphs_count
+get_width
+get_wrap
+index_to_line_x
+index_to_pos
+is_ellipsized
+is_wrapped
+move_cursor_visually
+set_alignment
+set_attributes
+set_auto_dir
+set_ellipsize
+set_font_description
+set_height
+set_indent
+set_justify
+set_line_spacing
+set_markup
+ByRef
+set_markup_with_accel
+ByRef
+set_single_paragraph_mode
+set_spacing
+set_tabs
+set_text
+Function { name: "set_text", c_identifier: Some("pango_layout_set_text"), kind: Method, parameters: [Parameter { name: "layout", typ: TypeId { ns_id: 1, id: 72 }, c_type: "PangoLayout*", instance_parameter: true, direction: In, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: Some("a #PangoLayout"), scope: None, closure: None, destroy: None }, Parameter { name: "text", typ: TypeId { ns_id: 0, id: 28 }, c_type: "const char*", instance_parameter: false, direction: In, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: Some("the text"), scope: None, closure: None, destroy: None }, Parameter { name: "length", typ: TypeId { ns_id: 0, id: 14 }, c_type: "int", instance_parameter: false, direction: In, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: Some("maximum length of @text, in bytes. -1 indicates that\n         the string is nul-terminated and the length should be\n         calculated.  The text will also be truncated on\n         encountering a nul-termination even when @length is\n         positive."), scope: None, closure: None, destroy: None }], ret: Parameter { name: "", typ: TypeId { ns_id: 0, id: 0 }, c_type: "void", instance_parameter: false, direction: Return, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: None, scope: None, closure: None, destroy: None }, throws: false, version: None, deprecated_version: None, doc: Some("Sets the text of the layout.\n\nThis function validates @text and renders invalid UTF-8\nwith a placeholder glyph.\n\nNote that if you have used pango_layout_set_markup() or\npango_layout_set_markup_with_accel() on @layout before, you may\nwant to call pango_layout_set_attributes() to clear the attributes\nset on the layout from the markup as this function does not clear\nattributes."), doc_deprecated: None }
+CParameter { name: "layout", typ: TypeId { ns_id: 1, id: 72 }, c_type: "PangoLayout*", instance_parameter: true, direction: In, nullable: Nullable(false), transfer: None, caller_allocates: false, is_error: false, scope: None, user_data_index: None, destroy_index: None, ref_mode: ByRef, try_from_glib: NotImplemented }
+CParameter { name: "text", typ: TypeId { ns_id: 0, id: 28 }, c_type: "const char*", instance_parameter: false, direction: In, nullable: Nullable(false), transfer: None, caller_allocates: false, is_error: false, scope: None, user_data_index: None, destroy_index: None, ref_mode: ByRef, try_from_glib: NotImplemented }
+ByRef
+CParameter { name: "length", typ: TypeId { ns_id: 0, id: 14 }, c_type: "int", instance_parameter: false, direction: In, nullable: Nullable(false), transfer: None, caller_allocates: false, is_error: false, scope: None, user_data_index: None, destroy_index: None, ref_mode: None, try_from_glib: NotImplemented }
+set_width
+set_wrap
+xy_to_index
+at_last_line
+copy
+free
+get_baseline
+get_char_extents
+get_cluster_extents
+get_index
+get_layout
+get_layout_extents
+get_line
+get_line_extents
+get_line_readonly
+get_line_yrange
+get_run
+get_run_extents
+get_run_readonly
+next_char
+next_cluster
+next_line
+next_run
+get_extents
+get_height
+get_pixel_extents
+get_x_ranges
+index_to_x
+ref
+unref
+x_to_index
+concat
+copy
+free
+get_font_scale_factor
+get_font_scale_factors
+rotate
+scale
+transform_distance
+transform_pixel_rectangle
+transform_point
+transform_rectangle
+translate
+[ERROR libgir::analysis::record] Missing memory management functions for Pango.Rectangle
+activate
+deactivate
+draw_error_underline
+draw_glyph
+draw_glyph_item
+draw_glyphs
+draw_layout
+draw_layout_line
+draw_rectangle
+draw_trapezoid
+get_alpha
+get_color
+get_layout
+get_layout_line
+get_matrix
+part_changed
+set_alpha
+set_color
+set_matrix
+new
+new_with_positions
+copy
+free
+get_positions_in_pixels
+get_size
+get_tab
+get_tabs
+[WARN  libgir::analysis::functions] Function pango_tab_array_get_tabs has unsupported outs
+resize
+set_tab
+get_name
+for_unichar
+get_for_matrix
+get_for_script
+get_for_script_and_width
+to_rotation
+for_unichar
+get_sample_language
+break
+ByRef
+default_break
+ByRef
+extents_to_pixels
+find_base_dir
+ByRef
+find_paragraph_boundary
+ByRef
+get_log_attrs
+ByRef
+is_zero_width
+itemize
+ByRef
+itemize_with_base_dir
+ByRef
+markup_parser_finish
+markup_parser_new
+parse_markup
+ByRef
+parse_stretch
+ByRef
+parse_style
+ByRef
+parse_variant
+ByRef
+parse_weight
+ByRef
+quantize_line_geometry
+shape
+ByRef
+tailor_break
+ByRef
+unichar_direction
+units_from_double
+units_to_double
+version
+version_check
+version_string
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+
+==> Regenerating `glib/Gir.toml`...
+===> stderr:
+
+[WARN  libgir::library_postprocessing] Field `Cond::i` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `Mutex::i` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `HookList::dummy` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `IOChannel::partial_write_buf` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `Private::future` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `RWLock::i` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `RecMutex::i` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `UriParamsIter::dummy3` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `VariantIter::x` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `VariantBuilder_u_s::y` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `VariantBuilder_u::x` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `VariantDict_u_s::y` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `VariantDict_u::x` missing c:type assumed to be `fixed_array`
+[WARN  libgir::config::gobjects] Configured object `GObject.Object` missing from the library
+append
+free
+free_to_bytes
+new
+new_take
+prepend
+ref
+remove_index
+remove_index_fast
+remove_range
+set_size
+sized_new
+sort
+sort_with_data
+steal
+unref
+new
+new_static
+new_take
+new_with_free_func
+compare
+equal
+get_data
+get_size
+hash
+new_from_bytes
+ref
+unref
+unref_to_array
+unref_to_data
+new
+copy
+free
+get_digest
+get_string
+reset
+update
+type_get_length
+new
+new_from_iso8601
+ByRef
+new_from_timeval_local
+new_from_timeval_utc
+new_from_unix_local
+new_from_unix_utc
+new_local
+new_now
+new_now_local
+new_now_utc
+new_utc
+add
+add_days
+add_full
+add_hours
+add_minutes
+add_months
+add_seconds
+add_weeks
+add_years
+compare
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function compare
+difference
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function difference
+equal
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function equal
+format
+ByRef
+format_iso8601
+get_day_of_month
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function get_day_of_month
+get_day_of_week
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function get_day_of_week
+get_day_of_year
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function get_day_of_year
+get_hour
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function get_hour
+get_microsecond
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function get_microsecond
+get_minute
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function get_minute
+get_month
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function get_month
+get_second
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function get_second
+get_seconds
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function get_seconds
+get_timezone
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function get_timezone
+get_timezone_abbreviation
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function get_timezone_abbreviation
+get_utc_offset
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function get_utc_offset
+get_week_numbering_year
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function get_week_numbering_year
+get_week_of_year
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function get_week_of_year
+get_year
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function get_year
+get_ymd
+hash
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function hash
+is_daylight_savings
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function is_daylight_savings
+ref
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function ref
+to_local
+to_timeval
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function to_timeval
+to_timezone
+to_unix
+[ERROR libgir::analysis::return_value] Ignoring nullable_return_is_error configuration for non-none returning function to_unix
+to_utc
+unref
+new
+new_literal
+new_valist
+copy
+free
+matches
+new
+free
+get_boolean
+get_boolean_list
+get_comment
+get_double
+ByRef
+ByRef
+get_double_list
+ByRef
+ByRef
+get_groups
+get_int64
+ByRef
+ByRef
+get_integer
+ByRef
+ByRef
+get_integer_list
+ByRef
+ByRef
+get_keys
+ByRef
+get_locale_for_key
+ByRef
+ByRef
+get_locale_string
+get_locale_string_list
+get_start_group
+get_string
+get_string_list
+get_uint64
+ByRef
+ByRef
+get_value
+ByRef
+ByRef
+has_group
+ByRef
+has_key
+load_from_bytes
+load_from_data
+ByRef
+load_from_data_dirs
+load_from_dirs
+load_from_file
+ref
+remove_comment
+remove_group
+ByRef
+remove_key
+ByRef
+ByRef
+save_to_file
+set_boolean
+ByRef
+ByRef
+set_boolean_list
+ByRef
+ByRef
+set_comment
+ByRef
+set_double
+ByRef
+ByRef
+set_int64
+ByRef
+ByRef
+set_integer
+ByRef
+ByRef
+set_list_separator
+set_locale_string
+ByRef
+ByRef
+ByRef
+ByRef
+set_string
+ByRef
+ByRef
+ByRef
+set_uint64
+ByRef
+ByRef
+set_value
+ByRef
+ByRef
+ByRef
+to_data
+unref
+new
+acquire
+add_poll
+check
+dispatch
+find_source_by_funcs_user_data
+find_source_by_id
+find_source_by_user_data
+get_poll_func
+[WARN  libgir::analysis::functions] Function "get_poll_func" returns callback
+invoke
+is_owner
+iteration
+pending
+pop_thread_default
+prepare
+push_thread_default
+query
+[WARN  libgir::analysis::functions] Function g_main_context_query has unsupported outs
+ref
+release
+remove_poll
+set_poll_func
+[WARN  libgir::analysis::functions] function `g_main_context_set_poll_func`'s callback `func` without associated user data
+[WARN  libgir::analysis::functions] `set_poll_func`: this is supposed to be a callback function but no callback was found...
+unref
+wait
+wakeup
+default
+get_thread_default
+ref_thread_default
+new
+get_context
+is_running
+quit
+ref
+run
+unref
+new
+add_child_source
+add_poll
+add_unix_fd
+destroy
+get_can_recurse
+get_context
+get_name
+get_priority
+get_ready_time
+get_time
+is_destroyed
+modify_unix_fd
+query_unix_fd
+ref
+remove_child_source
+remove_poll
+remove_unix_fd
+unref
+remove_by_funcs_user_data
+remove_by_user_data
+new
+new_local
+new_offset
+new_utc
+find_interval
+get_abbreviation
+get_identifier
+get_offset
+is_dst
+ref
+unref
+get_auth_params
+get_flags
+get_fragment
+get_host
+get_password
+get_path
+get_port
+get_query
+get_scheme
+get_user
+get_userinfo
+parse_relative
+ByRef
+ref
+to_string
+to_string_partial
+unref
+build
+ByRef
+ByRef
+build_with_user
+ByRef
+ByRef
+escape_bytes
+escape_string
+ByRef
+is_valid
+ByRef
+join
+ByRef
+join_with_user
+ByRef
+list_extract_uris
+ByRef
+parse
+ByRef
+parse_params
+ByRef
+ByRef
+parse_scheme
+ByRef
+peek_scheme
+ByRef
+resolve_relative
+ByRef
+split
+ByRef
+split_network
+ByRef
+split_with_user
+ByRef
+unescape_bytes
+ByRef
+unescape_segment
+unescape_string
+ByRef
+new
+new_array
+new_boolean
+new_byte
+new_bytestring
+new_bytestring_array
+new_dict_entry
+new_double
+new_fixed_array
+new_from_bytes
+new_from_data
+new_handle
+new_int16
+new_int32
+new_int64
+new_maybe
+new_object_path
+new_objv
+new_parsed
+new_parsed_va
+new_printf
+new_signature
+new_string
+new_strv
+new_take_string
+new_tuple
+new_uint16
+new_uint32
+new_uint64
+new_va
+new_variant
+byteswap
+check_format_string
+classify
+compare
+dup_bytestring
+dup_bytestring_array
+dup_objv
+dup_string
+dup_strv
+equal
+get
+get_boolean
+get_byte
+get_bytestring
+get_bytestring_array
+get_child
+get_child_value
+get_data
+get_data_as_bytes
+get_double
+get_fixed_array
+get_handle
+get_int16
+get_int32
+get_int64
+get_maybe
+get_normal_form
+get_objv
+get_size
+get_string
+get_strv
+get_type
+get_type_string
+get_uint16
+get_uint32
+get_uint64
+get_va
+get_variant
+hash
+is_container
+is_floating
+is_normal_form
+is_of_type
+iter_new
+lookup
+lookup_value
+n_children
+print
+print_string
+ref
+ref_sink
+store
+take_ref
+unref
+is_object_path
+is_signature
+parse_error_print_context
+parse_error_quark
+parser_get_error_quark
+new
+new_array
+new_dict_entry
+new_maybe
+new_tuple
+copy
+dup_string
+element
+equal
+first
+free
+get_string_length
+hash
+is_array
+is_basic
+is_container
+is_definite
+is_dict_entry
+is_maybe
+is_subtype_of
+is_tuple
+is_variant
+key
+n_items
+next
+peek_string
+value
+checked_
+string_get_depth_
+string_is_valid
+string_scan
+access
+assert_warning
+ByRef
+ByRef
+ByRef
+ByRef
+assertion_message
+ByRef
+ByRef
+ByRef
+ByRef
+assertion_message_cmpnum
+ByRef
+ByRef
+ByRef
+ByRef
+ByRef
+assertion_message_cmpstr
+ByRef
+ByRef
+ByRef
+ByRef
+ByRef
+ByRef
+ByRef
+base64_decode
+ByRef
+base64_decode_inplace
+base64_decode_step
+base64_encode
+base64_encode_close
+base64_encode_step
+bit_nth_lsf
+bit_nth_msf
+bit_storage
+build_filename
+build_filename_valist
+build_filenamev
+build_path
+build_pathv
+ByRef
+canonicalize_filename
+chdir
+check_version
+clear_error
+clear_handle_id
+clear_list
+clear_pointer
+clear_slist
+compute_checksum_for_bytes
+compute_checksum_for_data
+compute_checksum_for_string
+ByRef
+compute_hmac_for_bytes
+compute_hmac_for_data
+compute_hmac_for_string
+ByRef
+convert_with_iconv
+datalist_clear
+datalist_foreach
+datalist_get_data
+ByRef
+datalist_get_flags
+datalist_id_dup_data
+datalist_id_get_data
+datalist_id_remove_no_notify
+datalist_id_replace_data
+datalist_id_set_data_full
+datalist_init
+datalist_set_flags
+datalist_unset_flags
+dataset_destroy
+dataset_foreach
+dataset_id_get_data
+dataset_id_remove_no_notify
+dataset_id_set_data_full
+dcgettext
+ByRef
+dgettext
+ByRef
+direct_equal
+direct_hash
+dngettext
+ByRef
+ByRef
+double_equal
+double_hash
+dpgettext
+ByRef
+dpgettext2
+ByRef
+ByRef
+file_error_from_errno
+file_get_contents
+file_open_tmp
+file_read_link
+file_set_contents
+file_set_contents_full
+file_test
+filename_display_basename
+filename_display_name
+format_size
+format_size_full
+fprintf
+ByRef
+free
+get_application_name
+get_codeset
+get_console_charset
+get_current_time
+get_environ
+get_host_name
+get_language_names
+get_language_names_with_category
+ByRef
+get_locale_variants
+ByRef
+get_monotonic_time
+get_num_processors
+get_os_info
+ByRef
+get_real_time
+get_system_config_dirs
+get_system_data_dirs
+get_user_cache_dir
+get_user_config_dir
+get_user_data_dir
+get_user_runtime_dir
+get_user_special_dir
+hostname_is_ascii_encoded
+ByRef
+hostname_is_ip_address
+ByRef
+hostname_is_non_ascii
+ByRef
+hostname_to_ascii
+ByRef
+hostname_to_unicode
+ByRef
+iconv
+ByRef
+ByRef
+idle_remove_by_data
+int64_equal
+int64_hash
+int_equal
+int_hash
+io_add_watch
+io_add_watch_full
+io_create_watch
+listenv
+log_structured_array
+log_structured_standard
+ByRef
+ByRef
+ByRef
+ByRef
+ByRef
+log_writer_default
+log_writer_format_fields
+log_writer_journald
+log_writer_standard_streams
+logv
+ByRef
+main_current_source
+main_depth
+malloc
+malloc0
+malloc0_n
+malloc_n
+markup_collect_attributes
+ByRef
+ByRef
+ByRef
+ByRef
+markup_escape_text
+ByRef
+markup_printf_escaped
+ByRef
+markup_vprintf_escaped
+ByRef
+memdup
+mkdir_with_parents
+mkdtemp
+mkdtemp_full
+mkstemp_full
+nullify_pointer
+on_error_query
+ByRef
+on_error_stack_trace
+ByRef
+parse_debug_string
+path_get_basename
+path_get_dirname
+path_is_absolute
+path_skip_root
+pattern_match
+ByRef
+pattern_match_simple
+ByRef
+ByRef
+pattern_match_string
+ByRef
+pointer_bit_lock
+pointer_bit_trylock
+pointer_bit_unlock
+poll
+prefix_error
+ByRef
+print
+ByRef
+printerr
+ByRef
+printf
+ByRef
+printf_string_upper_bound
+ByRef
+propagate_prefixed_error
+ByRef
+qsort_with_data
+random_double
+random_double_range
+random_int
+random_int_range
+random_set_seed
+realloc
+realloc_n
+reload_user_special_dirs_cache
+return_if_fail_warning
+ByRef
+rmdir
+set_application_name
+ByRef
+set_error
+ByRef
+set_print_handler
+[WARN  libgir::analysis::functions] Function "set_print_handler" returns callback
+set_printerr_handler
+[WARN  libgir::analysis::functions] Function "set_printerr_handler" returns callback
+shell_parse_argv
+shell_quote
+shell_unquote
+slice_alloc
+slice_alloc0
+slice_copy
+slice_free1
+slice_free_chain_with_offset
+slice_get_config
+slice_get_config_state
+slice_set_config
+snprintf
+ByRef
+ByRef
+spaced_primes_closest
+spawn_async
+spawn_check_exit_status
+spawn_command_line_async
+spawn_command_line_sync
+spawn_sync
+sprintf
+ByRef
+ByRef
+stpcpy
+ByRef
+ByRef
+try_malloc
+try_malloc0
+try_malloc0_n
+try_malloc_n
+try_realloc
+try_realloc_n
+unicode_script_from_iso15924
+unicode_script_to_iso15924
+unix_get_passwd_entry
+ByRef
+unix_open_pipe
+unlink
+usleep
+uuid_string_is_valid
+ByRef
+uuid_string_random
+vasprintf
+ByRef
+ByRef
+vfprintf
+ByRef
+vprintf
+ByRef
+vsnprintf
+ByRef
+ByRef
+vsprintf
+ByRef
+ByRef
+warn_message
+ByRef
+ByRef
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+
+==> Regenerating `pango/sys/Gir.toml`...
+==> Regenerating `pangocairo/Gir.toml`...
+===> stderr:
+
+new
+new_literal
+new_valist
+copy
+free
+matches
+new
+changed
+get_base_dir
+get_base_gravity
+get_font_description
+get_font_map
+get_gravity
+get_gravity_hint
+get_language
+get_matrix
+get_metrics
+get_round_glyph_positions
+get_serial
+list_families
+load_font
+load_fontset
+set_base_dir
+set_base_gravity
+set_font_description
+set_font_map
+set_gravity_hint
+set_language
+set_matrix
+set_round_glyph_positions
+descriptions_free
+describe
+describe_with_absolute_size
+find_shaper
+get_coverage
+get_face
+get_features
+get_font_map
+get_glyph_extents
+get_hb_font
+get_metrics
+has_char
+changed
+create_context
+get_family
+get_serial
+list_families
+load_font
+load_fontset
+apply_attrs
+copy
+free
+get_logical_widths
+letter_space
+split
+new
+copy
+extents
+extents_range
+free
+get_logical_widths
+get_width
+index_to_x
+set_size
+x_to_index
+new
+context_changed
+copy
+get_alignment
+get_attributes
+get_auto_dir
+get_baseline
+get_character_count
+get_context
+get_cursor_pos
+get_direction
+get_ellipsize
+get_extents
+get_font_description
+get_height
+get_indent
+get_iter
+get_justify
+get_line
+get_line_count
+get_line_readonly
+get_line_spacing
+get_lines
+get_lines_readonly
+get_log_attrs
+get_log_attrs_readonly
+get_pixel_extents
+get_pixel_size
+get_serial
+get_single_paragraph_mode
+get_size
+get_spacing
+get_tabs
+get_text
+get_unknown_glyphs_count
+get_width
+get_wrap
+index_to_line_x
+index_to_pos
+is_ellipsized
+is_wrapped
+move_cursor_visually
+set_alignment
+set_attributes
+set_auto_dir
+set_ellipsize
+set_font_description
+set_height
+set_indent
+set_justify
+set_line_spacing
+set_markup
+set_markup_with_accel
+set_single_paragraph_mode
+set_spacing
+set_tabs
+set_text
+Function { name: "set_text", c_identifier: Some("pango_layout_set_text"), kind: Method, parameters: [Parameter { name: "layout", typ: TypeId { ns_id: 6, id: 72 }, c_type: "PangoLayout*", instance_parameter: true, direction: In, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: Some("a #PangoLayout"), scope: None, closure: None, destroy: None }, Parameter { name: "text", typ: TypeId { ns_id: 0, id: 28 }, c_type: "const char*", instance_parameter: false, direction: In, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: Some("the text"), scope: None, closure: None, destroy: None }, Parameter { name: "length", typ: TypeId { ns_id: 0, id: 14 }, c_type: "int", instance_parameter: false, direction: In, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: Some("maximum length of @text, in bytes. -1 indicates that\n         the string is nul-terminated and the length should be\n         calculated.  The text will also be truncated on\n         encountering a nul-termination even when @length is\n         positive."), scope: None, closure: None, destroy: None }], ret: Parameter { name: "", typ: TypeId { ns_id: 0, id: 0 }, c_type: "void", instance_parameter: false, direction: Return, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: None, scope: None, closure: None, destroy: None }, throws: false, version: None, deprecated_version: None, doc: Some("Sets the text of the layout.\n\nThis function validates @text and renders invalid UTF-8\nwith a placeholder glyph.\n\nNote that if you have used pango_layout_set_markup() or\npango_layout_set_markup_with_accel() on @layout before, you may\nwant to call pango_layout_set_attributes() to clear the attributes\nset on the layout from the markup as this function does not clear\nattributes."), doc_deprecated: None }
+set_width
+set_wrap
+xy_to_index
+get_extents
+get_height
+get_pixel_extents
+get_x_ranges
+index_to_x
+ref
+unref
+x_to_index
+get_scaled_font
+get_default
+new
+new_for_font_type
+get_font_type
+get_resolution
+set_default
+set_resolution
+context_get_resolution
+context_get_shape_renderer
+[WARN  libgir::analysis::functions] Function "context_get_shape_renderer" returns callback
+context_set_font_options
+context_set_resolution
+context_set_shape_renderer
+create_context
+create_layout
+error_underline_path
+glyph_string_path
+layout_line_path
+layout_path
+show_error_underline
+show_glyph_item
+ByRef
+show_glyph_string
+show_layout
+show_layout_line
+update_context
+update_layout
+tStr: str
+tStr: str
+
+==> Regenerating `gdk-pixbuf/sys/Gir.toml`...
+===> stderr:
+
+[WARN  libgir::config::gobjects] Configured object `GdkPixbuf.PIXBUF_FEATURES_H` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GdkPixbuf.PIXBUF_MAJOR` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GdkPixbuf.PIXBUF_MICRO` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GdkPixbuf.PIXBUF_MINOR` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GdkPixbuf.PIXBUF_VERSION` missing from the library
+
+==> Regenerating `gio/sys/Gir.toml`...
+===> stderr:
+
+[WARN  libgir::library_postprocessing] Field `DBusInterfaceSkeletonClass::vfunc_padding` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `DBusInterfaceSkeletonClass::signal_padding` missing c:type assumed to be `fixed_array`
+[WARN  libgir::config::gobjects] Configured object `Gio.Win32InputStream` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Gio.Win32OutputStream` missing from the library
+
+==> Regenerating `gio/Gir.toml`...
+===> stderr:
+
+[WARN  libgir::library_postprocessing] Field `DBusInterfaceSkeletonClass::vfunc_padding` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `DBusInterfaceSkeletonClass::signal_padding` missing c:type assumed to be `fixed_array`
+[WARN  libgir::config::gobjects] Configured object `Gio.Win32InputStream` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Gio.Win32OutputStream` missing from the library
+append
+free
+free_to_bytes
+new
+new_take
+prepend
+ref
+remove_index
+remove_index_fast
+remove_range
+set_size
+sized_new
+sort
+sort_with_data
+steal
+unref
+new
+new_static
+new_take
+new_with_free_func
+compare
+equal
+get_data
+get_size
+hash
+new_from_bytes
+ref
+unref
+unref_to_array
+unref_to_data
+new
+new_from_iso8601
+new_from_timeval_local
+new_from_timeval_utc
+new_from_unix_local
+new_from_unix_utc
+new_local
+new_now
+new_now_local
+new_now_utc
+new_utc
+add
+add_days
+add_full
+add_hours
+add_minutes
+add_months
+add_seconds
+add_weeks
+add_years
+compare
+difference
+equal
+format
+format_iso8601
+get_day_of_month
+get_day_of_week
+get_day_of_year
+get_hour
+get_microsecond
+get_minute
+get_month
+get_second
+get_seconds
+get_timezone
+get_timezone_abbreviation
+get_utc_offset
+get_week_numbering_year
+get_week_of_year
+get_year
+get_ymd
+hash
+is_daylight_savings
+ref
+to_local
+to_timeval
+to_timezone
+to_unix
+to_utc
+unref
+new
+new_literal
+new_valist
+copy
+free
+matches
+new
+free
+get_boolean
+get_boolean_list
+get_comment
+get_double
+get_double_list
+get_groups
+get_int64
+get_integer
+get_integer_list
+get_keys
+get_locale_for_key
+get_locale_string
+get_locale_string_list
+get_start_group
+get_string
+get_string_list
+get_uint64
+get_value
+has_group
+has_key
+load_from_bytes
+load_from_data
+load_from_data_dirs
+load_from_dirs
+load_from_file
+ref
+remove_comment
+remove_group
+remove_key
+save_to_file
+set_boolean
+set_boolean_list
+set_comment
+set_double
+set_double_list
+set_int64
+set_integer
+set_integer_list
+set_list_separator
+set_locale_string
+set_locale_string_list
+set_string
+set_string_list
+set_uint64
+set_value
+to_data
+unref
+new
+acquire
+add_poll
+check
+dispatch
+find_source_by_funcs_user_data
+find_source_by_id
+find_source_by_user_data
+get_poll_func
+[WARN  libgir::analysis::functions] Function "get_poll_func" returns callback
+invoke
+invoke_full
+is_owner
+iteration
+pending
+pop_thread_default
+prepare
+push_thread_default
+query
+ref
+release
+remove_poll
+set_poll_func
+unref
+wait
+wakeup
+default
+get_thread_default
+ref_thread_default
+new
+add_child_source
+add_poll
+add_unix_fd
+attach
+destroy
+get_can_recurse
+get_context
+get_id
+get_name
+get_priority
+get_ready_time
+get_time
+is_destroyed
+modify_unix_fd
+query_unix_fd
+ref
+remove_child_source
+remove_poll
+remove_unix_fd
+set_callback
+set_callback_indirect
+set_can_recurse
+set_dispose_function
+set_funcs
+set_name
+set_priority
+set_ready_time
+unref
+remove
+remove_by_funcs_user_data
+remove_by_user_data
+set_name_by_id
+append
+append_c
+append_len
+append_printf
+append_unichar
+append_uri_escaped
+append_vprintf
+ascii_down
+ascii_up
+assign
+equal
+erase
+free
+free_to_bytes
+hash
+insert
+insert_c
+insert_len
+insert_unichar
+overwrite
+overwrite_len
+prepend
+prepend_c
+prepend_len
+prepend_unichar
+printf
+set_size
+truncate
+vprintf
+new
+new_array
+new_boolean
+new_byte
+new_bytestring
+new_bytestring_array
+new_dict_entry
+new_double
+new_fixed_array
+new_from_bytes
+new_from_data
+new_handle
+new_int16
+new_int32
+new_int64
+new_maybe
+new_object_path
+new_objv
+new_parsed
+new_parsed_va
+new_printf
+new_signature
+new_string
+new_strv
+new_take_string
+new_tuple
+new_uint16
+new_uint32
+new_uint64
+new_va
+new_variant
+byteswap
+check_format_string
+classify
+compare
+dup_bytestring
+dup_bytestring_array
+dup_objv
+dup_string
+dup_strv
+equal
+get
+get_boolean
+get_byte
+get_bytestring
+get_bytestring_array
+get_child
+get_child_value
+get_data
+get_data_as_bytes
+get_double
+get_fixed_array
+get_handle
+get_int16
+get_int32
+get_int64
+get_maybe
+get_normal_form
+get_objv
+get_size
+get_string
+get_strv
+get_type
+get_type_string
+get_uint16
+get_uint32
+get_uint64
+get_va
+get_variant
+hash
+is_container
+is_floating
+is_normal_form
+is_of_type
+iter_new
+lookup
+lookup_value
+n_children
+print
+print_string
+ref
+ref_sink
+store
+take_ref
+unref
+is_object_path
+is_signature
+parse_error_print_context
+parse_error_quark
+parser_get_error_quark
+new
+clear
+contains
+end
+init
+insert
+insert_value
+lookup
+lookup_value
+ref
+remove
+unref
+new
+new_array
+new_dict_entry
+new_maybe
+new_tuple
+copy
+dup_string
+element
+equal
+first
+free
+get_string_length
+hash
+is_array
+is_basic
+is_container
+is_definite
+is_dict_entry
+is_maybe
+is_subtype_of
+is_tuple
+is_variant
+key
+n_items
+next
+peek_string
+value
+checked_
+string_get_depth_
+string_is_valid
+string_scan
+new_object
+new_simple
+add_finalize_notifier
+add_invalidate_notifier
+add_marshal_guards
+invalidate
+invoke
+ref
+remove_finalize_notifier
+remove_invalidate_notifier
+set_marshal
+set_meta_marshal
+sink
+unref
+new
+new_valist
+new_with_properties
+newv
+compat_control
+interface_find_property
+interface_install_property
+interface_list_properties
+add_toggle_ref
+add_weak_pointer
+bind_property
+bind_property_full
+bind_property_with_closures
+connect
+disconnect
+dup_data
+dup_qdata
+force_floating
+freeze_notify
+get
+get_data
+get_property
+get_qdata
+get_valist
+getv
+is_floating
+notify
+notify_by_pspec
+ref
+ref_sink
+remove_toggle_ref
+remove_weak_pointer
+replace_data
+replace_qdata
+run_dispose
+set
+set_data
+set_data_full
+set_property
+set_qdata
+set_qdata_full
+set_valist
+setv
+steal_data
+steal_qdata
+thaw_notify
+unref
+watch_closure
+weak_ref
+weak_unref
+copy
+dup_boxed
+dup_object
+dup_param
+dup_string
+dup_variant
+fits_pointer
+get_boolean
+get_boxed
+get_double
+get_enum
+get_flags
+get_float
+get_gtype
+get_int
+get_int64
+get_long
+get_object
+get_param
+get_pointer
+get_schar
+get_string
+get_uchar
+get_uint
+get_uint64
+get_ulong
+get_variant
+init
+init_from_instance
+peek_pointer
+reset
+set_boolean
+set_boxed
+set_double
+set_enum
+set_flags
+set_float
+set_gtype
+set_instance
+set_int
+set_int64
+set_interned_string
+set_long
+set_object
+set_param
+set_pointer
+set_schar
+set_static_boxed
+set_static_string
+set_string
+set_uchar
+set_uint
+set_uint64
+set_ulong
+set_variant
+take_boxed
+take_object
+take_param
+take_string
+take_variant
+transform
+unset
+register_transform_func
+type_compatible
+type_transformable
+name_is_valid
+ByRef
+parse_detailed_name
+ByRef
+print_detailed_name
+ByRef
+activate
+change_state
+get_enabled
+get_name
+get_parameter_type
+get_state
+get_state_hint
+get_state_type
+action_added
+ByRef
+action_enabled_changed
+ByRef
+action_removed
+ByRef
+action_state_changed
+ByRef
+activate_action
+ByRef
+change_action_state
+ByRef
+get_action_enabled
+ByRef
+get_action_parameter_type
+ByRef
+get_action_state
+ByRef
+get_action_state_hint
+ByRef
+get_action_state_type
+ByRef
+has_action
+ByRef
+list_actions
+add_action
+add_action_entries
+lookup_action
+ByRef
+remove_action
+ByRef
+create_from_commandline
+get_all
+get_all_for_type
+ByRef
+get_default_for_type
+ByRef
+get_default_for_uri_scheme
+ByRef
+get_fallback_for_type
+ByRef
+get_recommended_for_type
+ByRef
+launch_default_for_uri
+ByRef
+launch_default_for_uri_async
+ByRef
+launch_default_for_uri_finish
+reset_type_associations
+ByRef
+add_supports_type
+ByRef
+can_delete
+can_remove_supports_type
+delete
+dup
+equal
+get_commandline
+get_description
+get_display_name
+get_executable
+get_icon
+get_id
+get_name
+get_supported_types
+launch
+launch_uris
+launch_uris_async
+launch_uris_finish
+remove_supports_type
+ByRef
+set_as_default_for_extension
+set_as_default_for_type
+ByRef
+set_as_last_used_for_type
+ByRef
+should_show
+supports_files
+supports_uris
+get
+new
+get_display
+get_environment
+get_startup_notify_id
+launch_failed
+ByRef
+setenv
+unsetenv
+new
+get_default
+id_is_valid
+ByRef
+activate
+add_main_option
+ByRef
+ByRef
+add_main_option_entries
+add_option_group
+bind_busy_property
+ByRef
+get_application_id
+get_dbus_connection
+get_dbus_object_path
+get_flags
+get_inactivity_timeout
+get_is_busy
+get_is_registered
+get_is_remote
+get_resource_base_path
+hold
+mark_busy
+open
+ByRef
+quit
+register
+release
+run
+send_notification
+set_application_id
+set_default
+set_flags
+set_inactivity_timeout
+set_option_context_description
+set_option_context_parameter_string
+set_option_context_summary
+set_resource_base_path
+unbind_busy_property
+ByRef
+unmark_busy
+withdraw_notification
+ByRef
+BBB: Property { name: "action-group", readable: false, writable: true, construct: false, construct_only: false, typ: TypeId { ns_id: 1, id: 3 }, c_type: Some("/*EMPTY*/"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "application-id", readable: true, writable: true, construct: true, construct_only: false, typ: TypeId { ns_id: 0, id: 28 }, c_type: Some("gchar*"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "flags", readable: true, writable: true, construct: false, construct_only: false, typ: TypeId { ns_id: 1, id: 21 }, c_type: Some("/*EMPTY*/"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "inactivity-timeout", readable: true, writable: true, construct: false, construct_only: false, typ: TypeId { ns_id: 0, id: 15 }, c_type: Some("guint"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "is-busy", readable: true, writable: false, construct: false, construct_only: false, typ: TypeId { ns_id: 0, id: 1 }, c_type: Some("gboolean"), transfer: None, version: Some(Full(2, 44, 0)), deprecated_version: None, doc: Some("Whether the application is currently marked as busy through\ng_application_mark_busy() or g_application_bind_busy_property()."), doc_deprecated: None }
+BBB: Property { name: "is-registered", readable: true, writable: false, construct: false, construct_only: false, typ: TypeId { ns_id: 0, id: 1 }, c_type: Some("gboolean"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "is-remote", readable: true, writable: false, construct: false, construct_only: false, typ: TypeId { ns_id: 0, id: 1 }, c_type: Some("gboolean"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "resource-base-path", readable: true, writable: true, construct: false, construct_only: false, typ: TypeId { ns_id: 0, id: 28 }, c_type: Some("gchar*"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+create_file_for_arg
+get_arguments
+get_cwd
+get_environ
+get_exit_status
+get_is_remote
+get_options_dict
+get_platform_data
+get_stdin
+getenv
+print
+ByRef
+printerr
+ByRef
+set_exit_status
+get_source_object
+get_user_data
+is_tagged
+legacy_propagate_error
+new
+get_current
+cancel
+connect
+[WARN  libgir::analysis::functions] Closure type `GCallback` doesn't provide user data
+[WARN  libgir::analysis::functions] `g_cancellable_connect`: no user data point to the destroy callback
+[WARN  libgir::analysis::functions] `g_cancellable_connect`: destructor without linked callback
+disconnect
+get_fd
+is_cancelled
+make_pollfd
+pop_current
+push_current
+release_fd
+set_error_if_cancelled
+convert
+reset
+new
+get_native
+get_unix_pid
+get_unix_user
+is_same_user
+set_native
+set_unix_user
+to_string
+ref
+unref
+new
+allow_mechanism
+ByRef
+authorize_authenticated_peer
+new_finish
+new_for_address_finish
+new_for_address_sync
+ByRef
+new_sync
+new
+new_for_address
+ByRef
+add_filter
+call
+ByRef
+ByRef
+ByRef
+call_finish
+call_sync
+ByRef
+ByRef
+ByRef
+call_with_unix_fd_list
+ByRef
+ByRef
+ByRef
+call_with_unix_fd_list_finish
+call_with_unix_fd_list_sync
+ByRef
+ByRef
+ByRef
+close
+close_finish
+close_sync
+emit_signal
+ByRef
+ByRef
+ByRef
+export_action_group
+export_menu_model
+flush
+flush_finish
+flush_sync
+get_capabilities
+get_exit_on_close
+get_flags
+get_guid
+get_last_serial
+get_peer_credentials
+get_stream
+get_unique_name
+is_closed
+register_object
+ByRef
+[WARN  libgir::analysis::functions] `g_dbus_connection_register_object`: no user data point to the destroy callback
+[WARN  libgir::analysis::functions] `g_dbus_connection_register_object`: destructor without linked callback
+register_object_with_closures
+remove_filter
+send_message
+send_message_with_reply
+send_message_with_reply_finish
+send_message_with_reply_sync
+set_exit_on_close
+signal_subscribe
+signal_unsubscribe
+start_message_processing
+unexport_action_group
+unexport_menu_model
+unregister_object
+dup_object
+get_info
+set_object
+generate_xml
+lookup_method
+ByRef
+lookup_property
+ByRef
+lookup_signal
+ByRef
+ref
+unref
+export
+ByRef
+flush
+get_connection
+get_connections
+get_flags
+get_object_path
+get_properties
+get_vtable
+has_connection
+set_flags
+unexport
+unexport_from_connection
+new
+new_from_blob
+new_method_call
+ByRef
+ByRef
+new_signal
+ByRef
+ByRef
+ByRef
+bytes_needed
+copy
+get_arg0
+get_body
+get_byte_order
+get_destination
+get_error_name
+get_flags
+get_header
+get_interface
+get_locked
+get_member
+get_message_type
+get_num_unix_fds
+get_path
+get_reply_serial
+get_sender
+get_serial
+get_signature
+get_unix_fd_list
+lock
+new_method_error
+ByRef
+ByRef
+new_method_error_literal
+ByRef
+ByRef
+new_method_error_valist
+ByRef
+ByRef
+new_method_reply
+print
+set_body
+set_byte_order
+set_destination
+set_error_name
+ByRef
+set_flags
+set_header
+set_interface
+set_member
+set_message_type
+set_num_unix_fds
+set_path
+set_reply_serial
+set_sender
+set_serial
+set_signature
+set_unix_fd_list
+to_blob
+to_gerror
+ref
+unref
+get_connection
+get_interface_name
+get_message
+get_method_info
+get_method_name
+get_object_path
+get_parameters
+get_property_info
+get_sender
+get_user_data
+return_dbus_error
+ByRef
+ByRef
+return_error
+ByRef
+return_error_literal
+return_error_valist
+ByRef
+return_gerror
+return_value
+return_value_with_unix_fd_list
+new_for_xml
+ByRef
+generate_xml
+lookup_interface
+ByRef
+ref
+unref
+get_interface
+ByRef
+get_interfaces
+get_object_path
+ref
+unref
+new_finish
+new_for_bus_finish
+new_for_bus_sync
+ByRef
+ByRef
+ByRef
+new_sync
+ByRef
+ByRef
+new
+ByRef
+ByRef
+new_for_bus
+ByRef
+ByRef
+ByRef
+call
+ByRef
+call_finish
+call_sync
+ByRef
+call_with_unix_fd_list
+ByRef
+call_with_unix_fd_list_finish
+call_with_unix_fd_list_sync
+ByRef
+get_cached_property
+ByRef
+get_cached_property_names
+get_connection
+get_default_timeout
+get_flags
+get_interface_info
+get_interface_name
+get_name
+get_name_owner
+get_object_path
+set_cached_property
+ByRef
+set_default_timeout
+set_interface_info
+new_sync
+ByRef
+ByRef
+get_client_address
+get_flags
+get_guid
+is_active
+start
+stop
+ref
+unref
+new
+ByRef
+new_from_filename
+new_from_keyfile
+get_implementations
+ByRef
+search
+get_action_name
+ByRef
+get_boolean
+ByRef
+get_categories
+get_filename
+get_generic_name
+get_is_hidden
+get_keywords
+get_locale_string
+ByRef
+get_nodisplay
+get_show_in
+get_startup_wm_class
+get_string
+ByRef
+get_string_list
+ByRef
+has_key
+ByRef
+launch_action
+ByRef
+launch_uris_as_manager
+launch_uris_as_manager_with_fds
+list_actions
+can_eject
+can_poll_for_media
+can_start
+can_start_degraded
+can_stop
+eject_with_operation
+eject_with_operation_finish
+enumerate_identifiers
+get_icon
+get_identifier
+ByRef
+get_name
+get_sort_key
+get_start_stop_type
+get_symbolic_icon
+get_volumes
+has_media
+has_volumes
+is_media_check_automatic
+is_media_removable
+is_removable
+poll_for_media
+poll_for_media_finish
+start
+start_finish
+stop
+stop_finish
+new_build_filename
+new_for_commandline_arg
+new_for_commandline_arg_and_cwd
+new_for_path
+new_for_uri
+ByRef
+new_tmp
+parse_name
+ByRef
+append_to
+append_to_async
+append_to_finish
+copy
+copy_async
+[WARN  libgir::analysis::functions] copy_async: Cannot handle callbacks and async parameters at the same time for the moment
+copy_attributes
+copy_finish
+create
+create_async
+create_finish
+create_readwrite
+create_readwrite_async
+create_readwrite_finish
+delete
+delete_async
+delete_finish
+dup
+eject_mountable_with_operation
+eject_mountable_with_operation_finish
+enumerate_children
+ByRef
+enumerate_children_finish
+equal
+find_enclosing_mount
+find_enclosing_mount_finish
+get_basename
+get_child
+get_child_for_display_name
+ByRef
+get_parent
+get_parse_name
+get_path
+get_relative_path
+get_uri
+get_uri_scheme
+has_parent
+has_prefix
+has_uri_scheme
+ByRef
+is_native
+load_bytes
+load_bytes_async
+load_bytes_finish
+load_contents
+load_contents_async
+load_contents_finish
+load_partial_contents_async
+[WARN  libgir::analysis::functions] load_partial_contents_async: Cannot handle callbacks and async parameters at the same time for the moment
+load_partial_contents_finish
+make_directory
+make_directory_async
+make_directory_finish
+make_directory_with_parents
+make_symbolic_link
+measure_disk_usage
+measure_disk_usage_async
+[WARN  libgir::analysis::functions] measure_disk_usage_async: Cannot handle callbacks and async parameters at the same time for the moment
+measure_disk_usage_finish
+monitor
+monitor_directory
+monitor_file
+mount_enclosing_volume
+mount_enclosing_volume_finish
+mount_mountable
+mount_mountable_finish
+move
+open_readwrite
+open_readwrite_async
+open_readwrite_finish
+peek_path
+poll_mountable
+poll_mountable_finish
+query_default_handler
+query_default_handler_async
+query_default_handler_finish
+query_exists
+query_file_type
+query_filesystem_info
+ByRef
+query_filesystem_info_async
+ByRef
+query_filesystem_info_finish
+query_info
+ByRef
+query_info_async
+ByRef
+query_info_finish
+query_settable_attributes
+query_writable_namespaces
+read
+read_async
+read_finish
+replace
+replace_async
+replace_contents
+replace_contents_async
+replace_contents_bytes_async
+replace_contents_finish
+replace_finish
+replace_readwrite
+replace_readwrite_async
+replace_readwrite_finish
+resolve_relative_path
+set_attribute
+ByRef
+set_attribute_byte_string
+ByRef
+ByRef
+set_attribute_int32
+ByRef
+set_attribute_int64
+ByRef
+set_attribute_string
+ByRef
+ByRef
+set_attribute_uint32
+ByRef
+set_attribute_uint64
+ByRef
+set_attributes_async
+set_attributes_finish
+set_attributes_from_info
+set_display_name
+ByRef
+set_display_name_async
+ByRef
+set_display_name_finish
+start_mountable
+start_mountable_finish
+stop_mountable
+stop_mountable_finish
+supports_thread_contexts
+trash
+trash_async
+trash_finish
+unmount_mountable_with_operation
+unmount_mountable_with_operation_finish
+new
+ByRef
+enumerate_namespace
+ByRef
+matches
+ByRef
+matches_only
+ByRef
+ref
+subtract
+to_string
+unref
+close
+close_async
+close_finish
+get_child
+get_container
+has_pending
+is_closed
+next_file
+next_files_async
+next_files_finish
+set_pending
+new
+clear_status
+copy_into
+dup
+get_attribute_as_string
+ByRef
+get_attribute_boolean
+ByRef
+get_attribute_byte_string
+ByRef
+get_attribute_data
+ByRef
+[WARN  libgir::analysis::functions] Function g_file_info_get_attribute_data has unsupported outs
+get_attribute_int32
+ByRef
+get_attribute_int64
+ByRef
+get_attribute_object
+ByRef
+get_attribute_status
+ByRef
+get_attribute_string
+ByRef
+get_attribute_stringv
+ByRef
+get_attribute_type
+ByRef
+get_attribute_uint32
+ByRef
+get_attribute_uint64
+ByRef
+get_content_type
+get_deletion_date
+get_display_name
+get_edit_name
+get_etag
+get_file_type
+get_icon
+get_is_backup
+get_is_hidden
+get_is_symlink
+get_modification_date_time
+get_modification_time
+[WARN  libgir::analysis::functions] Function g_file_info_get_modification_time has unsupported outs
+get_name
+get_size
+get_sort_order
+get_symbolic_icon
+get_symlink_target
+has_attribute
+ByRef
+has_namespace
+ByRef
+list_attributes
+remove_attribute
+ByRef
+set_attribute
+ByRef
+set_attribute_boolean
+ByRef
+set_attribute_byte_string
+ByRef
+ByRef
+set_attribute_int32
+ByRef
+set_attribute_int64
+ByRef
+set_attribute_mask
+set_attribute_object
+ByRef
+set_attribute_status
+ByRef
+set_attribute_string
+ByRef
+ByRef
+set_attribute_stringv
+ByRef
+set_attribute_uint32
+ByRef
+set_attribute_uint64
+ByRef
+set_content_type
+ByRef
+set_display_name
+ByRef
+set_edit_name
+ByRef
+set_file_type
+set_icon
+set_is_hidden
+set_is_symlink
+set_modification_date_time
+set_modification_time
+set_name
+set_size
+set_sort_order
+set_symbolic_icon
+set_symlink_target
+ByRef
+unset_attribute_mask
+cancel
+emit_event
+is_cancelled
+set_rate_limit
+new
+get_completion_suffix
+ByRef
+get_completions
+ByRef
+set_dirs_only
+splice_finish
+clear_pending
+close
+close_async
+close_finish
+get_input_stream
+get_output_stream
+has_pending
+is_closed
+set_pending
+deserialize
+hash
+new_for_string
+ByRef
+equal
+serialize
+to_string
+new_any
+new_from_bytes
+new_from_string
+ByRef
+new_loopback
+equal
+get_family
+get_is_any
+get_is_link_local
+get_is_loopback
+get_is_mc_global
+get_is_mc_link_local
+get_is_mc_node_local
+get_is_mc_org_local
+get_is_mc_site_local
+get_is_multicast
+get_is_site_local
+get_native_size
+to_bytes
+to_string
+new
+new_from_string
+ByRef
+equal
+get_address
+get_family
+get_length
+matches
+to_string
+clear_pending
+close
+close_async
+close_finish
+has_pending
+is_closed
+read
+read_all
+read_all_async
+read_all_finish
+read_async
+read_bytes
+read_bytes_async
+read_bytes_finish
+read_finish
+set_pending
+skip
+skip_async
+skip_finish
+get_item_type
+get_n_items
+get_object
+items_changed
+new
+append
+find
+find_with_equal_func
+[WARN  libgir::analysis::functions] function `g_list_store_find_with_equal_func`'s callback `equal_func` without associated user data
+[WARN  libgir::analysis::functions] `find_with_equal_func`: this is supposed to be a callback function but no callback was found...
+insert
+insert_sorted
+remove
+remove_all
+sort
+splice
+BBB: Property { name: "item-type", readable: true, writable: true, construct: false, construct_only: true, typ: TypeId { ns_id: 0, id: 30 }, c_type: Some("GType"), transfer: None, version: Some(Full(2, 44, 0)), deprecated_version: None, doc: Some("The type of items contained in this list store. Items must be\nsubclasses of #GObject."), doc_deprecated: None }
+load
+load_async
+load_finish
+dup_default
+get_next
+new
+new_from_model
+new_section
+new_submenu
+get_attribute
+ByRef
+ByRef
+get_attribute_value
+ByRef
+get_link
+ByRef
+set_action_and_target
+set_action_and_target_value
+set_attribute
+ByRef
+set_attribute_value
+ByRef
+set_detailed_action
+ByRef
+set_icon
+set_label
+set_link
+ByRef
+set_section
+set_submenu
+get_next
+get_item_attribute
+ByRef
+ByRef
+get_item_attribute_value
+ByRef
+get_item_link
+ByRef
+get_n_items
+is_mutable
+items_changed
+iterate_item_attributes
+iterate_item_links
+can_eject
+can_unmount
+eject_with_operation
+eject_with_operation_finish
+get_default_location
+get_drive
+get_icon
+get_name
+get_root
+get_sort_key
+get_symbolic_icon
+get_uuid
+get_volume
+guess_content_type
+guess_content_type_finish
+guess_content_type_sync
+is_shadowed
+remount
+remount_finish
+shadow
+unmount_with_operation
+unmount_with_operation_finish
+unshadow
+new
+get_anonymous
+get_choice
+get_domain
+get_is_tcrypt_hidden_volume
+get_is_tcrypt_system_volume
+get_password
+get_password_save
+get_pim
+get_username
+reply
+set_anonymous
+set_choice
+set_domain
+set_is_tcrypt_hidden_volume
+set_is_tcrypt_system_volume
+set_password
+set_password_save
+set_pim
+set_username
+[WARN  libgir::analysis::trampolines] Can't generate Gio.MountOperation trampoline for signal 'ask-question'
+[WARN  libgir::analysis::trampolines] Can't generate Gio.MountOperation trampoline for signal 'show-processes'
+get_default
+can_reach
+can_reach_async
+can_reach_finish
+get_connectivity
+get_network_available
+get_network_metered
+new
+ByRef
+add_button
+ByRef
+ByRef
+add_button_with_target
+ByRef
+ByRef
+add_button_with_target_value
+ByRef
+ByRef
+set_body
+set_default_action
+ByRef
+set_default_action_and_target
+ByRef
+set_default_action_and_target_value
+ByRef
+set_icon
+set_priority
+set_title
+ByRef
+clear_pending
+close
+close_async
+close_finish
+flush
+flush_async
+flush_finish
+has_pending
+is_closed
+is_closing
+printf
+ByRef
+set_pending
+splice
+splice_async
+splice_finish
+vprintf
+ByRef
+write
+write_all
+write_all_async
+write_all_finish
+write_async
+write_bytes
+write_bytes_async
+write_bytes_finish
+write_finish
+writev
+writev_all
+writev_all_async
+writev_all_finish
+writev_async
+writev_finish
+acquire
+acquire_async
+acquire_finish
+get_allowed
+get_can_acquire
+get_can_release
+impl_update
+release
+release_async
+release_finish
+can_poll
+create_source
+is_readable
+read_nonblocking
+can_poll
+create_source
+is_writable
+write_nonblocking
+writev_nonblocking
+new
+ByRef
+ByRef
+get_default_for_protocol
+ByRef
+connect
+connect_async
+connect_finish
+supports_hostname
+get_default
+is_supported
+lookup
+ByRef
+lookup_async
+ByRef
+lookup_finish
+activate_action_full
+ByRef
+change_action_state_full
+ByRef
+free_addresses
+free_targets
+get_default
+lookup_by_address
+lookup_by_address_async
+lookup_by_address_finish
+lookup_by_name
+ByRef
+lookup_by_name_async
+ByRef
+lookup_by_name_finish
+lookup_by_name_with_flags
+ByRef
+lookup_by_name_with_flags_async
+ByRef
+lookup_by_name_with_flags_finish
+lookup_records
+ByRef
+lookup_records_async
+ByRef
+lookup_records_finish
+lookup_service
+ByRef
+ByRef
+ByRef
+lookup_service_async
+ByRef
+ByRef
+ByRef
+lookup_service_finish
+set_default
+new_from_data
+enumerate_children
+ByRef
+get_info
+ByRef
+lookup_data
+ByRef
+open_stream
+ByRef
+ref
+unref
+load
+can_seek
+can_truncate
+seek
+tell
+truncate
+new
+ByRef
+new_full
+new_with_backend
+ByRef
+new_with_backend_and_path
+ByRef
+ByRef
+new_with_path
+ByRef
+ByRef
+sync
+unbind
+ByRef
+apply
+bind
+bind_with_mapping
+bind_writable
+ByRef
+ByRef
+create_action
+ByRef
+delay
+get
+ByRef
+ByRef
+get_boolean
+ByRef
+get_child
+ByRef
+get_default_value
+ByRef
+get_double
+ByRef
+get_enum
+ByRef
+get_flags
+ByRef
+get_has_unapplied
+get_int
+ByRef
+get_int64
+ByRef
+get_mapped
+ByRef
+[WARN  libgir::analysis::functions] `SettingsGetMapping`: unknown type
+[WARN  libgir::analysis::functions] `get_mapped`: this is supposed to be a callback function but no callback was found...
+get_string
+ByRef
+get_strv
+ByRef
+get_uint
+ByRef
+get_uint64
+ByRef
+get_user_value
+ByRef
+get_value
+ByRef
+is_writable
+ByRef
+list_children
+reset
+ByRef
+revert
+set
+ByRef
+ByRef
+set_boolean
+ByRef
+set_double
+ByRef
+set_enum
+ByRef
+set_flags
+ByRef
+set_int
+ByRef
+set_int64
+ByRef
+set_string
+ByRef
+ByRef
+set_strv
+ByRef
+set_uint
+ByRef
+set_uint64
+ByRef
+set_value
+ByRef
+[WARN  libgir::analysis::trampolines] Can't generate Gio.Settings trampoline for signal 'change-event'
+flatten_tree
+get_default
+changed
+ByRef
+changed_tree
+keys_changed
+ByRef
+path_changed
+ByRef
+path_writable_changed
+ByRef
+writable_changed
+ByRef
+get_id
+get_key
+ByRef
+get_path
+has_key
+ByRef
+list_children
+list_keys
+ref
+unref
+get_default_value
+get_description
+get_name
+get_range
+get_summary
+get_value_type
+range_check
+ref
+unref
+new_from_directory
+list_schemas
+lookup
+ByRef
+ref
+unref
+get_default
+new
+ByRef
+new_stateful
+ByRef
+set_enabled
+set_state
+set_state_hint
+new
+new
+new
+new
+new_from_fd
+accept
+bind
+check_connect_result
+close
+condition_check
+condition_timed_wait
+condition_wait
+connect
+connection_factory_create_connection
+get_available_bytes
+get_blocking
+get_broadcast
+get_credentials
+get_family
+get_fd
+get_keepalive
+get_listen_backlog
+get_local_address
+get_multicast_loopback
+get_multicast_ttl
+get_option
+get_protocol
+get_remote_address
+get_socket_type
+get_timeout
+get_ttl
+is_closed
+is_connected
+join_multicast_group
+join_multicast_group_ssm
+leave_multicast_group
+leave_multicast_group_ssm
+listen
+receive
+receive_from
+receive_message
+[WARN  libgir::analysis::functions] Function g_socket_receive_message has unsupported outs
+receive_messages
+receive_with_blocking
+send
+send_message
+send_message_with_timeout
+send_messages
+send_to
+send_with_blocking
+set_blocking
+set_broadcast
+set_keepalive
+set_listen_backlog
+set_multicast_loopback
+set_multicast_ttl
+set_option
+set_timeout
+set_ttl
+shutdown
+speaks_ipv4
+next
+next_async
+next_finish
+new
+add_application_proxy
+ByRef
+connect
+connect_async
+connect_finish
+connect_to_host
+ByRef
+connect_to_host_async
+ByRef
+connect_to_host_finish
+connect_to_service
+ByRef
+ByRef
+connect_to_service_async
+ByRef
+ByRef
+connect_to_service_finish
+connect_to_uri
+ByRef
+connect_to_uri_async
+ByRef
+connect_to_uri_finish
+get_enable_proxy
+get_family
+get_local_address
+get_protocol
+get_proxy_resolver
+get_socket_type
+get_timeout
+get_tls
+get_tls_validation_flags
+set_enable_proxy
+set_family
+set_local_address
+set_protocol
+set_proxy_resolver
+set_socket_type
+set_timeout
+set_tls
+set_tls_validation_flags
+enumerate
+proxy_enumerate
+to_string
+factory_lookup_type
+factory_register_type
+connect
+connect_async
+connect_finish
+get_local_address
+get_remote_address
+get_socket
+is_connected
+new
+accept
+accept_async
+accept_finish
+accept_socket
+accept_socket_async
+accept_socket_finish
+add_address
+add_any_inet_port
+add_inet_port
+add_socket
+close
+set_backlog
+new
+is_active
+start
+stop
+new
+ByRef
+copy
+free
+get_hostname
+get_port
+get_priority
+get_weight
+list_sort
+new
+ByRef
+newv
+communicate
+communicate_async
+communicate_finish
+communicate_utf8
+communicate_utf8_async
+communicate_utf8_finish
+force_exit
+get_exit_status
+get_identifier
+get_if_exited
+get_if_signaled
+get_status
+get_stderr_pipe
+get_stdin_pipe
+get_stdout_pipe
+get_successful
+get_term_sig
+send_signal
+wait
+wait_async
+wait_check
+wait_check_async
+wait_check_finish
+wait_finish
+new
+getenv
+set_child_setup
+set_cwd
+set_environ
+set_flags
+set_stderr_file_path
+set_stdin_file_path
+ByRef
+set_stdout_file_path
+setenv
+spawn
+ByRef
+spawnv
+take_fd
+take_stderr_fd
+take_stdin_fd
+take_stdout_fd
+unsetenv
+new
+is_valid
+report_error
+report_new_error
+ByRef
+attach_source
+[WARN  libgir::analysis::functions] function `g_task_attach_source`'s callback `callback` without associated user data
+[WARN  libgir::analysis::functions] `attach_source`: this is supposed to be a callback function but no callback was found...
+get_cancellable
+get_check_cancellable
+get_completed
+get_context
+get_name
+get_priority
+get_return_on_cancel
+get_source_tag
+get_task_data
+had_error
+propagate_value
+return_error
+return_error_if_cancelled
+return_new_error
+ByRef
+return_value
+run_in_thread
+[WARN  libgir::analysis::functions] function `g_task_run_in_thread`'s callback `task_func` without associated user data
+[WARN  libgir::analysis::functions] `run_in_thread`: this is supposed to be a callback function but no callback was found...
+run_in_thread_sync
+[WARN  libgir::analysis::functions] function `g_task_run_in_thread_sync`'s callback `task_func` without associated user data
+[WARN  libgir::analysis::functions] `run_in_thread_sync`: this is supposed to be a callback function but no callback was found...
+set_check_cancellable
+set_name
+set_priority
+set_return_on_cancel
+set_source_tag
+set_task_data
+[WARN  libgir::analysis::functions] `g_task_set_task_data`: no user data point to the destroy callback
+[WARN  libgir::analysis::functions] `g_task_set_task_data`: destructor without linked callback
+get_graceful_disconnect
+set_graceful_disconnect
+new
+ByRef
+new_from_names
+new_with_default_fallbacks
+ByRef
+append_name
+ByRef
+get_names
+prepend_name
+ByRef
+new
+get_default
+get_certificate_type
+get_client_connection_type
+get_default_database
+get_dtls_client_connection_type
+get_dtls_server_connection_type
+get_file_database_type
+get_server_connection_type
+set_default_database
+supports_dtls
+supports_tls
+new_from_file
+new_from_files
+new_from_pem
+ByRef
+list_new_from_file
+get_issuer
+is_same
+verify
+emit_accept_certificate
+get_certificate
+get_channel_binding_data
+get_database
+get_interaction
+get_negotiated_protocol
+get_peer_certificate
+get_peer_certificate_errors
+get_rehandshake_mode
+get_require_close_notify
+handshake
+handshake_async
+handshake_finish
+set_advertised_protocols
+set_certificate
+set_database
+set_interaction
+set_rehandshake_mode
+set_require_close_notify
+create_certificate_handle
+lookup_certificate_for_handle
+ByRef
+lookup_certificate_for_handle_async
+ByRef
+lookup_certificate_for_handle_finish
+lookup_certificate_issuer
+lookup_certificate_issuer_async
+lookup_certificate_issuer_finish
+lookup_certificates_issued_by
+lookup_certificates_issued_by_async
+lookup_certificates_issued_by_finish
+verify_chain
+ByRef
+verify_chain_async
+ByRef
+verify_chain_finish
+new
+ask_password
+ask_password_async
+ask_password_finish
+invoke_ask_password
+invoke_request_certificate
+request_certificate
+request_certificate_async
+request_certificate_finish
+new
+ByRef
+get_description
+get_flags
+get_warning
+set_description
+ByRef
+set_flags
+set_value_full
+[WARN  libgir::analysis::functions] `g_tls_password_set_value_full`: no user data point to the destroy callback
+[WARN  libgir::analysis::functions] `g_tls_password_set_value_full`: destructor without linked callback
+set_warning
+ByRef
+new
+new
+new_from_array
+append
+get
+get_length
+peek_fds
+steal_fds
+new
+get_close_fd
+get_fd
+set_close_fd
+compare
+copy
+free
+get_device_path
+get_fs_type
+get_mount_path
+get_options
+guess_can_eject
+guess_icon
+guess_name
+guess_symbolic_icon
+is_loopback
+is_readonly
+is_user_mountable
+at
+new
+get_close_fd
+get_fd
+set_close_fd
+get_default
+get_local
+get_file_for_path
+ByRef
+get_file_for_uri
+ByRef
+get_supported_uri_schemes
+is_active
+parse_name
+ByRef
+register_uri_scheme
+ByRef
+unregister_uri_scheme
+ByRef
+can_eject
+can_mount
+eject_with_operation
+eject_with_operation_finish
+enumerate_identifiers
+get_activation_root
+get_drive
+get_icon
+get_identifier
+ByRef
+get_mount
+get_name
+get_sort_key
+get_symbolic_icon
+get_uuid
+mount
+mount_finish
+should_automount
+get
+get_connected_drives
+get_mount_for_uuid
+ByRef
+get_mounts
+get_volume_for_uuid
+ByRef
+get_volumes
+new
+get_file_info
+set_file_info
+new
+get_file_info
+new
+get_bytes
+new
+ByRef
+ByRef
+get_num_fallbacks
+get_use_fallback
+set_use_fallback
+BBB: Property { name: "from-charset", readable: true, writable: true, construct: false, construct_only: true, typ: TypeId { ns_id: 0, id: 28 }, c_type: Some("gchar*"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "to-charset", readable: true, writable: true, construct: false, construct_only: true, typ: TypeId { ns_id: 0, id: 28 }, c_type: Some("gchar*"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "use-fallback", readable: true, writable: true, construct: true, construct_only: false, typ: TypeId { ns_id: 0, id: 1 }, c_type: Some("gboolean"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+get
+ByRef
+get
+ByRef
+new
+new_with_origin
+get_icon
+get_origin
+new
+add_emblem
+clear_emblems
+get_emblems
+get_icon
+get_etag
+query_info
+ByRef
+query_info_async
+ByRef
+query_info_finish
+new
+get_file
+query_info
+ByRef
+query_info_async
+ByRef
+query_info_finish
+get_etag
+query_info
+ByRef
+query_info_async
+ByRef
+query_info_finish
+get_base_stream
+get_close_base_stream
+set_close_base_stream
+get_base_stream
+get_close_base_stream
+set_close_base_stream
+new
+new_from_bytes
+add_bytes
+new_resizable
+get_data_size
+steal_as_bytes
+new
+append
+append_item
+append_section
+append_submenu
+freeze
+insert
+insert_item
+insert_section
+insert_submenu
+prepend
+prepend_item
+prepend_section
+prepend_submenu
+remove
+remove_all
+new
+ByRef
+new_loopback
+parse
+ByRef
+parse_uri
+ByRef
+get_hostname
+get_port
+get_scheme
+new
+ByRef
+ByRef
+ByRef
+get_domain
+get_protocol
+get_scheme
+get_service
+set_scheme
+ByRef
+new_from_native
+get_family
+get_native_size
+to_native
+new
+copy_session_state
+get_accepted_cas
+get_server_identity
+get_use_ssl3
+get_validation_flags
+set_server_identity
+set_use_ssl3
+set_validation_flags
+new
+new_abstract
+new_with_type
+abstract_names_supported
+get_address_type
+get_is_abstract
+get_path
+get_path_len
+new
+new_sized
+fill
+fill_async
+fill_finish
+get_available
+get_buffer_size
+peek_buffer
+read_byte
+set_buffer_size
+BBB: Property { name: "buffer-size", readable: true, writable: true, construct: true, construct_only: false, typ: TypeId { ns_id: 0, id: 15 }, c_type: Some("guint"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "base-stream", readable: true, writable: true, construct: false, construct_only: true, typ: TypeId { ns_id: 1, id: 27 }, c_type: Some("/*EMPTY*/"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "close-base-stream", readable: true, writable: true, construct: true, construct_only: false, typ: TypeId { ns_id: 0, id: 1 }, c_type: Some("gboolean"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+new
+new_sized
+get_auto_grow
+get_buffer_size
+set_auto_grow
+set_buffer_size
+BBB: Property { name: "auto-grow", readable: true, writable: true, construct: false, construct_only: false, typ: TypeId { ns_id: 0, id: 1 }, c_type: Some("gboolean"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "buffer-size", readable: true, writable: true, construct: true, construct_only: false, typ: TypeId { ns_id: 0, id: 15 }, c_type: Some("guint"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "base-stream", readable: true, writable: true, construct: false, construct_only: true, typ: TypeId { ns_id: 1, id: 40 }, c_type: Some("/*EMPTY*/"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "close-base-stream", readable: true, writable: true, construct: false, construct_only: true, typ: TypeId { ns_id: 0, id: 1 }, c_type: Some("gboolean"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+new
+get_converter
+BBB: Property { name: "converter", readable: true, writable: true, construct: false, construct_only: true, typ: TypeId { ns_id: 1, id: 59 }, c_type: Some("/*EMPTY*/"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "base-stream", readable: true, writable: true, construct: false, construct_only: true, typ: TypeId { ns_id: 1, id: 27 }, c_type: Some("/*EMPTY*/"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "close-base-stream", readable: true, writable: true, construct: true, construct_only: false, typ: TypeId { ns_id: 0, id: 1 }, c_type: Some("gboolean"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+new
+get_converter
+BBB: Property { name: "converter", readable: true, writable: true, construct: false, construct_only: true, typ: TypeId { ns_id: 1, id: 59 }, c_type: Some("/*EMPTY*/"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "base-stream", readable: true, writable: true, construct: false, construct_only: true, typ: TypeId { ns_id: 1, id: 40 }, c_type: Some("/*EMPTY*/"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "close-base-stream", readable: true, writable: true, construct: false, construct_only: true, typ: TypeId { ns_id: 0, id: 1 }, c_type: Some("gboolean"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+new
+get_byte_order
+get_newline_type
+read_byte
+read_int16
+read_int32
+read_int64
+read_line
+read_line_async
+read_line_finish
+read_line_finish_utf8
+read_line_utf8
+read_uint16
+read_uint32
+read_uint64
+read_until
+read_until_async
+read_until_finish
+read_upto
+read_upto_async
+read_upto_finish
+set_byte_order
+set_newline_type
+BBB: Property { name: "byte-order", readable: true, writable: true, construct: false, construct_only: false, typ: TypeId { ns_id: 1, id: 147 }, c_type: Some("/*EMPTY*/"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "newline-type", readable: true, writable: true, construct: false, construct_only: false, typ: TypeId { ns_id: 1, id: 148 }, c_type: Some("/*EMPTY*/"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "buffer-size", readable: true, writable: true, construct: true, construct_only: false, typ: TypeId { ns_id: 0, id: 15 }, c_type: Some("guint"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "base-stream", readable: true, writable: true, construct: false, construct_only: true, typ: TypeId { ns_id: 1, id: 27 }, c_type: Some("/*EMPTY*/"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "close-base-stream", readable: true, writable: true, construct: true, construct_only: false, typ: TypeId { ns_id: 0, id: 1 }, c_type: Some("gboolean"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+new
+get_byte_order
+put_byte
+put_int16
+put_int32
+put_int64
+put_string
+ByRef
+put_uint16
+put_uint32
+put_uint64
+set_byte_order
+BBB: Property { name: "byte-order", readable: true, writable: true, construct: false, construct_only: false, typ: TypeId { ns_id: 1, id: 147 }, c_type: Some("/*EMPTY*/"), transfer: None, version: None, deprecated_version: None, doc: Some("Determines the byte ordering that is used when writing\nmulti-byte entities (such as integers) to the stream."), doc_deprecated: None }
+BBB: Property { name: "base-stream", readable: true, writable: true, construct: false, construct_only: true, typ: TypeId { ns_id: 1, id: 40 }, c_type: Some("/*EMPTY*/"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+BBB: Property { name: "close-base-stream", readable: true, writable: true, construct: false, construct_only: true, typ: TypeId { ns_id: 0, id: 1 }, c_type: Some("gboolean"), transfer: None, version: None, deprecated_version: None, doc: None, doc_deprecated: None }
+new
+new_from_string
+ByRef
+get_address
+get_flowinfo
+get_port
+get_scope_id
+new
+ByRef
+ByRef
+get_destination_hostname
+get_destination_port
+get_destination_protocol
+get_password
+get_protocol
+get_uri
+get_username
+bus_get
+bus_get_finish
+bus_get_sync
+bus_own_name
+ByRef
+bus_own_name_on_connection
+ByRef
+bus_watch_name
+ByRef
+bus_watch_name_on_connection
+ByRef
+content_type_can_be_executable
+ByRef
+content_type_equals
+ByRef
+ByRef
+content_type_from_mime_type
+ByRef
+content_type_get_description
+ByRef
+content_type_get_generic_icon_name
+ByRef
+content_type_get_icon
+ByRef
+content_type_get_mime_dirs
+content_type_get_mime_type
+ByRef
+content_type_get_symbolic_icon
+ByRef
+content_type_guess
+content_type_guess_for_tree
+content_type_is_a
+ByRef
+ByRef
+content_type_is_mime_type
+ByRef
+ByRef
+content_type_is_unknown
+ByRef
+content_type_set_mime_dirs
+content_types_get_registered
+dbus_address_escape_value
+ByRef
+dbus_address_get_for_bus_sync
+dbus_address_get_stream
+ByRef
+dbus_address_get_stream_finish
+dbus_address_get_stream_sync
+ByRef
+dbus_generate_guid
+dbus_gvalue_to_gvariant
+dbus_gvariant_to_gvalue
+dbus_is_address
+ByRef
+dbus_is_guid
+ByRef
+dbus_is_interface_name
+ByRef
+dbus_is_member_name
+ByRef
+dbus_is_name
+ByRef
+dbus_is_supported_address
+ByRef
+dbus_is_unique_name
+ByRef
+io_error_from_errno
+io_modules_load_all_in_directory
+io_modules_load_all_in_directory_with_scope
+io_modules_scan_all_in_directory
+io_modules_scan_all_in_directory_with_scope
+io_scheduler_cancel_all_jobs
+io_scheduler_push_job
+keyfile_settings_backend_new
+ByRef
+ByRef
+memory_settings_backend_new
+networking_init
+null_settings_backend_new
+resources_enumerate_children
+ByRef
+resources_get_info
+ByRef
+resources_lookup_data
+ByRef
+resources_open_stream
+ByRef
+resources_register
+resources_unregister
+unix_is_mount_path_system_internal
+unix_is_system_device_path
+unix_is_system_fs_type
+ByRef
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+
+==> Regenerating `gdk-pixbuf/Gir.toml`...
+===> stderr:
+
+new
+new_static
+new_take
+new_with_free_func
+compare
+equal
+get_data
+get_size
+hash
+new_from_bytes
+ref
+unref
+unref_to_array
+unref_to_data
+new
+new_literal
+new_valist
+copy
+free
+matches
+new
+new_from_bytes
+new_from_data
+new_from_file
+new_from_file_at_scale
+new_from_file_at_size
+new_from_resource
+ByRef
+new_from_resource_at_scale
+ByRef
+new_from_stream
+new_from_stream_at_scale
+new_from_stream_finish
+new_from_xpm_data
+calculate_rowstride
+get_file_info
+get_file_info_async
+get_file_info_finish
+get_formats
+init_modules
+ByRef
+new_from_stream_async
+new_from_stream_at_scale_async
+save_to_stream_finish
+add_alpha
+apply_embedded_orientation
+composite
+composite_color
+composite_color_simple
+copy
+copy_area
+copy_options
+fill
+flip
+get_bits_per_sample
+get_byte_length
+get_colorspace
+get_has_alpha
+get_height
+get_n_channels
+get_option
+ByRef
+get_options
+get_pixels
+get_rowstride
+get_width
+new_subpixbuf
+read_pixel_bytes
+remove_option
+ByRef
+rotate_simple
+saturate_and_pixelate
+save
+ByRef
+save_to_buffer
+ByRef
+save_to_bufferv
+save_to_callback
+ByRef
+save_to_callbackv
+ByRef
+save_to_stream
+ByRef
+save_to_stream_async
+ByRef
+save_to_streamv
+save_to_streamv_async
+savev
+scale
+scale_simple
+set_option
+ByRef
+ByRef
+new_from_file
+new_from_resource
+ByRef
+new_from_stream
+new_from_stream_finish
+new_from_stream_async
+get_height
+get_iter
+get_static_image
+get_width
+is_static_image
+advance
+get_delay_time
+get_pixbuf
+on_currently_loading_frame
+copy
+free
+get_description
+get_extensions
+get_license
+get_mime_types
+get_name
+is_disabled
+is_save_option_supported
+ByRef
+is_scalable
+is_writable
+set_disabled
+new
+new_with_mime_type
+ByRef
+new_with_type
+ByRef
+close
+get_animation
+get_format
+get_pixbuf
+set_size
+write
+write_bytes
+new
+add_frame
+get_loop
+set_loop
+new
+get_current
+cancel
+connect
+disconnect
+get_fd
+is_cancelled
+make_pollfd
+pop_current
+push_current
+release_fd
+reset
+set_error_if_cancelled
+source_new
+deserialize
+hash
+new_for_string
+equal
+serialize
+to_string
+clear_pending
+close
+close_async
+close_finish
+has_pending
+is_closed
+read
+read_all
+read_all_async
+read_all_finish
+read_async
+read_bytes
+read_bytes_async
+read_bytes_finish
+read_finish
+set_pending
+skip
+skip_async
+skip_finish
+load
+load_async
+load_finish
+clear_pending
+close
+close_async
+close_finish
+flush
+flush_async
+flush_finish
+has_pending
+is_closed
+is_closing
+printf
+set_pending
+splice
+splice_async
+splice_finish
+vprintf
+write
+write_all
+write_all_async
+write_all_finish
+write_async
+write_bytes
+write_bytes_async
+write_bytes_finish
+write_finish
+writev
+writev_all
+writev_all_async
+writev_all_finish
+writev_async
+writev_finish
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+
+<= Done!
+Don't forget to check if everything has been correctly generated!

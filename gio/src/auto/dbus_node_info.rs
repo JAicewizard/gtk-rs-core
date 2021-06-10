@@ -4,6 +4,7 @@
 
 use crate::DBusInterfaceInfo;
 use glib::translate::*;
+use libc::c_char;
 use std::ptr;
 
 glib::wrapper! {
@@ -20,7 +21,9 @@ glib::wrapper! {
 impl DBusNodeInfo {
     #[doc(alias = "g_dbus_node_info_new_for_xml")]
     #[doc(alias = "new_for_xml")]
-    pub fn for_xml(xml_data: &str) -> Result<DBusNodeInfo, glib::Error> {
+    pub fn for_xml<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        xml_data: &'s P,
+    ) -> Result<DBusNodeInfo, glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let ret = ffi::g_dbus_node_info_new_for_xml(xml_data.to_glib_none().0, &mut error);
@@ -44,7 +47,10 @@ impl DBusNodeInfo {
     }
 
     #[doc(alias = "g_dbus_node_info_lookup_interface")]
-    pub fn lookup_interface(&self, name: &str) -> Option<DBusInterfaceInfo> {
+    pub fn lookup_interface<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        name: &'s P,
+    ) -> Option<DBusInterfaceInfo> {
         unsafe {
             from_glib_none(ffi::g_dbus_node_info_lookup_interface(
                 self.to_glib_none().0,

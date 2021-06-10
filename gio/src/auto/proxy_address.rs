@@ -9,6 +9,7 @@ use crate::SocketConnectable;
 use glib::object::Cast;
 use glib::object::IsA;
 use glib::translate::*;
+use libc::c_char;
 use std::fmt;
 
 glib::wrapper! {
@@ -22,11 +23,16 @@ glib::wrapper! {
 
 impl ProxyAddress {
     #[doc(alias = "g_proxy_address_new")]
-    pub fn new<P: IsA<InetAddress>>(
+    pub fn new<
+        's,
+        P: IsA<InetAddress>,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+    >(
         inetaddr: &P,
         port: u16,
-        protocol: &str,
-        dest_hostname: &str,
+        protocol: &'s Q,
+        dest_hostname: &'s R,
         dest_port: u16,
         username: Option<&str>,
         password: Option<&str>,

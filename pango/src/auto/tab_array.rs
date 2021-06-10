@@ -70,7 +70,7 @@ impl TabArray {
 
     //#[doc(alias = "pango_tab_array_get_tabs")]
     //#[doc(alias = "get_tabs")]
-    //pub fn tabs(&mut self, locations: Vec<i32>) -> TabAlign {
+    //pub fn tabs(&mut self, locations: &mut Vec<i32>) -> TabAlign {
     //    unsafe { TODO: call ffi:pango_tab_array_get_tabs() }
     //}
 

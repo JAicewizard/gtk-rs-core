@@ -5,6 +5,7 @@
 use crate::ActionGroup;
 use glib::object::IsA;
 use glib::translate::*;
+use libc::c_char;
 use std::fmt;
 
 glib::wrapper! {
@@ -20,26 +21,26 @@ pub const NONE_REMOTE_ACTION_GROUP: Option<&RemoteActionGroup> = None;
 
 pub trait RemoteActionGroupExt: 'static {
     #[doc(alias = "g_remote_action_group_activate_action_full")]
-    fn activate_action_full(
+    fn activate_action_full<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
         &self,
-        action_name: &str,
+        action_name: &'s P,
         parameter: Option<&glib::Variant>,
         platform_data: &glib::Variant,
     );
 
     #[doc(alias = "g_remote_action_group_change_action_state_full")]
-    fn change_action_state_full(
+    fn change_action_state_full<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
         &self,
-        action_name: &str,
+        action_name: &'s P,
         value: &glib::Variant,
         platform_data: &glib::Variant,
     );
 }
 
 impl<O: IsA<RemoteActionGroup>> RemoteActionGroupExt for O {
-    fn activate_action_full(
+    fn activate_action_full<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
         &self,
-        action_name: &str,
+        action_name: &'s P,
         parameter: Option<&glib::Variant>,
         platform_data: &glib::Variant,
     ) {
@@ -53,9 +54,9 @@ impl<O: IsA<RemoteActionGroup>> RemoteActionGroupExt for O {
         }
     }
 
-    fn change_action_state_full(
+    fn change_action_state_full<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
         &self,
-        action_name: &str,
+        action_name: &'s P,
         value: &glib::Variant,
         platform_data: &glib::Variant,
     ) {

@@ -16,6 +16,7 @@ use glib::object::IsA;
 use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -76,7 +77,10 @@ pub trait VolumeExt: 'static {
 
     #[doc(alias = "g_volume_get_identifier")]
     #[doc(alias = "get_identifier")]
-    fn identifier(&self, kind: &str) -> Option<glib::GString>;
+    fn identifier<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        kind: &'s P,
+    ) -> Option<glib::GString>;
 
     #[doc(alias = "g_volume_get_mount")]
     fn get_mount(&self) -> Option<Mount>;
@@ -226,7 +230,10 @@ impl<O: IsA<Volume>> VolumeExt for O {
         unsafe { from_glib_full(ffi::g_volume_get_icon(self.as_ref().to_glib_none().0)) }
     }
 
-    fn identifier(&self, kind: &str) -> Option<glib::GString> {
+    fn identifier<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        kind: &'s P,
+    ) -> Option<glib::GString> {
         unsafe {
             from_glib_full(ffi::g_volume_get_identifier(
                 self.as_ref().to_glib_none().0,

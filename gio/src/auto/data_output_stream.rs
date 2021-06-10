@@ -14,6 +14,7 @@ use glib::signal::SignalHandlerId;
 use glib::translate::*;
 use glib::StaticType;
 use glib::ToValue;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -132,10 +133,10 @@ pub trait DataOutputStreamExt: 'static {
     ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_data_output_stream_put_string")]
-    fn put_string<P: IsA<Cancellable>>(
+    fn put_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
         &self,
-        str: &str,
-        cancellable: Option<&P>,
+        str: &'s P,
+        cancellable: Option<&Q>,
     ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_data_output_stream_put_uint16")]
@@ -259,10 +260,10 @@ impl<O: IsA<DataOutputStream>> DataOutputStreamExt for O {
         }
     }
 
-    fn put_string<P: IsA<Cancellable>>(
+    fn put_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
         &self,
-        str: &str,
-        cancellable: Option<&P>,
+        str: &'s P,
+        cancellable: Option<&Q>,
     ) -> Result<(), glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();

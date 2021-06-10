@@ -4,6 +4,7 @@
 
 use crate::SettingsSchema;
 use glib::translate::*;
+use libc::c_char;
 use std::ptr;
 
 glib::wrapper! {
@@ -60,7 +61,11 @@ impl SettingsSchemaSource {
     }
 
     #[doc(alias = "g_settings_schema_source_lookup")]
-    pub fn lookup(&self, schema_id: &str, recursive: bool) -> Option<SettingsSchema> {
+    pub fn lookup<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        &self,
+        schema_id: &'s P,
+        recursive: bool,
+    ) -> Option<SettingsSchema> {
         unsafe {
             from_glib_full(ffi::g_settings_schema_source_lookup(
                 self.to_glib_none().0,

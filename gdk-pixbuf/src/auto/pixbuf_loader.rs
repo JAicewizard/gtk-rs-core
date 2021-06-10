@@ -10,6 +10,7 @@ use glib::object::IsA;
 use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -32,7 +33,9 @@ impl PixbufLoader {
 
     #[doc(alias = "gdk_pixbuf_loader_new_with_mime_type")]
     #[doc(alias = "new_with_mime_type")]
-    pub fn with_mime_type(mime_type: &str) -> Result<PixbufLoader, glib::Error> {
+    pub fn with_mime_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        mime_type: &'s P,
+    ) -> Result<PixbufLoader, glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let ret =
@@ -47,7 +50,9 @@ impl PixbufLoader {
 
     #[doc(alias = "gdk_pixbuf_loader_new_with_type")]
     #[doc(alias = "new_with_type")]
-    pub fn with_type(image_type: &str) -> Result<PixbufLoader, glib::Error> {
+    pub fn with_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        image_type: &'s P,
+    ) -> Result<PixbufLoader, glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let ret = ffi::gdk_pixbuf_loader_new_with_type(image_type.to_glib_none().0, &mut error);

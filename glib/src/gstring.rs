@@ -389,8 +389,10 @@ impl<'a> ToGlibPtr<'a, *const c_char> for GString {
     #[inline]
     fn to_glib_full(&self) -> *const c_char {
         unsafe {
-            ffi::g_strndup(self.as_ptr() as *const c_char, self.len() as libc::size_t)
-                as *const c_char
+            ffi::g_strndup(
+                self.as_ptr() as *const c_char,
+                str::len(&self) as libc::size_t,
+            ) as *const c_char
         }
     }
 }
@@ -407,8 +409,10 @@ impl<'a> ToGlibPtr<'a, *mut c_char> for GString {
     #[inline]
     fn to_glib_full(&self) -> *mut c_char {
         unsafe {
-            ffi::g_strndup(self.as_ptr() as *const c_char, self.len() as libc::size_t)
-                as *mut c_char
+            ffi::g_strndup(
+                self.as_ptr() as *const c_char,
+                str::len(&self) as libc::size_t,
+            ) as *mut c_char
         }
     }
 }

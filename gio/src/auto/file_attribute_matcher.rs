@@ -3,6 +3,7 @@
 // DO NOT EDIT
 
 use glib::translate::*;
+use libc::c_char;
 use std::fmt;
 
 glib::wrapper! {
@@ -18,7 +19,9 @@ glib::wrapper! {
 
 impl FileAttributeMatcher {
     #[doc(alias = "g_file_attribute_matcher_new")]
-    pub fn new(attributes: &str) -> FileAttributeMatcher {
+    pub fn new<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        attributes: &'s P,
+    ) -> FileAttributeMatcher {
         unsafe {
             from_glib_full(ffi::g_file_attribute_matcher_new(
                 attributes.to_glib_none().0,
@@ -27,7 +30,10 @@ impl FileAttributeMatcher {
     }
 
     #[doc(alias = "g_file_attribute_matcher_enumerate_namespace")]
-    pub fn enumerate_namespace(&self, ns: &str) -> bool {
+    pub fn enumerate_namespace<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        ns: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::g_file_attribute_matcher_enumerate_namespace(
                 self.to_glib_none().0,
@@ -37,7 +43,10 @@ impl FileAttributeMatcher {
     }
 
     #[doc(alias = "g_file_attribute_matcher_matches")]
-    pub fn matches(&self, attribute: &str) -> bool {
+    pub fn matches<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::g_file_attribute_matcher_matches(
                 self.to_glib_none().0,
@@ -47,7 +56,10 @@ impl FileAttributeMatcher {
     }
 
     #[doc(alias = "g_file_attribute_matcher_matches_only")]
-    pub fn matches_only(&self, attribute: &str) -> bool {
+    pub fn matches_only<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        attribute: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::g_file_attribute_matcher_matches_only(
                 self.to_glib_none().0,

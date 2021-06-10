@@ -10,6 +10,7 @@ use glib::object::IsA;
 use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -39,7 +40,10 @@ pub trait VolumeMonitorExt: 'static {
 
     #[doc(alias = "g_volume_monitor_get_mount_for_uuid")]
     #[doc(alias = "get_mount_for_uuid")]
-    fn mount_for_uuid(&self, uuid: &str) -> Option<Mount>;
+    fn mount_for_uuid<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        uuid: &'s P,
+    ) -> Option<Mount>;
 
     #[doc(alias = "g_volume_monitor_get_mounts")]
     #[doc(alias = "get_mounts")]
@@ -47,7 +51,10 @@ pub trait VolumeMonitorExt: 'static {
 
     #[doc(alias = "g_volume_monitor_get_volume_for_uuid")]
     #[doc(alias = "get_volume_for_uuid")]
-    fn volume_for_uuid(&self, uuid: &str) -> Option<Volume>;
+    fn volume_for_uuid<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        uuid: &'s P,
+    ) -> Option<Volume>;
 
     #[doc(alias = "g_volume_monitor_get_volumes")]
     #[doc(alias = "get_volumes")]
@@ -99,7 +106,10 @@ impl<O: IsA<VolumeMonitor>> VolumeMonitorExt for O {
         }
     }
 
-    fn mount_for_uuid(&self, uuid: &str) -> Option<Mount> {
+    fn mount_for_uuid<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        uuid: &'s P,
+    ) -> Option<Mount> {
         unsafe {
             from_glib_full(ffi::g_volume_monitor_get_mount_for_uuid(
                 self.as_ref().to_glib_none().0,
@@ -116,7 +126,10 @@ impl<O: IsA<VolumeMonitor>> VolumeMonitorExt for O {
         }
     }
 
-    fn volume_for_uuid(&self, uuid: &str) -> Option<Volume> {
+    fn volume_for_uuid<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        uuid: &'s P,
+    ) -> Option<Volume> {
         unsafe {
             from_glib_full(ffi::g_volume_monitor_get_volume_for_uuid(
                 self.as_ref().to_glib_none().0,

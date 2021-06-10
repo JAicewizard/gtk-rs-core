@@ -8,6 +8,7 @@ use glib::signal::connect_raw;
 use glib::signal::SignalHandlerId;
 use glib::translate::*;
 use glib::StaticType;
+use libc::c_char;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
@@ -23,7 +24,7 @@ glib::wrapper! {
 
 impl ThemedIcon {
     #[doc(alias = "g_themed_icon_new")]
-    pub fn new(iconname: &str) -> ThemedIcon {
+    pub fn new<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(iconname: &'s P) -> ThemedIcon {
         unsafe { from_glib_full(ffi::g_themed_icon_new(iconname.to_glib_none().0)) }
     }
 
@@ -41,7 +42,9 @@ impl ThemedIcon {
 
     #[doc(alias = "g_themed_icon_new_with_default_fallbacks")]
     #[doc(alias = "new_with_default_fallbacks")]
-    pub fn with_default_fallbacks(iconname: &str) -> ThemedIcon {
+    pub fn with_default_fallbacks<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        iconname: &'s P,
+    ) -> ThemedIcon {
         unsafe {
             from_glib_full(ffi::g_themed_icon_new_with_default_fallbacks(
                 iconname.to_glib_none().0,
@@ -50,7 +53,7 @@ impl ThemedIcon {
     }
 
     #[doc(alias = "g_themed_icon_append_name")]
-    pub fn append_name(&self, iconname: &str) {
+    pub fn append_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, iconname: &'s P) {
         unsafe {
             ffi::g_themed_icon_append_name(self.to_glib_none().0, iconname.to_glib_none().0);
         }
@@ -67,7 +70,7 @@ impl ThemedIcon {
     }
 
     #[doc(alias = "g_themed_icon_prepend_name")]
-    pub fn prepend_name(&self, iconname: &str) {
+    pub fn prepend_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, iconname: &'s P) {
         unsafe {
             ffi::g_themed_icon_prepend_name(self.to_glib_none().0, iconname.to_glib_none().0);
         }

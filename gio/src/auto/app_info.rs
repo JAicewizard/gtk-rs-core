@@ -14,6 +14,7 @@ use crate::File;
 use crate::Icon;
 use glib::object::IsA;
 use glib::translate::*;
+use libc::c_char;
 #[cfg(any(feature = "v2_50", feature = "dox"))]
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
 use std::boxed::Box as Box_;
@@ -63,7 +64,9 @@ impl AppInfo {
 
     #[doc(alias = "g_app_info_get_all_for_type")]
     #[doc(alias = "get_all_for_type")]
-    pub fn all_for_type(content_type: &str) -> Vec<AppInfo> {
+    pub fn all_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        content_type: &'s P,
+    ) -> Vec<AppInfo> {
         unsafe {
             FromGlibPtrContainer::from_glib_full(ffi::g_app_info_get_all_for_type(
                 content_type.to_glib_none().0,
@@ -73,7 +76,10 @@ impl AppInfo {
 
     #[doc(alias = "g_app_info_get_default_for_type")]
     #[doc(alias = "get_default_for_type")]
-    pub fn default_for_type(content_type: &str, must_support_uris: bool) -> Option<AppInfo> {
+    pub fn default_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        content_type: &'s P,
+        must_support_uris: bool,
+    ) -> Option<AppInfo> {
         unsafe {
             from_glib_full(ffi::g_app_info_get_default_for_type(
                 content_type.to_glib_none().0,
@@ -84,7 +90,9 @@ impl AppInfo {
 
     #[doc(alias = "g_app_info_get_default_for_uri_scheme")]
     #[doc(alias = "get_default_for_uri_scheme")]
-    pub fn default_for_uri_scheme(uri_scheme: &str) -> Option<AppInfo> {
+    pub fn default_for_uri_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        uri_scheme: &'s P,
+    ) -> Option<AppInfo> {
         unsafe {
             from_glib_full(ffi::g_app_info_get_default_for_uri_scheme(
                 uri_scheme.to_glib_none().0,
@@ -94,7 +102,9 @@ impl AppInfo {
 
     #[doc(alias = "g_app_info_get_fallback_for_type")]
     #[doc(alias = "get_fallback_for_type")]
-    pub fn fallback_for_type(content_type: &str) -> Vec<AppInfo> {
+    pub fn fallback_for_type<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        content_type: &'s P,
+    ) -> Vec<AppInfo> {
         unsafe {
             FromGlibPtrContainer::from_glib_full(ffi::g_app_info_get_fallback_for_type(
                 content_type.to_glib_none().0,
@@ -104,7 +114,9 @@ impl AppInfo {
 
     #[doc(alias = "g_app_info_get_recommended_for_type")]
     #[doc(alias = "get_recommended_for_type")]
-    pub fn recommended_for_type(content_type: &str) -> Vec<AppInfo> {
+    pub fn recommended_for_type<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+        content_type: &'s P,
+    ) -> Vec<AppInfo> {
         unsafe {
             FromGlibPtrContainer::from_glib_full(ffi::g_app_info_get_recommended_for_type(
                 content_type.to_glib_none().0,
@@ -113,9 +125,13 @@ impl AppInfo {
     }
 
     #[doc(alias = "g_app_info_launch_default_for_uri")]
-    pub fn launch_default_for_uri<P: IsA<AppLaunchContext>>(
-        uri: &str,
-        context: Option<&P>,
+    pub fn launch_default_for_uri<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        Q: IsA<AppLaunchContext>,
+    >(
+        uri: &'s P,
+        context: Option<&Q>,
     ) -> Result<(), glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
@@ -136,18 +152,20 @@ impl AppInfo {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
     #[doc(alias = "g_app_info_launch_default_for_uri_async")]
     pub fn launch_default_for_uri_async<
-        P: IsA<AppLaunchContext>,
-        Q: IsA<Cancellable>,
-        R: FnOnce(Result<(), glib::Error>) + Send + 'static,
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        Q: IsA<AppLaunchContext>,
+        R: IsA<Cancellable>,
+        S: FnOnce(Result<(), glib::Error>) + Send + 'static,
     >(
-        uri: &str,
-        context: Option<&P>,
-        cancellable: Option<&Q>,
-        callback: R,
+        uri: &'static P,
+        context: Option<&Q>,
+        cancellable: Option<&R>,
+        callback: S,
     ) {
-        let user_data: Box_<R> = Box_::new(callback);
+        let user_data: Box_<S> = Box_::new(callback);
         unsafe extern "C" fn launch_default_for_uri_async_trampoline<
-            R: FnOnce(Result<(), glib::Error>) + Send + 'static,
+            S: FnOnce(Result<(), glib::Error>) + Send + 'static,
         >(
             _source_object: *mut glib::gobject_ffi::GObject,
             res: *mut crate::ffi::GAsyncResult,
@@ -160,10 +178,10 @@ impl AppInfo {
             } else {
                 Err(from_glib_full(error))
             };
-            let callback: Box_<R> = Box_::from_raw(user_data as *mut _);
+            let callback: Box_<S> = Box_::from_raw(user_data as *mut _);
             callback(result);
         }
-        let callback = launch_default_for_uri_async_trampoline::<R>;
+        let callback = launch_default_for_uri_async_trampoline::<S>;
         unsafe {
             ffi::g_app_info_launch_default_for_uri_async(
                 uri.to_glib_none().0,
@@ -177,16 +195,19 @@ impl AppInfo {
 
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
-    pub fn launch_default_for_uri_async_future<P: IsA<AppLaunchContext> + Clone + 'static>(
-        uri: &str,
-        context: Option<&P>,
+    pub fn launch_default_for_uri_async_future<
+        's,
+        P: ToGlibPtr<'static, *const libc::c_char> + Clone + 'static,
+        Q: IsA<AppLaunchContext> + Clone + 'static,
+    >(
+        uri: &'static P,
+        context: Option<&Q>,
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<(), glib::Error>> + 'static>> {
-        let uri = String::from(uri);
         let context = context.map(ToOwned::to_owned);
         Box_::pin(crate::GioFuture::new(&(), move |_obj, send| {
             let cancellable = Cancellable::new();
             Self::launch_default_for_uri_async(
-                &uri,
+                uri,
                 context.as_ref().map(::std::borrow::Borrow::borrow),
                 Some(&cancellable),
                 move |res| {
@@ -199,7 +220,9 @@ impl AppInfo {
     }
 
     #[doc(alias = "g_app_info_reset_type_associations")]
-    pub fn reset_type_associations(content_type: &str) {
+    pub fn reset_type_associations<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        content_type: &'s P,
+    ) {
         unsafe {
             ffi::g_app_info_reset_type_associations(content_type.to_glib_none().0);
         }
@@ -210,7 +233,10 @@ pub const NONE_APP_INFO: Option<&AppInfo> = None;
 
 pub trait AppInfoExt: 'static {
     #[doc(alias = "g_app_info_add_supports_type")]
-    fn add_supports_type(&self, content_type: &str) -> Result<(), glib::Error>;
+    fn add_supports_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        content_type: &'s P,
+    ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_app_info_can_delete")]
     fn can_delete(&self) -> bool;
@@ -274,7 +300,10 @@ pub trait AppInfoExt: 'static {
     ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_app_info_remove_supports_type")]
-    fn remove_supports_type(&self, content_type: &str) -> Result<(), glib::Error>;
+    fn remove_supports_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        content_type: &'s P,
+    ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_app_info_set_as_default_for_extension")]
     fn set_as_default_for_extension<P: AsRef<std::path::Path>>(
@@ -283,10 +312,16 @@ pub trait AppInfoExt: 'static {
     ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_app_info_set_as_default_for_type")]
-    fn set_as_default_for_type(&self, content_type: &str) -> Result<(), glib::Error>;
+    fn set_as_default_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        content_type: &'s P,
+    ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_app_info_set_as_last_used_for_type")]
-    fn set_as_last_used_for_type(&self, content_type: &str) -> Result<(), glib::Error>;
+    fn set_as_last_used_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        content_type: &'s P,
+    ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_app_info_should_show")]
     fn should_show(&self) -> bool;
@@ -299,7 +334,10 @@ pub trait AppInfoExt: 'static {
 }
 
 impl<O: IsA<AppInfo>> AppInfoExt for O {
-    fn add_supports_type(&self, content_type: &str) -> Result<(), glib::Error> {
+    fn add_supports_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        content_type: &'s P,
+    ) -> Result<(), glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let _ = ffi::g_app_info_add_supports_type(
@@ -438,7 +476,10 @@ impl<O: IsA<AppInfo>> AppInfoExt for O {
         }
     }
 
-    fn remove_supports_type(&self, content_type: &str) -> Result<(), glib::Error> {
+    fn remove_supports_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        content_type: &'s P,
+    ) -> Result<(), glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let _ = ffi::g_app_info_remove_supports_type(
@@ -473,7 +514,10 @@ impl<O: IsA<AppInfo>> AppInfoExt for O {
         }
     }
 
-    fn set_as_default_for_type(&self, content_type: &str) -> Result<(), glib::Error> {
+    fn set_as_default_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        content_type: &'s P,
+    ) -> Result<(), glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let _ = ffi::g_app_info_set_as_default_for_type(
@@ -489,7 +533,10 @@ impl<O: IsA<AppInfo>> AppInfoExt for O {
         }
     }
 
-    fn set_as_last_used_for_type(&self, content_type: &str) -> Result<(), glib::Error> {
+    fn set_as_last_used_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        &self,
+        content_type: &'s P,
+    ) -> Result<(), glib::Error> {
         unsafe {
             let mut error = ptr::null_mut();
             let _ = ffi::g_app_info_set_as_last_used_for_type(
