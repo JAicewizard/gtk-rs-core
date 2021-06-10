@@ -18,7 +18,7 @@ glib::wrapper! {
 
 impl SrvTarget {
     #[doc(alias = "g_srv_target_new")]
-    pub fn new<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn new<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         hostname: &'s P,
         port: u16,
         priority: u16,

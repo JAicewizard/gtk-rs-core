@@ -34,7 +34,7 @@ impl Icon {
 
     #[doc(alias = "g_icon_new_for_string")]
     #[doc(alias = "new_for_string")]
-    pub fn for_string<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn for_string<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         str: &'s P,
     ) -> Result<Icon, glib::Error> {
         unsafe {

@@ -80,7 +80,7 @@ impl File {
 
     #[doc(alias = "g_file_new_for_uri")]
     #[doc(alias = "new_for_uri")]
-    pub fn for_uri<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(uri: &'s P) -> File {
+    pub fn for_uri<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(uri: &'s P) -> File {
         unsafe { from_glib_full(ffi::g_file_new_for_uri(uri.to_glib_none().0)) }
     }
 
@@ -103,7 +103,7 @@ impl File {
 
     #[doc(alias = "g_file_parse_name")]
     #[doc(alias = "parse_name")]
-    pub fn for_parse_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn for_parse_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         parse_name: &'s P,
     ) -> File {
         unsafe { from_glib_full(ffi::g_file_parse_name(parse_name.to_glib_none().0)) }
@@ -253,7 +253,11 @@ pub trait FileExt: 'static {
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<(), glib::Error>> + 'static>>;
 
     #[doc(alias = "g_file_enumerate_children")]
-    fn enumerate_children<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn enumerate_children<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         attributes: &'s P,
         flags: FileQueryInfoFlags,
@@ -279,7 +283,7 @@ pub trait FileExt: 'static {
 
     #[doc(alias = "g_file_get_child_for_display_name")]
     #[doc(alias = "get_child_for_display_name")]
-    fn child_for_display_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn child_for_display_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         display_name: &'s P,
     ) -> Result<File, glib::Error>;
@@ -315,7 +319,7 @@ pub trait FileExt: 'static {
     fn has_prefix<P: IsA<File>>(&self, prefix: &P) -> bool;
 
     #[doc(alias = "g_file_has_uri_scheme")]
-    fn has_uri_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn has_uri_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         uri_scheme: &'s P,
     ) -> bool;
@@ -579,7 +583,11 @@ pub trait FileExt: 'static {
     ) -> FileType;
 
     #[doc(alias = "g_file_query_filesystem_info")]
-    fn query_filesystem_info<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn query_filesystem_info<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         attributes: &'s P,
         cancellable: Option<&Q>,
@@ -588,7 +596,7 @@ pub trait FileExt: 'static {
     #[doc(alias = "g_file_query_filesystem_info_async")]
     fn query_filesystem_info_async<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<FileInfo, glib::Error>) + Send + 'static,
     >(
@@ -601,7 +609,7 @@ pub trait FileExt: 'static {
 
     fn query_filesystem_info_async_future<
         's,
-        P: ToGlibPtr<'static, *const libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *const libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         attributes: &'static P,
@@ -609,7 +617,7 @@ pub trait FileExt: 'static {
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<FileInfo, glib::Error>> + 'static>>;
 
     #[doc(alias = "g_file_query_info")]
-    fn query_info<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn query_info<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(
         &self,
         attributes: &'s P,
         flags: FileQueryInfoFlags,
@@ -619,7 +627,7 @@ pub trait FileExt: 'static {
     #[doc(alias = "g_file_query_info_async")]
     fn query_info_async<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<FileInfo, glib::Error>) + Send + 'static,
     >(
@@ -631,7 +639,10 @@ pub trait FileExt: 'static {
         callback: R,
     );
 
-    fn query_info_async_future<'s, P: ToGlibPtr<'static, *const libc::c_char> + 'static>(
+    fn query_info_async_future<
+        's,
+        P: ToGlibPtr<'static, *const libc::c_char> + ?Sized + Clone + 'static,
+    >(
         &self,
         attributes: &'static P,
         flags: FileQueryInfoFlags,
@@ -745,13 +756,13 @@ pub trait FileExt: 'static {
     fn resolve_relative_path<P: AsRef<std::path::Path>>(&self, relative_path: P) -> File;
 
     //#[doc(alias = "g_file_set_attribute")]
-    //fn set_attribute<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(&self, attribute: & 's P, type_: FileAttributeType, value_p: /*Unimplemented*/Option<Fundamental: Pointer>, flags: FileQueryInfoFlags, cancellable: Option<&Q>) -> Result<(), glib::Error>;
+    //fn set_attribute<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(&self, attribute: & 's P, type_: FileAttributeType, value_p: /*Unimplemented*/Option<Fundamental: Pointer>, flags: FileQueryInfoFlags, cancellable: Option<&Q>) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_file_set_attribute_byte_string")]
     fn set_attribute_byte_string<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         R: IsA<Cancellable>,
     >(
         &self,
@@ -762,7 +773,11 @@ pub trait FileExt: 'static {
     ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_file_set_attribute_int32")]
-    fn set_attribute_int32<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn set_attribute_int32<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         attribute: &'s P,
         value: i32,
@@ -771,7 +786,11 @@ pub trait FileExt: 'static {
     ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_file_set_attribute_int64")]
-    fn set_attribute_int64<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn set_attribute_int64<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         attribute: &'s P,
         value: i64,
@@ -782,8 +801,8 @@ pub trait FileExt: 'static {
     #[doc(alias = "g_file_set_attribute_string")]
     fn set_attribute_string<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         R: IsA<Cancellable>,
     >(
         &self,
@@ -794,7 +813,11 @@ pub trait FileExt: 'static {
     ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_file_set_attribute_uint32")]
-    fn set_attribute_uint32<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn set_attribute_uint32<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         attribute: &'s P,
         value: u32,
@@ -803,7 +826,11 @@ pub trait FileExt: 'static {
     ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_file_set_attribute_uint64")]
-    fn set_attribute_uint64<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn set_attribute_uint64<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         attribute: &'s P,
         value: u64,
@@ -840,7 +867,11 @@ pub trait FileExt: 'static {
     ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_file_set_display_name")]
-    fn set_display_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn set_display_name<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         display_name: &'s P,
         cancellable: Option<&Q>,
@@ -849,7 +880,7 @@ pub trait FileExt: 'static {
     #[doc(alias = "g_file_set_display_name_async")]
     fn set_display_name_async<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<File, glib::Error>) + Send + 'static,
     >(
@@ -862,7 +893,7 @@ pub trait FileExt: 'static {
 
     fn set_display_name_async_future<
         's,
-        P: ToGlibPtr<'static, *const libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *const libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         display_name: &'static P,
@@ -1414,7 +1445,11 @@ impl<O: IsA<File>> FileExt for O {
         }))
     }
 
-    fn enumerate_children<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn enumerate_children<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         attributes: &'s P,
         flags: FileQueryInfoFlags,
@@ -1478,7 +1513,7 @@ impl<O: IsA<File>> FileExt for O {
         }
     }
 
-    fn child_for_display_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn child_for_display_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         display_name: &'s P,
     ) -> Result<File, glib::Error> {
@@ -1544,7 +1579,7 @@ impl<O: IsA<File>> FileExt for O {
         }
     }
 
-    fn has_uri_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn has_uri_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         uri_scheme: &'s P,
     ) -> bool {
@@ -2427,7 +2462,7 @@ impl<O: IsA<File>> FileExt for O {
 
     fn query_filesystem_info<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
     >(
         &self,
@@ -2452,7 +2487,7 @@ impl<O: IsA<File>> FileExt for O {
 
     fn query_filesystem_info_async<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<FileInfo, glib::Error>) + Send + 'static,
     >(
@@ -2496,7 +2531,7 @@ impl<O: IsA<File>> FileExt for O {
 
     fn query_filesystem_info_async_future<
         's,
-        P: ToGlibPtr<'static, *const libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *const libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         attributes: &'static P,
@@ -2517,7 +2552,7 @@ impl<O: IsA<File>> FileExt for O {
         }))
     }
 
-    fn query_info<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn query_info<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(
         &self,
         attributes: &'s P,
         flags: FileQueryInfoFlags,
@@ -2542,7 +2577,7 @@ impl<O: IsA<File>> FileExt for O {
 
     fn query_info_async<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<FileInfo, glib::Error>) + Send + 'static,
     >(
@@ -2585,7 +2620,10 @@ impl<O: IsA<File>> FileExt for O {
         }
     }
 
-    fn query_info_async_future<'s, P: ToGlibPtr<'static, *const libc::c_char> + 'static>(
+    fn query_info_async_future<
+        's,
+        P: ToGlibPtr<'static, *const libc::c_char> + ?Sized + Clone + 'static,
+    >(
         &self,
         attributes: &'static P,
         flags: FileQueryInfoFlags,
@@ -2925,14 +2963,14 @@ impl<O: IsA<File>> FileExt for O {
         }
     }
 
-    //fn set_attribute<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(&self, attribute: & 's P, type_: FileAttributeType, value_p: /*Unimplemented*/Option<Fundamental: Pointer>, flags: FileQueryInfoFlags, cancellable: Option<&Q>) -> Result<(), glib::Error> {
+    //fn set_attribute<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(&self, attribute: & 's P, type_: FileAttributeType, value_p: /*Unimplemented*/Option<Fundamental: Pointer>, flags: FileQueryInfoFlags, cancellable: Option<&Q>) -> Result<(), glib::Error> {
     //    unsafe { TODO: call ffi:g_file_set_attribute() }
     //}
 
     fn set_attribute_byte_string<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         R: IsA<Cancellable>,
     >(
         &self,
@@ -2959,7 +2997,11 @@ impl<O: IsA<File>> FileExt for O {
         }
     }
 
-    fn set_attribute_int32<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn set_attribute_int32<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         attribute: &'s P,
         value: i32,
@@ -2984,7 +3026,11 @@ impl<O: IsA<File>> FileExt for O {
         }
     }
 
-    fn set_attribute_int64<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn set_attribute_int64<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         attribute: &'s P,
         value: i64,
@@ -3011,8 +3057,8 @@ impl<O: IsA<File>> FileExt for O {
 
     fn set_attribute_string<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         R: IsA<Cancellable>,
     >(
         &self,
@@ -3039,7 +3085,11 @@ impl<O: IsA<File>> FileExt for O {
         }
     }
 
-    fn set_attribute_uint32<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn set_attribute_uint32<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         attribute: &'s P,
         value: u32,
@@ -3064,7 +3114,11 @@ impl<O: IsA<File>> FileExt for O {
         }
     }
 
-    fn set_attribute_uint64<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn set_attribute_uint64<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         attribute: &'s P,
         value: u64,
@@ -3178,7 +3232,11 @@ impl<O: IsA<File>> FileExt for O {
         }
     }
 
-    fn set_display_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn set_display_name<
+        's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         display_name: &'s P,
         cancellable: Option<&Q>,
@@ -3201,7 +3259,7 @@ impl<O: IsA<File>> FileExt for O {
 
     fn set_display_name_async<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<File, glib::Error>) + Send + 'static,
     >(
@@ -3245,7 +3303,7 @@ impl<O: IsA<File>> FileExt for O {
 
     fn set_display_name_async_future<
         's,
-        P: ToGlibPtr<'static, *const libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *const libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         display_name: &'static P,

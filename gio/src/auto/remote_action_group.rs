@@ -21,7 +21,7 @@ pub const NONE_REMOTE_ACTION_GROUP: Option<&RemoteActionGroup> = None;
 
 pub trait RemoteActionGroupExt: 'static {
     #[doc(alias = "g_remote_action_group_activate_action_full")]
-    fn activate_action_full<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn activate_action_full<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
         parameter: Option<&glib::Variant>,
@@ -29,7 +29,7 @@ pub trait RemoteActionGroupExt: 'static {
     );
 
     #[doc(alias = "g_remote_action_group_change_action_state_full")]
-    fn change_action_state_full<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn change_action_state_full<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
         value: &glib::Variant,
@@ -38,7 +38,7 @@ pub trait RemoteActionGroupExt: 'static {
 }
 
 impl<O: IsA<RemoteActionGroup>> RemoteActionGroupExt for O {
-    fn activate_action_full<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn activate_action_full<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
         parameter: Option<&glib::Variant>,
@@ -54,7 +54,7 @@ impl<O: IsA<RemoteActionGroup>> RemoteActionGroupExt for O {
         }
     }
 
-    fn change_action_state_full<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn change_action_state_full<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
         value: &glib::Variant,

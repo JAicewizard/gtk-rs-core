@@ -20,7 +20,7 @@ glib::wrapper! {
 
 impl DBusActionGroup {
     #[doc(alias = "g_dbus_action_group_get")]
-    pub fn get<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn get<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         connection: &DBusConnection,
         bus_name: Option<&str>,
         object_path: &'s P,

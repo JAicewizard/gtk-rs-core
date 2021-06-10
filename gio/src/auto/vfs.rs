@@ -42,11 +42,17 @@ pub const NONE_VFS: Option<&Vfs> = None;
 pub trait VfsExt: 'static {
     #[doc(alias = "g_vfs_get_file_for_path")]
     #[doc(alias = "get_file_for_path")]
-    fn file_for_path<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, path: &'s P) -> File;
+    fn file_for_path<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
+        &self,
+        path: &'s P,
+    ) -> File;
 
     #[doc(alias = "g_vfs_get_file_for_uri")]
     #[doc(alias = "get_file_for_uri")]
-    fn file_for_uri<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, uri: &'s P) -> File;
+    fn file_for_uri<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
+        &self,
+        uri: &'s P,
+    ) -> File;
 
     #[doc(alias = "g_vfs_get_supported_uri_schemes")]
     #[doc(alias = "get_supported_uri_schemes")]
@@ -56,13 +62,15 @@ pub trait VfsExt: 'static {
     fn is_active(&self) -> bool;
 
     #[doc(alias = "g_vfs_parse_name")]
-    fn parse_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, parse_name: &'s P)
-        -> File;
+    fn parse_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
+        &self,
+        parse_name: &'s P,
+    ) -> File;
 
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
     #[doc(alias = "g_vfs_register_uri_scheme")]
-    fn register_uri_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn register_uri_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         scheme: &'s P,
         uri_func: Option<Box_<dyn Fn(&Vfs, &str) -> File + 'static>>,
@@ -72,14 +80,17 @@ pub trait VfsExt: 'static {
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
     #[doc(alias = "g_vfs_unregister_uri_scheme")]
-    fn unregister_uri_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn unregister_uri_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         scheme: &'s P,
     ) -> bool;
 }
 
 impl<O: IsA<Vfs>> VfsExt for O {
-    fn file_for_path<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, path: &'s P) -> File {
+    fn file_for_path<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
+        &self,
+        path: &'s P,
+    ) -> File {
         unsafe {
             from_glib_full(ffi::g_vfs_get_file_for_path(
                 self.as_ref().to_glib_none().0,
@@ -88,7 +99,10 @@ impl<O: IsA<Vfs>> VfsExt for O {
         }
     }
 
-    fn file_for_uri<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, uri: &'s P) -> File {
+    fn file_for_uri<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
+        &self,
+        uri: &'s P,
+    ) -> File {
         unsafe {
             from_glib_full(ffi::g_vfs_get_file_for_uri(
                 self.as_ref().to_glib_none().0,
@@ -109,7 +123,7 @@ impl<O: IsA<Vfs>> VfsExt for O {
         unsafe { from_glib(ffi::g_vfs_is_active(self.as_ref().to_glib_none().0)) }
     }
 
-    fn parse_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn parse_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         parse_name: &'s P,
     ) -> File {
@@ -123,7 +137,7 @@ impl<O: IsA<Vfs>> VfsExt for O {
 
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
-    fn register_uri_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn register_uri_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         scheme: &'s P,
         uri_func: Option<Box_<dyn Fn(&Vfs, &str) -> File + 'static>>,
@@ -131,7 +145,10 @@ impl<O: IsA<Vfs>> VfsExt for O {
     ) -> bool {
         let uri_func_data: Box_<Option<Box_<dyn Fn(&Vfs, &str) -> File + 'static>>> =
             Box_::new(uri_func);
-        unsafe extern "C" fn uri_func_func<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        unsafe extern "C" fn uri_func_func<
+            's,
+            P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        >(
             vfs: *mut ffi::GVfs,
             identifier: *const libc::c_char,
             user_data: glib::ffi::gpointer,
@@ -156,7 +173,7 @@ impl<O: IsA<Vfs>> VfsExt for O {
             Box_::new(parse_name_func);
         unsafe extern "C" fn parse_name_func_func<
             's,
-            P: ToGlibPtr<'s, *const libc::c_char> + 's,
+            P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         >(
             vfs: *mut ffi::GVfs,
             identifier: *const libc::c_char,
@@ -178,7 +195,10 @@ impl<O: IsA<Vfs>> VfsExt for O {
         } else {
             None
         };
-        unsafe extern "C" fn uri_destroy_func<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+        unsafe extern "C" fn uri_destroy_func<
+            's,
+            P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        >(
             data: glib::ffi::gpointer,
         ) {
             let _callback: Box_<Option<Box_<dyn Fn(&Vfs, &str) -> File + 'static>>> =
@@ -187,7 +207,7 @@ impl<O: IsA<Vfs>> VfsExt for O {
         let destroy_call4 = Some(uri_destroy_func::<'s, P> as _);
         unsafe extern "C" fn parse_name_destroy_func<
             's,
-            P: ToGlibPtr<'s, *const libc::c_char> + 's,
+            P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         >(
             data: glib::ffi::gpointer,
         ) {
@@ -215,7 +235,7 @@ impl<O: IsA<Vfs>> VfsExt for O {
 
     #[cfg(any(feature = "v2_50", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
-    fn unregister_uri_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn unregister_uri_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         scheme: &'s P,
     ) -> bool {

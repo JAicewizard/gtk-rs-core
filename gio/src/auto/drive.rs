@@ -77,7 +77,7 @@ pub trait DriveExt: 'static {
 
     #[doc(alias = "g_drive_get_identifier")]
     #[doc(alias = "get_identifier")]
-    fn identifier<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn identifier<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         kind: &'s P,
     ) -> Option<glib::GString>;
@@ -286,7 +286,7 @@ impl<O: IsA<Drive>> DriveExt for O {
         unsafe { from_glib_full(ffi::g_drive_get_icon(self.as_ref().to_glib_none().0)) }
     }
 
-    fn identifier<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn identifier<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         kind: &'s P,
     ) -> Option<glib::GString> {

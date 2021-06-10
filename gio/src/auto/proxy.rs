@@ -26,7 +26,7 @@ glib::wrapper! {
 impl Proxy {
     #[doc(alias = "g_proxy_get_default_for_protocol")]
     #[doc(alias = "get_default_for_protocol")]
-    pub fn default_for_protocol<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn default_for_protocol<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         protocol: &'s P,
     ) -> Option<Proxy> {
         unsafe {

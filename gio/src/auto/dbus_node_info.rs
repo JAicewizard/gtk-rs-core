@@ -21,7 +21,7 @@ glib::wrapper! {
 impl DBusNodeInfo {
     #[doc(alias = "g_dbus_node_info_new_for_xml")]
     #[doc(alias = "new_for_xml")]
-    pub fn for_xml<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn for_xml<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         xml_data: &'s P,
     ) -> Result<DBusNodeInfo, glib::Error> {
         unsafe {
@@ -47,7 +47,7 @@ impl DBusNodeInfo {
     }
 
     #[doc(alias = "g_dbus_node_info_lookup_interface")]
-    pub fn lookup_interface<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn lookup_interface<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         name: &'s P,
     ) -> Option<DBusInterfaceInfo> {

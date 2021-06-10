@@ -19,7 +19,7 @@ glib::wrapper! {
 
 impl DBusMenuModel {
     #[doc(alias = "g_dbus_menu_model_get")]
-    pub fn get<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn get<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         connection: &DBusConnection,
         bus_name: Option<&str>,
         object_path: &'s P,

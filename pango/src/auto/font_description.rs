@@ -173,7 +173,10 @@ impl FontDescription {
     }
 
     #[doc(alias = "pango_font_description_set_family")]
-    pub fn set_family<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&mut self, family: &'s P) {
+    pub fn set_family<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
+        &mut self,
+        family: &'s P,
+    ) {
         unsafe {
             ffi::pango_font_description_set_family(
                 self.to_glib_none_mut().0,
@@ -220,7 +223,7 @@ impl FontDescription {
     #[cfg(any(feature = "v1_42", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_42")))]
     #[doc(alias = "pango_font_description_set_variations")]
-    pub fn set_variations<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn set_variations<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &mut self,
         variations: &'s P,
     ) {
@@ -235,7 +238,7 @@ impl FontDescription {
     #[cfg(any(feature = "v1_42", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_42")))]
     #[doc(alias = "pango_font_description_set_variations_static")]
-    pub fn set_variations_static<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn set_variations_static<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &mut self,
         variations: &'s P,
     ) {
@@ -280,7 +283,7 @@ impl FontDescription {
     }
 
     #[doc(alias = "pango_font_description_from_string")]
-    pub fn from_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn from_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         str: &'s P,
     ) -> FontDescription {
         unsafe {

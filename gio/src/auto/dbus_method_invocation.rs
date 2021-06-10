@@ -125,8 +125,8 @@ impl DBusMethodInvocation {
     #[doc(alias = "g_dbus_method_invocation_return_dbus_error")]
     pub fn return_dbus_error<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         error_name: &'s P,
@@ -142,12 +142,12 @@ impl DBusMethodInvocation {
     }
 
     //#[doc(alias = "g_dbus_method_invocation_return_error")]
-    //pub fn return_error<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, domain: glib::Quark, code: i32, format: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+    //pub fn return_error<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(&self, domain: glib::Quark, code: i32, format: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
     //    unsafe { TODO: call ffi:g_dbus_method_invocation_return_error() }
     //}
 
     //#[doc(alias = "g_dbus_method_invocation_return_error_valist")]
-    //pub fn return_error_valist<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, domain: glib::Quark, code: i32, format: & 's P, var_args: /*Unknown conversion*//*Unimplemented*/Unsupported) {
+    //pub fn return_error_valist<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(&self, domain: glib::Quark, code: i32, format: & 's P, var_args: /*Unknown conversion*//*Unimplemented*/Unsupported) {
     //    unsafe { TODO: call ffi:g_dbus_method_invocation_return_error_valist() }
     //}
 

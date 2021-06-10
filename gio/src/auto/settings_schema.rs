@@ -26,7 +26,7 @@ impl SettingsSchema {
 
     #[doc(alias = "g_settings_schema_get_key")]
     #[doc(alias = "get_key")]
-    pub fn key<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn key<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         name: &'s P,
     ) -> SettingsSchemaKey {
@@ -45,7 +45,10 @@ impl SettingsSchema {
     }
 
     #[doc(alias = "g_settings_schema_has_key")]
-    pub fn has_key<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, name: &'s P) -> bool {
+    pub fn has_key<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        name: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::g_settings_schema_has_key(
                 self.to_glib_none().0,

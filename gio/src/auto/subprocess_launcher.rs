@@ -103,7 +103,10 @@ impl SubprocessLauncher {
     #[cfg(any(unix, feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(unix)))]
     #[doc(alias = "g_subprocess_launcher_set_stdin_file_path")]
-    pub fn set_stdin_file_path<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, path: &'s P) {
+    pub fn set_stdin_file_path<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        path: &'s P,
+    ) {
         unsafe {
             ffi::g_subprocess_launcher_set_stdin_file_path(
                 self.to_glib_none().0,
@@ -142,7 +145,7 @@ impl SubprocessLauncher {
     }
 
     //#[doc(alias = "g_subprocess_launcher_spawn")]
-    //pub fn spawn<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, error: &mut glib::Error, argv0: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> Subprocess {
+    //pub fn spawn<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(&self, error: &mut glib::Error, argv0: & 's P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> Subprocess {
     //    unsafe { TODO: call ffi:g_subprocess_launcher_spawn() }
     //}
 

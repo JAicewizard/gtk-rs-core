@@ -58,7 +58,7 @@ impl Application {
     }
 
     #[doc(alias = "g_application_id_is_valid")]
-    pub fn id_is_valid<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn id_is_valid<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         application_id: &'s P,
     ) -> bool {
         unsafe {
@@ -145,8 +145,8 @@ pub trait ApplicationExt: 'static {
     #[doc(alias = "g_application_add_main_option")]
     fn add_main_option<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
     >(
         &self,
         long_name: &'s P,
@@ -164,7 +164,11 @@ pub trait ApplicationExt: 'static {
     //fn add_option_group(&self, group: /*Ignored*/&glib::OptionGroup);
 
     #[doc(alias = "g_application_bind_busy_property")]
-    fn bind_busy_property<'s, P: IsA<glib::Object>, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn bind_busy_property<
+        's,
+        P: IsA<glib::Object>,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+    >(
         &self,
         object: &P,
         property: &'s Q,
@@ -213,7 +217,11 @@ pub trait ApplicationExt: 'static {
     fn mark_busy(&self);
 
     #[doc(alias = "g_application_open")]
-    fn open<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, files: &[File], hint: &'s P);
+    fn open<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        files: &[File],
+        hint: &'s P,
+    );
 
     #[doc(alias = "g_application_quit")]
     fn quit(&self);
@@ -258,7 +266,11 @@ pub trait ApplicationExt: 'static {
     fn set_resource_base_path(&self, resource_path: Option<&str>);
 
     #[doc(alias = "g_application_unbind_busy_property")]
-    fn unbind_busy_property<'s, P: IsA<glib::Object>, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn unbind_busy_property<
+        's,
+        P: IsA<glib::Object>,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+    >(
         &self,
         object: &P,
         property: &'s Q,
@@ -268,7 +280,10 @@ pub trait ApplicationExt: 'static {
     fn unmark_busy(&self);
 
     #[doc(alias = "g_application_withdraw_notification")]
-    fn withdraw_notification<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, id: &'s P);
+    fn withdraw_notification<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        id: &'s P,
+    );
 
     #[doc(alias = "action-group")]
     fn set_action_group<P: IsA<ActionGroup>>(&self, action_group: Option<&P>);
@@ -333,8 +348,8 @@ impl<O: IsA<Application>> ApplicationExt for O {
 
     fn add_main_option<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
     >(
         &self,
         long_name: &'s P,
@@ -365,7 +380,11 @@ impl<O: IsA<Application>> ApplicationExt for O {
     //    unsafe { TODO: call ffi:g_application_add_option_group() }
     //}
 
-    fn bind_busy_property<'s, P: IsA<glib::Object>, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn bind_busy_property<
+        's,
+        P: IsA<glib::Object>,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+    >(
         &self,
         object: &P,
         property: &'s Q,
@@ -455,7 +474,11 @@ impl<O: IsA<Application>> ApplicationExt for O {
         }
     }
 
-    fn open<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, files: &[File], hint: &'s P) {
+    fn open<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        files: &[File],
+        hint: &'s P,
+    ) {
         let n_files = files.len() as i32;
         unsafe {
             ffi::g_application_open(
@@ -577,7 +600,11 @@ impl<O: IsA<Application>> ApplicationExt for O {
         }
     }
 
-    fn unbind_busy_property<'s, P: IsA<glib::Object>, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn unbind_busy_property<
+        's,
+        P: IsA<glib::Object>,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+    >(
         &self,
         object: &P,
         property: &'s Q,
@@ -597,7 +624,10 @@ impl<O: IsA<Application>> ApplicationExt for O {
         }
     }
 
-    fn withdraw_notification<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, id: &'s P) {
+    fn withdraw_notification<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        id: &'s P,
+    ) {
         unsafe {
             ffi::g_application_withdraw_notification(
                 self.as_ref().to_glib_none().0,

@@ -41,7 +41,11 @@ glib::wrapper! {
 impl DBusConnection {
     #[doc(alias = "g_dbus_connection_new_for_address_sync")]
     #[doc(alias = "new_for_address_sync")]
-    pub fn for_address_sync<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
+    pub fn for_address_sync<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         address: &'s P,
         flags: DBusConnectionFlags,
         observer: Option<&DBusAuthObserver>,
@@ -93,9 +97,9 @@ impl DBusConnection {
     #[doc(alias = "g_dbus_connection_call")]
     pub fn call<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         S: IsA<Cancellable>,
         T: FnOnce(Result<glib::Variant, glib::Error>) + Send + 'static,
     >(
@@ -150,9 +154,9 @@ impl DBusConnection {
 
     pub fn call_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
-        Q: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
-        R: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+        Q: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+        R: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         bus_name: Option<&str>,
@@ -192,9 +196,9 @@ impl DBusConnection {
     #[doc(alias = "g_dbus_connection_call_sync")]
     pub fn call_sync<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         S: IsA<Cancellable>,
     >(
         &self,
@@ -236,9 +240,9 @@ impl DBusConnection {
     #[doc(alias = "g_dbus_connection_call_with_unix_fd_list")]
     pub fn call_with_unix_fd_list<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         S: IsA<UnixFDList>,
         T: IsA<Cancellable>,
         U: FnOnce(Result<(glib::Variant, UnixFDList), glib::Error>) + Send + 'static,
@@ -304,9 +308,9 @@ impl DBusConnection {
     #[cfg_attr(feature = "dox", doc(cfg(unix)))]
     pub fn call_with_unix_fd_list_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
-        Q: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
-        R: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+        Q: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+        R: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
         S: IsA<UnixFDList> + Clone + 'static,
     >(
         &self,
@@ -356,9 +360,9 @@ impl DBusConnection {
     #[doc(alias = "g_dbus_connection_call_with_unix_fd_list_sync")]
     pub fn call_with_unix_fd_list_sync<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         S: IsA<UnixFDList>,
         T: IsA<Cancellable>,
     >(
@@ -471,9 +475,9 @@ impl DBusConnection {
     #[doc(alias = "g_dbus_connection_emit_signal")]
     pub fn emit_signal<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         destination_bus_name: Option<&str>,
@@ -641,7 +645,7 @@ impl DBusConnection {
     }
 
     //#[doc(alias = "g_dbus_connection_register_object")]
-    //pub fn register_object<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, object_path: & 's P, interface_info: &DBusInterfaceInfo, vtable: /*Ignored*/Option<&DBusInterfaceVTable>, user_data: /*Unimplemented*/Option<Fundamental: Pointer>) -> Result<(), glib::Error> {
+    //pub fn register_object<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(&self, object_path: & 's P, interface_info: &DBusInterfaceInfo, vtable: /*Ignored*/Option<&DBusInterfaceVTable>, user_data: /*Unimplemented*/Option<Fundamental: Pointer>) -> Result<(), glib::Error> {
     //    unsafe { TODO: call ffi:g_dbus_connection_register_object() }
     //}
 
@@ -883,7 +887,7 @@ impl DBusConnection {
     #[doc(alias = "new_for_address")]
     pub fn for_address<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<DBusConnection, glib::Error>) + Send + 'static,
     >(
@@ -924,7 +928,10 @@ impl DBusConnection {
         }
     }
 
-    pub fn for_address_future<'s, P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static>(
+    pub fn for_address_future<
+        's,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+    >(
         address: &'static P,
         flags: DBusConnectionFlags,
         observer: Option<&DBusAuthObserver>,

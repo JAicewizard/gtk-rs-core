@@ -51,7 +51,7 @@ impl DateTime {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
     #[doc(alias = "g_date_time_new_from_iso8601")]
     #[doc(alias = "new_from_iso8601")]
-    pub fn from_iso8601<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn from_iso8601<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         text: &'s P,
         default_tz: Option<&TimeZone>,
     ) -> Result<DateTime, BoolError> {
@@ -274,7 +274,7 @@ impl DateTime {
     }
 
     #[doc(alias = "g_date_time_format")]
-    pub fn format<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn format<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         format: &'s P,
     ) -> Result<crate::GString, BoolError> {

@@ -112,7 +112,7 @@ pub fn show_error_underline(cr: &cairo::Context, x: f64, y: f64, width: f64, hei
 }
 
 #[doc(alias = "pango_cairo_show_glyph_item")]
-pub fn show_glyph_item<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+pub fn show_glyph_item<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
     cr: &cairo::Context,
     text: &'s P,
     glyph_item: &mut pango::GlyphItem,

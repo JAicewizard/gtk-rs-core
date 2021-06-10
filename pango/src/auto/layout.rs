@@ -458,7 +458,10 @@ impl Layout {
     }
 
     #[doc(alias = "pango_layout_set_markup")]
-    pub fn set_markup<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, markup: &'s P) {
+    pub fn set_markup<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
+        &self,
+        markup: &'s P,
+    ) {
         let length = markup.len() as i32;
         unsafe {
             ffi::pango_layout_set_markup(self.to_glib_none().0, markup.to_glib_none().0, length);
@@ -466,7 +469,7 @@ impl Layout {
     }
 
     #[doc(alias = "pango_layout_set_markup_with_accel")]
-    pub fn set_markup_with_accel<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn set_markup_with_accel<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         markup: &'s P,
         accel_marker: char,
@@ -509,7 +512,7 @@ impl Layout {
     }
 
     #[doc(alias = "pango_layout_set_text")]
-    pub fn set_text<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, text: &'s P) {
+    pub fn set_text<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(&self, text: &'s P) {
         let length = text.len() as i32;
         unsafe {
             ffi::pango_layout_set_text(self.to_glib_none().0, text.to_glib_none().0, length);

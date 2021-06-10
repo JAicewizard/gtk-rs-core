@@ -27,13 +27,16 @@ pub trait ActionMapExt: 'static {
     //fn add_action_entries(&self, entries: /*Ignored*/&[&ActionEntry], user_data: /*Unimplemented*/Option<Fundamental: Pointer>);
 
     #[doc(alias = "g_action_map_lookup_action")]
-    fn lookup_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn lookup_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
     ) -> Option<Action>;
 
     #[doc(alias = "g_action_map_remove_action")]
-    fn remove_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, action_name: &'s P);
+    fn remove_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        action_name: &'s P,
+    );
 }
 
 impl<O: IsA<ActionMap>> ActionMapExt for O {
@@ -50,7 +53,7 @@ impl<O: IsA<ActionMap>> ActionMapExt for O {
     //    unsafe { TODO: call ffi:g_action_map_add_action_entries() }
     //}
 
-    fn lookup_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn lookup_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
     ) -> Option<Action> {
@@ -62,7 +65,10 @@ impl<O: IsA<ActionMap>> ActionMapExt for O {
         }
     }
 
-    fn remove_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, action_name: &'s P) {
+    fn remove_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        action_name: &'s P,
+    ) {
         unsafe {
             ffi::g_action_map_remove_action(
                 self.as_ref().to_glib_none().0,

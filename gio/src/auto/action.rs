@@ -24,12 +24,14 @@ glib::wrapper! {
 
 impl Action {
     #[doc(alias = "g_action_name_is_valid")]
-    pub fn name_is_valid<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(action_name: &'s P) -> bool {
+    pub fn name_is_valid<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        action_name: &'s P,
+    ) -> bool {
         unsafe { from_glib(ffi::g_action_name_is_valid(action_name.to_glib_none().0)) }
     }
 
     #[doc(alias = "g_action_parse_detailed_name")]
-    pub fn parse_detailed_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn parse_detailed_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         detailed_name: &'s P,
     ) -> Result<(glib::GString, glib::Variant), glib::Error> {
         unsafe {
@@ -51,7 +53,7 @@ impl Action {
     }
 
     #[doc(alias = "g_action_print_detailed_name")]
-    pub fn print_detailed_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn print_detailed_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         action_name: &'s P,
         target_value: Option<&glib::Variant>,
     ) -> glib::GString {

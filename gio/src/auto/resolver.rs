@@ -77,7 +77,7 @@ pub trait ResolverExt: 'static {
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<glib::GString, glib::Error>> + 'static>>;
 
     #[doc(alias = "g_resolver_lookup_by_name")]
-    fn lookup_by_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn lookup_by_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(
         &self,
         hostname: &'s P,
         cancellable: Option<&Q>,
@@ -86,7 +86,7 @@ pub trait ResolverExt: 'static {
     #[doc(alias = "g_resolver_lookup_by_name_async")]
     fn lookup_by_name_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<Vec<InetAddress>, glib::Error>) + Send + 'static,
     >(
@@ -96,7 +96,10 @@ pub trait ResolverExt: 'static {
         callback: R,
     );
 
-    fn lookup_by_name_async_future<'s, P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static>(
+    fn lookup_by_name_async_future<
+        's,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+    >(
         &self,
         hostname: &'static P,
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<Vec<InetAddress>, glib::Error>> + 'static>>;
@@ -106,7 +109,7 @@ pub trait ResolverExt: 'static {
     #[doc(alias = "g_resolver_lookup_by_name_with_flags")]
     fn lookup_by_name_with_flags<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
     >(
         &self,
@@ -120,7 +123,7 @@ pub trait ResolverExt: 'static {
     #[doc(alias = "g_resolver_lookup_by_name_with_flags_async")]
     fn lookup_by_name_with_flags_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<Vec<InetAddress>, glib::Error>) + Send + 'static,
     >(
@@ -135,7 +138,7 @@ pub trait ResolverExt: 'static {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
     fn lookup_by_name_with_flags_async_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         hostname: &'static P,
@@ -143,7 +146,7 @@ pub trait ResolverExt: 'static {
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<Vec<InetAddress>, glib::Error>> + 'static>>;
 
     #[doc(alias = "g_resolver_lookup_records")]
-    fn lookup_records<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn lookup_records<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(
         &self,
         rrname: &'s P,
         record_type: ResolverRecordType,
@@ -153,7 +156,7 @@ pub trait ResolverExt: 'static {
     #[doc(alias = "g_resolver_lookup_records_async")]
     fn lookup_records_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<Vec<glib::Variant>, glib::Error>) + Send + 'static,
     >(
@@ -164,7 +167,10 @@ pub trait ResolverExt: 'static {
         callback: R,
     );
 
-    fn lookup_records_async_future<'s, P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static>(
+    fn lookup_records_async_future<
+        's,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+    >(
         &self,
         rrname: &'static P,
         record_type: ResolverRecordType,
@@ -175,9 +181,9 @@ pub trait ResolverExt: 'static {
     #[doc(alias = "g_resolver_lookup_service")]
     fn lookup_service<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         S: IsA<Cancellable>,
     >(
         &self,
@@ -190,9 +196,9 @@ pub trait ResolverExt: 'static {
     #[doc(alias = "g_resolver_lookup_service_async")]
     fn lookup_service_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         S: IsA<Cancellable>,
         T: FnOnce(Result<Vec<SrvTarget>, glib::Error>) + Send + 'static,
     >(
@@ -206,9 +212,9 @@ pub trait ResolverExt: 'static {
 
     fn lookup_service_async_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
-        Q: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
-        R: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+        Q: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+        R: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         service: &'static P,
@@ -302,7 +308,11 @@ impl<O: IsA<Resolver>> ResolverExt for O {
         }))
     }
 
-    fn lookup_by_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn lookup_by_name<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         hostname: &'s P,
         cancellable: Option<&Q>,
@@ -325,7 +335,7 @@ impl<O: IsA<Resolver>> ResolverExt for O {
 
     fn lookup_by_name_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<Vec<InetAddress>, glib::Error>) + Send + 'static,
     >(
@@ -367,7 +377,7 @@ impl<O: IsA<Resolver>> ResolverExt for O {
 
     fn lookup_by_name_async_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         hostname: &'static P,
@@ -387,7 +397,7 @@ impl<O: IsA<Resolver>> ResolverExt for O {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
     fn lookup_by_name_with_flags<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
     >(
         &self,
@@ -416,7 +426,7 @@ impl<O: IsA<Resolver>> ResolverExt for O {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
     fn lookup_by_name_with_flags_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<Vec<InetAddress>, glib::Error>) + Send + 'static,
     >(
@@ -465,7 +475,7 @@ impl<O: IsA<Resolver>> ResolverExt for O {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
     fn lookup_by_name_with_flags_async_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         hostname: &'static P,
@@ -482,7 +492,11 @@ impl<O: IsA<Resolver>> ResolverExt for O {
         }))
     }
 
-    fn lookup_records<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn lookup_records<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         rrname: &'s P,
         record_type: ResolverRecordType,
@@ -507,7 +521,7 @@ impl<O: IsA<Resolver>> ResolverExt for O {
 
     fn lookup_records_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<Vec<glib::Variant>, glib::Error>) + Send + 'static,
     >(
@@ -551,7 +565,7 @@ impl<O: IsA<Resolver>> ResolverExt for O {
 
     fn lookup_records_async_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         rrname: &'static P,
@@ -571,9 +585,9 @@ impl<O: IsA<Resolver>> ResolverExt for O {
 
     fn lookup_service<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         S: IsA<Cancellable>,
     >(
         &self,
@@ -602,9 +616,9 @@ impl<O: IsA<Resolver>> ResolverExt for O {
 
     fn lookup_service_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         S: IsA<Cancellable>,
         T: FnOnce(Result<Vec<SrvTarget>, glib::Error>) + Send + 'static,
     >(
@@ -650,9 +664,9 @@ impl<O: IsA<Resolver>> ResolverExt for O {
 
     fn lookup_service_async_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
-        Q: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
-        R: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+        Q: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+        R: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         service: &'static P,

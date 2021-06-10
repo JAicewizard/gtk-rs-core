@@ -41,9 +41,9 @@ impl DBusProxy {
     #[doc(alias = "new_for_bus_sync")]
     pub fn for_bus_sync<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         S: IsA<Cancellable>,
     >(
         bus_type: BusType,
@@ -77,8 +77,8 @@ impl DBusProxy {
     #[doc(alias = "g_dbus_proxy_new_sync")]
     pub fn new_sync<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         R: IsA<Cancellable>,
     >(
         connection: &DBusConnection,
@@ -112,8 +112,8 @@ impl DBusProxy {
     #[doc(alias = "g_dbus_proxy_new")]
     pub fn new<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         R: IsA<Cancellable>,
         S: FnOnce(Result<DBusProxy, glib::Error>) + Send + 'static,
     >(
@@ -162,8 +162,8 @@ impl DBusProxy {
 
     pub fn new_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
-        Q: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+        Q: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
     >(
         connection: &DBusConnection,
         flags: DBusProxyFlags,
@@ -198,9 +198,9 @@ impl DBusProxy {
     #[doc(alias = "new_for_bus")]
     pub fn for_bus<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         S: IsA<Cancellable>,
         T: FnOnce(Result<DBusProxy, glib::Error>) + Send + 'static,
     >(
@@ -249,9 +249,9 @@ impl DBusProxy {
 
     pub fn for_bus_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
-        Q: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
-        R: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+        Q: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+        R: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
     >(
         bus_type: BusType,
         flags: DBusProxyFlags,
@@ -297,7 +297,7 @@ pub trait DBusProxyExt: 'static {
     #[doc(alias = "g_dbus_proxy_call")]
     fn call<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<glib::Variant, glib::Error>) + Send + 'static,
     >(
@@ -310,7 +310,7 @@ pub trait DBusProxyExt: 'static {
         callback: R,
     );
 
-    fn call_future<'s, P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static>(
+    fn call_future<'s, P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static>(
         &self,
         method_name: &'static P,
         parameters: Option<&glib::Variant>,
@@ -319,7 +319,7 @@ pub trait DBusProxyExt: 'static {
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<glib::Variant, glib::Error>> + 'static>>;
 
     #[doc(alias = "g_dbus_proxy_call_sync")]
-    fn call_sync<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn call_sync<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(
         &self,
         method_name: &'s P,
         parameters: Option<&glib::Variant>,
@@ -333,7 +333,7 @@ pub trait DBusProxyExt: 'static {
     #[doc(alias = "g_dbus_proxy_call_with_unix_fd_list")]
     fn call_with_unix_fd_list<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<UnixFDList>,
         R: IsA<Cancellable>,
         S: FnOnce(Result<(glib::Variant, UnixFDList), glib::Error>) + Send + 'static,
@@ -352,7 +352,7 @@ pub trait DBusProxyExt: 'static {
     #[cfg_attr(feature = "dox", doc(cfg(unix)))]
     fn call_with_unix_fd_list_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
         Q: IsA<UnixFDList> + Clone + 'static,
     >(
         &self,
@@ -373,7 +373,7 @@ pub trait DBusProxyExt: 'static {
     #[doc(alias = "g_dbus_proxy_call_with_unix_fd_list_sync")]
     fn call_with_unix_fd_list_sync<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<UnixFDList>,
         R: IsA<Cancellable>,
     >(
@@ -388,7 +388,7 @@ pub trait DBusProxyExt: 'static {
 
     #[doc(alias = "g_dbus_proxy_get_cached_property")]
     #[doc(alias = "get_cached_property")]
-    fn cached_property<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn cached_property<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         property_name: &'s P,
     ) -> Option<glib::Variant>;
@@ -430,7 +430,7 @@ pub trait DBusProxyExt: 'static {
     fn object_path(&self) -> glib::GString;
 
     #[doc(alias = "g_dbus_proxy_set_cached_property")]
-    fn set_cached_property<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn set_cached_property<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         property_name: &'s P,
         value: Option<&glib::Variant>,
@@ -494,7 +494,7 @@ pub trait DBusProxyExt: 'static {
 impl<O: IsA<DBusProxy>> DBusProxyExt for O {
     fn call<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<glib::Variant, glib::Error>) + Send + 'static,
     >(
@@ -539,7 +539,7 @@ impl<O: IsA<DBusProxy>> DBusProxyExt for O {
         }
     }
 
-    fn call_future<'s, P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static>(
+    fn call_future<'s, P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static>(
         &self,
         method_name: &'static P,
         parameters: Option<&glib::Variant>,
@@ -565,7 +565,7 @@ impl<O: IsA<DBusProxy>> DBusProxyExt for O {
         }))
     }
 
-    fn call_sync<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn call_sync<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(
         &self,
         method_name: &'s P,
         parameters: Option<&glib::Variant>,
@@ -596,7 +596,7 @@ impl<O: IsA<DBusProxy>> DBusProxyExt for O {
     #[cfg_attr(feature = "dox", doc(cfg(unix)))]
     fn call_with_unix_fd_list<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<UnixFDList>,
         R: IsA<Cancellable>,
         S: FnOnce(Result<(glib::Variant, UnixFDList), glib::Error>) + Send + 'static,
@@ -654,7 +654,7 @@ impl<O: IsA<DBusProxy>> DBusProxyExt for O {
     #[cfg_attr(feature = "dox", doc(cfg(unix)))]
     fn call_with_unix_fd_list_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
         Q: IsA<UnixFDList> + Clone + 'static,
     >(
         &self,
@@ -693,7 +693,7 @@ impl<O: IsA<DBusProxy>> DBusProxyExt for O {
     #[cfg_attr(feature = "dox", doc(cfg(unix)))]
     fn call_with_unix_fd_list_sync<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<UnixFDList>,
         R: IsA<Cancellable>,
     >(
@@ -727,7 +727,7 @@ impl<O: IsA<DBusProxy>> DBusProxyExt for O {
         }
     }
 
-    fn cached_property<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn cached_property<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         property_name: &'s P,
     ) -> Option<glib::Variant> {
@@ -799,7 +799,7 @@ impl<O: IsA<DBusProxy>> DBusProxyExt for O {
         }
     }
 
-    fn set_cached_property<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn set_cached_property<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         property_name: &'s P,
         value: Option<&glib::Variant>,

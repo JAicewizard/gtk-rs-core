@@ -34,7 +34,7 @@ impl InetSocketAddress {
 
     #[doc(alias = "g_inet_socket_address_new_from_string")]
     #[doc(alias = "new_from_string")]
-    pub fn from_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn from_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         address: &'s P,
         port: u32,
     ) -> Option<InetSocketAddress> {

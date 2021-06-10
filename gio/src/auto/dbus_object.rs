@@ -27,7 +27,7 @@ pub const NONE_DBUS_OBJECT: Option<&DBusObject> = None;
 pub trait DBusObjectExt: 'static {
     #[doc(alias = "g_dbus_object_get_interface")]
     #[doc(alias = "get_interface")]
-    fn interface<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn interface<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         interface_name: &'s P,
     ) -> Option<DBusInterface>;
@@ -54,7 +54,7 @@ pub trait DBusObjectExt: 'static {
 }
 
 impl<O: IsA<DBusObject>> DBusObjectExt for O {
-    fn interface<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn interface<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         interface_name: &'s P,
     ) -> Option<DBusInterface> {

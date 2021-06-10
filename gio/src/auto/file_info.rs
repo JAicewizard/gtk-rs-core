@@ -48,7 +48,7 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_as_string")]
     #[doc(alias = "get_attribute_as_string")]
-    pub fn attribute_as_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn attribute_as_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) -> Option<glib::GString> {
@@ -62,7 +62,7 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_boolean")]
     #[doc(alias = "get_attribute_boolean")]
-    pub fn boolean<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn boolean<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) -> bool {
@@ -76,7 +76,7 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_byte_string")]
     #[doc(alias = "get_attribute_byte_string")]
-    pub fn attribute_byte_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn attribute_byte_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) -> Option<glib::GString> {
@@ -90,13 +90,13 @@ impl FileInfo {
 
     //#[doc(alias = "g_file_info_get_attribute_data")]
     //#[doc(alias = "get_attribute_data")]
-    //pub fn attribute_data<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, attribute: & 's P, value_pp: /*Unimplemented*/&mut Fundamental: Pointer) -> Option<(FileAttributeType, FileAttributeStatus)> {
+    //pub fn attribute_data<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(&self, attribute: & 's P, value_pp: /*Unimplemented*/&mut Fundamental: Pointer) -> Option<(FileAttributeType, FileAttributeStatus)> {
     //    unsafe { TODO: call ffi:g_file_info_get_attribute_data() }
     //}
 
     #[doc(alias = "g_file_info_get_attribute_int32")]
     #[doc(alias = "get_attribute_int32")]
-    pub fn attribute_int32<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn attribute_int32<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) -> i32 {
@@ -107,7 +107,7 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_int64")]
     #[doc(alias = "get_attribute_int64")]
-    pub fn attribute_int64<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn attribute_int64<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) -> i64 {
@@ -118,7 +118,7 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_object")]
     #[doc(alias = "get_attribute_object")]
-    pub fn attribute_object<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn attribute_object<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) -> Option<glib::Object> {
@@ -132,7 +132,7 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_status")]
     #[doc(alias = "get_attribute_status")]
-    pub fn attribute_status<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn attribute_status<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) -> FileAttributeStatus {
@@ -146,7 +146,7 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_string")]
     #[doc(alias = "get_attribute_string")]
-    pub fn attribute_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn attribute_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) -> Option<glib::GString> {
@@ -160,7 +160,7 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_stringv")]
     #[doc(alias = "get_attribute_stringv")]
-    pub fn attribute_stringv<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn attribute_stringv<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) -> Vec<glib::GString> {
@@ -174,7 +174,7 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_type")]
     #[doc(alias = "get_attribute_type")]
-    pub fn attribute_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn attribute_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) -> FileAttributeType {
@@ -188,7 +188,7 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_uint32")]
     #[doc(alias = "get_attribute_uint32")]
-    pub fn attribute_uint32<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn attribute_uint32<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) -> u32 {
@@ -199,7 +199,7 @@ impl FileInfo {
 
     #[doc(alias = "g_file_info_get_attribute_uint64")]
     #[doc(alias = "get_attribute_uint64")]
-    pub fn attribute_uint64<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn attribute_uint64<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) -> u64 {
@@ -311,7 +311,7 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_has_attribute")]
-    pub fn has_attribute<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn has_attribute<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) -> bool {
@@ -324,7 +324,7 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_has_namespace")]
-    pub fn has_namespace<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn has_namespace<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         name_space: &'s P,
     ) -> bool {
@@ -347,7 +347,7 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_remove_attribute")]
-    pub fn remove_attribute<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn remove_attribute<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) {
@@ -357,12 +357,12 @@ impl FileInfo {
     }
 
     //#[doc(alias = "g_file_info_set_attribute")]
-    //pub fn set_attribute<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, attribute: & 's P, type_: FileAttributeType, value_p: /*Unimplemented*/Fundamental: Pointer) {
+    //pub fn set_attribute<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(&self, attribute: & 's P, type_: FileAttributeType, value_p: /*Unimplemented*/Fundamental: Pointer) {
     //    unsafe { TODO: call ffi:g_file_info_set_attribute() }
     //}
 
     #[doc(alias = "g_file_info_set_attribute_boolean")]
-    pub fn set_attribute_boolean<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn set_attribute_boolean<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
         attr_value: bool,
@@ -379,8 +379,8 @@ impl FileInfo {
     #[doc(alias = "g_file_info_set_attribute_byte_string")]
     pub fn set_attribute_byte_string<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
     >(
         &self,
         attribute: &'s P,
@@ -396,7 +396,7 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_attribute_int32")]
-    pub fn set_attribute_int32<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn set_attribute_int32<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
         attr_value: i32,
@@ -411,7 +411,7 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_attribute_int64")]
-    pub fn set_attribute_int64<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn set_attribute_int64<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
         attr_value: i64,
@@ -435,7 +435,7 @@ impl FileInfo {
     #[doc(alias = "g_file_info_set_attribute_object")]
     pub fn set_attribute_object<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         Q: IsA<glib::Object>,
     >(
         &self,
@@ -452,7 +452,7 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_attribute_status")]
-    pub fn set_attribute_status<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn set_attribute_status<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
         status: FileAttributeStatus,
@@ -469,8 +469,8 @@ impl FileInfo {
     #[doc(alias = "g_file_info_set_attribute_string")]
     pub fn set_attribute_string<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
     >(
         &self,
         attribute: &'s P,
@@ -486,7 +486,7 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_attribute_stringv")]
-    pub fn set_attribute_stringv<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn set_attribute_stringv<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
         attr_value: &[&str],
@@ -501,7 +501,7 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_attribute_uint32")]
-    pub fn set_attribute_uint32<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn set_attribute_uint32<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
         attr_value: u32,
@@ -516,7 +516,7 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_attribute_uint64")]
-    pub fn set_attribute_uint64<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn set_attribute_uint64<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
         attr_value: u64,
@@ -531,7 +531,7 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_content_type")]
-    pub fn set_content_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn set_content_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         content_type: &'s P,
     ) {
@@ -541,7 +541,7 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_display_name")]
-    pub fn set_display_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn set_display_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         display_name: &'s P,
     ) {
@@ -551,7 +551,10 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_edit_name")]
-    pub fn set_edit_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, edit_name: &'s P) {
+    pub fn set_edit_name<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
+        &self,
+        edit_name: &'s P,
+    ) {
         unsafe {
             ffi::g_file_info_set_edit_name(self.to_glib_none().0, edit_name.to_glib_none().0);
         }
@@ -629,7 +632,7 @@ impl FileInfo {
     }
 
     #[doc(alias = "g_file_info_set_symlink_target")]
-    pub fn set_symlink_target<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn set_symlink_target<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         symlink_target: &'s P,
     ) {

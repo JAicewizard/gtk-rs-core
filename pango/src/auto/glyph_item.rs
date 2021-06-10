@@ -19,7 +19,7 @@ glib::wrapper! {
 
 impl GlyphItem {
     #[doc(alias = "pango_glyph_item_apply_attrs")]
-    pub fn apply_attrs<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn apply_attrs<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &mut self,
         text: &'s P,
         list: &AttrList,
@@ -35,17 +35,17 @@ impl GlyphItem {
 
     //#[doc(alias = "pango_glyph_item_get_logical_widths")]
     //#[doc(alias = "get_logical_widths")]
-    //pub fn logical_widths<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&mut self, text: & 's P, logical_widths: &[i32]) {
+    //pub fn logical_widths<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(&mut self, text: & 's P, logical_widths: &[i32]) {
     //    unsafe { TODO: call ffi:pango_glyph_item_get_logical_widths() }
     //}
 
     //#[doc(alias = "pango_glyph_item_letter_space")]
-    //pub fn letter_space<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&mut self, text: & 's P, log_attrs: /*Ignored*/&[&LogAttr], letter_spacing: i32) {
+    //pub fn letter_space<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(&mut self, text: & 's P, log_attrs: /*Ignored*/&[&LogAttr], letter_spacing: i32) {
     //    unsafe { TODO: call ffi:pango_glyph_item_letter_space() }
     //}
 
     #[doc(alias = "pango_glyph_item_split")]
-    pub fn split<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn split<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &mut self,
         text: &'s P,
         split_index: i32,

@@ -19,7 +19,7 @@ glib::wrapper! {
 
 impl FileAttributeMatcher {
     #[doc(alias = "g_file_attribute_matcher_new")]
-    pub fn new<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn new<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         attributes: &'s P,
     ) -> FileAttributeMatcher {
         unsafe {
@@ -30,7 +30,7 @@ impl FileAttributeMatcher {
     }
 
     #[doc(alias = "g_file_attribute_matcher_enumerate_namespace")]
-    pub fn enumerate_namespace<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn enumerate_namespace<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         ns: &'s P,
     ) -> bool {
@@ -43,7 +43,7 @@ impl FileAttributeMatcher {
     }
 
     #[doc(alias = "g_file_attribute_matcher_matches")]
-    pub fn matches<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn matches<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) -> bool {
@@ -56,7 +56,7 @@ impl FileAttributeMatcher {
     }
 
     #[doc(alias = "g_file_attribute_matcher_matches_only")]
-    pub fn matches_only<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn matches_only<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
     ) -> bool {

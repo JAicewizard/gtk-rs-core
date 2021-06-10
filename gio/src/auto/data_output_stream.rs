@@ -133,7 +133,7 @@ pub trait DataOutputStreamExt: 'static {
     ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_data_output_stream_put_string")]
-    fn put_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn put_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(
         &self,
         str: &'s P,
         cancellable: Option<&Q>,
@@ -260,7 +260,7 @@ impl<O: IsA<DataOutputStream>> DataOutputStreamExt for O {
         }
     }
 
-    fn put_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn put_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(
         &self,
         str: &'s P,
         cancellable: Option<&Q>,

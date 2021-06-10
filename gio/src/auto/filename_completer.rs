@@ -28,7 +28,7 @@ impl FilenameCompleter {
 
     #[doc(alias = "g_filename_completer_get_completion_suffix")]
     #[doc(alias = "get_completion_suffix")]
-    pub fn completion_suffix<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn completion_suffix<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         initial_text: &'s P,
     ) -> Option<glib::GString> {
@@ -42,7 +42,7 @@ impl FilenameCompleter {
 
     #[doc(alias = "g_filename_completer_get_completions")]
     #[doc(alias = "get_completions")]
-    pub fn completions<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn completions<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         initial_text: &'s P,
     ) -> Vec<glib::GString> {

@@ -28,11 +28,11 @@ pub const NONE_MENU_MODEL: Option<&MenuModel> = None;
 pub trait MenuModelExt: 'static {
     //#[doc(alias = "g_menu_model_get_item_attribute")]
     //#[doc(alias = "get_item_attribute")]
-    //fn is_item_attribute<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, item_index: i32, attribute: & 's P, format_string: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool;
+    //fn is_item_attribute<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(&self, item_index: i32, attribute: & 's P, format_string: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool;
 
     #[doc(alias = "g_menu_model_get_item_attribute_value")]
     #[doc(alias = "get_item_attribute_value")]
-    fn item_attribute_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn item_attribute_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         item_index: i32,
         attribute: &'s P,
@@ -41,7 +41,7 @@ pub trait MenuModelExt: 'static {
 
     #[doc(alias = "g_menu_model_get_item_link")]
     #[doc(alias = "get_item_link")]
-    fn item_link<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn item_link<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         item_index: i32,
         link: &'s P,
@@ -69,11 +69,11 @@ pub trait MenuModelExt: 'static {
 }
 
 impl<O: IsA<MenuModel>> MenuModelExt for O {
-    //fn is_item_attribute<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, item_index: i32, attribute: & 's P, format_string: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
+    //fn is_item_attribute<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(&self, item_index: i32, attribute: & 's P, format_string: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
     //    unsafe { TODO: call ffi:g_menu_model_get_item_attribute() }
     //}
 
-    fn item_attribute_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn item_attribute_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         item_index: i32,
         attribute: &'s P,
@@ -89,7 +89,7 @@ impl<O: IsA<MenuModel>> MenuModelExt for O {
         }
     }
 
-    fn item_link<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn item_link<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         item_index: i32,
         link: &'s P,

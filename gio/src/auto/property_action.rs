@@ -27,9 +27,9 @@ impl PropertyAction {
     #[doc(alias = "g_property_action_new")]
     pub fn new<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<glib::Object>,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         name: &'s P,
         object: &Q,

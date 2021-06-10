@@ -66,7 +66,7 @@ impl GlyphString {
 
     //#[doc(alias = "pango_glyph_string_get_logical_widths")]
     //#[doc(alias = "get_logical_widths")]
-    //pub fn logical_widths<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&mut self, text: & 's P, embedding_level: i32, logical_widths: &[i32]) {
+    //pub fn logical_widths<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(&mut self, text: & 's P, embedding_level: i32, logical_widths: &[i32]) {
     //    unsafe { TODO: call ffi:pango_glyph_string_get_logical_widths() }
     //}
 
@@ -77,7 +77,7 @@ impl GlyphString {
     }
 
     #[doc(alias = "pango_glyph_string_index_to_x")]
-    pub fn index_to_x<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn index_to_x<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &mut self,
         text: &'s P,
         analysis: &mut Analysis,
@@ -109,7 +109,7 @@ impl GlyphString {
     }
 
     #[doc(alias = "pango_glyph_string_x_to_index")]
-    pub fn x_to_index<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn x_to_index<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &mut self,
         text: &'s P,
         analysis: &mut Analysis,

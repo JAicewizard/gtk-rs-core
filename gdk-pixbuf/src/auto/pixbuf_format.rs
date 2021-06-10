@@ -81,7 +81,7 @@ impl PixbufFormat {
     #[cfg(any(feature = "v2_36", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_36")))]
     #[doc(alias = "gdk_pixbuf_format_is_save_option_supported")]
-    pub fn is_save_option_supported<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn is_save_option_supported<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         option_key: &'s P,
     ) -> bool {

@@ -39,7 +39,7 @@ pub trait TlsDatabaseExt: 'static {
     #[doc(alias = "g_tls_database_lookup_certificate_for_handle")]
     fn lookup_certificate_for_handle<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<TlsInteraction>,
         R: IsA<Cancellable>,
     >(
@@ -53,7 +53,7 @@ pub trait TlsDatabaseExt: 'static {
     #[doc(alias = "g_tls_database_lookup_certificate_for_handle_async")]
     fn lookup_certificate_for_handle_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<TlsInteraction>,
         R: IsA<Cancellable>,
         S: FnOnce(Result<TlsCertificate, glib::Error>) + Send + 'static,
@@ -68,7 +68,7 @@ pub trait TlsDatabaseExt: 'static {
 
     fn lookup_certificate_for_handle_async_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
         Q: IsA<TlsInteraction> + Clone + 'static,
     >(
         &self,
@@ -151,7 +151,7 @@ pub trait TlsDatabaseExt: 'static {
     fn verify_chain<
         's,
         P: IsA<TlsCertificate>,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         R: IsA<SocketConnectable>,
         S: IsA<TlsInteraction>,
         T: IsA<Cancellable>,
@@ -169,7 +169,7 @@ pub trait TlsDatabaseExt: 'static {
     fn verify_chain_async<
         's,
         P: IsA<TlsCertificate>,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         R: IsA<SocketConnectable>,
         S: IsA<TlsInteraction>,
         T: IsA<Cancellable>,
@@ -188,7 +188,7 @@ pub trait TlsDatabaseExt: 'static {
     fn verify_chain_async_future<
         's,
         P: IsA<TlsCertificate> + Clone + 'static,
-        Q: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        Q: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
         R: IsA<SocketConnectable> + Clone + 'static,
         S: IsA<TlsInteraction> + Clone + 'static,
     >(
@@ -218,7 +218,7 @@ impl<O: IsA<TlsDatabase>> TlsDatabaseExt for O {
 
     fn lookup_certificate_for_handle<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<TlsInteraction>,
         R: IsA<Cancellable>,
     >(
@@ -248,7 +248,7 @@ impl<O: IsA<TlsDatabase>> TlsDatabaseExt for O {
 
     fn lookup_certificate_for_handle_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<TlsInteraction>,
         R: IsA<Cancellable>,
         S: FnOnce(Result<TlsCertificate, glib::Error>) + Send + 'static,
@@ -298,7 +298,7 @@ impl<O: IsA<TlsDatabase>> TlsDatabaseExt for O {
 
     fn lookup_certificate_for_handle_async_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
         Q: IsA<TlsInteraction> + Clone + 'static,
     >(
         &self,
@@ -532,7 +532,7 @@ impl<O: IsA<TlsDatabase>> TlsDatabaseExt for O {
     fn verify_chain<
         's,
         P: IsA<TlsCertificate>,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         R: IsA<SocketConnectable>,
         S: IsA<TlsInteraction>,
         T: IsA<Cancellable>,
@@ -568,7 +568,7 @@ impl<O: IsA<TlsDatabase>> TlsDatabaseExt for O {
     fn verify_chain_async<
         's,
         P: IsA<TlsCertificate>,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         R: IsA<SocketConnectable>,
         S: IsA<TlsInteraction>,
         T: IsA<Cancellable>,
@@ -621,7 +621,7 @@ impl<O: IsA<TlsDatabase>> TlsDatabaseExt for O {
     fn verify_chain_async_future<
         's,
         P: IsA<TlsCertificate> + Clone + 'static,
-        Q: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        Q: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
         R: IsA<SocketConnectable> + Clone + 'static,
         S: IsA<TlsInteraction> + Clone + 'static,
     >(

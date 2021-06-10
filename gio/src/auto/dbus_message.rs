@@ -64,8 +64,8 @@ impl DBusMessage {
     #[doc(alias = "g_dbus_message_new_method_call")]
     pub fn new_method_call<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         name: Option<&str>,
         path: &'s P,
@@ -85,9 +85,9 @@ impl DBusMessage {
     #[doc(alias = "g_dbus_message_new_signal")]
     pub fn new_signal<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         path: &'s P,
         interface_: &'s Q,
@@ -240,15 +240,15 @@ impl DBusMessage {
     }
 
     //#[doc(alias = "g_dbus_message_new_method_error")]
-    //pub fn new_method_error<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, error_name: & 's P, error_message_format: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> DBusMessage {
+    //pub fn new_method_error<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(&self, error_name: & 's P, error_message_format: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> DBusMessage {
     //    unsafe { TODO: call ffi:g_dbus_message_new_method_error() }
     //}
 
     #[doc(alias = "g_dbus_message_new_method_error_literal")]
     pub fn new_method_error_literal<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         error_name: &'s P,
@@ -264,7 +264,7 @@ impl DBusMessage {
     }
 
     //#[doc(alias = "g_dbus_message_new_method_error_valist")]
-    //pub fn new_method_error_valist<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, error_name: & 's P, error_message_format: & 's Q, var_args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> DBusMessage {
+    //pub fn new_method_error_valist<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(&self, error_name: & 's P, error_message_format: & 's Q, var_args: /*Unknown conversion*//*Unimplemented*/Unsupported) -> DBusMessage {
     //    unsafe { TODO: call ffi:g_dbus_message_new_method_error_valist() }
     //}
 
@@ -300,7 +300,10 @@ impl DBusMessage {
     }
 
     #[doc(alias = "g_dbus_message_set_error_name")]
-    pub fn set_error_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, value: &'s P) {
+    pub fn set_error_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        value: &'s P,
+    ) {
         unsafe {
             ffi::g_dbus_message_set_error_name(self.to_glib_none().0, value.to_glib_none().0);
         }

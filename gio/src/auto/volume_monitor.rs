@@ -40,7 +40,7 @@ pub trait VolumeMonitorExt: 'static {
 
     #[doc(alias = "g_volume_monitor_get_mount_for_uuid")]
     #[doc(alias = "get_mount_for_uuid")]
-    fn mount_for_uuid<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn mount_for_uuid<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         uuid: &'s P,
     ) -> Option<Mount>;
@@ -51,7 +51,7 @@ pub trait VolumeMonitorExt: 'static {
 
     #[doc(alias = "g_volume_monitor_get_volume_for_uuid")]
     #[doc(alias = "get_volume_for_uuid")]
-    fn volume_for_uuid<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn volume_for_uuid<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         uuid: &'s P,
     ) -> Option<Volume>;
@@ -106,7 +106,7 @@ impl<O: IsA<VolumeMonitor>> VolumeMonitorExt for O {
         }
     }
 
-    fn mount_for_uuid<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn mount_for_uuid<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         uuid: &'s P,
     ) -> Option<Mount> {
@@ -126,7 +126,7 @@ impl<O: IsA<VolumeMonitor>> VolumeMonitorExt for O {
         }
     }
 
-    fn volume_for_uuid<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn volume_for_uuid<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         uuid: &'s P,
     ) -> Option<Volume> {

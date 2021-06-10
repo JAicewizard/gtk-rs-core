@@ -56,8 +56,8 @@ impl KeyFile {
     #[doc(alias = "get_double")]
     pub fn double<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -83,8 +83,8 @@ impl KeyFile {
     #[doc(alias = "get_double_list")]
     pub fn double_list<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -129,8 +129,8 @@ impl KeyFile {
     #[doc(alias = "get_int64")]
     pub fn int64<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -156,8 +156,8 @@ impl KeyFile {
     #[doc(alias = "get_integer")]
     pub fn integer<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -183,8 +183,8 @@ impl KeyFile {
     #[doc(alias = "get_integer_list")]
     pub fn integer_list<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -213,7 +213,7 @@ impl KeyFile {
 
     #[doc(alias = "g_key_file_get_keys")]
     #[doc(alias = "get_keys")]
-    pub fn keys<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn keys<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         group_name: &'s P,
     ) -> Result<(Vec<crate::GString>, usize), crate::Error> {
@@ -241,8 +241,8 @@ impl KeyFile {
     #[doc(alias = "get_locale_for_key")]
     pub fn locale_for_key<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -269,8 +269,8 @@ impl KeyFile {
     #[doc(alias = "get_uint64")]
     pub fn uint64<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -296,8 +296,8 @@ impl KeyFile {
     #[doc(alias = "get_value")]
     pub fn value<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -320,7 +320,7 @@ impl KeyFile {
     }
 
     #[doc(alias = "g_key_file_has_group")]
-    pub fn has_group<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn has_group<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         group_name: &'s P,
     ) -> bool {
@@ -353,7 +353,7 @@ impl KeyFile {
     }
 
     #[doc(alias = "g_key_file_load_from_data")]
-    pub fn load_from_data<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn load_from_data<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         data: &'s P,
         flags: KeyFileFlags,
@@ -421,7 +421,7 @@ impl KeyFile {
     }
 
     #[doc(alias = "g_key_file_remove_group")]
-    pub fn remove_group<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn remove_group<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         group_name: &'s P,
     ) -> Result<(), crate::Error> {
@@ -443,8 +443,8 @@ impl KeyFile {
     #[doc(alias = "g_key_file_remove_key")]
     pub fn remove_key<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -469,8 +469,8 @@ impl KeyFile {
     #[doc(alias = "g_key_file_set_boolean")]
     pub fn set_boolean<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -488,12 +488,12 @@ impl KeyFile {
     }
 
     //#[doc(alias = "g_key_file_set_boolean_list")]
-    //pub fn set_boolean_list<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, group_name: & 's P, key: & 's Q, list: /*Unimplemented*/&CArray TypeId { ns_id: 0, id: 1 }) {
+    //pub fn set_boolean_list<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(&self, group_name: & 's P, key: & 's Q, list: /*Unimplemented*/&CArray TypeId { ns_id: 0, id: 1 }) {
     //    unsafe { TODO: call ffi:g_key_file_set_boolean_list() }
     //}
 
     #[doc(alias = "g_key_file_set_comment")]
-    pub fn set_comment<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn set_comment<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         group_name: Option<&str>,
         key: Option<&str>,
@@ -519,8 +519,8 @@ impl KeyFile {
     #[doc(alias = "g_key_file_set_double")]
     pub fn set_double<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -540,8 +540,8 @@ impl KeyFile {
     #[doc(alias = "g_key_file_set_int64")]
     pub fn set_int64<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -561,8 +561,8 @@ impl KeyFile {
     #[doc(alias = "g_key_file_set_integer")]
     pub fn set_integer<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -589,10 +589,10 @@ impl KeyFile {
     #[doc(alias = "g_key_file_set_locale_string")]
     pub fn set_locale_string<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        S: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        S: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -614,9 +614,9 @@ impl KeyFile {
     #[doc(alias = "g_key_file_set_string")]
     pub fn set_string<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -636,8 +636,8 @@ impl KeyFile {
     #[doc(alias = "g_key_file_set_uint64")]
     pub fn set_uint64<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,
@@ -657,9 +657,9 @@ impl KeyFile {
     #[doc(alias = "g_key_file_set_value")]
     pub fn set_value<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         &self,
         group_name: &'s P,

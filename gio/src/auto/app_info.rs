@@ -64,7 +64,7 @@ impl AppInfo {
 
     #[doc(alias = "g_app_info_get_all_for_type")]
     #[doc(alias = "get_all_for_type")]
-    pub fn all_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn all_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         content_type: &'s P,
     ) -> Vec<AppInfo> {
         unsafe {
@@ -76,7 +76,7 @@ impl AppInfo {
 
     #[doc(alias = "g_app_info_get_default_for_type")]
     #[doc(alias = "get_default_for_type")]
-    pub fn default_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn default_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         content_type: &'s P,
         must_support_uris: bool,
     ) -> Option<AppInfo> {
@@ -90,7 +90,7 @@ impl AppInfo {
 
     #[doc(alias = "g_app_info_get_default_for_uri_scheme")]
     #[doc(alias = "get_default_for_uri_scheme")]
-    pub fn default_for_uri_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn default_for_uri_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         uri_scheme: &'s P,
     ) -> Option<AppInfo> {
         unsafe {
@@ -102,7 +102,7 @@ impl AppInfo {
 
     #[doc(alias = "g_app_info_get_fallback_for_type")]
     #[doc(alias = "get_fallback_for_type")]
-    pub fn fallback_for_type<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn fallback_for_type<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         content_type: &'s P,
     ) -> Vec<AppInfo> {
         unsafe {
@@ -114,7 +114,7 @@ impl AppInfo {
 
     #[doc(alias = "g_app_info_get_recommended_for_type")]
     #[doc(alias = "get_recommended_for_type")]
-    pub fn recommended_for_type<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn recommended_for_type<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         content_type: &'s P,
     ) -> Vec<AppInfo> {
         unsafe {
@@ -127,7 +127,7 @@ impl AppInfo {
     #[doc(alias = "g_app_info_launch_default_for_uri")]
     pub fn launch_default_for_uri<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         Q: IsA<AppLaunchContext>,
     >(
         uri: &'s P,
@@ -153,7 +153,7 @@ impl AppInfo {
     #[doc(alias = "g_app_info_launch_default_for_uri_async")]
     pub fn launch_default_for_uri_async<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         Q: IsA<AppLaunchContext>,
         R: IsA<Cancellable>,
         S: FnOnce(Result<(), glib::Error>) + Send + 'static,
@@ -197,7 +197,7 @@ impl AppInfo {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_50")))]
     pub fn launch_default_for_uri_async_future<
         's,
-        P: ToGlibPtr<'static, *const libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *const libc::c_char> + ?Sized + Clone + 'static,
         Q: IsA<AppLaunchContext> + Clone + 'static,
     >(
         uri: &'static P,
@@ -220,7 +220,7 @@ impl AppInfo {
     }
 
     #[doc(alias = "g_app_info_reset_type_associations")]
-    pub fn reset_type_associations<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn reset_type_associations<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         content_type: &'s P,
     ) {
         unsafe {
@@ -233,7 +233,7 @@ pub const NONE_APP_INFO: Option<&AppInfo> = None;
 
 pub trait AppInfoExt: 'static {
     #[doc(alias = "g_app_info_add_supports_type")]
-    fn add_supports_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn add_supports_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         content_type: &'s P,
     ) -> Result<(), glib::Error>;
@@ -300,7 +300,7 @@ pub trait AppInfoExt: 'static {
     ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_app_info_remove_supports_type")]
-    fn remove_supports_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn remove_supports_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         content_type: &'s P,
     ) -> Result<(), glib::Error>;
@@ -312,13 +312,13 @@ pub trait AppInfoExt: 'static {
     ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_app_info_set_as_default_for_type")]
-    fn set_as_default_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn set_as_default_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         content_type: &'s P,
     ) -> Result<(), glib::Error>;
 
     #[doc(alias = "g_app_info_set_as_last_used_for_type")]
-    fn set_as_last_used_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn set_as_last_used_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         content_type: &'s P,
     ) -> Result<(), glib::Error>;
@@ -334,7 +334,7 @@ pub trait AppInfoExt: 'static {
 }
 
 impl<O: IsA<AppInfo>> AppInfoExt for O {
-    fn add_supports_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn add_supports_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         content_type: &'s P,
     ) -> Result<(), glib::Error> {
@@ -476,7 +476,7 @@ impl<O: IsA<AppInfo>> AppInfoExt for O {
         }
     }
 
-    fn remove_supports_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn remove_supports_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         content_type: &'s P,
     ) -> Result<(), glib::Error> {
@@ -514,7 +514,7 @@ impl<O: IsA<AppInfo>> AppInfoExt for O {
         }
     }
 
-    fn set_as_default_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn set_as_default_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         content_type: &'s P,
     ) -> Result<(), glib::Error> {
@@ -533,7 +533,7 @@ impl<O: IsA<AppInfo>> AppInfoExt for O {
         }
     }
 
-    fn set_as_last_used_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn set_as_last_used_for_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         content_type: &'s P,
     ) -> Result<(), glib::Error> {

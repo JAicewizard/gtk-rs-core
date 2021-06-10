@@ -20,7 +20,7 @@ glib::wrapper! {
 
 impl NetworkAddress {
     #[doc(alias = "g_network_address_new")]
-    pub fn new<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn new<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         hostname: &'s P,
         port: u16,
     ) -> NetworkAddress {
@@ -33,7 +33,7 @@ impl NetworkAddress {
     }
 
     #[doc(alias = "g_network_address_parse")]
-    pub fn parse<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn parse<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         host_and_port: &'s P,
         default_port: u16,
     ) -> Result<NetworkAddress, glib::Error> {
@@ -53,7 +53,7 @@ impl NetworkAddress {
     }
 
     #[doc(alias = "g_network_address_parse_uri")]
-    pub fn parse_uri<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn parse_uri<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         uri: &'s P,
         default_port: u16,
     ) -> Result<NetworkAddress, glib::Error> {

@@ -31,8 +31,8 @@ impl DBusServer {
     #[doc(alias = "g_dbus_server_new_sync")]
     pub fn new_sync<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         R: IsA<Cancellable>,
     >(
         address: &'s P,

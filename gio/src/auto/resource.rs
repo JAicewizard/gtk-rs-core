@@ -22,7 +22,7 @@ glib::wrapper! {
 
 impl Resource {
     #[doc(alias = "g_resource_enumerate_children")]
-    pub fn enumerate_children<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn enumerate_children<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         path: &'s P,
         lookup_flags: ResourceLookupFlags,
@@ -45,7 +45,7 @@ impl Resource {
 
     #[doc(alias = "g_resource_get_info")]
     #[doc(alias = "get_info")]
-    pub fn info<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn info<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         path: &'s P,
         lookup_flags: ResourceLookupFlags,
@@ -73,7 +73,7 @@ impl Resource {
     }
 
     #[doc(alias = "g_resource_lookup_data")]
-    pub fn lookup_data<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn lookup_data<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         path: &'s P,
         lookup_flags: ResourceLookupFlags,
@@ -95,7 +95,7 @@ impl Resource {
     }
 
     #[doc(alias = "g_resource_open_stream")]
-    pub fn open_stream<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn open_stream<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         path: &'s P,
         lookup_flags: ResourceLookupFlags,

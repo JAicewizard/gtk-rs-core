@@ -73,6 +73,13 @@
 [WARN  libgir::config::gobjects] Configured object `GLib.VA_COPY_AS_ARRAY` missing from the library
 [WARN  libgir::config::gobjects] Configured object `GLib.VERSION_MIN_REQUIRED` missing from the library
 
+==> Regenerating `glib/gobject-sys/Gir.toml`...
+===> stderr:
+
+[WARN  libgir::library_postprocessing] Field `InitiallyUnownedClass::pdummy` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `ObjectClass::pdummy` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `ParamSpecClass::dummy` missing c:type assumed to be `fixed_array`
+
 ==> Regenerating `glib/Gir_GObject.toml`...
 ===> stderr:
 
@@ -200,852 +207,6 @@ unset
 register_transform_func
 type_compatible
 type_transformable
-
-==> Regenerating `glib/gobject-sys/Gir.toml`...
-===> stderr:
-
-[WARN  libgir::library_postprocessing] Field `InitiallyUnownedClass::pdummy` missing c:type assumed to be `fixed_array`
-[WARN  libgir::library_postprocessing] Field `ObjectClass::pdummy` missing c:type assumed to be `fixed_array`
-[WARN  libgir::library_postprocessing] Field `ParamSpecClass::dummy` missing c:type assumed to be `fixed_array`
-
-==> Regenerating `graphene/sys/Gir.toml`...
-===> stderr:
-
-[WARN  libgir::library_postprocessing] Field `Frustum::planes` missing c:type assumed to be `fixed_array`
-[WARN  libgir::library_postprocessing] Field `Quad::points` missing c:type assumed to be `fixed_array`
-[WARN  libgir::config::gobjects] Configured object `Graphene.HAS_GCC` missing from the library
-[WARN  libgir::config::gobjects] Configured object `Graphene.HAS_SCALAR` missing from the library
-[WARN  libgir::config::gobjects] Configured object `Graphene.HAS_SSE` missing from the library
-[WARN  libgir::config::gobjects] Configured object `Graphene.PI` missing from the library
-[WARN  libgir::config::gobjects] Configured object `Graphene.PI_2` missing from the library
-[WARN  libgir::config::gobjects] Configured object `Graphene.SIMD_S` missing from the library
-[WARN  libgir::config::gobjects] Configured object `Graphene.false` missing from the library
-[WARN  libgir::config::gobjects] Configured object `Graphene.true` missing from the library
-
-==> Regenerating `graphene/Gir.toml`...
-===> stderr:
-
-[WARN  libgir::library_postprocessing] Field `Frustum::planes` missing c:type assumed to be `fixed_array`
-[WARN  libgir::library_postprocessing] Field `Quad::points` missing c:type assumed to be `fixed_array`
-contains_box
-contains_point
-equal
-expand
-expand_scalar
-expand_vec3
-free
-get_bounding_sphere
-get_center
-get_depth
-get_height
-get_max
-get_min
-get_size
-get_vertices
-[WARN  libgir::analysis::functions] Function graphene_box_get_vertices has unsupported outs
-get_width
-init
-init_from_box
-init_from_points
-init_from_vec3
-init_from_vectors
-intersection
-union
-empty
-infinite
-minus_one
-one
-one_minus_one
-zero
-equal
-free
-get_alpha
-get_beta
-get_gamma
-get_order
-get_x
-get_y
-get_z
-init
-init_from_euler
-init_from_matrix
-init_from_quaternion
-init_from_radians
-init_from_vec3
-init_with_order
-reorder
-to_matrix
-to_quaternion
-to_vec3
-contains_point
-equal
-free
-get_planes
-[WARN  libgir::analysis::functions] Function graphene_frustum_get_planes has unsupported outs
-init
-init_from_frustum
-init_from_matrix
-intersects_box
-intersects_sphere
-decompose
-determinant
-equal
-equal_fast
-free
-get_row
-get_value
-get_x_scale
-get_x_translation
-get_y_scale
-get_y_translation
-get_z_scale
-get_z_translation
-init_from_2d
-init_from_float
-init_from_matrix
-init_from_vec4
-init_frustum
-init_identity
-init_look_at
-init_ortho
-init_perspective
-init_rotate
-init_scale
-init_skew
-init_translate
-interpolate
-inverse
-is_2d
-is_backface_visible
-is_identity
-is_singular
-multiply
-near
-normalize
-perspective
-print
-project_point
-project_rect
-project_rect_bounds
-rotate
-rotate_euler
-rotate_quaternion
-rotate_x
-rotate_y
-rotate_z
-scale
-skew_xy
-skew_xz
-skew_yz
-to_2d
-to_float
-[WARN  libgir::analysis::functions] Function graphene_matrix_to_float has unsupported outs
-transform_bounds
-transform_box
-transform_point
-transform_point3d
-transform_ray
-transform_rect
-transform_sphere
-transform_vec3
-transform_vec4
-translate
-transpose
-unproject_point3d
-untransform_bounds
-untransform_point
-distance
-equal
-free
-get_constant
-get_normal
-init
-init_from_plane
-init_from_point
-init_from_points
-init_from_vec4
-negate
-normalize
-transform
-distance
-equal
-free
-init
-init_from_point
-init_from_vec2
-interpolate
-near
-to_vec2
-zero
-cross
-distance
-dot
-equal
-free
-init
-init_from_point
-init_from_vec3
-interpolate
-length
-near
-normalize
-normalize_viewport
-scale
-to_vec3
-zero
-bounds
-contains
-free
-get_point
-init
-init_from_points
-init_from_rect
-add
-dot
-equal
-free
-init
-init_from_angle_vec3
-init_from_angles
-init_from_euler
-init_from_matrix
-init_from_quaternion
-init_from_radians
-init_from_vec4
-init_identity
-invert
-multiply
-normalize
-scale
-slerp
-to_angle_vec3
-to_angles
-to_matrix
-to_radians
-to_vec4
-equal
-free
-get_closest_point_to_point
-get_direction
-get_distance_to_plane
-get_distance_to_point
-get_origin
-get_position_at
-init
-init_from_ray
-init_from_vec3
-intersect_box
-intersect_sphere
-intersect_triangle
-intersects_box
-intersects_sphere
-intersects_triangle
-contains_point
-contains_rect
-equal
-expand
-free
-get_area
-get_bottom_left
-get_bottom_right
-get_center
-get_height
-get_top_left
-get_top_right
-get_vertices
-[WARN  libgir::analysis::functions] Function graphene_rect_get_vertices has unsupported outs
-get_width
-get_x
-get_y
-init
-init_from_rect
-inset
-inset_r
-interpolate
-intersection
-normalize
-normalize_r
-offset
-offset_r
-round_extents
-scale
-union
-zero
-equal
-free
-init
-init_from_size
-interpolate
-scale
-zero
-contains_point
-distance
-equal
-free
-get_bounding_box
-get_center
-get_radius
-init
-init_from_points
-init_from_vectors
-is_empty
-translate
-contains_point
-equal
-free
-get_area
-get_barycoords
-get_bounding_box
-get_midpoint
-get_normal
-get_plane
-get_points
-get_uv
-get_vertices
-init_from_float
-init_from_point3d
-init_from_vec3
-add
-divide
-dot
-equal
-free
-get_x
-get_y
-init
-init_from_float
-init_from_vec2
-interpolate
-length
-max
-min
-multiply
-near
-negate
-normalize
-scale
-subtract
-to_float
-[WARN  libgir::analysis::functions] Function graphene_vec2_to_float has unsupported outs
-one
-x_axis
-y_axis
-zero
-add
-cross
-divide
-dot
-equal
-free
-get_x
-get_xy
-get_xy0
-get_xyz0
-get_xyz1
-get_xyzw
-get_y
-get_z
-init
-init_from_float
-init_from_vec3
-interpolate
-length
-max
-min
-multiply
-near
-negate
-normalize
-scale
-subtract
-to_float
-[WARN  libgir::analysis::functions] Function graphene_vec3_to_float has unsupported outs
-one
-x_axis
-y_axis
-z_axis
-zero
-add
-divide
-dot
-equal
-free
-get_w
-get_x
-get_xy
-get_xyz
-get_y
-get_z
-init
-init_from_float
-init_from_vec2
-init_from_vec3
-init_from_vec4
-interpolate
-length
-max
-min
-multiply
-near
-negate
-normalize
-scale
-subtract
-to_float
-[WARN  libgir::analysis::functions] Function graphene_vec4_to_float has unsupported outs
-one
-w_axis
-x_axis
-y_axis
-z_axis
-zero
-
-==> Regenerating `pangocairo/sys/Gir.toml`...
-==> Regenerating `pango/Gir.toml`...
-===> stderr:
-
-new
-new_literal
-new_valist
-copy
-free
-matches
-[ERROR libgir::analysis::record] Missing memory management functions for Pango.Analysis
-[ERROR libgir::analysis::record] Missing memory management functions for Pango.AttrClass
-copy
-destroy
-get
-get_attrs
-get_font
-next
-range
-new
-change
-copy
-filter
-get_attributes
-get_iterator
-insert
-insert_before
-ref
-splice
-unref
-update
-copy
-destroy
-equal
-init
-copy
-free
-parse
-ByRef
-parse_with_alpha
-ByRef
-to_string
-new
-changed
-get_base_dir
-get_base_gravity
-get_font_description
-get_font_map
-get_gravity
-get_gravity_hint
-get_language
-get_matrix
-get_metrics
-get_round_glyph_positions
-get_serial
-list_families
-load_font
-load_fontset
-set_base_dir
-set_base_gravity
-set_font_description
-set_font_map
-set_gravity_hint
-set_language
-set_matrix
-set_round_glyph_positions
-new
-from_bytes
-copy
-get
-max
-ref
-set
-to_bytes
-unref
-describe
-describe_with_absolute_size
-find_shaper
-get_coverage
-get_face
-get_features
-[WARN  libgir::analysis::functions] Function pango_font_get_features has unsupported outs
-get_font_map
-get_glyph_extents
-get_hb_font
-get_metrics
-has_char
-new
-better_match
-copy
-equal
-free
-get_family
-get_gravity
-get_set_fields
-get_size
-get_size_is_absolute
-get_stretch
-get_style
-get_variant
-get_variations
-get_weight
-hash
-merge
-set_absolute_size
-set_family
-ByRef
-set_gravity
-set_size
-set_stretch
-set_style
-set_variant
-set_variations
-ByRef
-set_variations_static
-ByRef
-set_weight
-to_filename
-to_string
-unset_fields
-from_string
-ByRef
-describe
-get_face_name
-get_family
-is_synthesized
-list_sizes
-get_face
-get_name
-is_monospace
-is_variable
-list_faces
-changed
-create_context
-get_family
-ByRef
-get_serial
-list_families
-load_font
-load_fontset
-get_approximate_char_width
-get_approximate_digit_width
-get_ascent
-get_descent
-get_height
-get_strikethrough_position
-get_strikethrough_thickness
-get_underline_position
-get_underline_thickness
-ref
-unref
-foreach
-get_font
-get_metrics
-new
-append
-size
-apply_attrs
-ByRef
-copy
-free
-get_logical_widths
-ByRef
-letter_space
-ByRef
-split
-ByRef
-copy
-free
-init_end
-ByRef
-init_start
-ByRef
-next_cluster
-prev_cluster
-new
-copy
-extents
-extents_range
-free
-get_logical_widths
-ByRef
-get_width
-index_to_x
-ByRef
-set_size
-x_to_index
-ByRef
-new
-apply_attrs
-copy
-free
-split
-get_sample_string
-get_scripts
-includes_script
-matches
-to_string
-from_string
-get_default
-new
-context_changed
-copy
-get_alignment
-get_attributes
-get_auto_dir
-get_baseline
-get_character_count
-get_context
-get_cursor_pos
-get_direction
-get_ellipsize
-get_extents
-get_font_description
-get_height
-get_indent
-get_iter
-get_justify
-get_line
-get_line_count
-get_line_readonly
-get_line_spacing
-get_lines
-get_lines_readonly
-get_log_attrs
-[WARN  libgir::analysis::functions] Function pango_layout_get_log_attrs has unsupported outs
-get_log_attrs_readonly
-get_pixel_extents
-get_pixel_size
-get_serial
-get_single_paragraph_mode
-get_size
-get_spacing
-get_tabs
-get_text
-get_unknown_glyphs_count
-get_width
-get_wrap
-index_to_line_x
-index_to_pos
-is_ellipsized
-is_wrapped
-move_cursor_visually
-set_alignment
-set_attributes
-set_auto_dir
-set_ellipsize
-set_font_description
-set_height
-set_indent
-set_justify
-set_line_spacing
-set_markup
-ByRef
-set_markup_with_accel
-ByRef
-set_single_paragraph_mode
-set_spacing
-set_tabs
-set_text
-Function { name: "set_text", c_identifier: Some("pango_layout_set_text"), kind: Method, parameters: [Parameter { name: "layout", typ: TypeId { ns_id: 1, id: 72 }, c_type: "PangoLayout*", instance_parameter: true, direction: In, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: Some("a #PangoLayout"), scope: None, closure: None, destroy: None }, Parameter { name: "text", typ: TypeId { ns_id: 0, id: 28 }, c_type: "const char*", instance_parameter: false, direction: In, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: Some("the text"), scope: None, closure: None, destroy: None }, Parameter { name: "length", typ: TypeId { ns_id: 0, id: 14 }, c_type: "int", instance_parameter: false, direction: In, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: Some("maximum length of @text, in bytes. -1 indicates that\n         the string is nul-terminated and the length should be\n         calculated.  The text will also be truncated on\n         encountering a nul-termination even when @length is\n         positive."), scope: None, closure: None, destroy: None }], ret: Parameter { name: "", typ: TypeId { ns_id: 0, id: 0 }, c_type: "void", instance_parameter: false, direction: Return, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: None, scope: None, closure: None, destroy: None }, throws: false, version: None, deprecated_version: None, doc: Some("Sets the text of the layout.\n\nThis function validates @text and renders invalid UTF-8\nwith a placeholder glyph.\n\nNote that if you have used pango_layout_set_markup() or\npango_layout_set_markup_with_accel() on @layout before, you may\nwant to call pango_layout_set_attributes() to clear the attributes\nset on the layout from the markup as this function does not clear\nattributes."), doc_deprecated: None }
-CParameter { name: "layout", typ: TypeId { ns_id: 1, id: 72 }, c_type: "PangoLayout*", instance_parameter: true, direction: In, nullable: Nullable(false), transfer: None, caller_allocates: false, is_error: false, scope: None, user_data_index: None, destroy_index: None, ref_mode: ByRef, try_from_glib: NotImplemented }
-CParameter { name: "text", typ: TypeId { ns_id: 0, id: 28 }, c_type: "const char*", instance_parameter: false, direction: In, nullable: Nullable(false), transfer: None, caller_allocates: false, is_error: false, scope: None, user_data_index: None, destroy_index: None, ref_mode: ByRef, try_from_glib: NotImplemented }
-ByRef
-CParameter { name: "length", typ: TypeId { ns_id: 0, id: 14 }, c_type: "int", instance_parameter: false, direction: In, nullable: Nullable(false), transfer: None, caller_allocates: false, is_error: false, scope: None, user_data_index: None, destroy_index: None, ref_mode: None, try_from_glib: NotImplemented }
-set_width
-set_wrap
-xy_to_index
-at_last_line
-copy
-free
-get_baseline
-get_char_extents
-get_cluster_extents
-get_index
-get_layout
-get_layout_extents
-get_line
-get_line_extents
-get_line_readonly
-get_line_yrange
-get_run
-get_run_extents
-get_run_readonly
-next_char
-next_cluster
-next_line
-next_run
-get_extents
-get_height
-get_pixel_extents
-get_x_ranges
-index_to_x
-ref
-unref
-x_to_index
-concat
-copy
-free
-get_font_scale_factor
-get_font_scale_factors
-rotate
-scale
-transform_distance
-transform_pixel_rectangle
-transform_point
-transform_rectangle
-translate
-[ERROR libgir::analysis::record] Missing memory management functions for Pango.Rectangle
-activate
-deactivate
-draw_error_underline
-draw_glyph
-draw_glyph_item
-draw_glyphs
-draw_layout
-draw_layout_line
-draw_rectangle
-draw_trapezoid
-get_alpha
-get_color
-get_layout
-get_layout_line
-get_matrix
-part_changed
-set_alpha
-set_color
-set_matrix
-new
-new_with_positions
-copy
-free
-get_positions_in_pixels
-get_size
-get_tab
-get_tabs
-[WARN  libgir::analysis::functions] Function pango_tab_array_get_tabs has unsupported outs
-resize
-set_tab
-get_name
-for_unichar
-get_for_matrix
-get_for_script
-get_for_script_and_width
-to_rotation
-for_unichar
-get_sample_language
-break
-ByRef
-default_break
-ByRef
-extents_to_pixels
-find_base_dir
-ByRef
-find_paragraph_boundary
-ByRef
-get_log_attrs
-ByRef
-is_zero_width
-itemize
-ByRef
-itemize_with_base_dir
-ByRef
-markup_parser_finish
-markup_parser_new
-parse_markup
-ByRef
-parse_stretch
-ByRef
-parse_style
-ByRef
-parse_variant
-ByRef
-parse_weight
-ByRef
-quantize_line_geometry
-shape
-ByRef
-tailor_break
-ByRef
-unichar_direction
-units_from_double
-units_to_double
-version
-version_check
-version_string
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
 
 ==> Regenerating `glib/Gir.toml`...
 ===> stderr:
@@ -2085,6 +1246,398 @@ tStr: str
 tStr: str
 tStr: str
 
+==> Regenerating `graphene/sys/Gir.toml`...
+===> stderr:
+
+[WARN  libgir::library_postprocessing] Field `Frustum::planes` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `Quad::points` missing c:type assumed to be `fixed_array`
+[WARN  libgir::config::gobjects] Configured object `Graphene.HAS_GCC` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Graphene.HAS_SCALAR` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Graphene.HAS_SSE` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Graphene.PI` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Graphene.PI_2` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Graphene.SIMD_S` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Graphene.false` missing from the library
+[WARN  libgir::config::gobjects] Configured object `Graphene.true` missing from the library
+
+==> Regenerating `graphene/Gir.toml`...
+===> stderr:
+
+[WARN  libgir::library_postprocessing] Field `Frustum::planes` missing c:type assumed to be `fixed_array`
+[WARN  libgir::library_postprocessing] Field `Quad::points` missing c:type assumed to be `fixed_array`
+contains_box
+contains_point
+equal
+expand
+expand_scalar
+expand_vec3
+free
+get_bounding_sphere
+get_center
+get_depth
+get_height
+get_max
+get_min
+get_size
+get_vertices
+[WARN  libgir::analysis::functions] Function graphene_box_get_vertices has unsupported outs
+get_width
+init
+init_from_box
+init_from_points
+init_from_vec3
+init_from_vectors
+intersection
+union
+empty
+infinite
+minus_one
+one
+one_minus_one
+zero
+equal
+free
+get_alpha
+get_beta
+get_gamma
+get_order
+get_x
+get_y
+get_z
+init
+init_from_euler
+init_from_matrix
+init_from_quaternion
+init_from_radians
+init_from_vec3
+init_with_order
+reorder
+to_matrix
+to_quaternion
+to_vec3
+contains_point
+equal
+free
+get_planes
+[WARN  libgir::analysis::functions] Function graphene_frustum_get_planes has unsupported outs
+init
+init_from_frustum
+init_from_matrix
+intersects_box
+intersects_sphere
+decompose
+determinant
+equal
+equal_fast
+free
+get_row
+get_value
+get_x_scale
+get_x_translation
+get_y_scale
+get_y_translation
+get_z_scale
+get_z_translation
+init_from_2d
+init_from_float
+init_from_matrix
+init_from_vec4
+init_frustum
+init_identity
+init_look_at
+init_ortho
+init_perspective
+init_rotate
+init_scale
+init_skew
+init_translate
+interpolate
+inverse
+is_2d
+is_backface_visible
+is_identity
+is_singular
+multiply
+near
+normalize
+perspective
+print
+project_point
+project_rect
+project_rect_bounds
+rotate
+rotate_euler
+rotate_quaternion
+rotate_x
+rotate_y
+rotate_z
+scale
+skew_xy
+skew_xz
+skew_yz
+to_2d
+to_float
+[WARN  libgir::analysis::functions] Function graphene_matrix_to_float has unsupported outs
+transform_bounds
+transform_box
+transform_point
+transform_point3d
+transform_ray
+transform_rect
+transform_sphere
+transform_vec3
+transform_vec4
+translate
+transpose
+unproject_point3d
+untransform_bounds
+untransform_point
+distance
+equal
+free
+get_constant
+get_normal
+init
+init_from_plane
+init_from_point
+init_from_points
+init_from_vec4
+negate
+normalize
+transform
+distance
+equal
+free
+init
+init_from_point
+init_from_vec2
+interpolate
+near
+to_vec2
+zero
+cross
+distance
+dot
+equal
+free
+init
+init_from_point
+init_from_vec3
+interpolate
+length
+near
+normalize
+normalize_viewport
+scale
+to_vec3
+zero
+bounds
+contains
+free
+get_point
+init
+init_from_points
+init_from_rect
+add
+dot
+equal
+free
+init
+init_from_angle_vec3
+init_from_angles
+init_from_euler
+init_from_matrix
+init_from_quaternion
+init_from_radians
+init_from_vec4
+init_identity
+invert
+multiply
+normalize
+scale
+slerp
+to_angle_vec3
+to_angles
+to_matrix
+to_radians
+to_vec4
+equal
+free
+get_closest_point_to_point
+get_direction
+get_distance_to_plane
+get_distance_to_point
+get_origin
+get_position_at
+init
+init_from_ray
+init_from_vec3
+intersect_box
+intersect_sphere
+intersect_triangle
+intersects_box
+intersects_sphere
+intersects_triangle
+contains_point
+contains_rect
+equal
+expand
+free
+get_area
+get_bottom_left
+get_bottom_right
+get_center
+get_height
+get_top_left
+get_top_right
+get_vertices
+[WARN  libgir::analysis::functions] Function graphene_rect_get_vertices has unsupported outs
+get_width
+get_x
+get_y
+init
+init_from_rect
+inset
+inset_r
+interpolate
+intersection
+normalize
+normalize_r
+offset
+offset_r
+round_extents
+scale
+union
+zero
+equal
+free
+init
+init_from_size
+interpolate
+scale
+zero
+contains_point
+distance
+equal
+free
+get_bounding_box
+get_center
+get_radius
+init
+init_from_points
+init_from_vectors
+is_empty
+translate
+contains_point
+equal
+free
+get_area
+get_barycoords
+get_bounding_box
+get_midpoint
+get_normal
+get_plane
+get_points
+get_uv
+get_vertices
+init_from_float
+init_from_point3d
+init_from_vec3
+add
+divide
+dot
+equal
+free
+get_x
+get_y
+init
+init_from_float
+init_from_vec2
+interpolate
+length
+max
+min
+multiply
+near
+negate
+normalize
+scale
+subtract
+to_float
+[WARN  libgir::analysis::functions] Function graphene_vec2_to_float has unsupported outs
+one
+x_axis
+y_axis
+zero
+add
+cross
+divide
+dot
+equal
+free
+get_x
+get_xy
+get_xy0
+get_xyz0
+get_xyz1
+get_xyzw
+get_y
+get_z
+init
+init_from_float
+init_from_vec3
+interpolate
+length
+max
+min
+multiply
+near
+negate
+normalize
+scale
+subtract
+to_float
+[WARN  libgir::analysis::functions] Function graphene_vec3_to_float has unsupported outs
+one
+x_axis
+y_axis
+z_axis
+zero
+add
+divide
+dot
+equal
+free
+get_w
+get_x
+get_xy
+get_xyz
+get_y
+get_z
+init
+init_from_float
+init_from_vec2
+init_from_vec3
+init_from_vec4
+interpolate
+length
+max
+min
+multiply
+near
+negate
+normalize
+scale
+subtract
+to_float
+[WARN  libgir::analysis::functions] Function graphene_vec4_to_float has unsupported outs
+one
+w_axis
+x_axis
+y_axis
+z_axis
+zero
+
 ==> Regenerating `pango/sys/Gir.toml`...
 ==> Regenerating `pangocairo/Gir.toml`...
 ===> stderr:
@@ -2254,14 +1807,452 @@ update_layout
 tStr: str
 tStr: str
 
-==> Regenerating `gdk-pixbuf/sys/Gir.toml`...
+==> Regenerating `pangocairo/sys/Gir.toml`...
+==> Regenerating `pango/Gir.toml`...
 ===> stderr:
 
-[WARN  libgir::config::gobjects] Configured object `GdkPixbuf.PIXBUF_FEATURES_H` missing from the library
-[WARN  libgir::config::gobjects] Configured object `GdkPixbuf.PIXBUF_MAJOR` missing from the library
-[WARN  libgir::config::gobjects] Configured object `GdkPixbuf.PIXBUF_MICRO` missing from the library
-[WARN  libgir::config::gobjects] Configured object `GdkPixbuf.PIXBUF_MINOR` missing from the library
-[WARN  libgir::config::gobjects] Configured object `GdkPixbuf.PIXBUF_VERSION` missing from the library
+new
+new_literal
+new_valist
+copy
+free
+matches
+[ERROR libgir::analysis::record] Missing memory management functions for Pango.Analysis
+[ERROR libgir::analysis::record] Missing memory management functions for Pango.AttrClass
+copy
+destroy
+get
+get_attrs
+get_font
+next
+range
+new
+change
+copy
+filter
+get_attributes
+get_iterator
+insert
+insert_before
+ref
+splice
+unref
+update
+copy
+destroy
+equal
+init
+copy
+free
+parse
+ByRef
+parse_with_alpha
+ByRef
+to_string
+new
+changed
+get_base_dir
+get_base_gravity
+get_font_description
+get_font_map
+get_gravity
+get_gravity_hint
+get_language
+get_matrix
+get_metrics
+get_round_glyph_positions
+get_serial
+list_families
+load_font
+load_fontset
+set_base_dir
+set_base_gravity
+set_font_description
+set_font_map
+set_gravity_hint
+set_language
+set_matrix
+set_round_glyph_positions
+new
+from_bytes
+copy
+get
+max
+ref
+set
+to_bytes
+unref
+describe
+describe_with_absolute_size
+find_shaper
+get_coverage
+get_face
+get_features
+[WARN  libgir::analysis::functions] Function pango_font_get_features has unsupported outs
+get_font_map
+get_glyph_extents
+get_hb_font
+get_metrics
+has_char
+new
+better_match
+copy
+equal
+free
+get_family
+get_gravity
+get_set_fields
+get_size
+get_size_is_absolute
+get_stretch
+get_style
+get_variant
+get_variations
+get_weight
+hash
+merge
+set_absolute_size
+set_family
+ByRef
+set_gravity
+set_size
+set_stretch
+set_style
+set_variant
+set_variations
+ByRef
+set_variations_static
+ByRef
+set_weight
+to_filename
+to_string
+unset_fields
+from_string
+ByRef
+describe
+get_face_name
+get_family
+is_synthesized
+list_sizes
+get_face
+get_name
+is_monospace
+is_variable
+list_faces
+changed
+create_context
+get_family
+ByRef
+get_serial
+list_families
+load_font
+load_fontset
+get_approximate_char_width
+get_approximate_digit_width
+get_ascent
+get_descent
+get_height
+get_strikethrough_position
+get_strikethrough_thickness
+get_underline_position
+get_underline_thickness
+ref
+unref
+foreach
+get_font
+get_metrics
+new
+append
+size
+apply_attrs
+ByRef
+copy
+free
+get_logical_widths
+ByRef
+letter_space
+ByRef
+split
+ByRef
+copy
+free
+init_end
+ByRef
+init_start
+ByRef
+next_cluster
+prev_cluster
+new
+copy
+extents
+extents_range
+free
+get_logical_widths
+ByRef
+get_width
+index_to_x
+ByRef
+set_size
+x_to_index
+ByRef
+new
+apply_attrs
+copy
+free
+split
+get_sample_string
+get_scripts
+includes_script
+matches
+to_string
+from_string
+get_default
+new
+context_changed
+copy
+get_alignment
+get_attributes
+get_auto_dir
+get_baseline
+get_character_count
+get_context
+get_cursor_pos
+get_direction
+get_ellipsize
+get_extents
+get_font_description
+get_height
+get_indent
+get_iter
+get_justify
+get_line
+get_line_count
+get_line_readonly
+get_line_spacing
+get_lines
+get_lines_readonly
+get_log_attrs
+[WARN  libgir::analysis::functions] Function pango_layout_get_log_attrs has unsupported outs
+get_log_attrs_readonly
+get_pixel_extents
+get_pixel_size
+get_serial
+get_single_paragraph_mode
+get_size
+get_spacing
+get_tabs
+get_text
+get_unknown_glyphs_count
+get_width
+get_wrap
+index_to_line_x
+index_to_pos
+is_ellipsized
+is_wrapped
+move_cursor_visually
+set_alignment
+set_attributes
+set_auto_dir
+set_ellipsize
+set_font_description
+set_height
+set_indent
+set_justify
+set_line_spacing
+set_markup
+ByRef
+set_markup_with_accel
+ByRef
+set_single_paragraph_mode
+set_spacing
+set_tabs
+set_text
+Function { name: "set_text", c_identifier: Some("pango_layout_set_text"), kind: Method, parameters: [Parameter { name: "layout", typ: TypeId { ns_id: 1, id: 72 }, c_type: "PangoLayout*", instance_parameter: true, direction: In, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: Some("a #PangoLayout"), scope: None, closure: None, destroy: None }, Parameter { name: "text", typ: TypeId { ns_id: 0, id: 28 }, c_type: "const char*", instance_parameter: false, direction: In, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: Some("the text"), scope: None, closure: None, destroy: None }, Parameter { name: "length", typ: TypeId { ns_id: 0, id: 14 }, c_type: "int", instance_parameter: false, direction: In, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: Some("maximum length of @text, in bytes. -1 indicates that\n         the string is nul-terminated and the length should be\n         calculated.  The text will also be truncated on\n         encountering a nul-termination even when @length is\n         positive."), scope: None, closure: None, destroy: None }], ret: Parameter { name: "", typ: TypeId { ns_id: 0, id: 0 }, c_type: "void", instance_parameter: false, direction: Return, transfer: None, caller_allocates: false, nullable: Nullable(false), allow_none: false, array_length: None, is_error: false, doc: None, scope: None, closure: None, destroy: None }, throws: false, version: None, deprecated_version: None, doc: Some("Sets the text of the layout.\n\nThis function validates @text and renders invalid UTF-8\nwith a placeholder glyph.\n\nNote that if you have used pango_layout_set_markup() or\npango_layout_set_markup_with_accel() on @layout before, you may\nwant to call pango_layout_set_attributes() to clear the attributes\nset on the layout from the markup as this function does not clear\nattributes."), doc_deprecated: None }
+CParameter { name: "layout", typ: TypeId { ns_id: 1, id: 72 }, c_type: "PangoLayout*", instance_parameter: true, direction: In, nullable: Nullable(false), transfer: None, caller_allocates: false, is_error: false, scope: None, user_data_index: None, destroy_index: None, ref_mode: ByRef, try_from_glib: NotImplemented }
+CParameter { name: "text", typ: TypeId { ns_id: 0, id: 28 }, c_type: "const char*", instance_parameter: false, direction: In, nullable: Nullable(false), transfer: None, caller_allocates: false, is_error: false, scope: None, user_data_index: None, destroy_index: None, ref_mode: ByRef, try_from_glib: NotImplemented }
+ByRef
+CParameter { name: "length", typ: TypeId { ns_id: 0, id: 14 }, c_type: "int", instance_parameter: false, direction: In, nullable: Nullable(false), transfer: None, caller_allocates: false, is_error: false, scope: None, user_data_index: None, destroy_index: None, ref_mode: None, try_from_glib: NotImplemented }
+set_width
+set_wrap
+xy_to_index
+at_last_line
+copy
+free
+get_baseline
+get_char_extents
+get_cluster_extents
+get_index
+get_layout
+get_layout_extents
+get_line
+get_line_extents
+get_line_readonly
+get_line_yrange
+get_run
+get_run_extents
+get_run_readonly
+next_char
+next_cluster
+next_line
+next_run
+get_extents
+get_height
+get_pixel_extents
+get_x_ranges
+index_to_x
+ref
+unref
+x_to_index
+concat
+copy
+free
+get_font_scale_factor
+get_font_scale_factors
+rotate
+scale
+transform_distance
+transform_pixel_rectangle
+transform_point
+transform_rectangle
+translate
+[ERROR libgir::analysis::record] Missing memory management functions for Pango.Rectangle
+activate
+deactivate
+draw_error_underline
+draw_glyph
+draw_glyph_item
+draw_glyphs
+draw_layout
+draw_layout_line
+draw_rectangle
+draw_trapezoid
+get_alpha
+get_color
+get_layout
+get_layout_line
+get_matrix
+part_changed
+set_alpha
+set_color
+set_matrix
+new
+new_with_positions
+copy
+free
+get_positions_in_pixels
+get_size
+get_tab
+get_tabs
+[WARN  libgir::analysis::functions] Function pango_tab_array_get_tabs has unsupported outs
+resize
+set_tab
+get_name
+for_unichar
+get_for_matrix
+get_for_script
+get_for_script_and_width
+to_rotation
+for_unichar
+get_sample_language
+break
+ByRef
+default_break
+ByRef
+extents_to_pixels
+find_base_dir
+ByRef
+find_paragraph_boundary
+ByRef
+get_log_attrs
+ByRef
+is_zero_width
+itemize
+ByRef
+itemize_with_base_dir
+ByRef
+markup_parser_finish
+markup_parser_new
+parse_markup
+ByRef
+parse_stretch
+ByRef
+parse_style
+ByRef
+parse_variant
+ByRef
+parse_weight
+ByRef
+quantize_line_geometry
+shape
+ByRef
+tailor_break
+ByRef
+unichar_direction
+units_from_double
+units_to_double
+version
+version_check
+version_string
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
 
 ==> Regenerating `gio/sys/Gir.toml`...
 ===> stderr:
@@ -2270,6 +2261,249 @@ tStr: str
 [WARN  libgir::library_postprocessing] Field `DBusInterfaceSkeletonClass::signal_padding` missing c:type assumed to be `fixed_array`
 [WARN  libgir::config::gobjects] Configured object `Gio.Win32InputStream` missing from the library
 [WARN  libgir::config::gobjects] Configured object `Gio.Win32OutputStream` missing from the library
+
+==> Regenerating `gdk-pixbuf/Gir.toml`...
+===> stderr:
+
+new
+new_static
+new_take
+new_with_free_func
+compare
+equal
+get_data
+get_size
+hash
+new_from_bytes
+ref
+unref
+unref_to_array
+unref_to_data
+new
+new_literal
+new_valist
+copy
+free
+matches
+new
+new_from_bytes
+new_from_data
+new_from_file
+new_from_file_at_scale
+new_from_file_at_size
+new_from_resource
+ByRef
+new_from_resource_at_scale
+ByRef
+new_from_stream
+new_from_stream_at_scale
+new_from_stream_finish
+new_from_xpm_data
+calculate_rowstride
+get_file_info
+get_file_info_async
+get_file_info_finish
+get_formats
+init_modules
+ByRef
+new_from_stream_async
+new_from_stream_at_scale_async
+save_to_stream_finish
+add_alpha
+apply_embedded_orientation
+composite
+composite_color
+composite_color_simple
+copy
+copy_area
+copy_options
+fill
+flip
+get_bits_per_sample
+get_byte_length
+get_colorspace
+get_has_alpha
+get_height
+get_n_channels
+get_option
+ByRef
+get_options
+get_pixels
+get_rowstride
+get_width
+new_subpixbuf
+read_pixel_bytes
+remove_option
+ByRef
+rotate_simple
+saturate_and_pixelate
+save
+ByRef
+save_to_buffer
+ByRef
+save_to_bufferv
+save_to_callback
+ByRef
+save_to_callbackv
+ByRef
+save_to_stream
+ByRef
+save_to_stream_async
+ByRef
+save_to_streamv
+save_to_streamv_async
+savev
+scale
+scale_simple
+set_option
+ByRef
+ByRef
+new_from_file
+new_from_resource
+ByRef
+new_from_stream
+new_from_stream_finish
+new_from_stream_async
+get_height
+get_iter
+get_static_image
+get_width
+is_static_image
+advance
+get_delay_time
+get_pixbuf
+on_currently_loading_frame
+copy
+free
+get_description
+get_extensions
+get_license
+get_mime_types
+get_name
+is_disabled
+is_save_option_supported
+ByRef
+is_scalable
+is_writable
+set_disabled
+new
+new_with_mime_type
+ByRef
+new_with_type
+ByRef
+close
+get_animation
+get_format
+get_pixbuf
+set_size
+write
+write_bytes
+new
+add_frame
+get_loop
+set_loop
+new
+get_current
+cancel
+connect
+disconnect
+get_fd
+is_cancelled
+make_pollfd
+pop_current
+push_current
+release_fd
+reset
+set_error_if_cancelled
+source_new
+deserialize
+hash
+new_for_string
+equal
+serialize
+to_string
+clear_pending
+close
+close_async
+close_finish
+has_pending
+is_closed
+read
+read_all
+read_all_async
+read_all_finish
+read_async
+read_bytes
+read_bytes_async
+read_bytes_finish
+read_finish
+set_pending
+skip
+skip_async
+skip_finish
+load
+load_async
+load_finish
+clear_pending
+close
+close_async
+close_finish
+flush
+flush_async
+flush_finish
+has_pending
+is_closed
+is_closing
+printf
+set_pending
+splice
+splice_async
+splice_finish
+vprintf
+write
+write_all
+write_all_async
+write_all_finish
+write_async
+write_bytes
+write_bytes_async
+write_bytes_finish
+write_finish
+writev
+writev_all
+writev_all_async
+writev_all_finish
+writev_async
+writev_finish
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
+tStr: str
 
 ==> Regenerating `gio/Gir.toml`...
 ===> stderr:
@@ -5587,248 +5821,14 @@ tStr: str
 tStr: str
 tStr: str
 
-==> Regenerating `gdk-pixbuf/Gir.toml`...
+==> Regenerating `gdk-pixbuf/sys/Gir.toml`...
 ===> stderr:
 
-new
-new_static
-new_take
-new_with_free_func
-compare
-equal
-get_data
-get_size
-hash
-new_from_bytes
-ref
-unref
-unref_to_array
-unref_to_data
-new
-new_literal
-new_valist
-copy
-free
-matches
-new
-new_from_bytes
-new_from_data
-new_from_file
-new_from_file_at_scale
-new_from_file_at_size
-new_from_resource
-ByRef
-new_from_resource_at_scale
-ByRef
-new_from_stream
-new_from_stream_at_scale
-new_from_stream_finish
-new_from_xpm_data
-calculate_rowstride
-get_file_info
-get_file_info_async
-get_file_info_finish
-get_formats
-init_modules
-ByRef
-new_from_stream_async
-new_from_stream_at_scale_async
-save_to_stream_finish
-add_alpha
-apply_embedded_orientation
-composite
-composite_color
-composite_color_simple
-copy
-copy_area
-copy_options
-fill
-flip
-get_bits_per_sample
-get_byte_length
-get_colorspace
-get_has_alpha
-get_height
-get_n_channels
-get_option
-ByRef
-get_options
-get_pixels
-get_rowstride
-get_width
-new_subpixbuf
-read_pixel_bytes
-remove_option
-ByRef
-rotate_simple
-saturate_and_pixelate
-save
-ByRef
-save_to_buffer
-ByRef
-save_to_bufferv
-save_to_callback
-ByRef
-save_to_callbackv
-ByRef
-save_to_stream
-ByRef
-save_to_stream_async
-ByRef
-save_to_streamv
-save_to_streamv_async
-savev
-scale
-scale_simple
-set_option
-ByRef
-ByRef
-new_from_file
-new_from_resource
-ByRef
-new_from_stream
-new_from_stream_finish
-new_from_stream_async
-get_height
-get_iter
-get_static_image
-get_width
-is_static_image
-advance
-get_delay_time
-get_pixbuf
-on_currently_loading_frame
-copy
-free
-get_description
-get_extensions
-get_license
-get_mime_types
-get_name
-is_disabled
-is_save_option_supported
-ByRef
-is_scalable
-is_writable
-set_disabled
-new
-new_with_mime_type
-ByRef
-new_with_type
-ByRef
-close
-get_animation
-get_format
-get_pixbuf
-set_size
-write
-write_bytes
-new
-add_frame
-get_loop
-set_loop
-new
-get_current
-cancel
-connect
-disconnect
-get_fd
-is_cancelled
-make_pollfd
-pop_current
-push_current
-release_fd
-reset
-set_error_if_cancelled
-source_new
-deserialize
-hash
-new_for_string
-equal
-serialize
-to_string
-clear_pending
-close
-close_async
-close_finish
-has_pending
-is_closed
-read
-read_all
-read_all_async
-read_all_finish
-read_async
-read_bytes
-read_bytes_async
-read_bytes_finish
-read_finish
-set_pending
-skip
-skip_async
-skip_finish
-load
-load_async
-load_finish
-clear_pending
-close
-close_async
-close_finish
-flush
-flush_async
-flush_finish
-has_pending
-is_closed
-is_closing
-printf
-set_pending
-splice
-splice_async
-splice_finish
-vprintf
-write
-write_all
-write_all_async
-write_all_finish
-write_async
-write_bytes
-write_bytes_async
-write_bytes_finish
-write_finish
-writev
-writev_all
-writev_all_async
-writev_all_finish
-writev_async
-writev_finish
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
-tStr: str
+[WARN  libgir::config::gobjects] Configured object `GdkPixbuf.PIXBUF_FEATURES_H` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GdkPixbuf.PIXBUF_MAJOR` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GdkPixbuf.PIXBUF_MICRO` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GdkPixbuf.PIXBUF_MINOR` missing from the library
+[WARN  libgir::config::gobjects] Configured object `GdkPixbuf.PIXBUF_VERSION` missing from the library
 
 <= Done!
 Don't forget to check if everything has been correctly generated!

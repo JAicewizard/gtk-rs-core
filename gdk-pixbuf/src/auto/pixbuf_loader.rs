@@ -33,7 +33,7 @@ impl PixbufLoader {
 
     #[doc(alias = "gdk_pixbuf_loader_new_with_mime_type")]
     #[doc(alias = "new_with_mime_type")]
-    pub fn with_mime_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn with_mime_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         mime_type: &'s P,
     ) -> Result<PixbufLoader, glib::Error> {
         unsafe {
@@ -50,7 +50,7 @@ impl PixbufLoader {
 
     #[doc(alias = "gdk_pixbuf_loader_new_with_type")]
     #[doc(alias = "new_with_type")]
-    pub fn with_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn with_type<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         image_type: &'s P,
     ) -> Result<PixbufLoader, glib::Error> {
         unsafe {

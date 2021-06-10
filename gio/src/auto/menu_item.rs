@@ -62,13 +62,13 @@ impl MenuItem {
 
     //#[doc(alias = "g_menu_item_get_attribute")]
     //#[doc(alias = "get_attribute")]
-    //pub fn is_attribute<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, attribute: & 's P, format_string: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
+    //pub fn is_attribute<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(&self, attribute: & 's P, format_string: & 's Q, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -> bool {
     //    unsafe { TODO: call ffi:g_menu_item_get_attribute() }
     //}
 
     #[doc(alias = "g_menu_item_get_attribute_value")]
     #[doc(alias = "get_attribute_value")]
-    pub fn attribute_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn attribute_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
         expected_type: Option<&glib::VariantTy>,
@@ -84,7 +84,7 @@ impl MenuItem {
 
     #[doc(alias = "g_menu_item_get_link")]
     #[doc(alias = "get_link")]
-    pub fn link<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn link<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         link: &'s P,
     ) -> Option<MenuModel> {
@@ -117,12 +117,12 @@ impl MenuItem {
     }
 
     //#[doc(alias = "g_menu_item_set_attribute")]
-    //pub fn set_attribute<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, attribute: & 's P, format_string: Option<&str>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
+    //pub fn set_attribute<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(&self, attribute: & 's P, format_string: Option<&str>, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {
     //    unsafe { TODO: call ffi:g_menu_item_set_attribute() }
     //}
 
     #[doc(alias = "g_menu_item_set_attribute_value")]
-    pub fn set_attribute_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn set_attribute_value<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         attribute: &'s P,
         value: Option<&glib::Variant>,
@@ -137,7 +137,7 @@ impl MenuItem {
     }
 
     #[doc(alias = "g_menu_item_set_detailed_action")]
-    pub fn set_detailed_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn set_detailed_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         detailed_action: &'s P,
     ) {
@@ -164,7 +164,7 @@ impl MenuItem {
     }
 
     #[doc(alias = "g_menu_item_set_link")]
-    pub fn set_link<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<MenuModel>>(
+    pub fn set_link<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: IsA<MenuModel>>(
         &self,
         link: &'s P,
         model: Option<&Q>,

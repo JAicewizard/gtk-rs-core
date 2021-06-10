@@ -42,7 +42,7 @@ impl InetAddressMask {
 
     #[doc(alias = "g_inet_address_mask_new_from_string")]
     #[doc(alias = "new_from_string")]
-    pub fn from_string<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn from_string<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         mask_string: &'s P,
     ) -> Result<InetAddressMask, glib::Error> {
         unsafe {

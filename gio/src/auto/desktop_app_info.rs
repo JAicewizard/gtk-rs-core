@@ -25,7 +25,7 @@ glib::wrapper! {
 
 impl DesktopAppInfo {
     #[doc(alias = "g_desktop_app_info_new")]
-    pub fn new<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn new<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         desktop_id: &'s P,
     ) -> Option<DesktopAppInfo> {
         unsafe { from_glib_full(ffi::g_desktop_app_info_new(desktop_id.to_glib_none().0)) }
@@ -53,7 +53,7 @@ impl DesktopAppInfo {
 
     #[doc(alias = "g_desktop_app_info_get_action_name")]
     #[doc(alias = "get_action_name")]
-    pub fn action_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn action_name<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
     ) -> glib::GString {
@@ -67,7 +67,10 @@ impl DesktopAppInfo {
 
     #[doc(alias = "g_desktop_app_info_get_boolean")]
     #[doc(alias = "get_boolean")]
-    pub fn boolean<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, key: &'s P) -> bool {
+    pub fn boolean<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
+        &self,
+        key: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::g_desktop_app_info_get_boolean(
                 self.to_glib_none().0,
@@ -122,7 +125,7 @@ impl DesktopAppInfo {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_56")))]
     #[doc(alias = "g_desktop_app_info_get_locale_string")]
     #[doc(alias = "get_locale_string")]
-    pub fn locale_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn locale_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         key: &'s P,
     ) -> Option<glib::GString> {
@@ -163,7 +166,7 @@ impl DesktopAppInfo {
 
     #[doc(alias = "g_desktop_app_info_get_string")]
     #[doc(alias = "get_string")]
-    pub fn string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn string<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         key: &'s P,
     ) -> Option<glib::GString> {
@@ -179,7 +182,7 @@ impl DesktopAppInfo {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v2_60")))]
     #[doc(alias = "g_desktop_app_info_get_string_list")]
     #[doc(alias = "get_string_list")]
-    pub fn string_list<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn string_list<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         key: &'s P,
     ) -> Vec<glib::GString> {
@@ -198,7 +201,10 @@ impl DesktopAppInfo {
     }
 
     #[doc(alias = "g_desktop_app_info_has_key")]
-    pub fn has_key<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(&self, key: &'s P) -> bool {
+    pub fn has_key<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
+        &self,
+        key: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::g_desktop_app_info_has_key(
                 self.to_glib_none().0,
@@ -208,7 +214,11 @@ impl DesktopAppInfo {
     }
 
     #[doc(alias = "g_desktop_app_info_launch_action")]
-    pub fn launch_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<AppLaunchContext>>(
+    pub fn launch_action<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: IsA<AppLaunchContext>,
+    >(
         &self,
         action_name: &'s P,
         launch_context: Option<&Q>,
@@ -302,7 +312,7 @@ impl DesktopAppInfo {
 
     #[doc(alias = "g_desktop_app_info_get_implementations")]
     #[doc(alias = "get_implementations")]
-    pub fn implementations<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn implementations<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         interface: &'s P,
     ) -> Vec<DesktopAppInfo> {
         unsafe {

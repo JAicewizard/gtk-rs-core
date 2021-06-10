@@ -39,7 +39,7 @@ pub trait FontMapExt: 'static {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_46")))]
     #[doc(alias = "pango_font_map_get_family")]
     #[doc(alias = "get_family")]
-    fn family<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn family<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         name: &'s P,
     ) -> Option<FontFamily>;
@@ -80,7 +80,7 @@ impl<O: IsA<FontMap>> FontMapExt for O {
 
     #[cfg(any(feature = "v1_46", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_46")))]
-    fn family<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn family<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         name: &'s P,
     ) -> Option<FontFamily> {

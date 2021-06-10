@@ -26,9 +26,9 @@ impl NetworkService {
     #[doc(alias = "g_network_service_new")]
     pub fn new<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         service: &'s P,
         protocol: &'s Q,
@@ -64,7 +64,7 @@ pub trait NetworkServiceExt: 'static {
     fn service(&self) -> glib::GString;
 
     #[doc(alias = "g_network_service_set_scheme")]
-    fn set_scheme<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, scheme: &'s P);
+    fn set_scheme<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(&self, scheme: &'s P);
 
     #[doc(alias = "scheme")]
     fn connect_scheme_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
@@ -103,7 +103,7 @@ impl<O: IsA<NetworkService>> NetworkServiceExt for O {
         }
     }
 
-    fn set_scheme<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, scheme: &'s P) {
+    fn set_scheme<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(&self, scheme: &'s P) {
         unsafe {
             ffi::g_network_service_set_scheme(
                 self.as_ref().to_glib_none().0,

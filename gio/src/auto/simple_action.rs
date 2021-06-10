@@ -23,7 +23,7 @@ glib::wrapper! {
 
 impl SimpleAction {
     #[doc(alias = "g_simple_action_new")]
-    pub fn new<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn new<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         name: &'s P,
         parameter_type: Option<&glib::VariantTy>,
     ) -> SimpleAction {
@@ -36,7 +36,7 @@ impl SimpleAction {
     }
 
     #[doc(alias = "g_simple_action_new_stateful")]
-    pub fn new_stateful<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn new_stateful<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         name: &'s P,
         parameter_type: Option<&glib::VariantTy>,
         state: &glib::Variant,

@@ -36,7 +36,7 @@ pub trait ProxyResolverExt: 'static {
     fn is_supported(&self) -> bool;
 
     #[doc(alias = "g_proxy_resolver_lookup")]
-    fn lookup<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn lookup<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(
         &self,
         uri: &'s P,
         cancellable: Option<&Q>,
@@ -45,7 +45,7 @@ pub trait ProxyResolverExt: 'static {
     #[doc(alias = "g_proxy_resolver_lookup_async")]
     fn lookup_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<Vec<glib::GString>, glib::Error>) + Send + 'static,
     >(
@@ -55,7 +55,10 @@ pub trait ProxyResolverExt: 'static {
         callback: R,
     );
 
-    fn lookup_async_future<'s, P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static>(
+    fn lookup_async_future<
+        's,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+    >(
         &self,
         uri: &'static P,
     ) -> Pin<
@@ -72,7 +75,7 @@ impl<O: IsA<ProxyResolver>> ProxyResolverExt for O {
         }
     }
 
-    fn lookup<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn lookup<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(
         &self,
         uri: &'s P,
         cancellable: Option<&Q>,
@@ -95,7 +98,7 @@ impl<O: IsA<ProxyResolver>> ProxyResolverExt for O {
 
     fn lookup_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<Vec<glib::GString>, glib::Error>) + Send + 'static,
     >(
@@ -135,7 +138,10 @@ impl<O: IsA<ProxyResolver>> ProxyResolverExt for O {
         }
     }
 
-    fn lookup_async_future<'s, P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static>(
+    fn lookup_async_future<
+        's,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+    >(
         &self,
         uri: &'static P,
     ) -> Pin<

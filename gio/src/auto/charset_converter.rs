@@ -29,8 +29,8 @@ impl CharsetConverter {
     #[doc(alias = "g_charset_converter_new")]
     pub fn new<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         to_charset: &'s P,
         from_charset: &'s Q,

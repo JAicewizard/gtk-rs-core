@@ -53,7 +53,7 @@ pub trait AppLaunchContextExt: 'static {
         -> Option<glib::GString>;
 
     #[doc(alias = "g_app_launch_context_launch_failed")]
-    fn launch_failed<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn launch_failed<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         startup_notify_id: &'s P,
     );
@@ -107,7 +107,7 @@ impl<O: IsA<AppLaunchContext>> AppLaunchContextExt for O {
         }
     }
 
-    fn launch_failed<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    fn launch_failed<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &self,
         startup_notify_id: &'s P,
     ) {

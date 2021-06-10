@@ -197,7 +197,7 @@ mod test {
     #[serial_test::serial]
     fn string_get() {
         set_env();
-        let settings = Settings::new(&"com.github.gtk-rs.test");
+        let settings = Settings::new("com.github.gtk-rs.test");
         assert_eq!(settings.get::<String>("test-string").as_str(), "Good");
     }
 

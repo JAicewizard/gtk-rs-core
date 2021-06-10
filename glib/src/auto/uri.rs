@@ -91,7 +91,7 @@ impl Uri {
     }
 
     #[doc(alias = "g_uri_parse_relative")]
-    pub fn parse_relative<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn parse_relative<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         uri_ref: &'s P,
         flags: UriFlags,
@@ -131,8 +131,8 @@ impl Uri {
     #[doc(alias = "g_uri_build")]
     pub fn build<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         flags: UriFlags,
         scheme: &'s P,
@@ -160,8 +160,8 @@ impl Uri {
     #[doc(alias = "g_uri_build_with_user")]
     pub fn build_with_user<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         flags: UriFlags,
         scheme: &'s P,
@@ -203,7 +203,7 @@ impl Uri {
     }
 
     #[doc(alias = "g_uri_escape_string")]
-    pub fn escape_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn escape_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         unescaped: &'s P,
         reserved_chars_allowed: Option<&str>,
         allow_utf8: bool,
@@ -218,7 +218,7 @@ impl Uri {
     }
 
     #[doc(alias = "g_uri_is_valid")]
-    pub fn is_valid<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn is_valid<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         uri_string: &'s P,
         flags: UriFlags,
     ) -> Result<(), crate::Error> {
@@ -234,7 +234,7 @@ impl Uri {
     }
 
     #[doc(alias = "g_uri_join")]
-    pub fn join<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn join<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         flags: UriFlags,
         scheme: Option<&str>,
         userinfo: Option<&str>,
@@ -259,7 +259,7 @@ impl Uri {
     }
 
     #[doc(alias = "g_uri_join_with_user")]
-    pub fn join_with_user<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn join_with_user<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         flags: UriFlags,
         scheme: Option<&str>,
         user: Option<&str>,
@@ -288,7 +288,7 @@ impl Uri {
     }
 
     #[doc(alias = "g_uri_list_extract_uris")]
-    pub fn list_extract_uris<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn list_extract_uris<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         uri_list: &'s P,
     ) -> Vec<crate::GString> {
         unsafe {
@@ -299,7 +299,7 @@ impl Uri {
     }
 
     #[doc(alias = "g_uri_parse")]
-    pub fn parse<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn parse<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         uri_string: &'s P,
         flags: UriFlags,
     ) -> Result<Uri, crate::Error> {
@@ -315,26 +315,26 @@ impl Uri {
     }
 
     //#[doc(alias = "g_uri_parse_params")]
-    //pub fn parse_params<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + 's>(params: & 's P, separators: & 's Q, flags: UriParamsFlags) -> Result</*Unknown conversion*//*Unimplemented*/HashTable TypeId { ns_id: 0, id: 28 }/TypeId { ns_id: 0, id: 28 }, crate::Error> {
+    //pub fn parse_params<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(params: & 's P, separators: & 's Q, flags: UriParamsFlags) -> Result</*Unknown conversion*//*Unimplemented*/HashTable TypeId { ns_id: 0, id: 28 }/TypeId { ns_id: 0, id: 28 }, crate::Error> {
     //    unsafe { TODO: call ffi:g_uri_parse_params() }
     //}
 
     #[doc(alias = "g_uri_parse_scheme")]
-    pub fn parse_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn parse_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         uri: &'s P,
     ) -> Option<crate::GString> {
         unsafe { from_glib_full(ffi::g_uri_parse_scheme(uri.to_glib_none().0)) }
     }
 
     #[doc(alias = "g_uri_peek_scheme")]
-    pub fn peek_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn peek_scheme<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         uri: &'s P,
     ) -> Option<crate::GString> {
         unsafe { from_glib_none(ffi::g_uri_peek_scheme(uri.to_glib_none().0)) }
     }
 
     #[doc(alias = "g_uri_resolve_relative")]
-    pub fn resolve_relative<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn resolve_relative<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         base_uri_string: Option<&str>,
         uri_ref: &'s P,
         flags: UriFlags,
@@ -356,7 +356,7 @@ impl Uri {
     }
 
     #[doc(alias = "g_uri_split")]
-    pub fn split<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn split<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         uri_ref: &'s P,
         flags: UriFlags,
     ) -> Result<
@@ -410,7 +410,7 @@ impl Uri {
     }
 
     #[doc(alias = "g_uri_split_network")]
-    pub fn split_network<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn split_network<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         uri_string: &'s P,
         flags: UriFlags,
     ) -> Result<(Option<crate::GString>, Option<crate::GString>, i32), crate::Error> {
@@ -437,7 +437,7 @@ impl Uri {
     }
 
     #[doc(alias = "g_uri_split_with_user")]
-    pub fn split_with_user<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn split_with_user<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         uri_ref: &'s P,
         flags: UriFlags,
     ) -> Result<
@@ -499,7 +499,7 @@ impl Uri {
     }
 
     #[doc(alias = "g_uri_unescape_bytes")]
-    pub fn unescape_bytes<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn unescape_bytes<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         escaped_string: &'s P,
         illegal_characters: Option<&str>,
     ) -> Result<Bytes, crate::Error> {
@@ -536,7 +536,7 @@ impl Uri {
     }
 
     #[doc(alias = "g_uri_unescape_string")]
-    pub fn unescape_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn unescape_string<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         escaped_string: &'s P,
         illegal_characters: Option<&str>,
     ) -> Option<crate::GString> {

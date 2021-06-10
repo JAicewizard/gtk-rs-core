@@ -25,34 +25,40 @@ pub const NONE_ACTION_GROUP: Option<&ActionGroup> = None;
 
 pub trait ActionGroupExt: 'static {
     #[doc(alias = "g_action_group_action_added")]
-    fn action_added<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, action_name: &'s P);
+    fn action_added<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        action_name: &'s P,
+    );
 
     #[doc(alias = "g_action_group_action_enabled_changed")]
-    fn action_enabled_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn action_enabled_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
         enabled: bool,
     );
 
     #[doc(alias = "g_action_group_action_removed")]
-    fn action_removed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, action_name: &'s P);
+    fn action_removed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        action_name: &'s P,
+    );
 
     #[doc(alias = "g_action_group_action_state_changed")]
-    fn action_state_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn action_state_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
         state: &glib::Variant,
     );
 
     #[doc(alias = "g_action_group_activate_action")]
-    fn activate_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn activate_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
         parameter: Option<&glib::Variant>,
     );
 
     #[doc(alias = "g_action_group_change_action_state")]
-    fn change_action_state<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn change_action_state<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
         value: &glib::Variant,
@@ -60,41 +66,44 @@ pub trait ActionGroupExt: 'static {
 
     #[doc(alias = "g_action_group_get_action_enabled")]
     #[doc(alias = "get_action_enabled")]
-    fn is_action_enabled<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn is_action_enabled<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
     ) -> bool;
 
     #[doc(alias = "g_action_group_get_action_parameter_type")]
     #[doc(alias = "get_action_parameter_type")]
-    fn action_parameter_type<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn action_parameter_type<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
     ) -> Option<glib::VariantType>;
 
     #[doc(alias = "g_action_group_get_action_state")]
     #[doc(alias = "get_action_state")]
-    fn action_state<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn action_state<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
     ) -> Option<glib::Variant>;
 
     #[doc(alias = "g_action_group_get_action_state_hint")]
     #[doc(alias = "get_action_state_hint")]
-    fn action_state_hint<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn action_state_hint<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
     ) -> Option<glib::Variant>;
 
     #[doc(alias = "g_action_group_get_action_state_type")]
     #[doc(alias = "get_action_state_type")]
-    fn action_state_type<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn action_state_type<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
     ) -> Option<glib::VariantType>;
 
     #[doc(alias = "g_action_group_has_action")]
-    fn has_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, action_name: &'s P) -> bool;
+    fn has_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        action_name: &'s P,
+    ) -> bool;
 
     #[doc(alias = "g_action_group_list_actions")]
     fn list_actions(&self) -> Vec<glib::GString>;
@@ -129,7 +138,10 @@ pub trait ActionGroupExt: 'static {
 }
 
 impl<O: IsA<ActionGroup>> ActionGroupExt for O {
-    fn action_added<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, action_name: &'s P) {
+    fn action_added<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        action_name: &'s P,
+    ) {
         unsafe {
             ffi::g_action_group_action_added(
                 self.as_ref().to_glib_none().0,
@@ -138,7 +150,7 @@ impl<O: IsA<ActionGroup>> ActionGroupExt for O {
         }
     }
 
-    fn action_enabled_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn action_enabled_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
         enabled: bool,
@@ -152,7 +164,10 @@ impl<O: IsA<ActionGroup>> ActionGroupExt for O {
         }
     }
 
-    fn action_removed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, action_name: &'s P) {
+    fn action_removed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        action_name: &'s P,
+    ) {
         unsafe {
             ffi::g_action_group_action_removed(
                 self.as_ref().to_glib_none().0,
@@ -161,7 +176,7 @@ impl<O: IsA<ActionGroup>> ActionGroupExt for O {
         }
     }
 
-    fn action_state_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn action_state_changed<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
         state: &glib::Variant,
@@ -175,7 +190,7 @@ impl<O: IsA<ActionGroup>> ActionGroupExt for O {
         }
     }
 
-    fn activate_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn activate_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
         parameter: Option<&glib::Variant>,
@@ -189,7 +204,7 @@ impl<O: IsA<ActionGroup>> ActionGroupExt for O {
         }
     }
 
-    fn change_action_state<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn change_action_state<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
         value: &glib::Variant,
@@ -203,7 +218,7 @@ impl<O: IsA<ActionGroup>> ActionGroupExt for O {
         }
     }
 
-    fn is_action_enabled<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn is_action_enabled<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
     ) -> bool {
@@ -215,7 +230,7 @@ impl<O: IsA<ActionGroup>> ActionGroupExt for O {
         }
     }
 
-    fn action_parameter_type<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn action_parameter_type<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
     ) -> Option<glib::VariantType> {
@@ -227,7 +242,7 @@ impl<O: IsA<ActionGroup>> ActionGroupExt for O {
         }
     }
 
-    fn action_state<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn action_state<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
     ) -> Option<glib::Variant> {
@@ -239,7 +254,7 @@ impl<O: IsA<ActionGroup>> ActionGroupExt for O {
         }
     }
 
-    fn action_state_hint<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn action_state_hint<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
     ) -> Option<glib::Variant> {
@@ -251,7 +266,7 @@ impl<O: IsA<ActionGroup>> ActionGroupExt for O {
         }
     }
 
-    fn action_state_type<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn action_state_type<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         action_name: &'s P,
     ) -> Option<glib::VariantType> {
@@ -263,7 +278,10 @@ impl<O: IsA<ActionGroup>> ActionGroupExt for O {
         }
     }
 
-    fn has_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, action_name: &'s P) -> bool {
+    fn has_action<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        action_name: &'s P,
+    ) -> bool {
         unsafe {
             from_glib(ffi::g_action_group_has_action(
                 self.as_ref().to_glib_none().0,

@@ -30,7 +30,7 @@ impl InetAddress {
 
     #[doc(alias = "g_inet_address_new_from_string")]
     #[doc(alias = "new_from_string")]
-    pub fn from_string<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn from_string<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         string: &'s P,
     ) -> Option<InetAddress> {
         unsafe { from_glib_full(ffi::g_inet_address_new_from_string(string.to_glib_none().0)) }

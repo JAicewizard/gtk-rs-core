@@ -32,7 +32,7 @@ pub const NONE_DBUS_INTERFACE_SKELETON: Option<&DBusInterfaceSkeleton> = None;
 
 pub trait DBusInterfaceSkeletonExt: 'static {
     #[doc(alias = "g_dbus_interface_skeleton_export")]
-    fn export<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn export<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         connection: &DBusConnection,
         object_path: &'s P,
@@ -94,7 +94,7 @@ pub trait DBusInterfaceSkeletonExt: 'static {
 }
 
 impl<O: IsA<DBusInterfaceSkeleton>> DBusInterfaceSkeletonExt for O {
-    fn export<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    fn export<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         connection: &DBusConnection,
         object_path: &'s P,

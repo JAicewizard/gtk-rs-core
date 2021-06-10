@@ -19,7 +19,7 @@ glib::wrapper! {
 
 impl GlyphItemIter {
     #[doc(alias = "pango_glyph_item_iter_init_end")]
-    pub fn init_end<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn init_end<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &mut self,
         glyph_item: &mut GlyphItem,
         text: &'s P,
@@ -34,7 +34,7 @@ impl GlyphItemIter {
     }
 
     #[doc(alias = "pango_glyph_item_iter_init_start")]
-    pub fn init_start<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn init_start<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         &mut self,
         glyph_item: &mut GlyphItem,
         text: &'s P,

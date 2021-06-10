@@ -30,7 +30,7 @@ impl DBusAuthObserver {
     }
 
     #[doc(alias = "g_dbus_auth_observer_allow_mechanism")]
-    pub fn allow_mechanism<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn allow_mechanism<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         mechanism: &'s P,
     ) -> bool {

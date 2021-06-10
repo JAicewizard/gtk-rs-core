@@ -61,7 +61,7 @@ impl SettingsSchemaSource {
     }
 
     #[doc(alias = "g_settings_schema_source_lookup")]
-    pub fn lookup<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn lookup<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         schema_id: &'s P,
         recursive: bool,

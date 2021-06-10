@@ -24,7 +24,7 @@ glib::wrapper! {
 
 impl TlsPassword {
     #[doc(alias = "g_tls_password_new")]
-    pub fn new<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn new<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         flags: TlsPasswordFlags,
         description: &'s P,
     ) -> TlsPassword {
@@ -53,7 +53,10 @@ pub trait TlsPasswordExt: 'static {
     fn warning(&self) -> glib::GString;
 
     #[doc(alias = "g_tls_password_set_description")]
-    fn set_description<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, description: &'s P);
+    fn set_description<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        description: &'s P,
+    );
 
     #[doc(alias = "g_tls_password_set_flags")]
     fn set_flags(&self, flags: TlsPasswordFlags);
@@ -62,7 +65,7 @@ pub trait TlsPasswordExt: 'static {
     //fn set_value_full(&self, value: &[u8]);
 
     #[doc(alias = "g_tls_password_set_warning")]
-    fn set_warning<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, warning: &'s P);
+    fn set_warning<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(&self, warning: &'s P);
 
     #[doc(alias = "description")]
     fn connect_description_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
@@ -99,7 +102,10 @@ impl<O: IsA<TlsPassword>> TlsPasswordExt for O {
         }
     }
 
-    fn set_description<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, description: &'s P) {
+    fn set_description<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        description: &'s P,
+    ) {
         unsafe {
             ffi::g_tls_password_set_description(
                 self.as_ref().to_glib_none().0,
@@ -118,7 +124,7 @@ impl<O: IsA<TlsPassword>> TlsPasswordExt for O {
     //    unsafe { TODO: call ffi:g_tls_password_set_value_full() }
     //}
 
-    fn set_warning<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, warning: &'s P) {
+    fn set_warning<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(&self, warning: &'s P) {
         unsafe {
             ffi::g_tls_password_set_warning(
                 self.as_ref().to_glib_none().0,

@@ -26,8 +26,8 @@ impl ProxyAddress {
     pub fn new<
         's,
         P: IsA<InetAddress>,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        R: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        R: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
     >(
         inetaddr: &P,
         port: u16,

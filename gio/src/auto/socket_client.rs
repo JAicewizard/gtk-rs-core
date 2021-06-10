@@ -54,7 +54,10 @@ pub const NONE_SOCKET_CLIENT: Option<&SocketClient> = None;
 
 pub trait SocketClientExt: 'static {
     #[doc(alias = "g_socket_client_add_application_proxy")]
-    fn add_application_proxy<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, protocol: &'s P);
+    fn add_application_proxy<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        protocol: &'s P,
+    );
 
     #[doc(alias = "g_socket_client_connect")]
     fn connect<P: IsA<SocketConnectable>, Q: IsA<Cancellable>>(
@@ -81,7 +84,7 @@ pub trait SocketClientExt: 'static {
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<SocketConnection, glib::Error>> + 'static>>;
 
     #[doc(alias = "g_socket_client_connect_to_host")]
-    fn connect_to_host<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn connect_to_host<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(
         &self,
         host_and_port: &'s P,
         default_port: u16,
@@ -91,7 +94,7 @@ pub trait SocketClientExt: 'static {
     #[doc(alias = "g_socket_client_connect_to_host_async")]
     fn connect_to_host_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
     >(
@@ -104,7 +107,7 @@ pub trait SocketClientExt: 'static {
 
     fn connect_to_host_async_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         host_and_port: &'static P,
@@ -114,8 +117,8 @@ pub trait SocketClientExt: 'static {
     #[doc(alias = "g_socket_client_connect_to_service")]
     fn connect_to_service<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         R: IsA<Cancellable>,
     >(
         &self,
@@ -127,8 +130,8 @@ pub trait SocketClientExt: 'static {
     #[doc(alias = "g_socket_client_connect_to_service_async")]
     fn connect_to_service_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         R: IsA<Cancellable>,
         S: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
     >(
@@ -141,8 +144,8 @@ pub trait SocketClientExt: 'static {
 
     fn connect_to_service_async_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
-        Q: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+        Q: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         domain: &'static P,
@@ -150,7 +153,7 @@ pub trait SocketClientExt: 'static {
     ) -> Pin<Box_<dyn std::future::Future<Output = Result<SocketConnection, glib::Error>> + 'static>>;
 
     #[doc(alias = "g_socket_client_connect_to_uri")]
-    fn connect_to_uri<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn connect_to_uri<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(
         &self,
         uri: &'s P,
         default_port: u16,
@@ -160,7 +163,7 @@ pub trait SocketClientExt: 'static {
     #[doc(alias = "g_socket_client_connect_to_uri_async")]
     fn connect_to_uri_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
     >(
@@ -171,7 +174,10 @@ pub trait SocketClientExt: 'static {
         callback: R,
     );
 
-    fn connect_to_uri_async_future<'s, P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static>(
+    fn connect_to_uri_async_future<
+        's,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+    >(
         &self,
         uri: &'static P,
         default_port: u16,
@@ -283,7 +289,10 @@ pub trait SocketClientExt: 'static {
 }
 
 impl<O: IsA<SocketClient>> SocketClientExt for O {
-    fn add_application_proxy<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(&self, protocol: &'s P) {
+    fn add_application_proxy<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
+        &self,
+        protocol: &'s P,
+    ) {
         unsafe {
             ffi::g_socket_client_add_application_proxy(
                 self.as_ref().to_glib_none().0,
@@ -370,7 +379,11 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
         }))
     }
 
-    fn connect_to_host<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn connect_to_host<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         host_and_port: &'s P,
         default_port: u16,
@@ -395,7 +408,7 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
 
     fn connect_to_host_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
     >(
@@ -442,7 +455,7 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
 
     fn connect_to_host_async_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         host_and_port: &'static P,
@@ -466,8 +479,8 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
 
     fn connect_to_service<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         R: IsA<Cancellable>,
     >(
         &self,
@@ -494,8 +507,8 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
 
     fn connect_to_service_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
-        Q: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         R: IsA<Cancellable>,
         S: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
     >(
@@ -542,8 +555,8 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
 
     fn connect_to_service_async_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
-        Q: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
+        Q: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         domain: &'static P,
@@ -560,7 +573,11 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
         }))
     }
 
-    fn connect_to_uri<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn connect_to_uri<
+        's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
+        Q: IsA<Cancellable>,
+    >(
         &self,
         uri: &'s P,
         default_port: u16,
@@ -585,7 +602,7 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
 
     fn connect_to_uri_async<
         's,
-        P: ToGlibPtr<'s, *mut libc::c_char> + 's,
+        P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<SocketConnection, glib::Error>) + Send + 'static,
     >(
@@ -632,7 +649,7 @@ impl<O: IsA<SocketClient>> SocketClientExt for O {
 
     fn connect_to_uri_async_future<
         's,
-        P: ToGlibPtr<'static, *mut libc::c_char> + Clone + 'static,
+        P: ToGlibPtr<'static, *mut libc::c_char> + ?Sized + Clone + 'static,
     >(
         &self,
         uri: &'static P,

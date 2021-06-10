@@ -59,7 +59,7 @@ impl TlsCertificate {
 
     #[doc(alias = "g_tls_certificate_new_from_pem")]
     #[doc(alias = "new_from_pem")]
-    pub fn from_pem<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn from_pem<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         data: &'s P,
     ) -> Result<TlsCertificate, glib::Error> {
         let length = data.len() as isize;

@@ -42,7 +42,7 @@ impl PixbufAnimation {
 
     #[doc(alias = "gdk_pixbuf_animation_new_from_resource")]
     #[doc(alias = "new_from_resource")]
-    pub fn from_resource<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's>(
+    pub fn from_resource<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's>(
         resource_path: &'s P,
     ) -> Result<PixbufAnimation, glib::Error> {
         unsafe {

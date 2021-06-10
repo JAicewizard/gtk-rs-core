@@ -32,7 +32,7 @@ pub trait FileIOStreamExt: 'static {
     fn etag(&self) -> Option<glib::GString>;
 
     #[doc(alias = "g_file_io_stream_query_info")]
-    fn query_info<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn query_info<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(
         &self,
         attributes: &'s P,
         cancellable: Option<&Q>,
@@ -41,7 +41,7 @@ pub trait FileIOStreamExt: 'static {
     #[doc(alias = "g_file_io_stream_query_info_async")]
     fn query_info_async<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<FileInfo, glib::Error>) + Send + 'static,
     >(
@@ -52,7 +52,10 @@ pub trait FileIOStreamExt: 'static {
         callback: R,
     );
 
-    fn query_info_async_future<'s, P: ToGlibPtr<'static, *const libc::c_char> + Clone + 'static>(
+    fn query_info_async_future<
+        's,
+        P: ToGlibPtr<'static, *const libc::c_char> + ?Sized + Clone + 'static,
+    >(
         &self,
         attributes: &'static P,
         io_priority: glib::Priority,
@@ -68,7 +71,7 @@ impl<O: IsA<FileIOStream>> FileIOStreamExt for O {
         }
     }
 
-    fn query_info<'s, P: ToGlibPtr<'s, *const libc::c_char> + 's, Q: IsA<Cancellable>>(
+    fn query_info<'s, P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's, Q: IsA<Cancellable>>(
         &self,
         attributes: &'s P,
         cancellable: Option<&Q>,
@@ -91,7 +94,7 @@ impl<O: IsA<FileIOStream>> FileIOStreamExt for O {
 
     fn query_info_async<
         's,
-        P: ToGlibPtr<'s, *const libc::c_char> + 's,
+        P: ToGlibPtr<'s, *const libc::c_char> + ?Sized + 's,
         Q: IsA<Cancellable>,
         R: FnOnce(Result<FileInfo, glib::Error>) + Send + 'static,
     >(
@@ -133,7 +136,10 @@ impl<O: IsA<FileIOStream>> FileIOStreamExt for O {
         }
     }
 
-    fn query_info_async_future<'s, P: ToGlibPtr<'static, *const libc::c_char> + Clone + 'static>(
+    fn query_info_async_future<
+        's,
+        P: ToGlibPtr<'static, *const libc::c_char> + ?Sized + Clone + 'static,
+    >(
         &self,
         attributes: &'static P,
         io_priority: glib::Priority,

@@ -32,7 +32,7 @@ impl DBusInterfaceInfo {
     }
 
     #[doc(alias = "g_dbus_interface_info_lookup_method")]
-    pub fn lookup_method<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn lookup_method<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         name: &'s P,
     ) -> Option<DBusMethodInfo> {
@@ -45,7 +45,7 @@ impl DBusInterfaceInfo {
     }
 
     #[doc(alias = "g_dbus_interface_info_lookup_property")]
-    pub fn lookup_property<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn lookup_property<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         name: &'s P,
     ) -> Option<DBusPropertyInfo> {
@@ -58,7 +58,7 @@ impl DBusInterfaceInfo {
     }
 
     #[doc(alias = "g_dbus_interface_info_lookup_signal")]
-    pub fn lookup_signal<'s, P: ToGlibPtr<'s, *mut libc::c_char> + 's>(
+    pub fn lookup_signal<'s, P: ToGlibPtr<'s, *mut libc::c_char> + ?Sized + 's>(
         &self,
         name: &'s P,
     ) -> Option<DBusSignalInfo> {
